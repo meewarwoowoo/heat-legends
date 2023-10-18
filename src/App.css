@@ -96,11 +96,13 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 #root #deck ol.deck li:hover img.on { display: none ; }
 #root #deck ol.deck li:hover img.off { display: block ; }
 @media (max-width: 800px){
-	#root #deck   { background: rgba(0,0,0,0.125) ; box-shadow: none ; }
+	#root #deck   { background: var(--blk-double-fade) ; box-shadow: none ; }
 	#root #deck { grid-template: 100% / auto ; position: relative ; align-items: flex-start; padding: 0.5em; }
 	#root #deck ol.deck  { width: 100% ; height: 100% ; grid-template: repeat(1,1fr) / repeat(11,1fr) ; gap: 0.25em ; }
-	#root #deck ol.deck li  { font-size: 0.75em ; }
-	#root #deck ol.deck li  { display: flex ; }
+	#root #deck ol.deck li  { font-size: 0.75em ; display: flex ;  color: var(--blk); background-color: transparent	 ; }
+	#root #deck ol.deck li:hover ,
+	#root #deck ol.deck li.on  { color: var(--blk); background-color: var(--wht) ; }
+
 }
 
 #root #next   { grid-area: next ; background: var(--blk-fade)  ; display: grid ; grid-template: 1fr / 1fr ; align-items: space-between; justify-items: center; }
@@ -118,4 +120,5 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 #root #next ul li.disabled  { opacity: 0.325 ; box-shadow: 0.05em 0.05em 0.05em rgba(0,0,0,0.25) ; }
 @media ( max-width: 800px ){
 	#root #next   { --box: none ; }
+	#root #next   { background: var(--blk-double-fade)  ; }
 }
