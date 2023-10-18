@@ -1,0 +1,2 @@
+const defaultPlacesJSON = ["Winner","Runner Up","Third Place","Fourth Place","Fifth Place","Sixth Place","Seventh Place","Eighth Place","Ninth Place","Tenth Place","Eleventh Place","Twelfth Place"];
+export default defaultPlacesJSON ;

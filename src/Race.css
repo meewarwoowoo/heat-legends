@@ -1,0 +1,109 @@
+#root[data-view=race] #main  { grid-template: 1fr / auto;  }
+#root[data-view=race] #main > header { display: none ;  }
+@media (max-width: 800px){	
+	#_root[data-view=race] #main  { grid-template: calc( 1fr - (7.75em) ) / auto;  }
+}
+
+#root #main .drivers  { display: grid ; gap: var(--gap) ;  }
+#root #main .drivers > article { display: grid ; gap: 0 var(--gap) ; align-items: center; padding: var(--gap) ; overflow: hidden ; background-color: var(--bkg) ; color: var(--txt); border-radius: var(--edge) ; }
+#root #main .drivers > article { grid-template: "number driver output action"  auto / 1.75em auto var(--move-width) 1.75em ; }
+#root #main:not(.show--number) .drivers > article { grid-template: "driver output action"  auto / auto 8.5em 1.75em ;  }
+#root #main:not(.show--number) .drivers > article .driver--number  { display: none ; }
+#root[data-view="race"] #main:not(.show--finish) .drivers > article { grid-template: "number driver output"  auto / 1.75em auto 8.5em  ;  }
+#root[data-view="race"] #main:not(.show--finish) .drivers > article .race  { display: none ; }
+#root[data-view="race"] #main:not(.show--number):not(.show--finish) .drivers > article { grid-template: "driver output " auto / auto 8.5em  ;  }
+#root #main .drivers > article .driver--number  { grid-area: number ; display: flex ; align-items: center ; justify-content: center ; width: 2.25em ; height: 2.25em ; font-size: 0.75em ; line-height: 100% ; padding: 0 ; border-radius: 3em ; background-color: var(--blk) ; color: var(--wht) ; font-family: var(--numb-font) ; }
+#root #main .drivers > article .driver  { grid-area: driver ; display: grid ; grid-template: auto / auto auto auto ; justify-content: flex-start; align-items: center ; gap: 0 0.5em ; font-family: var(--font) ; }
+#root #main .drivers > article .driver .driver--name    { font-size: 1.5em ; }
+#root #main .drivers > article .driver .driver--team  { display: none ; }
+#root #main .drivers > article .driver .driver--colour  { display: none ; font-size: 0.75em ; }
+#root #main:is(.show--teams) .drivers > article .driver .driver--team  { display: block ; }
+#root #main:is(.show--colours) .drivers > article .driver .driver--colour  { display: block }
+@media ( max-width: 990px )  { 
+	#root #main .drivers > article .driver  { grid-template: auto / auto auto auto ;  }
+	#root #main .drivers > article .driver .driver--name    { grid-column: 1  ; }
+}
+@media ( max-width: 640px )  { 
+	#root #main .drivers > article { /* align-items: flex-start; */ padding: calc( var(--gap) * 2 ) ; }
+	#root #main .drivers > article .driver  { grid-template: auto auto / auto auto ; }
+	#root #main .drivers > article .driver .driver--name    { grid-column: 1 / 3 ; }
+}
+@media ( max-width: 480px )  { 
+	#root #main .drivers > article {  gap: var(--gap) ;  border-radius: calc( var(--gap) * 2 ) ; }
+	#root #main .drivers > article .driver  {  grid-template: auto auto auto / auto ; }
+	#root #main .drivers > article .driver .driver--name    { grid-column: 1 / 3 ; }
+	#root #main .drivers > article .driver .driver--team    { grid-column: 1 / 3 ; }
+}
+#root #main .drivers > article .move  { grid-area: output ; display: grid ; grid-template: auto / repeat(3,2.5em) ; gap: 0.5em ; align-items: center ; justify-content: space-between ; font-family: var(--move-font) ; padding: 0 ; }
+#root #main .drivers > article[data-human] .move  { display: none ; }
+#root #main .drivers > article[data-result] .move  { display: none ; }
+#root #main .drivers > article .move :is(.move__fast,.move__bend,.move__exit)  { position: relative ; line-height: 1em ; padding: 0 ; margin: 0 ; justify-content: center ; }
+#root #main .drivers > article .move .move__fast  { display: flex ; order: 05 ; font-size: 1.5em ; } 
+#root #main .drivers > article .move .move__bend  { display: flex ; order: 10 ; font-size: 0.75em ; } 
+#root #main .drivers > article .move .move__exit  { display: none ; font-size: 0.75em ;  }
+#root #main .drivers > article .move .move__fast span  ,
+#root #main .drivers > article .move .move__bend span  ,
+#root #main .drivers > article .move .move__exit span  { position: relative ; z-index: 20 ; } 
+#root #main .drivers > article .move .move__exit span  { color: var(--bkg) ; } 
+#root #main .drivers > article .move .move__exit::before  {  background-color: var(--txt) ;  } 
+#root #main:is(.move--split) .drivers > article .move .move__fast  { order: 20 ; } 
+#root #main:is(.move--split) .drivers > article .move .move__bend  { order: 10 ; } 
+#root #main:is(.move--split) .drivers > article .move .move__exit  { display: flex ; order: 30 ; } 
+#root #main .drivers > article .move .move__bend::before  { transform: rotate(45deg) ; }
+#root #main .drivers > article .move .move__bend::before ,
+#root #main .drivers > article .move .move__exit::before  { position: absolute ; top: 50%; left: 50%; margin: -1em 0 0 -1em ; content: '' ; display: block ; width: 2em ; height: 2em ; outline: 1px solid ; opacity: 1 ; z-index: 10 ; }
+#root #main .drivers > article .race  { display: contents ;  font-family: var(--font) ; }
+#root #main .drivers > article .race > .race__result:empty  { display: none ; }
+#root #main .drivers > article .race > .race__result  { grid-area: output ; text-transform: uppercase ; }
+#root #main .drivers > article .race > .icon.race__finish  { grid-area: action ; display: flex ; }
+#root #main .drivers > article .race > .icon.race__unfinish  { grid-area: action ; display: none ; }
+#root #main .drivers > article[data-result] > .race > .icon.race__finish  { display: none ; }
+#root #main .drivers > article[data-result] > .race > .icon.race__unfinish  { display: flex ; }
+#root #main .drivers > article .race > .icon  {  --off: var(--blk) ; --on: var(--hgh) ;  }
+#root #main .drivers > article .race > .icon  { display: flex ; align-items: center ; justify-content: center ; width: 2.25em ; height: 2.25em ; font-size: 0.75em ; outline: 0 solid var(--bkg); line-height: 100% ; padding: 0 ; border-radius: 3em ; font-family: var(--numb-font) ; background-color: var(--off) ; cursor: pointer ; transition: 0.25s background-color ease-out ; }
+#root #main .drivers > article .race > .icon:hover  { background-color: var(--on) ; }
+#root #main .drivers > article .race > .icon > img { width: 1em ; height: 1em ; display: block ; }
+
+#root #main .drivers > article[data-human]       { order: 100 ; }
+#root #main .drivers > article[data-speed="10"]  { order: 50 ; }
+#root #main .drivers > article[data-speed="11"]  { order: 49 ; }
+#root #main .drivers > article[data-speed="12"]  { order: 48 ; }
+#root #main .drivers > article[data-speed="13"]  { order: 47 ; }
+#root #main .drivers > article[data-speed="14"]  { order: 46 ; }
+#root #main .drivers > article[data-speed="15"]  { order: 45 ; }
+#root #main .drivers > article[data-speed="16"]  { order: 44 ; }
+#root #main .drivers > article[data-speed="17"]  { order: 43 ; }
+#root #main .drivers > article[data-speed="18"]  { order: 42 ; }
+#root #main .drivers > article[data-speed="19"]  { order: 41 ; }
+#root #main .drivers > article[data-speed="20"]  { order: 40 ; }
+#root #main .drivers > article[data-speed="21"]  { order: 29 ; }
+#root #main .drivers > article[data-speed="22"]  { order: 38 ; }
+#root #main .drivers > article[data-speed="23"]  { order: 37 ; }
+#root #main .drivers > article[data-speed="24"]  { order: 36 ; }
+#root #main .drivers > article[data-speed="25"]  { order: 35 ; }
+#root #main .drivers > article[data-speed="26"]  { order: 34 ; }
+#root #main .drivers > article[data-speed="27"]  { order: 33 ; }
+#root #main .drivers > article[data-speed="28"]  { order: 32 ; }
+#root #main .drivers > article[data-speed="29"]  { order: 31 ; }
+#root #main .drivers > article[data-speed="30"]  { order: 30 ; }
+#root #main .drivers > article[data-result="20"] { order: 20 ; }
+#root #main .drivers > article[data-result="19"] { order: 19 ; }
+#root #main .drivers > article[data-result="18"] { order: 18 ; }
+#root #main .drivers > article[data-result="17"] { order: 17 ; }
+#root #main .drivers > article[data-result="16"] { order: 16 ; }
+#root #main .drivers > article[data-result="15"] { order: 15 ; }
+#root #main .drivers > article[data-result="14"] { order: 14 ; }
+#root #main .drivers > article[data-result="13"] { order: 13 ; }
+#root #main .drivers > article[data-result="12"] { order: 12 ; }
+#root #main .drivers > article[data-result="11"] { order: 11 ; }
+#root #main .drivers > article[data-result="10"] { order: 10 ; }
+#root #main .drivers > article[data-result="9"]  { order: 9 ; }
+#root #main .drivers > article[data-result="8"]  { order: 8 ; }
+#root #main .drivers > article[data-result="7"]  { order: 7 ; }
+#root #main .drivers > article[data-result="6"]  { order: 6 ; }
+#root #main .drivers > article[data-result="5"]  { order: 5 ; }
+#root #main .drivers > article[data-result="4"]  { order: 4 ; }
+#root #main .drivers > article[data-result="3"]  { order: 3 ; }
+#root #main .drivers > article[data-result="2"]  { order: 2 ; }
+#root #main .drivers > article[data-result="1"]  { order: 1 ; }
+

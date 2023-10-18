@@ -1,0 +1,121 @@
+/*! modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+*,::after,::before{box-sizing:border-box}html{font-family:system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji';line-height:1.15;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4}body{margin:0}hr{height:0;color:inherit}abbr[title]{text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}legend{padding:0}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}
+
+:root  {
+
+	--font:			"PiekosFX Rough BB W05 Regular" ; 
+	--text-font:	"Futura LT W01 Book" ;
+	--move-font:	"Futura LT W01 Bold";
+	--numb-font:	"Futura LT W01 Medium";
+
+	--blk:			rgba(32,32,32,1) ; 
+	--blk-fade:		rgba(0,0,0,0.25) ;
+	--blk-double-fade: rgba(0,0,0,0.125) ;
+	--wht:			rgba(255,255,255,1) ; 
+	--bkg:			rgba(32,32,32,1) ; 
+	--txt:			rgba(255,255,255,1) ; 
+	--hgh: 			rgba(128,128,255,1); 
+	--mid: 			rgba(224,224,224,1); 
+
+	--on:			rgb(0,192,0);
+	--off:			rgb(192,0,0);
+	--warning:		rgb(255,0,0);
+	--move-width:	5.75em ; 
+
+}
+
+@font-face{
+    font-family:"Futura LT W01 Bold";
+    src:url(./assets/fonts/003a1a64-f6ac-4ed5-a1e7-ba80a9c1da08.woff2) format("woff2"),url(./assets/fonts/c41868cc-38dc-403d-b177-599afd5988b6.woff) format("woff");
+}
+@font-face{
+    font-family:"PiekosFX Rough BB W05 Regular";
+    src:url(./assets/fonts/eab24d14-06c3-422e-a588-3fcf12d9f713.woff2) format("woff2"),url(./assets/fonts/eaf2658c-5717-4114-8eb0-e8f149b33336.woff) format("woff");
+}
+@font-face{
+    font-family:"Futura LT W01 Display";
+    src:url(./assets/fonts/3cd9bb5b-187d-4b9e-8d6b-c1dc42daf93c.woff2) format("woff2"),url(./assets/fonts/77389162-7f2f-4e78-8335-ce9f1da0cc37.woff) format("woff");
+}
+@font-face{
+    font-family:"Futura LT W01 Medium";
+    src:url(./assets/fonts/96ee71e8-aad9-4053-8e86-df6a4667cf9b.woff2) format("woff2"),url(./assets/fonts/983ab0ae-d7ab-4532-a915-3eab4466bda2.woff) format("woff");
+}
+@font-face{
+	font-family:"Futura LT W01 Book";
+	src:url(./assets/fonts/7964ffda-2675-4ef4-adfb-c085615649e1.woff2) format("woff2"),url(./assets/fonts/f275fca8-c3f2-485a-84f2-0b2ef18f181b.woff) format("woff");
+}
+
+
+body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;  }
+#root  { display: grid ; min-height: 100vh ; width: 100% ; grid-template: "menu main deck next"  auto / 3.25em auto 3em 4em ; }
+
+@media screen and (max-width: 1920px){
+	body  { font-size: 1.875em ; }  
+}
+@media screen and (max-width: 1800px){
+	body  { font-size: 1.75em ; }  
+}
+@media screen and (max-width: 1600px){
+	body  { font-size: 1.625em ; }  
+}
+@media screen and (max-width: 1240px){
+	body  { font-size: 1.5em ; }  
+}
+@media screen and (max-width: 990px){
+	body  { font-size: 1.375em ; 
+	}  }
+@media screen and (max-width: 800px){
+	body  { font-size: 1em ; }  
+	#root  { --menu-height: 4em ; grid-template: "menu menu" var(--menu-height) "main main" auto "deck next" 4.5em / auto 4.5em  ; }
+}
+@media screen and (max-width: 640px){
+	body  { font-size: 1em ; }  
+	#root  { --menu-height: 3.25em ; }
+}
+
+#root #main  { --gap: 0.25em ; --edge: 0.125rem ; --box: none ; }
+#root #main.show--more-white  { --gap: 1em ; --edge: 1rem ; --box: inset 0.25em 0 1rem -0.75em rgba(0,0,0,0.5) ; }
+#root #main.move--split  { --move-width: 8.5em ; }
+
+#root #main  { display: grid ; grid-template: auto 1fr / auto; align-items: stretch ; align-content: stretch ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
+#root #main header   { display: block ; }
+#root #main header h2  { border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-align: center ; }
+
+#root #deck   { grid-area: deck ; background: var(--blk-double-fade)  ; display: grid ; grid-template: 1fr / 1fr ; align-items: space-between; justify-items: center; }
+#root #deck   { --box: inset 0.25rem 0 1rem -0.75rem rgba(0,0,0,0.5); box-shadow: var(--box) ;  }
+#root #deck ol.deck  { display: grid ; grid-template:  repeat(11, 1.75em) / repeat(1, 1.5em) ; align-items: center ; align-content: center ; color: var(--txt) ; list-style-type: none ; padding: 0 0 0.5em; margin: 0.25em ; gap: 0.25em ; }
+#root #deck ol.deck li  { display: flex ; align-items: center; justify-content: center; padding: 0em ; margin: 0 ; list-style-type: none ; width: 100% ; height: 100% ; font-size: 0.5em ; color: var(--bkg); background-color: var(--txt) ; border-radius: 0.25em ; cursor: pointer ; font-family: var(--numb-font) ; transition: 0.5s opacity ease-out , 0.25s background-color ease-out; }
+#root #deck ol.deck li  { order: 2 ; }
+#root #deck ol.deck li:last-child  { order: 1 ; }
+#root #deck ol.deck li.on  { background-color: var(--bkg); color: var(--txt) ;}
+#root #deck ol.deck li:hover  {  background-color: var(--hgh) ; }
+#root #deck ol.deck li img { width: 1.5em ; height: 1.5em ; }
+#root #deck ol.deck li img.on { display: block ; }
+#root #deck ol.deck li img.off { display: none ; }
+#root #deck ol.deck li:hover  { background-color: var(--blk) ;color: var(--wht) ; }
+#root #deck ol.deck li:hover img.on { display: none ; }
+#root #deck ol.deck li:hover img.off { display: block ; }
+@media (max-width: 800px){
+	#root #deck   { background: rgba(0,0,0,0.125) ; box-shadow: none ; }
+	#root #deck { grid-template: 100% / auto ; position: relative ; align-items: flex-start; padding: 0.5em; }
+	#root #deck ol.deck  { width: 100% ; height: 100% ; grid-template: repeat(1,1fr) / repeat(11,1fr) ; gap: 0.25em ; }
+	#root #deck ol.deck li  { font-size: 0.75em ; }
+	#root #deck ol.deck li  { display: flex ; }
+}
+
+#root #next   { grid-area: next ; background: var(--blk-fade)  ; display: grid ; grid-template: 1fr / 1fr ; align-items: space-between; justify-items: center; }
+#root #next   { --box: inset 0.25rem 0 1rem -0.75rem rgba(0,0,0,0.5);  box-shadow: var(--box)}
+#root #next ul  { display: grid ; grid-template: auto / 1fr ;  align-items: center ; align-content: center ; color: var(--txt) ; list-style-type: none ; padding: 0 ; margin: 0 ; gap: 0.5em ; }
+#root #next ul li  { display: flex ; align-items: center; justify-content: center; padding: 1em ; margin: 0 ; list-style-type: none ; max-width: 3em ; max-height: 3em ; background-color: var(--bkg) ; color: var(--txt); border-radius: 5em ; cursor: pointer ; transition: 0.5s opacity ease-in , 0.4s box-shadow ease-out , 0.25s background-color ease-out; box-shadow: 0.25em 0.25em 0.25em rgba(0,0,0,0.25) ; }
+#root #next ul li img   { width: 1em ; height: 1em ; display: block; }
+#root #next ul li img.on    { display: block; }
+#root #next ul li img.off    { display: none; }
+#root #next ul li.on img.on    { display: none; }
+#root #next ul li.on img.off    { display: block; }
+#root #next ul li:hover  { background-color: var(--hgh) ; }
+#root #next ul li.on  { color: var(--bkg) ; background-color: var(--txt) ; background-image: none ; }
+#root #next ul li.on:hover  { color: var(--bkg) ; }
+#root #next ul li.disabled  { opacity: 0.325 ; box-shadow: 0.05em 0.05em 0.05em rgba(0,0,0,0.25) ; }
+@media ( max-width: 800px ){
+	#root #next   { --box: none ; }
+}
