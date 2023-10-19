@@ -2,7 +2,7 @@
 #root[data-view=round] #main  { grid-template: auto / auto; align-items: stretch ;  align-content: stretch ; }
 
 #root #main .control-panel--race  { display: grid ; align-items: stretch ;  align-content: stretch ;  gap: var(--gap) ;  }
-#root[data-view=round] #main .control-panel--race  { --drivers: 6 ; grid-template: min-content repeat(var(--drivers),auto) / auto; min-height: calc( 100vh - ( var(--gap) * 2 ) ) ; }
+#root[data-view=round] #main .control-panel--race  { --drivers: 6 ; grid-template: min-content repeat(var(--drivers),auto) / auto; min-height: calc( 100vh - ( var(--gap) * 3 ) ) ; }
 #root[data-view=race] #main .control-panel--race header  { display: none ; }
 #root #main .control-panel--race > article { display: grid ; gap: 0 var(--gap) ; align-items: center; padding: var(--gap) ; overflow: hidden ; background-color: var(--bkg) ; color: var(--txt); border-radius: var(--edge) ; }
 #root #main .control-panel--race > article { grid-template: "number driver output action"  auto / 1.75em auto var(--move-width) 1.75em ; }

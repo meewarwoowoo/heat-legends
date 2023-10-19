@@ -59,7 +59,7 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 }
 @media screen and (max-width: 1800px){
 	body  { font-size: 1.75em ; }  
-	#root #main.show--more-white  { --gap: 1.5rem ; --edge: 1.5rem ; }
+	#root #main.show--more-white  { --gap: 0.5rem ; --edge: 1rem ; }
 }
 @media screen and (max-width: 1600px){
 	body  { font-size: 1.625em ; }  
@@ -138,10 +138,11 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 #root #main .control-panel--actions .action:hover    { outline: 0.125em solid var(--hgh) ; background-color:  var(--on) ; color: var(--wht) ; }
 #root #main .control-panel--actions .action.warning:hover   { background-color:  var(--warning) ; }
 #root #main .control-panel--actions .action button   { display: none; }
-#root #main .control-panel--actions .action .hdr   { position: relative ; order: 0 ; display: inline-block ; align-self: flex-end ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: 0 ; padding: 0.75em 1em 0.75em 2em ; font-family: var(--text-font); text-transform: uppercase}
+#root #main .control-panel--actions .action .hdr   { position: relative ; order: 0 ; display: inline-block ; align-self: flex-end ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: 0.25em ; padding: 0.75em 1em 0.75em 2em ; font-family: var(--text-font); text-transform: uppercase}
 #root #main .control-panel--actions .action .hdr::before   { position: absolute  ; content: ''; top: calc( 50% - 0.375em )  ; left: 0.925em ; width: 0 ; height: 0 ; border: 0.375em solid transparent ; border-left-color: var(--wht) ; border-left-width: 0.45em  ; }
 #root #main .control-panel--actions .action:hover .hdr   { background-color:  var(--blk) ; }
 #root #main .control-panel--actions .action.warning .hdr   {background-color:  var(--warning) ; }
+#root #main .control-panel--actions .action.warning:hover .hdr  { background-color:  var(--blk) ; }
 #root #main .control-panel--actions .action .txt   { order: 1 ; display: block ; padding: 0.75em 0 ; width: 100% ; font-family: var(--text-font); font-size: 0.75em ; }
 #root #main .control-panel--actions .action.season-1963 ,
 #root #main .control-panel--actions .action.season-1964  { display: none ; }

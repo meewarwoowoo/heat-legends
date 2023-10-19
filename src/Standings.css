@@ -7,7 +7,7 @@
 #root[data-view=standings] #main {align-items: flex-start ; align-content: flex-start ; }
 
 #root #main .control-panel--season--standings  { --off: var(--mid) ; }
-#root #main .control-panel--season--standings  { display: grid ; gap: var(--gap) ; grid-template: auto / 1fr ; font-family: var(--text-font) ; }
+#root #main .control-panel--season--standings  { display: grid ; gap: var(--gap) ; grid-template:  min-content auto auto / auto ; font-family: var(--text-font) ; }
 #root #main .control-panel--season--standings table { width: 100% ; border-collapse: collapse ; margin: 0 ; }
 #root #main .control-panel--season--standings table tr th img  { width: 100% ; display: block ; max-width: 2em ; margin: 0 auto ;  }
 #root #main .control-panel--season--standings table thead tr th.position   { min-width: 1.5em ; width: 5% ; }
