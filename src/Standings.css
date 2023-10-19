@@ -1,1 +1,39 @@
-/**/
+@media (max-width: 800px){	
+	#root[data-view=standings]  { grid-template: "menu menu" var(--menu-height) "main main" auto  ; }
+	#root[data-view=standings] :is(#deck,#next)  { display: none ; }
+}
+
+
+#root[data-view=standings] #main {align-items: flex-start ; align-content: flex-start ; }
+
+#root #main .control-panel--season--standings  { --off: var(--mid) ; }
+#root #main .control-panel--season--standings  { display: grid ; gap: var(--gap) ; grid-template: auto / 1fr ; font-family: var(--text-font) ; }
+#root #main .control-panel--season--standings table { width: 100% ; border-collapse: collapse ; margin: 0 ; }
+#root #main .control-panel--season--standings table tr th img  { width: 100% ; display: block ; max-width: 2em ; margin: 0 auto ;  }
+#root #main .control-panel--season--standings table thead tr th.position   { min-width: 1.5em ; width: 5% ; }
+#root #main .control-panel--season--standings table thead tr th.team   { min-width: 5em ; width: 10% ; }
+#root #main .control-panel--season--standings table thead tr th.colour   { min-width: 5em ; width: 10% ; }
+#root #main .control-panel--season--standings table thead tr th.total   { min-width: 1.5em ; width: 5% ; }
+#root #main .control-panel--season--standings table thead tr  { background-color: var(--mid) ; color: var(--blk) ; }
+#root #main .control-panel--season--standings table thead tr th ,
+#root #main .control-panel--season--standings table thead tr td  {  font-weight: 400 ; text-align: left ; border-left: 0.125em solid var(--wht) ; border-right: 0.125em solid var(--wht) ; padding: calc(var(--gap)*2) var(--gap) var(--gap) ; }
+#root #main .control-panel--season--standings table tbody tr th ,
+#root #main .control-panel--season--standings table tbody tr td  {  font-weight: 400 ; text-align: left ; vertical-align: top ; border-left: 0.125em solid var(--wht) ; border-right: 0.125em solid var(--wht) ; border-top: 0.125em solid var(--wht) ; padding: var(--gap) ; background-color: var(--bkg) ; color: var(--txt) ; }
+#root #main .control-panel--season--standings table tbody tr td.total   { text-align: center  }
+#root #main .control-panel--season--standings table tbody tr td.result   { min-width: 1.5em ; width: 5% ; text-align: center ;  }
+#root #main .control-panel--season--standings table :is(thead,tbody) tr .position  { text-align: center ; }
+#root #main .control-panel--season--standings table :is(thead,tbody) tr :first-child  { border-left-width: 0 ;  }
+#root #main .control-panel--season--standings table :is(thead,tbody) tr :last-child  { border-right-width: 0 ;  }
+@media ( max-width: 1024px )  { 
+	#root #main .control-panel--season--standings table { font-size: 1em ; }
+	#root #main .control-panel--season--standings table thead tr th.team   ,
+	#root #main .control-panel--season--standings table thead tr th.colour ,
+	#root #main .control-panel--season--standings table tbody tr td.colour ,
+	#root #main .control-panel--season--standings table tbody tr td.team   { display: none ; }
+}
+@media ( max-width: 480px )  { 
+		#root #main .control-panel--season--standings table { font-size: 0.75em;  }
+		
+}
+
+

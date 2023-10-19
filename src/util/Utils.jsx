@@ -1,4 +1,4 @@
-import {  usa , gbr , fra , ita , ned , jap , icon_usa , icon_gbr , icon_fra , icon_ita , icon_ned , icon_jap} from '../images';
+import { usa , gbr , fra , ita , ned , jap , icon_usa , icon_gbr , icon_fra , icon_ita , icon_ned , icon_jap} from '../images';
 import { defaultTracksJSON , defaultColoursJSON } from '../localJSON';
 
 const shuffleDeck = (a) => {
@@ -41,8 +41,6 @@ const getDriverFromId = (driversJSON,driverId) => {
     driversJSON.map( (driver,idx) => { if(driver.id===driverId) lockIdx = idx  } )
     if(lockIdx!==false) return driversJSON[lockIdx]
 };
-
-
 
 const getResultFromRace = (race,driver) => {
     if(race && race.result){
@@ -100,4 +98,6 @@ const getDriverArticleDataColour = (driver) => {
         "--txt": defaultColoursJSON.find(el=>el.name===driver.colour).txt 
     };
 }
-export { getNumberWithOrdinal, getDriverFromId , getDriverArticleDataColour, getFlagFromTrack , getNameFromDriverId, getActiveRaceIdx , getResultFromRace , getPointsFromRace , getTrackFromAbbr , shuffleDeck , doToast , doConfirm }
+
+
+export {  getNumberWithOrdinal, getDriverFromId , getDriverArticleDataColour, getFlagFromTrack , getNameFromDriverId, getActiveRaceIdx , getResultFromRace , getPointsFromRace , getTrackFromAbbr , shuffleDeck , doToast , doConfirm }

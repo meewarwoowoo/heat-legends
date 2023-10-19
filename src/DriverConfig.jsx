@@ -20,7 +20,7 @@ const DriverConfig = (props) => {
         let idxLock = 0 ;
         workingDriversJSON.map((driverJSON,idx) => { if(driverJSON.id===driver_id) idxLock=idx });
         workingDriversJSON[idxLock][valueToEdit] = valueToEnter ;
-        localStorage.setItem('driversJSON',JSON.stringify(workingDriversJSON));
+//        localStorage.setItem('driversJSON',JSON.stringify(workingDriversJSON));
         props.setDriversJSON(workingDriversJSON);
     }
 

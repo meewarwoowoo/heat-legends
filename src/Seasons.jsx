@@ -45,18 +45,26 @@ const Seasons = (props) => {
 				workingSeasonJSON.races[2].event = defaultSeasonEventsJSON[workingSeasonJSON.races[2].event];
 			};
 			props.setSeasonJSON(workingSeasonJSON)
-			doToast('Starting Year ' + workingSeasonJSON.year);
 			props.setMain('Season')
+			doToast('Starting Year ' + workingSeasonJSON.year);
 		});
 	};
 
+	const resetSeasonJSON = () => {
+		doConfirm("Reset and delete all the season?", () => {
+			props.setSeasonJSON(null);
+			props.setMain('Seasons');
+			window.scrollTo(0, 0)
+		});
+	};
+	
 	return (
 		<>
 			<section id="main" className={props.getMainClassList()}>
-				<header>
-					<h2>Seasons</h2>
-				</header>
 				<section className="control-panel--seasons--pick-season">
+					<header>
+						<h2>Championships</h2>
+					</header>
 					{ defaultSeasonsJSON.map( (season,idx) => (
 						<article key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={  (props.seasonJSON && (season.year==props.seasonJSON.year)?"on":"off") +' '+ ("season-"+(season.year).replace(' ','-').toLowerCase()) }>
 							<label>
@@ -77,6 +85,24 @@ const Seasons = (props) => {
 						</article>
 					))}
 				</section>
+
+				<section className="control-panel--actions">
+					<header>
+						<h3>Actions</h3>
+					</header>
+					<label className="action">
+						<button onClick={() => { props.setMain("Config") ; }}>Settings</button>
+						<span className="hdr">Settings</span>
+						<span className="txt">Change the number of races in the 1963 Championship.</span>
+					</label>
+
+					<label className="action warning">
+						<button onClick={resetSeasonJSON}>Reset</button>
+						<span className="hdr">Reset</span>
+						<span className="txt">Remove all results for the current Championship.</span>
+					</label>
+				</section>
+
 			</section>
 			<section id="deck"></section>
 			<section id="next"></section>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
-import './Season.css';
+import { getActiveRaceIdx , getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
+import './Standings.css';
 
 const Season = (props) => {
 	
@@ -81,11 +81,10 @@ const Season = (props) => {
 			<>
 				<section id="main" className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
 
-					<header className="header--season--standings">
-						<h2>{props.seasonJSON.year} Standings</h2>
-					</header>
-
 					<section className="control-panel--season--standings">
+						<header>
+							<h2>The {props.seasonJSON.year} Championship Standings</h2>
+						</header>
 						<table>
 							<thead>
 								<tr>
@@ -113,24 +112,24 @@ const Season = (props) => {
 					</section>
 
 
-					<section className="control-panel--reset">
-
-						<label className="button--large">
-							<button onClick={resetSeasonJSON}>Next Race</button>
-							<span className="hdr">Next Race</span>
-							<span className="txt">xxx.</span>
+					<section className="control-panel--actions">
+						<header>
+							<h3>Actions</h3>
+						</header>
+						<label className="action">
+							<button onClick={() => { props.setMain("Round") ; }}>Race</button>
+							<span className="hdr">Race</span>
+							<span className="txt">The {getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} Race from the {props.seasonJSON.year} Championship.</span>
 						</label>
-
-						<label className="button--large">
-							<button onClick={resetSeasonJSON}>All Races</button>
-							<span className="hdr">All Races</span>
-							<span className="txt">xxx.</span>
+						<label className="action">
+							<button onClick={() => { props.setMain("Season") ; }}>Championship</button>
+							<span className="hdr">Championship</span>
+							<span className="txt">See the {props.seasonJSON.year} Championship.</span>
 						</label>
-
-						<label className="button--large">
+						<label className="action warning">
 							<button onClick={resetSeasonJSON}>Reset</button>
 							<span className="hdr">Reset</span>
-							<span className="txt">This will remove the results and points for this season.</span>
+							<span className="txt">Remove all results for the {props.seasonJSON.year} Championship.</span>
 						</label>
 					</section>
 

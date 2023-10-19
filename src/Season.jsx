@@ -1,16 +1,9 @@
 import React from 'react';
-import { getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
+import { getActiveRaceIdx , getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
 import './Season.css';
 
 const Season = (props) => {
 	
-	const resetSeasonJSON = () => {
-		doConfirm("Reset and delete all the season?", () => {
-			props.setSeasonJSON(null);
-			props.setMain('Seasons');
-		});
-	};
-
 	const SeasonRaceStartButton = (props) => {
 		return <button onClick={((e) => { setActiveRace(props.raceIdx) ; props.setMain('Round') ; })}>Go To Race</button>
 	};
@@ -72,6 +65,15 @@ const Season = (props) => {
 		return seasonJSON.races.indexOf(seasonJSON.races.find((race,idx)=>race.active))>=0?' season-ongoing ':' season-over ';
 	}
 
+	const resetSeasonJSON = () => {
+		doConfirm("Reset and delete all the season?", () => {
+			props.setSeasonJSON(null);
+			props.setMain('Seasons');
+			window.scrollTo(0, 0)
+		});
+	};
+	
+
 	if(!props.seasonJSON){
 		return <p>Error: !seasonJSON</p>
 	}
@@ -81,11 +83,11 @@ const Season = (props) => {
 			<>
 				<section id="main" className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
 
-					<header className="header--season--pick-race">
-						<h2>{props.seasonJSON.year} Races</h2>
-					</header>
 
 					<section className="control-panel--season--pick-race">
+						<header>
+							<h2>The {props.seasonJSON.year} Championship</h2>
+						</header>
 						{ 
 							props.seasonJSON.races.map( 
 								(race,raceIdx) =>  (  
@@ -110,25 +112,24 @@ const Season = (props) => {
 					</section>
 
 
-					<section className="control-panel--reset">
-
-						
-					<label className="button--large">
-							<button onClick={resetSeasonJSON}>Next Race</button>
-							<span className="hdr">Next Race</span>
-							<span className="txt">xxx.</span>
+					<section className="control-panel--actions">
+						<header>
+							<h3>Actions</h3>
+						</header>
+						<label className="action">
+							<button onClick={() => { props.setMain("Round") ; }}>Race</button>
+							<span className="hdr">Race</span>
+							<span className="txt">The {getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} Race from the {props.seasonJSON.year} Championship.</span>
 						</label>
-
-						<label className="button--large">
-							<button onClick={resetSeasonJSON}>Standings</button>
-							<span className="hdr">All Races</span>
-							<span className="txt">xxx.</span>
+						<label className="action">
+							<button onClick={() => { props.setMain("Standings") ; }}>Standings</button>
+							<span className="hdr">Standings</span>
+							<span className="txt">The {props.seasonJSON.year} Driver Championship standings.</span>
 						</label>
-
-						<label className="button--large">
+						<label className="action warning">
 							<button onClick={resetSeasonJSON}>Reset</button>
 							<span className="hdr">Reset</span>
-							<span className="txt">This will remove the results and points for this season.</span>
+							<span className="txt">Remove all results for the {props.seasonJSON.year} Championship.</span>
 						</label>
 					</section>
 
