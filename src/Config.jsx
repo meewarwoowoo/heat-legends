@@ -49,18 +49,6 @@ const Config = (props) => {
 							</label>
 						</li>
 						<li className="switch">
-							<label><input type="checkbox" checked={showMoreWhite} onChange={(e) => { setShowMoreWhite(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showMoreWhite') }} data-value="showMoreWhite" />
-								<span className="hdr">More white space</span>
-								<span className="txt">A personal preference that, when there is more space on the screen, some of that space is used for rounded corners and healthy gutters.</span>
-							</label>
-						</li>
-						<li className="switch">
-							<label><input type="checkbox" checked={showFinishOnRace} onChange={(e) => { setShowFinishOnRace(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showFinishOnRace') }} />
-								<span className="hdr">Show Finish on Race</span>
-								<span className="txt">When selected a finish button is added to single race ask they are on the Championship races.</span>
-							</label>
-						</li>
-						<li className="switch">
 							<label><input type="checkbox" checked={showGrid} onChange={(e) => { setShowGrid(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showGrid') }} />
 								<span className="hdr">Use Speed Grid</span>
 								<span className="txt">The Speed Grid allows you to change the Legend Cards individually.</span>
@@ -70,6 +58,18 @@ const Config = (props) => {
 							<label><input type="checkbox" checked={useNew1963} onChange={(e) => { setUseNew1963(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'useNew1963') }} />
 								<span className="hdr">Use New 1963</span>
 								<span className="txt">The four race 1963 season included in the original Heat game, to me, feels too long and so I have created a new 1963 and a 1964 season.  If this optionis selected then those seasons are used.</span>
+							</label>
+						</li>
+						<li className="switch">
+							<label><input type="checkbox" checked={showMoreWhite} onChange={(e) => { setShowMoreWhite(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showMoreWhite') }} data-value="showMoreWhite" />
+								<span className="hdr">Show more white space</span>
+								<span className="txt">A personal preference that, when there is more space on the screen, some of that space is used for rounded corners and healthy gutters.</span>
+							</label>
+						</li>
+						<li className="switch">
+							<label><input type="checkbox" checked={showFinishOnRace} onChange={(e) => { setShowFinishOnRace(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showFinishOnRace') }}/>
+								<span className="hdr">Show Finish Button on Single Races</span>
+								<span className="txt">When selected a button is added to Legend Cards on a single race to allow you to mark cars as finished.</span>
 							</label>
 						</li>
 					</ul>

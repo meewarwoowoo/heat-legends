@@ -1,5 +1,5 @@
 import React , { useReducer } from 'react';
-import { season, seasons , cog , drivers , race } from './images';
+import { season, seasons , cog , drivers , race, standings } from './images';
 import { getFlagFromTrack } from './util/Utils';
 import './Menu.css';
 
@@ -23,11 +23,12 @@ const Menu = (props) => {
 					{props.seasonJSON ? 
 						<>
 							<li className={(props.main==='Season')?'on':'off'} onClick={() => { props.setMain("Season") ; }}><span><img src={season} /></span></li>
+							<li className={(props.main==='Standings')?'on':'off'} onClick={() => { props.setMain("Standings") ; }}><span><img src={standings} /></span></li>
 						</>
 						:null}
 					{props.seasonJSON ? 
 						props.seasonJSON.races.map((race,raceIdx) => ( 
-							<li key={raceIdx} className={((props.main==='Round' && race.active)?'on':'off')} onClick={(e) => { setActiveRace(raceIdx) ; props.setMain("Round") ; forceUpdate() }}><span><img src={getFlagFromTrack(race.track,true)} /></span></li>
+							race.active?<li key={raceIdx} className={((props.main==='Round' && race.active)?'on':'off')} onClick={(e) => { setActiveRace(raceIdx) ; props.setMain("Round") ; forceUpdate() }}><span><img src={getFlagFromTrack(race.track,true)} /></span></li>:null
 						))
 					:null}
 				</ul>

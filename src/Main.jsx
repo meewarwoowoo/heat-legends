@@ -1,11 +1,12 @@
 import React , { useState , useEffect } from 'react';
 import { defaultDriversJSON, defaultConfigJSON } from './localJSON';
 import Race from './Race';
+import Seasons from './Seasons';
+import Season from './Season';
+import Standings from './Standings';
+import Round from './Round';
 import Drivers from './Drivers';
 import Config from './Config';
-import Season from './Season';
-import Seasons from './Seasons';
-import Round from './Round';
 
 const Main = (props) => {
 
@@ -48,6 +49,9 @@ const Main = (props) => {
 	};
 	if (props.main === 'Season') {
 		return <Season {...props} {...backboneProps} />
+	};
+	if (props.main === 'Standings') {
+		return <Standings {...props} {...backboneProps} />
 	};
 	if (props.main === 'Round') {
 		return <Round {...props} {...backboneProps} />
