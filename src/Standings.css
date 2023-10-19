@@ -11,7 +11,7 @@
 #root #main .control-panel--season--standings table { width: 100% ; border-collapse: collapse ; margin: 0 ; }
 #root #main .control-panel--season--standings table tr th img  { width: 100% ; display: block ; max-width: 2em ; margin: 0 auto ;  }
 #root #main .control-panel--season--standings table thead tr th.position   { min-width: 1.5em ; width: 5% ; }
-#root #main .control-panel--season--standings table thead tr th.team   { min-width: 5em ; width: 10% ; }
+#root #main .control-panel--season--standings table thead tr th.team   { min-width: 7.5em ; width: 15% ; }
 #root #main .control-panel--season--standings table thead tr th.colour   { min-width: 5em ; width: 10% ; }
 #root #main .control-panel--season--standings table thead tr th.total   { min-width: 1.5em ; width: 5% ; }
 #root #main .control-panel--season--standings table thead tr  { background-color: var(--mid) ; color: var(--blk) ; }
