@@ -3,7 +3,9 @@ import cog from './assets/icons/icon-cog.svg';
 import drivers from './assets/icons/icon-drivers.svg';
 import race from './assets/icons/icon-race.svg';
 import shield from './assets/icons/shield.svg';
-import season from './assets/icons/icon-season.svg';
+import season from './assets/icons/cup.svg';
+import season_nope from './assets/icons/icon-season.svg';
+import standings from './assets/icons/icon-standings.svg';
 import seasons from './assets/icons/icon-seasons.svg';
 import icon_usa from './assets/icons/usa.svg';
 import icon_gbr from './assets/icons/gbr.svg';
@@ -28,6 +30,6 @@ import jap from './assets/icons/flag-jap.svg';
 
 export { 
  season , seasons , cog , cross ,  drivers , race , shield , icon_usa , icon_gbr , icon_fra , icon_ita , icon_ned , icon_jap ,
- usa , gbr , fra , ita , ned , jap ,shuffleOn ,shuffleOff , finish , unfinish ,nextOn
+ usa , gbr , fra , ita , ned , jap ,shuffleOn ,shuffleOff , finish , unfinish ,nextOn ,standings
 
 } ;

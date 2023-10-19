@@ -1,5 +1,7 @@
-import React , { useState } from 'react';
-
+import React , { useState , useReducer } from 'react';
+import { defaultConfigJSON } from './localJSON';
+import { doToast , doConfirm } from './util/Utils';
+		
 const Config = (props) => {
 	const [ showNumber , setShowNumber ] = useState(props.configJSON.showNumber);
     const [ showTeams , setShowTeams ] = useState(props.configJSON.showTeams);
@@ -9,12 +11,31 @@ const Config = (props) => {
     const [ showFinishOnRace , setShowFinishOnRace ] = useState(props.configJSON.showFinishOnRace);
     const [ showGrid , setShowGrid ] = useState(props.configJSON.showGrid);
     const [ useNew1963 , setUseNew1963 ] = useState(props.configJSON.useNew1963);
+	const [, forceUpdate] = useReducer(x => x + 1, 0);
 
     function setLocalConfigJSON(valueToSet,valueToEdit){
 		let workingConfigJSON = {...props.configJSON};
 		workingConfigJSON[valueToEdit] = valueToSet ;
 		props.setConfigJSON(workingConfigJSON);
     };
+	
+	const resetSettings = () => {
+		doConfirm("resetSettings?", () => {
+			/*
+			setShowNumber(defaultConfigJSON.showNumber); setLocalConfigJSON(defaultConfigJSON.showNumber,'showNumber') ;
+			setShowTeams(defaultConfigJSON.showTeams); setLocalConfigJSON(defaultConfigJSON.showTeams,'showTeams') ;
+			setShowColours(defaultConfigJSON.showColours); setLocalConfigJSON(defaultConfigJSON.showColours,'showColours') ;
+			setShowSplitNumbers(defaultConfigJSON.showSplitNumbers); setLocalConfigJSON(defaultConfigJSON.showSplitNumbers,'showSplitNumbers') ;
+			setShowMoreWhite(defaultConfigJSON.showMoreWhite); setLocalConfigJSON(defaultConfigJSON.showMoreWhite,'showMoreWhite') ;
+			setShowFinishOnRace(defaultConfigJSON.showFinishOnRace); setLocalConfigJSON(defaultConfigJSON.showFinishOnRace,'showFinishOnRace') ;
+			setShowGrid(defaultConfigJSON.showGrid); setLocalConfigJSON(defaultConfigJSON.showGrid,'showGrid') ;
+			setUseNew1963(defaultConfigJSON.useNew1963); setLocalConfigJSON(defaultConfigJSON.useNew1963,'useNew1963') ;
+			forceUpdate()
+			*/
+			props.setMain("Race") ;
+		});
+	};
+	
 
 	return (
 		<>
@@ -22,7 +43,7 @@ const Config = (props) => {
 				<header>
 					<h2>App Settings</h2>
 				</header>
-				<main className="control-panel--config">
+				<section className="control-panel--config">
 					<ul>
 						<li className="switch">
 							<label><input type="checkbox" checked={showNumber} onChange={(e) => { setShowNumber(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showNumber') }} />
@@ -49,23 +70,18 @@ const Config = (props) => {
 							</label>
 						</li>
 						<li className="switch">
-							<label><input type="checkbox" checked={showMoreWhite} onChange={(e) => { setShowMoreWhite(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showMoreWhite') }} data-value="showMoreWhite" />
-								<span className="hdr">More white space</span>
-								<span className="txt">A personal preference that, when there is more space on the screen, some of that space is used for rounded corners and healthy gutters.</span>
-							</label>
-						</li>
-						<li className="switch">
-							<label><input type="checkbox" checked={showFinishOnRace} onChange={(e) => { setShowFinishOnRace(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showFinishOnRace') }} />
-								<span className="hdr">Show Finish on Race</span>
-								<span className="txt">When selected a finish button is added to single race ask they are on the Championship races.</span>
-							</label>
-						</li>
-						<li className="switch">
 							<label><input type="checkbox" checked={showGrid} onChange={(e) => { setShowGrid(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showGrid') }} />
 								<span className="hdr">Use Speed Grid</span>
 								<span className="txt">The Speed Grid allows you to change the Legend Cards individually.</span>
 							</label>
 						</li>
+						</ul>
+				</section>
+				<section className="control-panel--config">
+					<header>
+						<h3>Season Settings</h3>
+					</header>
+					<ul>
 						<li className="switch">
 							<label><input type="checkbox" checked={useNew1963} onChange={(e) => { setUseNew1963(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'useNew1963') }} />
 								<span className="hdr">Use New 1963</span>
@@ -73,7 +89,28 @@ const Config = (props) => {
 							</label>
 						</li>
 					</ul>
-				</main>
+				</section>
+				<section className="control-panel--config">
+					<header>
+						<h3>Layout Settings</h3>
+					</header>
+					<ul>
+						<li className="switch">
+							<label><input type="checkbox" checked={showMoreWhite} onChange={(e) => { setShowMoreWhite(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showMoreWhite') }} data-value="showMoreWhite" />
+								<span className="hdr">Show more white space</span>
+								<span className="txt">A personal preference that, when there is more space on the screen, some of that space is used for rounded corners and healthy gutters.</span>
+							</label>
+						</li>
+						<li className="switch">
+							<label><input type="checkbox" checked={showFinishOnRace} onChange={(e) => { setShowFinishOnRace(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showFinishOnRace') }}/>
+								<span className="hdr">Show Finish Button on Single Races</span>
+								<span className="txt">When selected a button is added to Legend Cards on a single race to allow you to mark cars as finished.</span>
+							</label>
+						</li>
+					</ul>
+				</section>
+
+			
 			</section>
 			<section id="deck"></section>
 			<section id="next"></section>

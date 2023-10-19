@@ -68,10 +68,10 @@ const Race = (props) => {
 	return (
 		<>
 			<section id="main" className={props.getMainClassList()}>
-				<header>
-					<h2>Legends</h2>
-				</header>
 				<section className="drivers">
+					<header>
+						<h2>Legends</h2>
+					</header>
 					{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
 				</section>
 			</section>

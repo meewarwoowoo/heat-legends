@@ -4,16 +4,64 @@
 }
 
 
-#root[data-view=season] #main { grid-template: 	"pane-header-one" auto "pane-section-one" auto  "pane-header-two" auto "pane-section-two" auto "pane-section-three" auto  ;  align-items: flex-start ; align-content: flex-start ; }
+#root[data-view=season] #main {align-items: flex-start ; align-content: flex-start ; }
 
-#root #main .header--season--pick-race  { grid-area: pane-header-one ;}
-#root #main .control-panel--season--pick-race  { grid-area: pane-section-one ; --off : var(--mid) ;}
-#root #main.season-over .header--season--pick-race  { grid-area: pane-header-two ;}
-#root #main.season-over .control-panel--season--pick-race  { grid-area: pane-section-two ; --off: var(--mid) ; }
+#root #main .control-panel--season--current-race  { --off : var(--mid) ;}
+#root #main.season-over .control-panel--season--current-race   {  --off: var(--mid) ; }
+#root #main .control-panel--season--current-race  { display: grid ; grid-template: auto / repeat(4,1fr) ; gap: var(--gap)  ; }
+#root #main.use--new-1963 .control-panel--season--current-race  { grid-template: auto / repeat(3,1fr)  ; }
+#root #main .control-panel--season--current-race article  {  padding: 0 ; margin: 0 ; border-radius:  var(--edge) ; overflow: hidden; background: var(--off) ; }
+#root #main .control-panel--season--current-race article.on  { background: var(--on) ; cursor: default ; }
+#root #main .control-panel--season--current-race article:hover  { outline: 0.125em solid var(--hgh) ; }
+#root #main .control-panel--season--current-race article label  { display: grid ; grid-template: repeat(4,auto) / auto ; padding: 0.5em ; margin: 0 ; cursor: pointer ;}
+#root #main .control-panel--season--current-race article label button  { display: none ;  }
+#root #main .control-panel--season--current-race article label h3  { display: none ; }
+#root #main .control-panel--season--current-race article label ul   { display: block ; padding: 0 ; margin: 0 ; list-style-type: none ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; list-style-type: none ; gap: 0 ; }
+#root #main .control-panel--season--current-race article label ul li  { display: block ; padding: 0.5em ; margin:  0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ;  }
+#root #main .control-panel--season--current-race article label ul li.name  { display: block ; border-radius: var(--edge)  ; background-color: var(--wht) ; color: var(--bkg) ; padding: 0.5em ; margin: 0 0 var(--gap) }
+#root #main .control-panel--season--current-race article label ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto  ; width: 60% ; }
+#root #main .control-panel--season--current-race article label ul li.flag img  { width: 100% ; display: block ; }
+#root #main .control-panel--season--current-race article label ol   { display: grid ; margin:  0 0 ; padding: 0 ; gap: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: left ; width: 100% ;  }
+#root #main .control-panel--season--current-race article label ol li  { position: relative ; display: block ; padding: 0 ; margin: 0  ; border-radius: var(--edge) ; font-weight: 400 ; text-align: left ; background-color: var(--bkg) ; color: var(--txt) ;  }
+#root #main .control-panel--season--current-race article label ol li span { display: inline-block ;  padding: 0.5em 0.5em 0.5em 0 ; }
+#root #main .control-panel--season--current-race article label ol li span:first-of-type { font-family: var(--text-font) ; font-size: 0.5em ; padding: 1em  ;}
+#root #main .control-panel--season--current-race article.results label ul li  { display: none; }
+#root #main .control-panel--season--current-race article.results label ul li.name ,
+#root #main .control-panel--season--current-race article.results label ul li.flag  { display: block ; }
+#root #main .control-panel--season--current-race article.no-results label ol   { display: none; }
+
+@media ( max-width: 1600px )  { 
+}
+@media ( max-width: 1240px )  { 
+}
+@media ( max-width: 1024px )  { 
+	#root #main .control-panel--season--current-race ,
+	#root #main.use--new-1963 .control-panel--season--current-race  { grid-template: auto / 1fr ; }
+	#root #main .control-panel--season--current-race article label  { position: relative ; padding: var(--gap) var(--gap) var(--gap) 25%  ;  }
+	#root #main.use--new-1963 .control-panel--season--current-race article label  { grid-template: repeat(3,auto) / auto ; }
+	#root #main .control-panel--season--current-race article label ul   { display: grid ; margin: 0 ; }
+	#root #main .control-panel--season--current-race article label ul li  { text-align: left ; margin: 0 ; }
+	#root #main .control-panel--season--current-race article label ul li.name  { margin: 0 ;  }
+	#root #main .control-panel--season--current-race article label ul li.event  { text-align: left ; }
+	#root #main .control-panel--season--current-race article label ul li.flag   { position: absolute ; width: calc( 25% - ( var(--gap) * 2 ) )  ; top: var(--gap) ; left: var(--gap) ; margin: 0 ; padding: 0 ; }
+	#root #main .control-panel--season--current-race article label ul li.flag img  { border-radius: 0.25rem  ;  }
+	#root #main .control-panel--season--current-race article label ol   { display: grid ; margin: var(--gap) 0 0 ;  }
+	#root #main .control-panel--season--current-race article label ol li  { margin: 0 ; }
+
+}
+@media ( max-width: 480px )  { 
+	#root #main .control-panel--season--current-race article label  {padding: var(--gap) ;  }
+	#root #main .control-panel--season--current-race article.results label ul li.flag ,
+	#root #main .control-panel--season--current-race article label ul li.flag   { display: none ; }
+}
+
+
+#root #main .control-panel--season--pick-race  {--off : var(--mid) ;}
+#root #main.season-over .control-panel--season--pick-race  { --off: var(--mid) ; }
 #root #main .control-panel--season--pick-race  { display: grid ; grid-template: auto / repeat(4,1fr) ; gap: var(--gap)  ; }
 #root #main.use--new-1963 .control-panel--season--pick-race  { grid-template: auto / repeat(3,1fr)  ; }
 #root #main .control-panel--season--pick-race article  {  padding: 0 ; margin: 0 ; border-radius:  var(--edge) ; overflow: hidden; background: var(--off) ; }
-#root #main .control-panel--season--pick-race article.on  { background: var(--on) ; cursor: default ; }
+#root #main .control-panel--season--pick-race article.on  { cursor: default ; }
 #root #main .control-panel--season--pick-race article:hover  { outline: 0.125em solid var(--hgh) ; }
 #root #main .control-panel--season--pick-race article label  { display: grid ; grid-template: repeat(4,auto) / auto ; padding: 0.5em ; margin: 0 ; cursor: pointer ;}
 #root #main .control-panel--season--pick-race article label button  { display: none ; }
@@ -21,6 +69,8 @@
 #root #main .control-panel--season--pick-race article label ul   { display: block ; padding: 0 ; margin: 0 ; list-style-type: none ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; list-style-type: none ; gap: 0 ; }
 #root #main .control-panel--season--pick-race article label ul li  { display: block ; padding: 0.5em ; margin:  0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ;  }
 #root #main .control-panel--season--pick-race article label ul li.name  { display: block ; border-radius: var(--edge)  ; background-color: var(--wht) ; color: var(--bkg) ; padding: 0.5em ; margin: 0 0 var(--gap) }
+#root #main .control-panel--season--pick-race article.on label ul li.name  { background: var(--on) ; color: var(--wht) ; }
+
 #root #main .control-panel--season--pick-race article label ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto  ; width: 60% ; }
 #root #main .control-panel--season--pick-race article label ul li.flag img  { width: 100% ; display: block ; }
 #root #main .control-panel--season--pick-race article label ol   { display: grid ; margin:  0 0 ; padding: 0 ; gap: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: left ; width: 100% ;  }
@@ -56,46 +106,3 @@
 	#root #main .control-panel--season--pick-race article.results label ul li.flag ,
 	#root #main .control-panel--season--pick-race article label ul li.flag   { display: none ; }
 }
-
-#root #main .header--season--standings  { grid-area: pane-header-two ;}
-#root #main .control-panel--season--standings  { grid-area: pane-section-two ; --off: var(--mid) ; }
-#root #main.season-over .header--season--standings  { grid-area: pane-header-one ;}
-#root #main.season-over .control-panel--season--standings  { grid-area: pane-section-one ;  }
-#root #main .control-panel--season--standings  { display: grid ; gap: var(--gap) ; grid-template: auto / 1fr ; font-family: var(--text-font) ; }
-#root #main .control-panel--season--standings table { width: 100% ; border-collapse: collapse ; margin: 0 ;  border-radius: var(--edge) ; overflow: hidden ;  }
-#root #main .control-panel--season--standings table tr th img  { width: 100% ; display: block ; max-width: 2em ; margin: 0 auto ;  }
-#root #main .control-panel--season--standings table thead tr th.position   { min-width: 1.5em ; width: 5% ; }
-#root #main .control-panel--season--standings table thead tr th.team   { min-width: 5em ; width: 10% ; }
-#root #main .control-panel--season--standings table thead tr th.colour   { min-width: 5em ; width: 10% ; }
-#root #main .control-panel--season--standings table thead tr th.total   { min-width: 1.5em ; width: 5% ; }
-#root #main .control-panel--season--standings table thead tr  { background-color: var(--off) ; color: var(--blk) ; }
-#root #main .control-panel--season--standings table thead tr th ,
-#root #main .control-panel--season--standings table thead tr td  {  font-weight: 400 ; text-align: left ; border-right: 0 solid var(--blk) ; border-bottom: 0 solid var(--blk) ; padding: 1.5em 0.5em 0.5em ; }
-#root #main .control-panel--season--standings table tbody tr th ,
-#root #main .control-panel--season--standings table tbody tr td  {  font-weight: 400 ; text-align: left ; vertical-align: top ;  border-right: 0 solid var(--blk) ; border-bottom: 0px solid var(--wht) ; padding: 0.5em ; background-color: var(--bkg) ; color: var(--txt) ; }
-#root #main .control-panel--season--standings table tbody tr td.total   { text-align: center  }
-#root #main .control-panel--season--standings table tbody tr td.result   { min-width: 1.5em ; width: 5% ; text-align: center ;  }
-#root #main .control-panel--season--standings table :is(thead,tbody) tr .position  { text-align: center ; }
-#root #main .control-panel--season--standings table thead tr th:last-of-type  { border-right-width: 0 ;  }
-#root #main .control-panel--season--standings table :is(thead,tbody) tr td:last-of-type  { border-right-width: 0 ;  }
-@media ( max-width: 1024px )  { 
-	#root #main .control-panel--season--standings table { font-size: 0.75em ; }
-}
-@media ( max-width: 640px )  { 
-	#root #main .control-panel--season--standings table thead tr th.team   ,
-	#root #main .control-panel--season--standings table thead tr th.colour ,
-	#root #main .control-panel--season--standings table tbody tr td.colour ,
-	#root #main .control-panel--season--standings table tbody tr td.team   { display: none ; }
-}
-@media ( max-width: 480px )  { 
-		#root #main .control-panel--season--standings table { font-size: 0.75em;  }
-		
-}
-
-
-#root #main .control-panel--reset  { grid-area: pane-section-three ;}
-#root #main .control-panel--reset .button--large   { display: block ; max-width: 18em ; width: 100% ; background-color: var(--mid) ; border-radius: var(--edge); padding:  0.5em ; cursor: pointer ;  }
-#root #main .control-panel--reset .button--large button   { display: none; }
-#root #main .control-panel--reset .button--large .hdr   { display: inline-block ; background-color:  var(--warning) ; color:  var(--wht) ; border-radius: var(--gap) ; padding: 0.5em ; }
-#root #main .control-panel--reset .button--large:hover .hdr   { background-color:  var(--blk) ; }
-#root #main .control-panel--reset .button--large .txt   { display: block ; padding: 0.5em ; }

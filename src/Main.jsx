@@ -1,11 +1,12 @@
 import React , { useState , useEffect } from 'react';
 import { defaultDriversJSON, defaultConfigJSON } from './localJSON';
 import Race from './Race';
+import Seasons from './Seasons';
+import Season from './Season';
+import Standings from './Standings';
+import Round from './Round';
 import Drivers from './Drivers';
 import Config from './Config';
-import Season from './Season';
-import Seasons from './Seasons';
-import Round from './Round';
 
 const Main = (props) => {
 
@@ -13,14 +14,16 @@ const Main = (props) => {
 	if(localDriversJSON===null) localDriversJSON = defaultDriversJSON ;
 	const [ driversJSON , setDriversJSON ] = useState(localDriversJSON);
 	
+    useEffect(() => {
+		localStorage.setItem('driversJSON',JSON.stringify(driversJSON));
+    }, [driversJSON]);
+
 	let localConfigJSON = JSON.parse(localStorage.getItem('configJSON'));
 	if(localConfigJSON===null) localConfigJSON = defaultConfigJSON ;
 	const [ configJSON , setConfigJSON ] = useState(localConfigJSON);
     useEffect(() => {
         localStorage.setItem('configJSON',JSON.stringify(configJSON));
     }, [configJSON]);
-
-	const [ reminder , setReminder ] = useState(null);
 
 	const getMainClassList = () => {
 		let exportClassList = []
@@ -37,7 +40,7 @@ const Main = (props) => {
 
 	const backboneProps = {
 		seasonJSON: props.seasonJSON ,setSeasonJSON: props.setSeasonJSON ,
-		driversJSON , setDriversJSON , configJSON , setConfigJSON , reminder , setReminder , getMainClassList
+		driversJSON , setDriversJSON , configJSON , setConfigJSON , getMainClassList
 	};
 
 	if (props.main === 'Race') {
@@ -48,6 +51,9 @@ const Main = (props) => {
 	};
 	if (props.main === 'Season') {
 		return <Season {...props} {...backboneProps} />
+	};
+	if (props.main === 'Standings') {
+		return <Standings {...props} {...backboneProps} />
 	};
 	if (props.main === 'Round') {
 		return <Round {...props} {...backboneProps} />

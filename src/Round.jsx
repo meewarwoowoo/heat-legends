@@ -76,6 +76,9 @@ const Round = (props) => {
 	const getDriverArticleDataResultPoints = (driverId) => {
 		return ( props.seasonJSON.races.filter((race) => race.active)[0].points[getDriverArticleDataResult(driverId)-1] );
 	};
+	const getActiveDrivers = () => {
+		return props.driversJSON.filter( (driver,driverIdx)=>driver.active ).length
+	};
 
 	const raceProps = {
 		driversJSON: props.driversJSON,
@@ -83,13 +86,14 @@ const Round = (props) => {
 		driversSpeedGridJSON,setRaceDriverFinished,setRaceDriverUnfinished,getDriverArticleDataResult,getDriverArticleDataResultText,getDriverArticleDataResultPoints,
 	};
 
+
 	return (
 		<>
-			<section id="main" className={props.getMainClassList()}>
-				<header>
-					<h2>{props.seasonJSON && props.seasonJSON.races && getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} {props.seasonJSON.year}</h2>
-				</header>
+			<section id="main" className={props.getMainClassList()} style={{"--drivers": getActiveDrivers() }}>
 				<main className="drivers">
+					<header>
+						<h2>Race {getActiveRaceIdx(props.seasonJSON)+1} {props.seasonJSON && props.seasonJSON.races && getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} <span>{props.seasonJSON.year} Championship</span></h2>
+					</header>
 					{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
 				</main>
 			</section>

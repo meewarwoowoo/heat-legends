@@ -1,9 +1,16 @@
 import React from 'react';
 import { getActiveRaceIdx , getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
-import './Season.css';
+import './Standings.css';
 
 const Season = (props) => {
 	
+	const resetSeasonJSON = () => {
+		doConfirm("Reset and delete all the season?", () => {
+			props.setSeasonJSON(null);
+			props.setMain('Seasons');
+		});
+	};
+
 	const SeasonRaceStartButton = (props) => {
 		return <button onClick={((e) => { setActiveRace(props.raceIdx) ; props.setMain('Round') ; })}>Go To Race</button>
 	};
@@ -65,15 +72,6 @@ const Season = (props) => {
 		return seasonJSON.races.indexOf(seasonJSON.races.find((race,idx)=>race.active))>=0?' season-ongoing ':' season-over ';
 	}
 
-	const resetSeasonJSON = () => {
-		doConfirm("Reset and delete all the season?", () => {
-			props.setSeasonJSON(null);
-			props.setMain('Seasons');
-			window.scrollTo(0, 0)
-		});
-	};
-	
-
 	if(!props.seasonJSON){
 		return <p>Error: !seasonJSON</p>
 	}
@@ -83,32 +81,34 @@ const Season = (props) => {
 			<>
 				<section id="main" className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
 
-
-					<section className="control-panel--season--pick-race">
+					<section className="control-panel--season--standings">
 						<header>
-							<h2>The {props.seasonJSON.year} Championship</h2>
+							<h2>The {props.seasonJSON.year} Championship Standings</h2>
 						</header>
-						{ 
-							props.seasonJSON.races.map( 
-								(race,raceIdx) =>  (  
-									<article key={raceIdx} className={(race.active?"on":"off") +' '+  (isRaceFinished(race)?"results":"no-results")}>
-										<label>
-											<h3>{getTrackFromAbbr(race.track).name}</h3>
-											<ul>
-												<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
-												<li className="name">{getTrackFromAbbr(race.track).name}</li>
-												<li className="action"><SeasonRaceStartButton race={race} raceIdx={raceIdx} {...props}/></li>
-												<li className="item laps">{getTrackFromAbbr(race.track).laps} Laps</li>
-												<li className="item press">Press Corner is {race.cameras}</li>
-												<li className="item card">{race.sponsors} Sponsor Card{race.sponsors===1?'':'s'}</li>
-												<li className="item event">{race.event}</li>
-											</ul>
-											<SeasonRaceWinner race={race} {...props} />
-										</label>
-									</article>
-								) 
-							)
-						}
+						<table>
+							<thead>
+								<tr>
+									<th className="position">&nbsp;</th>
+									<th className="driver">Driver</th>
+									<th className="team">Team</th>
+									<th className="colour">Colour</th>
+									{ props.seasonJSON.races.map((race,raceIdx) => ( <th colSpan="2" key={race.track}><img src={getFlagFromTrack(race.track)} /></th> )) }
+									<th className="total">Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								{ seasonStandings.map((driverStandingRow,driverStandingRowIdx) => 
+									<tr key={'driverStandingRowIdxTR'+driverStandingRowIdx} style={getDriverArticleDataColour(driverStandingRow[0])} >
+										<th key={'driverStandingRowIdxTH'+driverStandingRowIdx} className="position">{getNumberWithOrdinal(driverStandingRowIdx+1)}</th>
+										{
+											driverStandingRow.map((standingRow,standingRowIdx) => (
+												<SeasonResultsBodyRow key={'SeasonResultsBodyRow'+standingRowIdx} finalRowIdx={driverStandingRow.length} driverStandingRow={driverStandingRow} standingRow={standingRow} standingRowIdx={standingRowIdx} />
+											))
+										}
+									</tr>
+								)}
+							</tbody>
+						</table>
 					</section>
 
 
@@ -122,9 +122,9 @@ const Season = (props) => {
 							<span className="txt">The {getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} Race from the {props.seasonJSON.year} Championship.</span>
 						</label>
 						<label className="action">
-							<button onClick={() => { props.setMain("Standings") ; }}>Standings</button>
-							<span className="hdr">Standings</span>
-							<span className="txt">The {props.seasonJSON.year} Driver Championship standings.</span>
+							<button onClick={() => { props.setMain("Season") ; }}>Championship</button>
+							<span className="hdr">Championship</span>
+							<span className="txt">See the {props.seasonJSON.year} Championship.</span>
 						</label>
 						<label className="action warning">
 							<button onClick={resetSeasonJSON}>Reset</button>

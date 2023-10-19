@@ -7,6 +7,7 @@ const All = () => {
     const [ main , setMain ] = useState('Race');
     useEffect(() => {
         document.getElementById('root').setAttribute('data-view',main.toLowerCase())
+//        window.scrollTo(0, 0)
     }, [main]);
 
     let localSeasonJSON = JSON.parse(localStorage.getItem('seasonJSON'));
@@ -16,8 +17,6 @@ const All = () => {
     useEffect(() => {
         localStorage.setItem('seasonJSON',JSON.stringify(seasonJSON));
     }, [seasonJSON]);
-
-
 
     const backboneProps = { main , setMain , seasonJSON , setSeasonJSON }
 	return (
