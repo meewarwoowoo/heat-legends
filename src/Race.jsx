@@ -68,7 +68,7 @@ const Race = (props) => {
 	return (
 		<>
 			<section id="main" className={props.getMainClassList()}>
-				<section className="drivers">
+				<section className="control-panel--race">
 					<header>
 						<h2>Legends</h2>
 					</header>

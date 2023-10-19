@@ -90,12 +90,35 @@ const Round = (props) => {
 	return (
 		<>
 			<section id="main" className={props.getMainClassList()} style={{"--drivers": getActiveDrivers() }}>
-				<main className="drivers">
+				<main className="control-panel--race">
 					<header>
 						<h2>Race {getActiveRaceIdx(props.seasonJSON)+1} {props.seasonJSON && props.seasonJSON.races && getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} <span>{props.seasonJSON.year} Championship</span></h2>
 					</header>
 					{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
 				</main>
+
+
+				<section className="control-panel--actions">
+					<header>
+						<h3>Actions</h3>
+					</header>
+					<label className="action">
+						<button  onClick={setNextCard}>Next Card</button>
+						<span className="hdr">Next Card</span>
+						<span className="txt">Draw the next Legend Card.  You can do this with the big black arrow too.</span>
+					</label>
+					<label className="action">
+							<button onClick={() => { props.setMain("Standings") ; }}>Standings</button>
+							<span className="hdr">Standings</span>
+							<span className="txt">The {props.seasonJSON.year} Driver Championship standings.</span>
+					</label>
+					<label className="action">
+							<button onClick={() => { props.setMain("Season") ; }}>Championship</button>
+							<span className="hdr">Championship</span>
+							<span className="txt">See The {props.seasonJSON.year} Championship.</span>
+					</label>
+				</section>
+
 			</section>
 			<section id="deck">
 				<ol className="deck">

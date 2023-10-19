@@ -134,7 +134,7 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 
 #root #main .control-panel--actions  { display: flex ; flex-flow: row wrap ; gap: var(--gap) ; padding: var(--gap) ; background-color: var(--mid) ; border-radius: var(--edge) ; }
 #root #main .control-panel--actions header h3 { background-color: transparent ; color: var(--blk) ; }
-#root #main .control-panel--actions .action   { display: flex ; flex-flow: row wrap ; font-size: 0.75em ; max-width: 15em  ; width: 100% ; background-color: var(--wht) ; border-radius: var(--edge); padding: 0.5em ; overflow: hidden ; cursor: pointer ;  }
+#root #main .control-panel--actions .action   { display: flex ; flex-flow: row wrap ; font-size: 0.75em ; max-width: 15em  ; width: 100% ; background-color: var(--wht) ; border-radius: var(--edge); padding: 0.5em ; overflow: hidden ; cursor: pointer ;  align-content: flex-start;}
 #root #main .control-panel--actions .action:hover    { outline: 0.125em solid var(--hgh) ; background-color:  var(--on) ; color: var(--wht) ; }
 #root #main .control-panel--actions .action.warning:hover   { background-color:  var(--warning) ; }
 #root #main .control-panel--actions .action button   { display: none; }
