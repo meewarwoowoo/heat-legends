@@ -110,18 +110,7 @@ const Config = (props) => {
 					</ul>
 				</section>
 
-				<section className="control-panel--actions">
-					<header>
-						<h3>Actions</h3>
-					</header>
-					<label className="action warning">
-						<button onClick={resetSettings}>Reset Settings</button>
-						<span className="hdr">Reset Settings</span>
-						<span className="txt">Return the app to the origin settings.</span>
-					</label>
-				</section>
-
-				
+			
 			</section>
 			<section id="deck"></section>
 			<section id="next"></section>

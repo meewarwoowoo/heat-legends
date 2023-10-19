@@ -38,22 +38,6 @@ const Drivers = (props) => {
 					</>
 				</section>
 
-				<section className="control-panel--actions">
-					<header>
-						<h3>Actions</h3>
-					</header>
-					<label className="action warning">
-						<button onClick={resetDrivers}>Reset Drivers</button>
-						<span className="hdr">Reset Drivers</span>
-						<span className="txt">All the driver information will be reset.</span>
-					</label>
-					<label className="action warning">
-						<button onClick={resetDriversSpeedGrids}>Reset Driver Speed Grids</button>
-						<span className="hdr">Reset Speed Grids</span>
-						<span className="txt">All the different speed values on the Speed Grids will be reset.</span>
-					</label>
-				</section>
-
 			</section>
 			<section id="deck"></section>
 			<section id="next"></section>
