@@ -119,7 +119,7 @@ const Season = (props) => {
 						<label className="action">
 							<button onClick={() => { props.setMain("Round") ; }}>Race</button>
 							<span className="hdr">Race</span>
-							<span className="txt">The {getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} Race from the {props.seasonJSON.year} Championship.</span>
+							<span className="txt">The {getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} Race from The {props.seasonJSON.year} Championship.</span>
 						</label>
 						<label className="action">
 							<button onClick={() => { props.setMain("Standings") ; }}>Standings</button>
@@ -129,7 +129,7 @@ const Season = (props) => {
 						<label className="action warning">
 							<button onClick={resetSeasonJSON}>Reset</button>
 							<span className="hdr">Reset</span>
-							<span className="txt">Remove all results for the {props.seasonJSON.year} Championship.</span>
+							<span className="txt">Remove all results for The {props.seasonJSON.year} Championship.</span>
 						</label>
 					</section>
 

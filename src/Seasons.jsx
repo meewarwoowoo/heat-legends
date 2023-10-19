@@ -92,10 +92,10 @@ const Seasons = (props) => {
 					</header>
 
 					{ defaultSeasonsJSON.map( (season,idx) => (
-						<label className={"action season-"+(season.year).replace(' ','-').toLowerCase()}>
+						<label key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={"action season-"+(season.year).replace(' ','-').toLowerCase()}>
 							<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>{season.year}</button>
 							<span className="hdr">{season.year}</span>
-							<span className="txt">Start the {season.year} Championship.</span>
+							<span className="txt">Start The {season.year} Championship.</span>
 						</label>
 					))}
 
