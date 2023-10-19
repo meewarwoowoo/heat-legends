@@ -66,7 +66,7 @@ const Seasons = (props) => {
 						<h2>Championships</h2>
 					</header>
 					{ defaultSeasonsJSON.map( (season,idx) => (
-						<article key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={  (props.seasonJSON && (season.year==props.seasonJSON.year)?"on":"off") +' '+ ("season-"+(season.year).replace(' ','-').toLowerCase()) }>
+						<article key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={ (props.seasonJSON && (season.year==props.seasonJSON.year)?"on":"off") +' '+ ("season-"+(season.year).replace(' ','-').toLowerCase()) }>
 							<label>
 								<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>Start {season.year}</button>
 								<h3>{season.year}</h3>
@@ -90,6 +90,15 @@ const Seasons = (props) => {
 					<header>
 						<h3>Actions</h3>
 					</header>
+
+					{ defaultSeasonsJSON.map( (season,idx) => (
+						<label className={"action season-"+(season.year).replace(' ','-').toLowerCase()}>
+							<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>{season.year}</button>
+							<span className="hdr">{season.year}</span>
+							<span className="txt">Start the {season.year} Championship.</span>
+						</label>
+					))}
+
 					<label className="action">
 						<button onClick={() => { props.setMain("Config") ; }}>Settings</button>
 						<span className="hdr">Settings</span>
