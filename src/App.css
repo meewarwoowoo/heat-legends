@@ -48,8 +48,27 @@
 }
 
 
+* { box-sizing: border-box }
 body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;  }
-#root  { display: grid ; min-height: 100vh ; width: 100% ; grid-template: "menu main deck next"  auto / 3.25em auto 3em 4em ; --menu-height: 0 ; --deck-height: 0 ; }
+
+
+#root  { display: grid ; min-height: 100vh ; min-width: 100% ; }
+#root  { 
+	grid-template-rows: 4em auto 4em ;grid-template-columns: 4em 4em auto auto 4em 4em ;
+	grid-template-areas: 
+	"menu main main main deck next"
+	"menu main main main deck next"
+	"menu main main main deck next"
+}
+@media screen and (max-width: 800px){
+	#root  { 
+		grid-template-areas: 
+		"menu menu menu menu menu menu"
+		"main main main main main main"
+		"deck deck deck deck next next"
+		}
+}
+	
 #root main  { --gap: 0.5rem ; --edge: 0.25rem ; --box: none ; }
 #root main.show--more-white  { --gap: 1rem ; --edge: 1rem ; --box: inset 0.25em 0 1rem -0.75em rgba(0,0,0,0.5) ; }
 #root main.move--split  { --move-width: 8.5em ; }
@@ -74,7 +93,6 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 }
 @media screen and (max-width: 800px){
 	body  { font-size: 1em ; }  
-	#root  { --menu-height: 4em ; --deck-height: 4.5em  ; grid-template: "menu menu" var(--menu-height) "main main" auto "deck next"  var(--deck-height) / auto 4.5em  ; }
 }
 @media screen and (max-width: 640px){
 	body  { font-size: 1em ; }  
@@ -82,6 +100,16 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 }
 
 #root main  { display: grid ; grid-template: auto 1fr / auto ; align-items: stretch ; align-content: stretch ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
+
+#root main  { display: grid ; grid-template: auto 1fr / auto ; align-items: stretch ; align-content: stretch ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
+
+
+
+
+
+
+
+
 #root main header   { display: block ; width: 100% ; grid-column: 1 / -1 ; }
 #root main header h2 ,
 #root main header h3 { border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; }

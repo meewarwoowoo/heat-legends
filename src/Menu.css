@@ -1,23 +1,11 @@
-#root #menu   { grid-area: menu ; width: 100% ; height: 100% ; background-color: var(--bkg) ; --on: var(--heat) ; }
-#root #menu .fix { position: fixed ; top: 0 ; left: 0 ; display: flex ; flex-flow: column nowrap ; }
-#root #menu .fix ul  { display: flex ; flex-flow: column nowrap ; justify-items: center; align-items: center;  align-content: flex-start ; background-color:  rgba(255,255,255,0.125)  ;  outline: 1px solid rgba(255,255,255,0.25) ; color: var(--txt) ; list-style-type: none ; padding: 0.25em ; margin: 0.25em  ; gap: 0.25em ; border-radius: 1.5em; }
-#root #menu .fix ul li  { display: flex ; align-items: center; justify-content: center; padding: 0 ; margin: 0 ; list-style-type: none ; border-radius: 1.5em ; cursor: pointer ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out; outline: 1px solid rgba(255,255,255,0.25) ; }
-#root #menu .fix ul li > span  { background-color: var(--bkg) ; color: var(--txt) ; border-radius: 1.5em ;  display: flex ;  align-items: center; justify-content: center; padding: 0 ; }
-#root #menu .fix ul li > span.off  { display: none ; }
-#root #menu .fix ul li > span img   { width: 2.25em ; height: 2.25em ; display: block; }
-#root #menu .fix ul li:hover > span   { background-color: var(--hgh) ; }
-#root #menu .fix ul li.on:hover  { color: var(--bkg) ; cursor: default ; }
-#root #menu .fix ul li.on > span  { background-color: var(--on) ; }
-#root #menu .fix ul li.on > span.on  { display: flex ; }
-
-@media (max-width: 1024px){  }
-@media (max-width: 800px){
-	#root #menu   { font-size: 1.25em ; }
-	#root #menu .fix { position: relative ; }
-	#root #menu .fix  { flex-flow: row nowrap ; height: auto ; }
-	#root #menu .fix ul { flex-flow: row nowrap ; height: auto ; }
-}
-@media (max-width: 640px){
-	#root #menu   { font-size: 1em ; }
-}
-@media (max-width: 480px){  }
+#root #menu  { grid-area: menu ; display: flex ; justify-content: center; align-items: center;  width: 100% ; height: 100% ; background-color: var(--bkg) ; --on: var(--heat) ;  }
+#root #menu .cnt   { padding: 0 0.5em ; }
+#root #menu .cnt ul  { display: inline-block ;  background-color:  rgba(255,255,255,0.125) ; outline: 1px solid rgba(255,255,255,0.25) ; color: var(--txt) ; list-style-type: none ; padding: 0 ; margin: 0.25em  ; border-radius: 1.5em; }
+#root #menu .cnt ul li  { display: inline-block ;padding: 0 ; margin: 0.25em ; list-style-type: none ; border-radius: 1.5em ; cursor: pointer ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out; outline: 1px solid rgba(255,255,255,0.25) ; }
+#root #menu .cnt ul li > span  { background-color: var(--bkg) ; color: var(--txt) ; border-radius: 1.5em ;  display: flex ;  align-items: center; justify-content: center; padding: 0 ; }
+#root #menu .cnt ul li > span.off  { display: none ; }
+#root #menu .cnt ul li > span img   { width: 2.5em ; height: 2.5em ; display: block; }
+#root #menu .cnt ul li:hover > span   { background-color: var(--hgh) ; }
+#root #menu .cnt ul li.on:hover  { color: var(--bkg) ; cursor: default ; }
+#root #menu .cnt ul li.on > span  { background-color: var(--on) ; }
+#root #menu .cnt ul li.on > span.on  { display: flex ; }

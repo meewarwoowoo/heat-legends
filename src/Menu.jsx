@@ -14,7 +14,7 @@ const Menu = (props) => {
 
 	return (
 		<nav id="menu">
-			<div className="fix">
+			<div className="cnt">
 				<ul>
 					<li className={(props.main==='Race')?'on':'off'} onClick={() => { props.setMain("Race") ; }}><span><img src={race} /></span></li>
 				</ul>
