@@ -24,11 +24,11 @@ const Drivers = (props) => {
 	
 	return (
 		<>
-			<section id="main" className={props.getMainClassList()}>
+			<main className={props.getMainClassList()}>
 				<header>
 					<h2>Drivers</h2>
 				</header>
-				<main className="control-panel--drivers">
+				<section className="control-panel--drivers">
 					<>
 						{	
 							props.driversJSON.map((driverJSON,idx) => 
@@ -36,9 +36,9 @@ const Drivers = (props) => {
 							)
 						}
 					</>
-				</main>
+				</section>
 
-			</section>
+			</main>
 			<section id="deck"></section>
 			<section id="next"></section>
 		</>

@@ -1,17 +1,17 @@
-#root[data-view=config]  #main { grid-template: repeat(2,auto) / auto ;  align-items: flex-start ; align-content: flex-start ; }
+#root[data-view=config]  main { grid-template: repeat(2,auto) / auto ;  align-items: flex-start ; align-content: flex-start ; }
 @media (max-width: 800px){	
 	#root[data-view=config]  { grid-template: "menu menu" var(--menu-height) "main main" auto  ; }
 	#root[data-view=config] :is(#deck,#next)  { display: none ; }
 }
 
-#root #main .control-panel--config  { display: grid ; gap: var(--gap) ; font-family: var(--text-font) ; }
-#root #main .control-panel--config ul  { display: grid ; gap: var(--gap) ; list-style-type: none ; padding: 0 ; margin: 0; }
-#root #main .control-panel--config ul li  { display: block ; list-style-type: none ; padding: 0 ; margin: 0;  }
-#root #main .control-panel--config ul li label { display: block ; padding: 1em  ; border-radius: var(--edge) ; background-color: var(--mid) ; color: var(--bkg) ; cursor: pointer ; height: 100%; }
-#root #main .control-panel--config ul li label:hover { outline: 0.125em solid var(--hgh) ; }
-#root #main .control-panel--config ul li label input { display: none; }
-#root #main .control-panel--config ul li label span  { display: block ; position: relative ; padding-left: 3em ; }
-#root #main .control-panel--config ul li label .txt  { font-size: 0.75em ; padding: 0.5em 0 0 4em ; max-width: 38em ;}
-#root #main .control-panel--config ul li label span:first-of-type::before { content: ' ' ; display: block; width: calc( 1em - 4px ) ; height: calc( 1em - 4px ) ; background: var(--off) ; position: absolute ; top: 2px ; left: 2px ; z-index: 2 ; border-radius: 1em ; transition: 0.5s left ease-in-out , 0.5s color ease-in-out ; font-size: 1.125em ; }
-#root #main .control-panel--config ul li label span:first-of-type::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: var(--txt) ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ;  border-radius: 1em ; font-size: 1.125em ;}
-#root #main .control-panel--config ul li label input:checked ~ span:first-of-type::before  { left: calc( 1em + 2px ) ; background-color: var(--on)  ; }
+#root main .control-panel--config  { display: grid ; gap: var(--gap) ; font-family: var(--text-font) ; }
+#root main .control-panel--config ul  { display: grid ; gap: var(--gap) ; list-style-type: none ; padding: 0 ; margin: 0; }
+#root main .control-panel--config ul li  { display: block ; list-style-type: none ; padding: 0 ; margin: 0;  }
+#root main .control-panel--config ul li label { display: block ; padding: 1em  ; border-radius: var(--edge) ; background-color: var(--mid) ; color: var(--bkg) ; cursor: pointer ; height: 100%; }
+#root main .control-panel--config ul li label:hover { outline: 0.125em solid var(--hgh) ; }
+#root main .control-panel--config ul li label input { display: none; }
+#root main .control-panel--config ul li label span  { display: block ; position: relative ; padding-left: 3em ; }
+#root main .control-panel--config ul li label .txt  { font-size: 0.75em ; padding: 0.5em 0 0 4em ; max-width: 38em ;}
+#root main .control-panel--config ul li label span:first-of-type::before { content: ' ' ; display: block; width: calc( 1em - 4px ) ; height: calc( 1em - 4px ) ; background: var(--off) ; position: absolute ; top: 2px ; left: 2px ; z-index: 2 ; border-radius: 1em ; transition: 0.5s left ease-in-out , 0.5s color ease-in-out ; font-size: 1.125em ; }
+#root main .control-panel--config ul li label span:first-of-type::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: var(--txt) ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ;  border-radius: 1em ; font-size: 1.125em ;}
+#root main .control-panel--config ul li label input:checked ~ span:first-of-type::before  { left: calc( 1em + 2px ) ; background-color: var(--on)  ; }

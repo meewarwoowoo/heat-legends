@@ -14,13 +14,11 @@ const Race = (props) => {
 	const [ raceDriversResult , setRaceDriversResult ] = useState([]);
 
 	const setShuffledDeck = () => {
-		document.getElementById('main').classList.add('dark');
 		doToast('Shuffle')
 		shuffleDeck(deckJSON);
 		setDeckCard(-1);
 		setTimeout(() => {
 			setDeckCard(0)
-			document.getElementById('main').classList.remove('dark');
 		}, "250");
 	};
 	
@@ -67,14 +65,16 @@ const Race = (props) => {
 
 	return (
 		<>
-			<section id="main" className={props.getMainClassList()}>
+			<main className={props.getMainClassList()}>
 				<section className="control-panel--race">
 					<header>
 						<h2>Legends</h2>
 					</header>
-					{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
+					<div className="full">
+						{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
+					</div>
 				</section>
-			</section>
+			</main>
 			<section id="deck" className="menu">
 				<ol className="deck">
 					<>

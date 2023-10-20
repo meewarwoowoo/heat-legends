@@ -72,15 +72,15 @@ ul li.config--speed-grid table tr td  { text-align: center; }
 	.settings--drivers li > span:nth-of-type(3)  { grid-column: 2 ; grid-row: 3 ; }
 }
 @media screen and (max-width: 990px){ 
-	#root[data-view="config"] #main { font-size: 0.875em;}
+	#root[data-view="config"] main { font-size: 0.875em;}
 }
 @media screen and (max-width: 800px){
-	#main ul li.config--driver  { grid-template-rows: repeat(5,1fr) ; grid-template-columns: 1fr; grid-gap: 0.5em ; padding: 1em 0em ; }
-	#main ul li.config--driver > span select ,
-	#main ul li.config--driver > span input  { font-size: 1.25em ; }
-	#main ul li.config--driver > span select { text-indent: 2.25rem ; }
-	#main ul li.config--driver > span i   { font-size: 1em ; }
-	#main ul li.config--driver .driver--state  { font-size: 1.5em ; left: 0.5em ; top: 0.25em ; }
+	main ul li.config--driver  { grid-template-rows: repeat(5,1fr) ; grid-template-columns: 1fr; grid-gap: 0.5em ; padding: 1em 0em ; }
+	main ul li.config--driver > span select ,
+	main ul li.config--driver > span input  { font-size: 1.25em ; }
+	main ul li.config--driver > span select { text-indent: 2.25rem ; }
+	main ul li.config--driver > span i   { font-size: 1em ; }
+	main ul li.config--driver .driver--state  { font-size: 1.5em ; left: 0.5em ; top: 0.25em ; }
 }
 @media screen and (max-width: 640px){
 }

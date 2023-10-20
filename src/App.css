@@ -22,6 +22,7 @@
 	--off:			rgb(192,0,0);
 	--warning:		rgb(255,0,0);
 	--move-width:	5.75em ; 
+	--menu-height:  
 
 }
 
@@ -48,10 +49,10 @@
 
 
 body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;  }
-#root  { display: grid ; min-height: 100vh ; width: 100% ; grid-template: "menu main deck next"  auto / 3.25em auto 3em 4em ; }
-#root #main  { --gap: 0.5rem ; --edge: 0.25rem ; --box: none ; }
-#root #main.show--more-white  { --gap: 1rem ; --edge: 1rem ; --box: inset 0.25em 0 1rem -0.75em rgba(0,0,0,0.5) ; }
-#root #main.move--split  { --move-width: 8.5em ; }
+#root  { display: grid ; min-height: 100vh ; width: 100% ; grid-template: "menu main deck next"  auto / 3.25em auto 3em 4em ; --menu-height: 0 ; --deck-height: 0 ; }
+#root main  { --gap: 0.5rem ; --edge: 0.25rem ; --box: none ; }
+#root main.show--more-white  { --gap: 1rem ; --edge: 1rem ; --box: inset 0.25em 0 1rem -0.75em rgba(0,0,0,0.5) ; }
+#root main.move--split  { --move-width: 8.5em ; }
 
 
 @media screen and (max-width: 1920px){
@@ -59,35 +60,35 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 }
 @media screen and (max-width: 1800px){
 	body  { font-size: 1.75em ; }  
-	#root #main.show--more-white  { --gap: 0.5rem ; --edge: 1rem ; }
+	#root main.show--more-white  { --gap: 0.5rem ; --edge: 1rem ; }
 }
 @media screen and (max-width: 1600px){
 	body  { font-size: 1.625em ; }  
 }
 @media screen and (max-width: 1240px){
 	body  { font-size: 1.5em ; }  
-	#root #main  { --gap: 0.25rem ; --edge: 0.125rem ; }
+	#root main  { --gap: 0.25rem ; --edge: 0.125rem ; }
 }
 @media screen and (max-width: 990px){
 	body  { font-size: 1.375em ; }
 }
 @media screen and (max-width: 800px){
 	body  { font-size: 1em ; }  
-	#root  { --menu-height: 4em ; grid-template: "menu menu" var(--menu-height) "main main" auto "deck next" 4.5em / auto 4.5em  ; }
+	#root  { --menu-height: 4em ; --deck-height: 4.5em  ; grid-template: "menu menu" var(--menu-height) "main main" auto "deck next"  var(--deck-height) / auto 4.5em  ; }
 }
 @media screen and (max-width: 640px){
 	body  { font-size: 1em ; }  
 	#root  { --menu-height: 3.25em ; }
 }
 
-#root #main  { display: grid ; grid-template: auto 1fr / auto; align-items: stretch ; align-content: stretch ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
-#root #main header   { display: block ; width: 100% ; grid-column: 1 / -1 ; }
-#root #main header h2 ,
-#root #main header h3 { border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; }
-#root #main header h2 { font-size: 1.5em ; }
-#root #main header h3 { font-size: 1em ; }
+#root main  { display: grid ; grid-template: auto 1fr / auto ; align-items: stretch ; align-content: stretch ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
+#root main header   { display: block ; width: 100% ; grid-column: 1 / -1 ; }
+#root main header h2 ,
+#root main header h3 { border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; }
+#root main header h2 { font-size: 1.5em ; }
+#root main header h3 { font-size: 1em ; }
 @media screen and (max-width: 1920px){
-	#root #main header * span   { display: none ; }  
+	#root main header * span   { display: none ; }  
 }
 
 #root #deck   { grid-area: deck ; background: var(--blk-double-fade)  ; display: grid ; grid-template: 1fr / 1fr ; align-items: space-between; justify-items: center; }
@@ -132,23 +133,26 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 	#root #next   { background: var(--blk-double-fade)  ; }
 }
 
-#root #main .control-panel--actions  { display: flex ; flex-flow: row wrap ; gap: var(--gap) ; padding: var(--gap) ; background-color: var(--mid) ; border-radius: var(--edge) ; }
-#root #main .control-panel--actions header h3 { background-color: transparent ; color: var(--blk) ; }
-#root #main .control-panel--actions .action   { display: flex ; flex-flow: row wrap ; font-size: 0.75em ; max-width: 15em  ; width: 100% ; background-color: var(--wht) ; border-radius: var(--edge); padding: 0.5em ; overflow: hidden ; cursor: pointer ;  align-content: flex-start;}
-#root #main .control-panel--actions .action:hover    { outline: 0.125em solid var(--hgh) ; background-color:  var(--on) ; color: var(--wht) ; }
-#root #main .control-panel--actions .action.warning:hover   { background-color:  var(--warning) ; }
-#root #main .control-panel--actions .action button   { display: none; }
-#root #main .control-panel--actions .action .hdr   { position: relative ; order: 0 ; display: inline-block ; align-self: flex-end ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: 0.25em ; padding: 0.75em 1em 0.75em 2em ; font-family: var(--text-font); text-transform: uppercase}
-#root #main .control-panel--actions .action .hdr::before   { position: absolute  ; content: ''; top: calc( 50% - 0.375em )  ; left: 0.925em ; width: 0 ; height: 0 ; border: 0.375em solid transparent ; border-left-color: var(--wht) ; border-left-width: 0.45em  ; }
-#root #main .control-panel--actions .action:hover .hdr   { background-color:  var(--blk) ; }
-#root #main .control-panel--actions .action.warning .hdr   {background-color:  var(--warning) ; }
-#root #main .control-panel--actions .action.warning:hover .hdr  { background-color:  var(--blk) ; }
-#root #main .control-panel--actions .action .txt   { order: 1 ; display: block ; padding: 0.75em 0 ; width: 100% ; font-family: var(--text-font); font-size: 0.75em ; }
-#root #main .control-panel--actions .action.season-1963 ,
-#root #main .control-panel--actions .action.season-1964  { display: none ; }
-#root #main.use--new-1963 .control-panel--actions .action.season-1963-legacy  { display: none ; }
-#root #main.use--new-1963 .control-panel--actions .action.season-1963 ,
-#root #main.use--new-1963 .control-panel--actions .action.season-1964  { display: flex ; }
+#root main .control-panel--actions  { display: flex ; flex-flow: row wrap ; gap: var(--gap) ; padding: var(--gap) ; background-color: var(--mid) ; border-radius: var(--edge) ; }
+#root main .control-panel--actions header h3 { background-color: transparent ; color: var(--blk) ; }
+#root main .control-panel--actions .action   { display: flex ; flex-flow: row wrap ; font-size: 0.75em ; max-width: 15em  ; width: 100% ; background-color: var(--wht) ; border-radius: 0.25em ; padding: 0.5em ; overflow: hidden ; cursor: pointer ;  align-content: flex-start;}
+#root main .control-panel--actions .action:hover    { outline: 0.125em solid var(--hgh) ; background-color:  var(--on) ; color: var(--wht) ; }
+#root main .control-panel--actions .action.warning:hover   { background-color:  var(--warning) ; }
+#root main .control-panel--actions .action button   { display: none; }
+#root main .control-panel--actions .action .hdr   { position: relative ; order: 0 ; display: inline-block ; align-self: flex-end ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: 0.25em ; padding: 0.75em 1em 0.75em 2em ; font-family: var(--text-font); text-transform: uppercase}
+#root main .control-panel--actions .action .hdr::before   { position: absolute  ; content: ''; top: calc( 50% - 0.375em )  ; left: 0.925em ; width: 0 ; height: 0 ; border: 0.375em solid transparent ; border-left-color: var(--wht) ; border-left-width: 0.45em  ; }
+#root main .control-panel--actions .action:hover .hdr   { background-color:  var(--blk) ; }
+#root main .control-panel--actions .action.warning .hdr   {background-color:  var(--warning) ; }
+#root main .control-panel--actions .action.warning:hover .hdr  { background-color:  var(--blk) ; }
+#root main .control-panel--actions .action .txt   { order: 1 ; display: block ; padding: 0.75em 0 ; width: 100% ; font-family: var(--text-font); font-size: 0.75em ; }
+#root main .control-panel--actions .action.season-1963 ,
+#root main .control-panel--actions .action.season-1964  { display: none ; }
+#root main.use--new-1963 .control-panel--actions .action.season-1963-legacy  { display: none ; }
+#root main.use--new-1963 .control-panel--actions .action.season-1963 ,
+#root main.use--new-1963 .control-panel--actions .action.season-1964  { display: flex ; }
 @media screen and (max-width: 800px){
-	#root #main .control-panel--actions .action .txt   {padding: 0.5em 0 ;font-size: 1em ; }
+	#root main .control-panel--actions .action .txt   {padding: 0.5em 0 ;font-size: 1em ; }
+	#root main .control-panel--actions header { order: 10 ;}
+	#root main .control-panel--actions .action   { order: 5 ; }
+
 }

@@ -81,34 +81,36 @@ const Season = (props) => {
 		const seasonStandings = seasonStandingsCreate(props);
 		return (
 			<>
-				<section id="main" className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
+				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
 
 
 					<section className="control-panel--season--pick-race">
 						<header>
 							<h2>The {props.seasonJSON.year} Championship</h2>
 						</header>
-						{ 
-							props.seasonJSON.races.map( 
-								(race,raceIdx) =>  (  
-									<article key={raceIdx} className={(race.active?"on":"off") +' '+  (isRaceFinished(race)?"results":"no-results")}>
-										<label>
-											<h3>{getTrackFromAbbr(race.track).name}</h3>
-											<ul>
-												<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
-												<li className="name">{getTrackFromAbbr(race.track).name}</li>
-												<li className="action"><SeasonRaceStartButton race={race} raceIdx={raceIdx} {...props}/></li>
-												<li className="item laps">{getTrackFromAbbr(race.track).laps} Laps</li>
-												<li className="item press">Press Corner is {race.cameras}</li>
-												<li className="item card">{race.sponsors} Sponsor Card{race.sponsors===1?'':'s'}</li>
-												<li className="item event">{race.event}</li>
-											</ul>
-											<SeasonRaceWinner race={race} {...props} />
-										</label>
-									</article>
-								) 
-							)
-						}
+						<div className="full">
+							{ 
+								props.seasonJSON.races.map( 
+									(race,raceIdx) =>  (  
+										<article key={raceIdx} className={(race.active?"on":"off") +' '+  (isRaceFinished(race)?"results":"no-results")}>
+											<label>
+												<h3>{getTrackFromAbbr(race.track).name}</h3>
+												<ul>
+													<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
+													<li className="name">{getTrackFromAbbr(race.track).name}</li>
+													<li className="action"><SeasonRaceStartButton race={race} raceIdx={raceIdx} {...props}/></li>
+													<li className="item laps">{getTrackFromAbbr(race.track).laps} Laps</li>
+													<li className="item press">Press Corner is {race.cameras}</li>
+													<li className="item card">{race.sponsors} Sponsor Card{race.sponsors===1?'':'s'}</li>
+													<li className="item event">{race.event}</li>
+												</ul>
+												<SeasonRaceWinner race={race} {...props} />
+											</label>
+										</article>
+									) 
+								)
+							}
+						</div>
 					</section>
 
 
@@ -133,7 +135,7 @@ const Season = (props) => {
 						</label>
 					</section>
 
-				</section>
+				</main>
 				<section id="deck"></section>
 				<section id="next"></section>
 			</>

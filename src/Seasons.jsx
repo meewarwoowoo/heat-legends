@@ -60,33 +60,35 @@ const Seasons = (props) => {
 	
 	return (
 		<>
-			<section id="main" className={props.getMainClassList()}>
+			<main className={props.getMainClassList()}>
 				<section className="control-panel--seasons--pick-season">
 					<header>
 						<h2>Championships</h2>
 					</header>
-					{ defaultSeasonsJSON.map( (season,idx) => (
-						<article key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={ (props.seasonJSON && (season.year==props.seasonJSON.year)?"on":"off") +' '+ ("season-"+(season.year).replace(' ','-').toLowerCase()) }>
-							<label>
-								<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>Start {season.year}</button>
-								<h3>{season.year}</h3>
-								<div className="season">
-									{ 
-										season.races.map( (race,raceIdx) =>  (  
-											<ul key={raceIdx}>
-												<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
-												<li className="name">{getTrackFromAbbr(race.track).name}</li>
-												<li className="laps">{getTrackFromAbbr(race.track).laps} Laps</li>
-											</ul>
-										))
-									}
-								</div>
-							</label>
-						</article>
-					))}
+					<div className="full">
+						{ defaultSeasonsJSON.map( (season,idx) => (
+							<article key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={ (props.seasonJSON && (season.year==props.seasonJSON.year)?"on":"off") +' '+ ("season-"+(season.year).replace(' ','-').toLowerCase()) }>
+								<label>
+									<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>Start {season.year}</button>
+									<h3>{season.year}</h3>
+									<div className="season">
+										{ 
+											season.races.map( (race,raceIdx) =>  (  
+												<ul key={raceIdx}>
+													<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
+													<li className="name">{getTrackFromAbbr(race.track).name}</li>
+													<li className="laps">{getTrackFromAbbr(race.track).laps} Laps</li>
+												</ul>
+											))
+										}
+									</div>
+								</label>
+							</article>
+						))}
+					</div>
 				</section>
 
-				<section className="control-panel--actions">
+				<footer className="control-panel--actions">
 					<header>
 						<h3>Actions</h3>
 					</header>
@@ -110,9 +112,9 @@ const Seasons = (props) => {
 						<span className="hdr">Reset</span>
 						<span className="txt">Remove all results for the current Championship.</span>
 					</label>
-				</section>
+				</footer>
 
-			</section>
+			</main>
 			<section id="deck"></section>
 			<section id="next"></section>
 		</>

@@ -14,13 +14,11 @@ const Round = (props) => {
 	const [, forceUpdate] = useReducer(x => x + 1, 0);
 
 	const setShuffledDeck = () => {
-		document.getElementById('main').classList.add('dark');
 		doToast('Shuffle')
 		shuffleDeck(deckJSON);
 		setDeckCard(-1);
 		setTimeout(() => {
 			setDeckCard(0)
-			document.getElementById('main').classList.remove('dark');
 		}, "250");
 	};
 	
@@ -89,14 +87,15 @@ const Round = (props) => {
 
 	return (
 		<>
-			<section id="main" className={props.getMainClassList()} style={{"--drivers": getActiveDrivers() }}>
-				<main className="control-panel--race">
+			<main className={props.getMainClassList()} style={{"--drivers": getActiveDrivers() }}>
+				<section className="control-panel--race">
 					<header>
 						<h2>Race {getActiveRaceIdx(props.seasonJSON)+1} {props.seasonJSON && props.seasonJSON.races && getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} <span>{props.seasonJSON.year} Championship</span></h2>
 					</header>
-					{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
-				</main>
-
+					<div className="full">
+						{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
+					</div>
+				</section>
 
 				<section className="control-panel--actions">
 					<header>
@@ -119,7 +118,7 @@ const Round = (props) => {
 					</label>
 				</section>
 
-			</section>
+			</main>
 			<section id="deck">
 				<ol className="deck">
 					<>

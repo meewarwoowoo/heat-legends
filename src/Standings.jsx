@@ -79,40 +79,42 @@ const Season = (props) => {
 		const seasonStandings = seasonStandingsCreate(props);
 		return (
 			<>
-				<section id="main" className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
+				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
 
 					<section className="control-panel--season--standings">
 						<header>
 							<h2>The {props.seasonJSON.year} Championship Standings</h2>
 						</header>
-						<table>
-							<thead>
-								<tr>
-									<th className="position">&nbsp;</th>
-									<th className="driver">Driver</th>
-									<th className="team">Team</th>
-									<th className="colour">Colour</th>
-									{ props.seasonJSON.races.map((race,raceIdx) => ( <th colSpan="2" key={race.track}><img src={getFlagFromTrack(race.track)} /></th> )) }
-									<th className="total">Total</th>
-								</tr>
-							</thead>
-							<tbody>
-								{ seasonStandings.map((driverStandingRow,driverStandingRowIdx) => 
-									<tr key={'driverStandingRowIdxTR'+driverStandingRowIdx} style={getDriverArticleDataColour(driverStandingRow[0])} >
-										<th key={'driverStandingRowIdxTH'+driverStandingRowIdx} className="position">{getNumberWithOrdinal(driverStandingRowIdx+1)}</th>
-										{
-											driverStandingRow.map((standingRow,standingRowIdx) => (
-												<SeasonResultsBodyRow key={'SeasonResultsBodyRow'+standingRowIdx} finalRowIdx={driverStandingRow.length} driverStandingRow={driverStandingRow} standingRow={standingRow} standingRowIdx={standingRowIdx} />
-											))
-										}
+						<div className="full">
+							<table>
+								<thead>
+									<tr>
+										<th className="position">&nbsp;</th>
+										<th className="driver">Driver</th>
+										<th className="team">Team</th>
+										<th className="colour">Colour</th>
+										{ props.seasonJSON.races.map((race,raceIdx) => ( <th colSpan="2" key={race.track}><img src={getFlagFromTrack(race.track)} /></th> )) }
+										<th className="total">Total</th>
 									</tr>
-								)}
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+									{ seasonStandings.map((driverStandingRow,driverStandingRowIdx) => 
+										<tr key={'driverStandingRowIdxTR'+driverStandingRowIdx} style={getDriverArticleDataColour(driverStandingRow[0])} >
+											<th key={'driverStandingRowIdxTH'+driverStandingRowIdx} className="position">{getNumberWithOrdinal(driverStandingRowIdx+1)}</th>
+											{
+												driverStandingRow.map((standingRow,standingRowIdx) => (
+													<SeasonResultsBodyRow key={'SeasonResultsBodyRow'+standingRowIdx} finalRowIdx={driverStandingRow.length} driverStandingRow={driverStandingRow} standingRow={standingRow} standingRowIdx={standingRowIdx} />
+												))
+											}
+										</tr>
+									)}
+								</tbody>
+							</table>
+						</div>
 					</section>
 
 
-					<section className="control-panel--actions">
+					<footer className="control-panel--actions">
 						<header>
 							<h3>Actions</h3>
 						</header>
@@ -131,9 +133,9 @@ const Season = (props) => {
 							<span className="hdr">Reset</span>
 							<span className="txt">Remove all results for The {props.seasonJSON.year} Championship.</span>
 						</label>
-					</section>
+					</footer>
 
-				</section>
+				</main>
 				<section id="deck"></section>
 				<section id="next"></section>
 			</>

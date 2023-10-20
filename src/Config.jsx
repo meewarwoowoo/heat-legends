@@ -39,7 +39,7 @@ const Config = (props) => {
 
 	return (
 		<>
-			<section id="main" className={props.getMainClassList()}>
+			<main className={props.getMainClassList()}>
 				<header>
 					<h2>App Settings</h2>
 				</header>
@@ -109,9 +109,7 @@ const Config = (props) => {
 						</li>
 					</ul>
 				</section>
-
-			
-			</section>
+			</main>
 			<section id="deck"></section>
 			<section id="next"></section>
 		</>
