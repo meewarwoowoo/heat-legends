@@ -88,7 +88,7 @@ const Round = (props) => {
 	return (
 		<>
 			<main className={props.getMainClassList()} style={{"--drivers": getActiveDrivers() }}>
-				<section className="control-panel--race">
+				<section className="cnt--race">
 					<header>
 						<h2>Race {getActiveRaceIdx(props.seasonJSON)+1} {props.seasonJSON && props.seasonJSON.races && getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} <span>{props.seasonJSON.year} Championship</span></h2>
 					</header>
@@ -97,7 +97,7 @@ const Round = (props) => {
 					</div>
 				</section>
 
-				<section className="control-panel--actions">
+				<section className="cnt--actions">
 					<header>
 						<h3>Actions</h3>
 					</header>

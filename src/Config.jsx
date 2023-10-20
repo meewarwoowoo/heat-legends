@@ -43,7 +43,7 @@ const Config = (props) => {
 				<header>
 					<h2>App Settings</h2>
 				</header>
-				<section className="control-panel--config">
+				<section className="cnt--config">
 					<ul>
 						<li className="switch">
 							<label><input type="checkbox" checked={showNumber} onChange={(e) => { setShowNumber(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showNumber') }} />
@@ -77,7 +77,7 @@ const Config = (props) => {
 						</li>
 						</ul>
 				</section>
-				<section className="control-panel--config">
+				<section className="cnt--config">
 					<header>
 						<h3>Season Settings</h3>
 					</header>
@@ -90,7 +90,7 @@ const Config = (props) => {
 						</li>
 					</ul>
 				</section>
-				<section className="control-panel--config">
+				<section className="cnt--config">
 					<header>
 						<h3>Layout Settings</h3>
 					</header>

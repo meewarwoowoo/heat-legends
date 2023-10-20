@@ -81,7 +81,7 @@ const Season = (props) => {
 			<>
 				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
 
-					<section className="control-panel--season--standings">
+					<section className="cnt--season--standings">
 						<header>
 							<h2>The {props.seasonJSON.year} Championship Standings</h2>
 						</header>
@@ -114,7 +114,7 @@ const Season = (props) => {
 					</section>
 
 
-					<footer className="control-panel--actions">
+					<footer className="cnt--actions">
 						<header>
 							<h3>Actions</h3>
 						</header>

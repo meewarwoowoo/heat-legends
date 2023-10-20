@@ -61,7 +61,7 @@ const Seasons = (props) => {
 	return (
 		<>
 			<main className={props.getMainClassList()}>
-				<section className="control-panel--seasons--pick-season">
+				<section className="cnt--seasons--pick-season">
 					<header>
 						<h2>Championships</h2>
 					</header>
@@ -88,7 +88,7 @@ const Seasons = (props) => {
 					</div>
 				</section>
 
-				<footer className="control-panel--actions">
+				<footer className="cnt--actions">
 					<header>
 						<h3>Actions</h3>
 					</header>

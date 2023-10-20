@@ -4,40 +4,40 @@
 }
 
 #root[data-view=seasons] main { grid-template: repeat(3,auto) / auto ; align-items: flex-start ; align-content: flex-start ; }
-#root main .control-panel--seasons--pick-season   { display: grid ; gap: var(--gap) ; grid-template: auto / 1fr ;--off: var(--mid) ; }
-#root main .control-panel--seasons--pick-season .full { display: contents ; }
-#root main .control-panel--seasons--pick-season article  {  padding: 0 ; margin: 0 ; border-radius: var(--edge) ; overflow: hidden; background: var(--off) ; }
-#root main .control-panel--seasons--pick-season article:hover  { outline: 0.125em solid var(--hgh) ; }
-#root main .control-panel--seasons--pick-season article.on  { cursor: default ; }
-#root main .control-panel--seasons--pick-season article label  { display: block ; padding: var(--gap) ; margin: 0 ; cursor: pointer ;}
-#root main .control-panel--seasons--pick-season article label button  { display: none ; }
-#root main .control-panel--seasons--pick-season article label h3  { border-radius: var(--edge) ; background-color: var(--wht); color: var(--blk) ; padding: 0.5em ; margin: 0  ; font-family: var(--move-font) ; font-weight: 400 ; text-align: center ; }
-#root main .control-panel--seasons--pick-season article.on label h3  { background: var(--on) ; color: var(--wht);}
-#root main .control-panel--seasons--pick-season article label .season   { display: grid;  grid-template: auto / repeat(4,1fr) ; gap: 0.5em  ; margin: 0.5em ; padding: 0 ; list-style-type: none ; }
-#root main.use--new-1963 .control-panel--seasons--pick-season article label .season  { grid-template: auto / repeat(3,1fr) ;}
-#root main .control-panel--seasons--pick-season article label .season ul   { display: block ; padding: 0 ; margin: 0 ;  list-style-type: none ;  font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
-#root main .control-panel--seasons--pick-season article label .season ul li  { display: block ; padding: 0.5em ; margin: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
-#root main .control-panel--seasons--pick-season article label .season ul li.name  { display: block ; border-radius: var(--edge) ; }
-#root main .control-panel--seasons--pick-season article label .season ul li.laps  { display: none ; }
-#root main .control-panel--seasons--pick-season article label .season ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto 0 ; width: 60% ; }
-#root main .control-panel--seasons--pick-season article label .season ul li.flag img  { position: relative ; }
-#root main .control-panel--seasons--pick-season article label .season ul li.flag img  { width: 100% ; display: block ; }
-#root main .control-panel--seasons--pick-season article.season-1963 ,
-#root main .control-panel--seasons--pick-season article.season-1964  { display: none ; }
-#root main.use--new-1963 .control-panel--seasons--pick-season  { grid-template: auto / 1fr 1fr ; }
-#root main.use--new-1963 .control-panel--seasons--pick-season article.season-1963-legacy  { display: none ; }
-#root main.use--new-1963 .control-panel--seasons--pick-season article.season-1963 ,
-#root main.use--new-1963 .control-panel--seasons--pick-season article.season-1964  { display: block ; }
+#root main .cnt--seasons--pick-season   { display: grid ; gap: var(--gap) ; grid-template: auto / 1fr ;--off: var(--mid) ; }
+#root main .cnt--seasons--pick-season .full { display: contents ; }
+#root main .cnt--seasons--pick-season article  {  padding: 0 ; margin: 0 ; border-radius: var(--edge) ; overflow: hidden; background: var(--off) ; }
+#root main .cnt--seasons--pick-season article:hover  { outline: 0.125em solid var(--hgh) ; }
+#root main .cnt--seasons--pick-season article.on  { cursor: default ; }
+#root main .cnt--seasons--pick-season article label  { display: block ; padding: var(--gap) ; margin: 0 ; cursor: pointer ;}
+#root main .cnt--seasons--pick-season article label button  { display: none ; }
+#root main .cnt--seasons--pick-season article label h3  { border-radius: var(--edge) ; background-color: var(--wht); color: var(--blk) ; padding: 0.5em ; margin: 0  ; font-family: var(--move-font) ; font-weight: 400 ; text-align: center ; }
+#root main .cnt--seasons--pick-season article.on label h3  { background: var(--on) ; color: var(--wht);}
+#root main .cnt--seasons--pick-season article label .season   { display: grid;  grid-template: auto / repeat(4,1fr) ; gap: 0.5em  ; margin: 0.5em ; padding: 0 ; list-style-type: none ; }
+#root main.use--new-1963 .cnt--seasons--pick-season article label .season  { grid-template: auto / repeat(3,1fr) ;}
+#root main .cnt--seasons--pick-season article label .season ul   { display: block ; padding: 0 ; margin: 0 ;  list-style-type: none ;  font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
+#root main .cnt--seasons--pick-season article label .season ul li  { display: block ; padding: 0.5em ; margin: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
+#root main .cnt--seasons--pick-season article label .season ul li.name  { display: block ; border-radius: var(--edge) ; }
+#root main .cnt--seasons--pick-season article label .season ul li.laps  { display: none ; }
+#root main .cnt--seasons--pick-season article label .season ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto 0 ; width: 60% ; }
+#root main .cnt--seasons--pick-season article label .season ul li.flag img  { position: relative ; }
+#root main .cnt--seasons--pick-season article label .season ul li.flag img  { width: 100% ; display: block ; }
+#root main .cnt--seasons--pick-season article.season-1963 ,
+#root main .cnt--seasons--pick-season article.season-1964  { display: none ; }
+#root main.use--new-1963 .cnt--seasons--pick-season  { grid-template: auto / 1fr 1fr ; }
+#root main.use--new-1963 .cnt--seasons--pick-season article.season-1963-legacy  { display: none ; }
+#root main.use--new-1963 .cnt--seasons--pick-season article.season-1963 ,
+#root main.use--new-1963 .cnt--seasons--pick-season article.season-1964  { display: block ; }
 @media ( max-width: 1240px )  { 
-	#root main.use--new-1963 .control-panel--seasons--pick-season  { grid-template: auto / 1fr ; }
+	#root main.use--new-1963 .cnt--seasons--pick-season  { grid-template: auto / 1fr ; }
 }
 @media ( max-width: 800px )  { 
-	#root main .control-panel--seasons--pick-season article label .season ul li.laps , 
-	#root main .control-panel--seasons--pick-season article label .season ul li.name  { display: none ; }
-	#root main .control-panel--seasons--pick-season article label .season ul li.flag   { width: 80% ; }
+	#root main .cnt--seasons--pick-season article label .season ul li.laps , 
+	#root main .cnt--seasons--pick-season article label .season ul li.name  { display: none ; }
+	#root main .cnt--seasons--pick-season article label .season ul li.flag   { width: 80% ; }
 }
 @media ( max-width: 480px )  { 
-	#root main .control-panel--seasons--pick-season article label .season  { display: grid;  grid-template: repeat(2,1fr) / repeat(2,1fr) ; }
+	#root main .cnt--seasons--pick-season article label .season  { display: grid;  grid-template: repeat(2,1fr) / repeat(2,1fr) ; }
 }
 @media ( max-width: 640px )  { 
 }
