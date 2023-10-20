@@ -14,9 +14,8 @@ import icon_ita from './assets/icons/ita.svg';
 import icon_ned from './assets/icons/ned.svg';
 import icon_jap from './assets/icons/jap.svg';
 import cross from './assets/icons/cross.svg';
-import shuffleOn from './assets/images/shuffle--ffffff.svg';
-import shuffleOff from './assets/images/shuffle--333333.svg';
-import nextOn from './assets/images/next--ffffff.svg';
+import shuffle from './assets/icons/icon-shuffle.svg';
+import next from './assets/icons/icon-next.svg';
 
 import finish from './assets/images/flag-checkered-solid--ffffff.svg';
 import unfinish from './assets/images/xmark-solid--ffffff.svg';
@@ -30,6 +29,6 @@ import jap from './assets/icons/flag-jap.svg';
 
 export { 
  season , seasons , cog , cross ,  drivers , race , shield , icon_usa , icon_gbr , icon_fra , icon_ita , icon_ned , icon_jap ,
- usa , gbr , fra , ita , ned , jap ,shuffleOn ,shuffleOff , finish , unfinish ,nextOn ,standings
+ usa , gbr , fra , ita , ned , jap ,shuffle ,finish , unfinish ,next ,standings
 
 } ;

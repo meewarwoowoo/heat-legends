@@ -1,7 +1,7 @@
 import React, { useState , useReducer } from 'react';
 import { defaultPlacesJSON, defaultDeckJSON , defaultDriversSpeedGridJSON } from './localJSON';
 import { getTrackFromAbbr , getActiveRaceIdx , shuffleDeck , doToast , doConfirm } from './util/Utils';
-import { nextOn , shuffleOn , shuffleOff } from './images';
+import { shuffle , next } from './images';
 import Driver from './Driver';
 import './Race.css';
 
@@ -120,18 +120,21 @@ const Round = (props) => {
 
 			</main>
 			<section id="deck">
-				<ol className="deck">
-					<>
-						{ [1,2,3,4,5,6,7,8,9,10].map( (item,idx) => (<li key={idx} onClick={setCardFromDeck} className={((deckCard) === idx)?'on':'off'}>{item}</li>) ) }
-					</>
-					<li onClick={setShuffledDeck}><img src={shuffleOn} className="off" /><img src={shuffleOff} className="on" /></li>
-				</ol>
+				<div className="cnt">
+					<ul>
+						<li onClick={setNextCard}><span><img src={ (deckCard === (deckJSON.length-1))?shuffle:next } /></span></li>
+					</ul>
+					<ol>
+						<>
+							{ [1,2,3,4,5,6,7,8,9,10].map( (card,cardIdx) => (<li key={cardIdx} onClick={setCardFromDeck} className={((deckCard)===cardIdx)?'on':'off'}><span className="number">{card}</span></li>) ) }
+						</>
+					</ol>
+					<ul>
+						<li onClick={setShuffledDeck}><span><img src={shuffle} /></span></li>
+					</ul>
+				</div>
 			</section>
-			<section id="next">
-				<ul>
-					<li onClick={setNextCard}>{ <img src={ (deckCard === (deckJSON.length-1))?shuffleOn:nextOn } />}</li>
-				</ul>
-			</section>
+
 		</>
 	);
 };

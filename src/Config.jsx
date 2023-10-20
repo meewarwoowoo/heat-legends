@@ -9,6 +9,7 @@ const Config = (props) => {
     const [ showSplitNumbers , setShowSplitNumbers ] = useState(props.configJSON.showSplitNumbers);
     const [ showMoreWhite , setShowMoreWhite  ] = useState(props.configJSON.showMoreWhite);
     const [ showFinishOnRace , setShowFinishOnRace ] = useState(props.configJSON.showFinishOnRace);
+    const [ showCards , setShowCards ] = useState(props.configJSON.showCards);
     const [ showGrid , setShowGrid ] = useState(props.configJSON.showGrid);
     const [ useNew1963 , setUseNew1963 ] = useState(props.configJSON.useNew1963);
 	const [, forceUpdate] = useReducer(x => x + 1, 0);
@@ -95,6 +96,12 @@ const Config = (props) => {
 						<h3>Layout Settings</h3>
 					</header>
 					<ul>
+						<li className="switch">
+							<label><input type="checkbox" checked={showCards} onChange={(e) => { setShowCards(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showCards') }} data-value="showCards" />
+								<span className="hdr">Show cards</span>
+								<span className="txt">Displays the ten Legends cards from the deck.</span>
+							</label>
+						</li>
 						<li className="switch">
 							<label><input type="checkbox" checked={showMoreWhite} onChange={(e) => { setShowMoreWhite(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showMoreWhite') }} data-value="showMoreWhite" />
 								<span className="hdr">Show more white space</span>
