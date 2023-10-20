@@ -80,13 +80,11 @@ const Race = (props) => {
 				<div className="cnt">
 					<ul>
 						<li onClick={setNextCard}><span><img src={ (deckCard === (deckJSON.length-1))?shuffle:next } /></span></li>
-					</ul>
-					<ol>
-						<>
-							{ [1,2,3,4,5,6,7,8,9,10].map( (card,cardIdx) => (<li key={cardIdx} onClick={setCardFromDeck} className={((deckCard)===cardIdx)?'on':'off'}><span className="number">{card}</span></li>) ) }
-						</>
-					</ol>
-					<ul>
+						<li className="cards">
+							<ol>
+								{ [1,2,3,4,5,6,7,8,9,10].map( (card,cardIdx) => (<li key={cardIdx} onClick={setCardFromDeck} className={((deckCard)===cardIdx)?'on':'off'}><span className="number">{card}</span></li>) ) }
+							</ol>
+						</li>
 						<li onClick={setShuffledDeck}><span><img src={shuffle} /></span></li>
 					</ul>
 				</div>
