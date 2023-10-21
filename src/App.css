@@ -108,27 +108,29 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 #root main  { display: grid ; grid-template: auto 1fr / auto ; align-items: stretch ; align-content: stretch ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
 
 
-
 #root main header   { display: block ; width: 100% ; grid-column: 1 / -1 ; }
 #root main header h2 ,
-#root main header h3 { border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; }
+#root main header h3 { display: block ; border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; }
 #root main header h2 { font-size: 1.5em ; }
 #root main header h3 { font-size: 1em ; }
 @media screen and (max-width: 1920px){
 	#root main header * span   { display: none ; }  
 }
 
+.action-do   { position: relative ; display: inline-block ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: 0.25em ; padding: 0.75em 1em 0.75em 2em ; font-family: var(--text-font); text-transform: uppercase;  cursor: pointer; }
+.action-do::before   { position: absolute  ; content: ''; top: calc( 50% - 0.375em )  ; left: 0.925em ; width: 0 ; height: 0 ; border: 0.375em solid transparent ; border-left-color: var(--wht) ; border-left-width: 0.45em  ; }
+.action-do:hover  { background-color:  var(--blk) ; }
+.warning .action-do  { background-color:  var(--warning) ; }
+.warning .action-do:hover  { background-color:  var(--blk) ; }
+
+
 #root main .cnt--actions  { display: flex ; flex-flow: row wrap ; gap: var(--gap) ; }
 #root main .cnt--actions header h3 { background-color: var(--blk-low) ; color: var(--blk) ; }
 #root main .cnt--actions .action   { display: flex ; flex-flow: row wrap ;  max-width: 15em  ; width: 100% ;  background-color: var(--mid) ; border-radius: var(--edge) ; padding: 0.5em ; overflow: hidden ; cursor: pointer ;  align-content: flex-start; }
 #root main .cnt--actions .action:hover    { outline: 0.125em solid var(--hgh) ; background-color:  var(--on) ; color: var(--wht) ; }
-#root main .cnt--actions .action.warning:hover   { background-color:  var(--warning) ; }
 #root main .cnt--actions .action button   { display: none; }
-#root main .cnt--actions .action .hdr   { position: relative ; order: 0 ; display: inline-block ; align-self: flex-end ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: 0.25em ; padding: 0.75em 1em 0.75em 2em ; font-family: var(--text-font); text-transform: uppercase; }
-#root main .cnt--actions .action .hdr::before   { position: absolute  ; content: ''; top: calc( 50% - 0.375em )  ; left: 0.925em ; width: 0 ; height: 0 ; border: 0.375em solid transparent ; border-left-color: var(--wht) ; border-left-width: 0.45em  ; }
-#root main .cnt--actions .action:hover .hdr   { background-color:  var(--blk) ; }
-#root main .cnt--actions .action.warning .hdr   {background-color:  var(--warning) ; }
-#root main .cnt--actions .action.warning:hover .hdr  { background-color:  var(--blk) ; }
+#root main .cnt--actions .action .hdr   { order: 0 ; align-self: flex-end ; }
+#root main .cnt--actions .action:hover .hdr    { background-color:  var(--blk) ; color: var(--wht) ; }
 #root main .cnt--actions .action .txt   { order: 1 ; display: block ; padding: 1em 0 ; width: 100% ; font-family: var(--text-font); }
 #root main .cnt--actions .action.season-1963 ,
 #root main .cnt--actions .action.season-1964  { display: none ; }
@@ -141,3 +143,11 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 	#root main .cnt--actions .action   { order: 5 ; }
 
 }
+
+
+
+#over  { position: fixed ; inset: 0 ; display: grid ; align-items: center ; justify-items: center ; background-color: var(--blk-high) ; color: var(--wht) ; }
+#over .ins  { max-width: 400px;  color: var(--blk) ; background-color: var(--wht) ; border-radius: 0.5em ; padding: 0.5em 1em 0.5em 0.5em ;  }
+#over .ins p  { margin: 0 ; padding: 0.5em  ; }
+#over .ins ul  { display: flex ; gap: 0.5em ; margin: 0 ; padding: 0.5em  ; list-style-type: none ; }
+#over .ins ul li  { list-style-type: none ; }

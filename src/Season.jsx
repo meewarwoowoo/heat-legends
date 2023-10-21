@@ -86,7 +86,7 @@ const Season = (props) => {
 
 					<section className="cnt--season--pick-race">
 						<header>
-							<h2>The {props.seasonJSON.year} Championship</h2>
+							<h2>Championships / The {props.seasonJSON.year} Championship Races</h2>
 						</header>
 						<div className="full">
 							{ 
@@ -120,17 +120,17 @@ const Season = (props) => {
 						</header>
 						<label className="action">
 							<button onClick={() => { props.setMain("Round") ; }}>Race</button>
-							<span className="hdr">Race</span>
+							<span className="hdr action-do">Race</span>
 							<span className="txt">The {getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} Race from The {props.seasonJSON.year} Championship.</span>
 						</label>
 						<label className="action">
 							<button onClick={() => { props.setMain("Standings") ; }}>Standings</button>
-							<span className="hdr">Standings</span>
+							<span className="hdr action-do">Standings</span>
 							<span className="txt">The {props.seasonJSON.year} Driver Championship standings.</span>
 						</label>
 						<label className="action warning">
 							<button onClick={resetSeasonJSON}>Reset</button>
-							<span className="hdr">Reset</span>
+							<span className="hdr action-do">Reset</span>
 							<span className="txt">Remove all results for The {props.seasonJSON.year} Championship.</span>
 						</label>
 					</section>

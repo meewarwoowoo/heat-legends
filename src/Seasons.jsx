@@ -96,20 +96,20 @@ const Seasons = (props) => {
 					{ defaultSeasonsJSON.map( (season,idx) => (
 						<label key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={"action season-"+(season.year).replace(' ','-').toLowerCase()}>
 							<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>{season.year}</button>
-							<span className="hdr">{season.year}</span>
+							<span className="hdr action-do">{season.year}</span>
 							<span className="txt">Start The {season.year} Championship.</span>
 						</label>
 					))}
 
 					<label className="action">
 						<button onClick={() => { props.setMain("Config") ; }}>Settings</button>
-						<span className="hdr">Settings</span>
+						<span className="hdr action-do">Settings</span>
 						<span className="txt">Change the number of races in the 1963 Championship.</span>
 					</label>
 
 					<label className="action warning">
 						<button onClick={resetSeasonJSON}>Reset</button>
-						<span className="hdr">Reset</span>
+						<span className="hdr action-do">Reset</span>
 						<span className="txt">Remove all results for the current Championship.</span>
 					</label>
 				</footer>

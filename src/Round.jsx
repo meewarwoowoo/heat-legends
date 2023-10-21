@@ -90,7 +90,7 @@ const Round = (props) => {
 			<main className={props.getMainClassList()} style={{"--drivers": getActiveDrivers() }}>
 				<section className="cnt--race">
 					<header>
-						<h2>Race {getActiveRaceIdx(props.seasonJSON)+1} {props.seasonJSON && props.seasonJSON.races && getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} <span>{props.seasonJSON.year} Championship</span></h2>
+						<h2>Championships / The {props.seasonJSON.year} Championship / Race {getActiveRaceIdx(props.seasonJSON)+1} {props.seasonJSON && props.seasonJSON.races && getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} <span>{props.seasonJSON.year} Championship</span></h2>
 					</header>
 					<div className="full">
 						{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
@@ -103,17 +103,17 @@ const Round = (props) => {
 					</header>
 					<label className="action">
 						<button  onClick={setNextCard}>Next Card</button>
-						<span className="hdr">Next Card</span>
+						<span className="hdr action-do">Next Card</span>
 						<span className="txt">Draw the next Legend Card.  You can do this with the big black arrow too.</span>
 					</label>
 					<label className="action">
 							<button onClick={() => { props.setMain("Standings") ; }}>Standings</button>
-							<span className="hdr">Standings</span>
+							<span className="hdr action-do">Standings</span>
 							<span className="txt">The {props.seasonJSON.year} Driver Championship standings.</span>
 					</label>
 					<label className="action">
 							<button onClick={() => { props.setMain("Season") ; }}>Championship</button>
-							<span className="hdr">Championship</span>
+							<span className="hdr action-do">Championship</span>
 							<span className="txt">See The {props.seasonJSON.year} Championship.</span>
 					</label>
 				</section>

@@ -19,10 +19,14 @@ const doToast = (txt) => {
 }
 
 const doConfirm = (txt,callback) => {
-//        if(true || confirm(txt)){
-    if(true){
+    document.getElementById('root').insertAdjacentHTML("afterend",'<div id="over"><div class="ins"><p>'+txt+'</p><ul><li class="action-do" id="over--confirm">Yes</li><li class="action-do" id="over--reject">No</li></ul></div></div>');
+    document.getElementById('over--confirm').addEventListener('click',()=>{
+        document.getElementById('over').remove();
         callback();
-    }
+    })
+    document.getElementById('over--reject').addEventListener('click',()=>{
+        document.getElementById('over').remove();
+    })
 }
 const getTrackFromAbbr = (abbr) => {
     let lockIdx = false;
