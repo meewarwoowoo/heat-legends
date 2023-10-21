@@ -56,7 +56,7 @@ const Season = (props) => {
 	const SeasonResultsBodyRow = (props) => {
 		let line = '';
 		if(props.standingRowIdx === 0) {
-			line = <><th className="driver">{props.standingRow.name}</th><td className="team">{props.standingRow.team}</td><td className="colour">{props.standingRow.colour}</td></>;
+			line = <><th className="driver"><span className="name">{props.standingRow.name}</span><span className="team">{props.standingRow.team}</span><span className="colour">{props.standingRow.colour}</span></th></>;
 		} else if(props.standingRowIdx === (props.finalRowIdx-1)) {
 			line = <><td className="total">{props.standingRow}</td></>;
 		} else {
@@ -83,7 +83,7 @@ const Season = (props) => {
 
 					<section className="cnt--season--standings">
 						<header>
-							<h2>The {props.seasonJSON.year} Championship Standings</h2>
+							<h2>Championships / The {props.seasonJSON.year} Championship Standings</h2>
 						</header>
 						<div className="full">
 							<table>
@@ -91,8 +91,6 @@ const Season = (props) => {
 									<tr>
 										<th className="position">&nbsp;</th>
 										<th className="driver">Driver</th>
-										<th className="team">Team</th>
-										<th className="colour">Colour</th>
 										{ props.seasonJSON.races.map((race,raceIdx) => ( <th colSpan="2" key={race.track}><img src={getFlagFromTrack(race.track)} /></th> )) }
 										<th className="total">Total</th>
 									</tr>
@@ -120,17 +118,17 @@ const Season = (props) => {
 						</header>
 						<label className="action">
 							<button onClick={() => { props.setMain("Round") ; }}>Race</button>
-							<span className="hdr">Race</span>
+							<span className="hdr action-do">Race</span>
 							<span className="txt">The {getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} Race from The {props.seasonJSON.year} Championship.</span>
 						</label>
 						<label className="action">
 							<button onClick={() => { props.setMain("Season") ; }}>Championship</button>
-							<span className="hdr">Championship</span>
+							<span className="hdr action-do">Championship</span>
 							<span className="txt">See The {props.seasonJSON.year} Championship.</span>
 						</label>
 						<label className="action warning">
 							<button onClick={resetSeasonJSON}>Reset</button>
-							<span className="hdr">Reset</span>
+							<span className="hdr action-do ">Reset</span>
 							<span className="txt">Remove all results for The {props.seasonJSON.year} Championship.</span>
 						</label>
 					</footer>
