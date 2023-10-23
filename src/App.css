@@ -27,8 +27,6 @@
 	--off:			rgb(192,0,0);
 	--warning:		rgb(255,0,0);
 	--move-width:	5.75em ; 
-	--menu-height:  
-
 }
 
 @font-face{
@@ -75,6 +73,7 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 }
 	
 #root main  { --gap: 0.5rem ; --edge: 0.25rem ; --box: none ; }
+#root main  { --gap: 0 ; --edge: 0 ; --box: none ; }
 #root main.show--more-white  { --gap: 1rem ; --edge: 1rem ; --box: inset 0.25em 0 1rem -0.75em rgba(0,0,0,0.5) ; }
 #root main.move--split  { --move-width: 8.5em ; }
 
@@ -91,7 +90,7 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 }
 @media screen and (max-width: 1240px){
 	body  { font-size: 1.5em ; }  
-	#root main  { --gap: 0.25rem ; --edge: 0.125rem ; }
+	#root main.show--more-white  { --gap: 0.25rem ; --edge: 0.125rem ; }
 }
 @media screen and (max-width: 990px){
 	body  { font-size: 1.375em ; }
@@ -101,7 +100,6 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 }
 @media screen and (max-width: 640px){
 	body  { font-size: 1em ; }  
-	#root  { --menu-height: 3.25em ; }
 }
 
 #root main  { display: grid ; grid-template: 1fr / auto ; align-items: stretch ; align-content: stretch ; align-items: flex-start ; align-content: flex-start ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
@@ -126,7 +124,7 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 #root main header h3  { font-size: 1em ; padding: 0 ; margin: 0.5em 0.5em 0.5em 0; }
 
 
-.action-do   { position: relative ; display: inline-block ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: 0.25em ; padding: 0.5em 0.75em 0.5em 1.75em ; font-family: var(--text-font);  cursor: pointer; }
+.action-do   { position: relative ; display: inline-block ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: var(--edge) ; padding: 0.5em 0.75em 0.5em 1.75em ; font-family: var(--text-font);  cursor: pointer; }
 .action-do::before   { position: absolute  ; content: ''; top: calc( 50% - 0.325em )  ; left: 0.75em ; width: 0 ; height: 0 ; border: 0.375em solid transparent ; border-left-color: var(--wht) ; border-left-width: 0.45em  ; }
 .action-do:hover  { background-color:  var(--blk) ;  outline: 0.125em solid var(--hgh) ;  }
 .warning .action-do  { background-color:  var(--warning) ; }

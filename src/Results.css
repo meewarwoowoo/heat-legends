@@ -8,7 +8,7 @@
 #root main .cnt--results--pick-race  { display: grid ; grid-template: auto / repeat(4,1fr) ; gap: var(--gap)  ; }
 #root main.use--new-1963 .cnt--results--pick-race  { grid-template: auto / repeat(3,1fr)  ; }
 #root main .cnt--results--pick-race .full { display: contents ; }
-#root main .cnt--results--pick-race article  {  padding: 0 ; margin: 0 ; border-radius:  var(--edge) ; overflow: hidden; background: var(--off) ; }
+#root main .cnt--results--pick-race article  {  padding: 0 ; margin: 0 ; border-radius: var(--gap) ; overflow: hidden; background: var(--off) ; }
 #root main .cnt--results--pick-race article.on  { cursor: default ; }
 #root main .cnt--results--pick-race article:hover  { outline: 0.125em solid var(--hgh) ; }
 #root main .cnt--results--pick-race article label  { display: grid ; grid-template: repeat(4,auto) / auto ; padding: 0.5em ; margin: 0 ; cursor: pointer ;}
@@ -18,6 +18,7 @@
 #root main .cnt--results--pick-race article label ul li  { display: block ; padding: 0.5em ; margin:  0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ;  }
 #root main .cnt--results--pick-race article label ul li.name  { display: block ; border-radius: var(--edge)  ; background-color: var(--wht) ; color: var(--bkg) ; padding: 0.5em ; margin: 0 0 var(--gap) }
 #root main .cnt--results--pick-race article.on label ul li.name  { background: var(--on) ; color: var(--wht) ; }
+#root main .cnt--results--pick-race article label ul li.action  { display: none ; }
 
 #root main .cnt--results--pick-race article label ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto  ; width: 60% ; }
 #root main .cnt--results--pick-race article label ul li.flag img  { width: 100% ; display: block ; }
@@ -37,73 +38,18 @@
 @media ( max-width: 1024px )  { 
 	#root main .cnt--results--pick-race ,
 	#root main.use--new-1963 .cnt--results--pick-race  { grid-template: auto / 1fr ; }
-	#root main .cnt--results--pick-race article label  { position: relative ; padding: var(--gap) var(--gap) var(--gap) 25%  ;  }
+	#root main .cnt--results--pick-race article label  { position: relative ; padding: var(--gap) 30% var(--gap) var(--gap)   ;  }
 	#root main.use--new-1963 .cnt--results--pick-race article label  { grid-template: repeat(3,auto) / auto ; }
 	#root main .cnt--results--pick-race article label ul   { display: grid ; margin: 0 ; }
 	#root main .cnt--results--pick-race article label ul li  { text-align: left ; margin: 0 ; }
-	#root main .cnt--results--pick-race article label ul li.name  { margin: 0 ;  }
+	#root main .cnt--results--pick-race article label ul li.name  { margin: 0 ; border-radius: 0 ; }
 	#root main .cnt--results--pick-race article label ul li.event  { text-align: left ; }
-	#root main .cnt--results--pick-race article label ul li.flag   { position: absolute ; width: calc( 25% - ( var(--gap) * 2 ) )  ; top: var(--gap) ; left: var(--gap) ; margin: 0 ; padding: 0 ; }
-	#root main .cnt--results--pick-race article label ul li.flag img  { border-radius: 0.25rem  ;  }
-	#root main .cnt--results--pick-race article label ol   { display: grid ; margin: var(--gap) 0 0 ;  }
-	#root main .cnt--results--pick-race article label ol li  { margin: 0 ; }
-
+	#root main .cnt--results--pick-race article label ul li.flag   { position: absolute ; width: 27.5% ; top: 0; right: 0 ; padding: var(--gap) ; margin: 0 ; }
+	#root main .cnt--results--pick-race article label ul li.flag img  { border-radius: var(--gap) ; }
+	#root main .cnt--results--pick-race article label ol   { display: block  ; margin: var(--gap) 0 0 ;  }
+	#root main .cnt--results--pick-race article label ol li  { display: inline-block  ;margin: 0 ; border-radius: 0 ; }
+	
 }
 @media ( max-width: 480px )  { 
-	#root main .cnt--results--pick-race article label  {padding: var(--gap) ;  }
-	#root main .cnt--results--pick-race article.results label ul li.flag ,
-	#root main .cnt--results--pick-race article label ul li.flag   { display: none ; }
+	#root main .cnt--results--pick-race article label ul li.flag img  { border-radius: 0.125rem  ;  }
 }
-
-/*
-#root main .cnt--results--current-race  { --off : var(--mid) ;}
-#root main.season-over .cnt--results--current-race   {  --off: var(--mid) ; }
-#root main .cnt--results--current-race  { display: grid ; grid-template: auto 1fr / repeat(4,1fr) ; gap: var(--gap)  ; }
-#root main.use--new-1963 .cnt--results--current-race  { grid-template: auto 1fr/ repeat(3,1fr)  ; }
-#root main .cnt--results--current-race .full { display: contents ; }
-#root main .cnt--results--current-race article  {  padding: 0 ; margin: 0 ; border-radius:  var(--edge) ; overflow: hidden; background: var(--off) ; }
-#root main .cnt--results--current-race article.on  { background: var(--on) ; cursor: default ; }
-#root main .cnt--results--current-race article:hover  { outline: 0.125em solid var(--hgh) ; }
-#root main .cnt--results--current-race article label  { display: grid ; grid-template: repeat(4,auto) / auto ; padding: 0.5em ; margin: 0 ; cursor: pointer ;}
-#root main .cnt--results--current-race article label button  { display: none ;  }
-#root main .cnt--results--current-race article label h3  { display: none ; }
-#root main .cnt--results--current-race article label ul   { display: block ; padding: 0 ; margin: 0 ; list-style-type: none ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; list-style-type: none ; gap: 0 ; }
-#root main .cnt--results--current-race article label ul li  { display: block ; padding: 0.5em ; margin:  0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ;  }
-#root main .cnt--results--current-race article label ul li.name  { display: block ; border-radius: var(--edge)  ; background-color: var(--wht) ; color: var(--bkg) ; padding: 0.5em ; margin: 0 0 var(--gap) }
-#root main .cnt--results--current-race article label ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto  ; width: 60% ; }
-#root main .cnt--results--current-race article label ul li.flag img  { width: 100% ; display: block ; }
-#root main .cnt--results--current-race article label ol   { display: grid ; margin:  0 0 ; padding: 0 ; gap: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: left ; width: 100% ;  }
-#root main .cnt--results--current-race article label ol li  { position: relative ; display: block ; padding: 0 ; margin: 0  ; border-radius: var(--edge) ; font-weight: 400 ; text-align: left ; background-color: var(--bkg) ; color: var(--txt) ;  }
-#root main .cnt--results--current-race article label ol li span { display: inline-block ;  padding: 0.5em 0.5em 0.5em 0 ; }
-#root main .cnt--results--current-race article label ol li span:first-of-type { font-family: var(--text-font) ; font-size: 0.5em ; padding: 1em  ;}
-#root main .cnt--results--current-race article.results label ul li  { display: none; }
-#root main .cnt--results--current-race article.results label ul li.name ,
-#root main .cnt--results--current-race article.results label ul li.flag  { display: block ; }
-#root main .cnt--results--current-race article.no-results label ol   { display: none; }
-
-@media ( max-width: 1600px )  { 
-}
-@media ( max-width: 1240px )  { 
-}
-@media ( max-width: 1024px )  { 
-	#root main .cnt--results--current-race ,
-	#root main.use--new-1963 .cnt--results--current-race  { grid-template: auto / 1fr ; }
-	#root main .cnt--results--current-race article label  { position: relative ; padding: var(--gap) var(--gap) var(--gap) 25%  ;  }
-	#root main.use--new-1963 .cnt--results--current-race article label  { grid-template: repeat(3,auto) / auto ; }
-	#root main .cnt--results--current-race article label ul   { display: grid ; margin: 0 ; }
-	#root main .cnt--results--current-race article label ul li  { text-align: left ; margin: 0 ; }
-	#root main .cnt--results--current-race article label ul li.name  { margin: 0 ;  }
-	#root main .cnt--results--current-race article label ul li.event  { text-align: left ; }
-	#root main .cnt--results--current-race article label ul li.flag   { position: absolute ; width: calc( 25% - ( var(--gap) * 2 ) )  ; top: var(--gap) ; left: var(--gap) ; margin: 0 ; padding: 0 ; }
-	#root main .cnt--results--current-race article label ul li.flag img  { border-radius: 0.25rem  ;  }
-	#root main .cnt--results--current-race article label ol   { display: grid ; margin: var(--gap) 0 0 ;  }
-	#root main .cnt--results--current-race article label ol li  { margin: 0 ; }
-
-}
-@media ( max-width: 480px )  { 
-	#root main .cnt--results--current-race article label  {padding: var(--gap) ;  }
-	#root main .cnt--results--current-race article.results label ul li.flag ,
-	#root main .cnt--results--current-race article label ul li.flag   { display: none ; }
-}
-
-*/
