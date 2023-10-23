@@ -38,12 +38,13 @@
 #root main .cnt--race article .move :is(.move__fast,.move__bend,.move__exit)  { position: relative ; line-height: 1em ; padding: 0 ; margin: 0 ; justify-content: center ; }
 #root main .cnt--race article .move .move__fast  { display: flex ; order: 05 ; font-size: 1.5em ; } 
 #root main .cnt--race article .move .move__bend  { display: flex ; order: 10 ; font-size: 0.75em ; } 
-#root main .cnt--race article .move .move__exit  { display: none ; font-size: 0.75em ;  }
+#root main .cnt--race article .move .move__exit  { display: none ; font-size: 0.75em ; }
 #root main .cnt--race article .move .move__fast span  ,
 #root main .cnt--race article .move .move__bend span  ,
 #root main .cnt--race article .move .move__exit span  { position: relative ; z-index: 20 ; } 
-#root main .cnt--race article .move .move__exit span  { color: var(--bkg) ; } 
-#root main .cnt--race article .move .move__exit::before  {  background-color: var(--txt) ;  } 
+#root main .cnt--race article .move .move__exit span  { color: var(--wht) ; } 
+#root main .cnt--race article .move .move__exit span.blk  { color: var(--blk) ; } 
+#root main .cnt--race article .move .move__exit::before  {  background-color: var(--txt) ; } 
 #root main:is(.move--split) .cnt--race article .move .move__fast  { order: 20 ; } 
 #root main:is(.move--split) .cnt--race article .move .move__bend  { order: 10 ; } 
 #root main:is(.move--split) .cnt--race article .move .move__exit  { display: flex ; order: 30 ; } 

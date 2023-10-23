@@ -108,6 +108,8 @@ const getDriverArticleDataColour = (driver) => {
         "--txt": defaultColoursJSON.find(el=>el.name===driver.colour).txt 
     };
 }
+const getDriverArticleDataColourContrast = (driver) => { 
+    if(defaultColoursJSON.find(el=>el.name===driver.colour).txt==='rgb(255,255,255)') return 'blk';
+}
 
-
-export {  getNumberWithOrdinal, getDriverFromId , getDriverArticleDataColour, getFlagFromTrack , getNameFromDriverId, getActiveRaceIdx , getResultFromRace , getPointsFromRace , getTrackFromAbbr , shuffleDeck , doToast , doConfirm }
+export {  getNumberWithOrdinal, getDriverFromId , getDriverArticleDataColour, getDriverArticleDataColourContrast , getFlagFromTrack , getNameFromDriverId, getActiveRaceIdx , getResultFromRace , getPointsFromRace , getTrackFromAbbr , shuffleDeck , doToast , doConfirm }

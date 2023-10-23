@@ -1,6 +1,6 @@
 import React from 'react';
 import { defaultTracksJSON } from './localJSON';
-import { getDriverArticleDataColour } from './util/Utils';
+import { getDriverArticleDataColour , getDriverArticleDataColourContrast } from './util/Utils';
 import { finish , unfinish } from './images';
 
 const Driver = (props) => {
@@ -77,7 +77,7 @@ const Driver = (props) => {
 					<div key="move" className="move">
 						<div className="move__fast"><span>{move(driverJSON.id).fast}</span></div>
 						<div className="move__bend"><span>{move(driverJSON.id).bend}</span></div>
-						<div className="move__exit"><span>{move(driverJSON.id).exit}</span></div>
+						<div className="move__exit"><span className={getDriverArticleDataColourContrast(driverJSON)}>{move(driverJSON.id).exit}</span></div>
 					</div>
 					<div className="race">
 						<div className="race__result">{props.getDriverArticleDataResultText(getDriverArticleDataDriver())}</div>
