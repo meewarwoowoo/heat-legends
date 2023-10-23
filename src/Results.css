@@ -6,7 +6,7 @@
 #root main .cnt--results--pick-race  { display: grid ; grid-template: auto / repeat(4,1fr) ; gap: var(--gap)  ; }
 #root main.use--new-1963 .cnt--results--pick-race  { grid-template: auto / repeat(3,1fr)  ; }
 #root main .cnt--results--pick-race .full { display: contents ; }
-#root main .cnt--results--pick-race article  {  padding: 0 ; margin: 0 ; border-radius: var(--gap) ; overflow: hidden; background: var(--off) ; }
+#root main .cnt--results--pick-race article  {  padding: 0 ; margin: 0 ; border-radius: var(--gap) ; overflow: hidden; background: var(--texture) 0 0 / 4px 4px repeat , var(--off) ; }
 #root main .cnt--results--pick-race article.on  { cursor: default ; }
 #root main .cnt--results--pick-race article:hover  { outline: 0.125em solid var(--hgh) ; }
 #root main .cnt--results--pick-race article label  { display: grid ; grid-template: repeat(4,auto) / auto ; padding: 0.5em ; margin: 0 ; cursor: pointer ;}
@@ -20,7 +20,7 @@
 #root main .cnt--results--pick-race article label ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto  ; width: 60% ; }
 #root main .cnt--results--pick-race article label ul li.flag img  { width: 100% ; display: block ; }
 #root main .cnt--results--pick-race article label ol   { display: grid ; margin:  0 0 ; padding: 0 ; gap: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: left ; width: 100% ;  }
-#root main .cnt--results--pick-race article label ol li  { position: relative ; display: block ; padding: 0 ; margin: 0  ; border-radius: var(--edge) ; font-weight: 400 ; text-align: left ; background-color: var(--bkg) ; color: var(--txt) ;  }
+#root main .cnt--results--pick-race article label ol li  { position: relative ; display: block ; padding: 0 ; margin: 0  ; border-radius: var(--edge) ; font-weight: 400 ; text-align: left ; background-color: var(--bkg) ; color: var(--txt) ;  font-family: var(--font) ; }
 #root main .cnt--results--pick-race article label ol li span { display: inline-block ; position: relative ;  padding: 0.5em 0.5em 0.5em 1.5em ; }
 #root main .cnt--results--pick-race article label ol li span:first-of-type { font-family: var(--text-font) ; font-size: 0.5em ; inset: 1.325em 0 0 -0.75em  ; position: absolute; }
 #root main .cnt--results--pick-race article.results label ul li  { display: none; }
