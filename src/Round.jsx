@@ -2,7 +2,7 @@ import React, { useState , useReducer } from 'react';
 import { defaultPlacesJSON, defaultDeckJSON , defaultDriversSpeedGridJSON } from './localJSON';
 import { getTrackFromAbbr , getActiveRaceIdx , shuffleDeck , doToast , doConfirm } from './util/Utils';
 import { shuffle , next } from './images';
-import SeasonHeader from './SeasonHeader';
+import Header from './Header';
 import Driver from './Driver';
 import './Race.css';
 
@@ -48,7 +48,7 @@ const Round = (props) => {
 		props.setSeasonJSON(workingSeasonJSON);
 		forceUpdate();
 		if(numberOfDriversFinished === numberOfDrivers){
-			props.setMain('Season')
+			props.setMain('Results')
 		};
 	};
 
@@ -90,31 +90,10 @@ const Round = (props) => {
 		<>
 			<main className={props.getMainClassList()} style={{"--drivers": getActiveDrivers() }}>
 				<section className="cnt--race">
-					<SeasonHeader {...props}/>
+					<Header {...props}/>
 					<div className="full">
 						{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
 					</div>
-				</section>
-
-				<section className="cnt--actions">
-					<header>
-						<h3>Actions</h3>
-					</header>
-					<label className="action">
-						<button  onClick={setNextCard}>Next Card</button>
-						<span className="hdr action-do">Next Card</span>
-						<span className="txt">Draw the next Legend Card.  You can do this with the big black arrow too.</span>
-					</label>
-					<label className="action">
-							<button onClick={() => { props.setMain("Standings") ; }}>Standings</button>
-							<span className="hdr action-do">Standings</span>
-							<span className="txt">The {props.seasonJSON.year} Driver Championship standings.</span>
-					</label>
-					<label className="action">
-							<button onClick={() => { props.setMain("Season") ; }}>Championship</button>
-							<span className="hdr action-do">Championship</span>
-							<span className="txt">See The {props.seasonJSON.year} Championship.</span>
-					</label>
 				</section>
 			</main>
 			<section id="deck">

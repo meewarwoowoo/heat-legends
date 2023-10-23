@@ -58,7 +58,7 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 
 
 #root  { display: grid ; min-height: 100vh ; min-width: 100% ; }
-#root  { 
+#root  { transition: 0.25s ease-in-out all;
 	grid-template-rows: 4.5em auto 4.5em ; grid-template-columns: 4.5em 4.5em auto auto 4.5em 4.5em;
 	grid-template-areas: 
 	"menu main main main main deck"
@@ -104,8 +104,10 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 	#root  { --menu-height: 3.25em ; }
 }
 
-#root main  { display: grid ; grid-template: fit-content 1fr / auto ; align-items: stretch ; align-content: stretch ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
-#root main > section > header.championship   { display: flex ; align-items: center ; justify-content: flex-end ; gap: 0 ; width: 100% ; height: 100% ; grid-column: 1 / -1 ; border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; font-size: 1em ; }
+#root main  { display: grid ; grid-template: 1fr / auto ; align-items: stretch ; align-content: stretch ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
+
+
+#root main > section > header.championship   { display: flex ; justify-self: flex-start ; align-items: center ; justify-content: flex-end ; gap: 0 ; width: 100% ; height: 100% ; grid-column: 1 / -1 ; border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; font-size: 1em ; }
 #root main > section > header.championship h2,
 #root main > section > header.championship h3  { margin: 0 0.5em 0 0 ; width: 100% ; display: flex ; font-size: 1em ; }
 #root main > section > header.championship h2  { display: none ;  }
@@ -133,24 +135,16 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 
 #root main .cnt--actions  { display: flex ; flex-flow: row wrap ; gap: var(--gap) ; position: relative ; }
 #root main .cnt--actions header { display: none ; }
-#root main .cnt--actions .action   { display: inline ; cursor: pointer ; }
+#root main .cnt--actions .action   { display: contents ; cursor: pointer ; }
 #root main .cnt--actions .action button   { display: none; }
 #root main .cnt--actions .action .hdr   { order: 0 ; }
 #root main .cnt--actions .action:hover .hdr    { background-color:  var(--blk) ; color: var(--wht) ; }
-#root main .cnt--actions .action .txt   { order: 1 ; display: none ; font-family: var(--text-font); }
-#root main .cnt--actions .action:hover .txt   { display: block ; position: absolute ; top: 3.25em ; padding: 0 0 0 0.25em ; font-size: 0.75em ; max-width: 15em ; }
+#root main .cnt--actions .action .txt   { display: none ; }
 #root main .cnt--actions .action.season-1963 ,
 #root main .cnt--actions .action.season-1964  { display: none ; }
 #root main.use--new-1963 .cnt--actions .action.season-1963-legacy  { display: none ; }
 #root main.use--new-1963 .cnt--actions .action.season-1963 ,
 #root main.use--new-1963 .cnt--actions .action.season-1964  { display: flex ; }
-@media screen and (max-width: 800px){
-	#root main .cnt--actions .action .txt   { padding: 0.5em 0 ;font-size: 1em ; }
-	#root main .cnt--actions header { order: 10 ;}
-	#root main .cnt--actions .action   { order: 5 ; }
-
-}
-
 
 
 #over  { position: fixed ; inset: 0 ; display: grid ; align-items: center ; justify-items: center ; background-color: var(--blk-high) ; color: var(--wht) ; }

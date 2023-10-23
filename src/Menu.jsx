@@ -22,7 +22,7 @@ const Menu = (props) => {
 					<li className={(props.main==='Seasons')?'on':'off'} onClick={() => { props.setMain("Seasons") ; }}><span><img src={seasons} /></span></li>
 					{props.seasonJSON ? 
 						<>
-							<li className={(props.main==='Season')?'on':'off'} onClick={() => { props.setMain("Season") ; }}><span><img src={season} /></span></li>
+							<li className={(props.main==='Results')?'on':'off'} onClick={() => { props.setMain("Results") ; }}><span><img src={season} /></span></li>
 							<li className={(props.main==='Standings')?'on':'off'} onClick={() => { props.setMain("Standings") ; }}><span><img src={standings} /></span></li>
 						</>
 						:null}

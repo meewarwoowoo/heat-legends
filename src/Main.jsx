@@ -2,7 +2,7 @@ import React , { useState , useEffect } from 'react';
 import { defaultDriversJSON, defaultConfigJSON } from './localJSON';
 import Race from './Race';
 import Seasons from './Seasons';
-import Season from './Season';
+import Results from './Results';
 import Standings from './Standings';
 import Round from './Round';
 import Drivers from './Drivers';
@@ -50,8 +50,8 @@ const Main = (props) => {
 	if (props.main === 'Seasons') {
 		return <Seasons {...props} {...backboneProps} />
 	};
-	if (props.main === 'Season') {
-		return <Season {...props} {...backboneProps} />
+	if (props.main === 'Results') {
+		return <Results {...props} {...backboneProps} />
 	};
 	if (props.main === 'Standings') {
 		return <Standings {...props} {...backboneProps} />

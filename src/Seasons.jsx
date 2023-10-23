@@ -45,13 +45,13 @@ const Seasons = (props) => {
 				workingSeasonJSON.races[2].event = defaultSeasonEventsJSON[workingSeasonJSON.races[2].event];
 			};
 			props.setSeasonJSON(workingSeasonJSON)
-			props.setMain('Season')
+			props.setMain('Results')
 			doToast('Starting Year ' + workingSeasonJSON.year);
-		});
+		},!props.seasonJSON);
 	};
 
 	const resetSeasonJSON = () => {
-		doConfirm("Reset and delete all the season?", () => {
+		doConfirm("Are you sure you want to remove all the results from this season?", () => {
 			props.setSeasonJSON(null);
 			props.setMain('Seasons');
 			window.scrollTo(0, 0)

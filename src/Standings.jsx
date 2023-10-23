@@ -1,12 +1,12 @@
 import React from 'react';
 import { getActiveRaceIdx , getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
-import SeasonHeader from './SeasonHeader';
+import Header from './Header';
 import './Standings.css';
 
 const Season = (props) => {
 	
 	const resetSeasonJSON = () => {
-		doConfirm("Reset and delete all the season?", () => {
+		doConfirm("Are you sure you want to remove all the results from this season?", () => {
 			props.setSeasonJSON(null);
 			props.setMain('Seasons');
 		});
@@ -82,8 +82,8 @@ const Season = (props) => {
 			<>
 				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
 
-					<section className="cnt--season--standings">
-						<SeasonHeader {...props}/>
+					<section className="cnt--results--standings">
+						<Header {...props}/>
 						<div className="full">
 							<table>
 								<thead>
@@ -115,16 +115,6 @@ const Season = (props) => {
 						<header>
 							<h3>Actions</h3>
 						</header>
-						<label className="action">
-							<button onClick={() => { props.setMain("Round") ; }}>Race</button>
-							<span className="hdr action-do">Race</span>
-							<span className="txt">The {getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} Race from The {props.seasonJSON.year} Championship.</span>
-						</label>
-						<label className="action">
-							<button onClick={() => { props.setMain("Season") ; }}>Championship</button>
-							<span className="hdr action-do">Championship</span>
-							<span className="txt">See The {props.seasonJSON.year} Championship.</span>
-						</label>
 						<label className="action warning">
 							<button onClick={resetSeasonJSON}>Reset</button>
 							<span className="hdr action-do ">Reset</span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { getActiveRaceIdx , getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
-import SeasonHeader from './SeasonHeader';
-import './Season.css';
+import Header from './Header';
+import './Results.css';
 
 const Season = (props) => {
 	
@@ -67,7 +67,7 @@ const Season = (props) => {
 	}
 
 	const resetSeasonJSON = () => {
-		doConfirm("Reset and delete all the season?", () => {
+		doConfirm("Are you sure you want to remove all the results from this season?", () => {
 			props.setSeasonJSON(null);
 			props.setMain('Seasons');
 			window.scrollTo(0, 0)
@@ -83,8 +83,8 @@ const Season = (props) => {
 		return (
 			<>
 				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
-					<section className="cnt--season--pick-race">
-						<SeasonHeader {...props}/>
+					<section className="cnt--results--pick-race">
+						<Header {...props}/>
 						<div className="full">
 							{ 
 								props.seasonJSON.races.map( 
@@ -115,16 +115,6 @@ const Season = (props) => {
 						<header>
 							<h3>Actions</h3>
 						</header>
-						<label className="action">
-							<button onClick={() => { props.setMain("Round") ; }}>Race</button>
-							<span className="hdr action-do">Race</span>
-							<span className="txt">The {getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} Race from The {props.seasonJSON.year} Championship.</span>
-						</label>
-						<label className="action">
-							<button onClick={() => { props.setMain("Standings") ; }}>Standings</button>
-							<span className="hdr action-do">Standings</span>
-							<span className="txt">The {props.seasonJSON.year} Driver Championship standings.</span>
-						</label>
 						<label className="action warning">
 							<button onClick={resetSeasonJSON}>Reset</button>
 							<span className="hdr action-do">Reset</span>
