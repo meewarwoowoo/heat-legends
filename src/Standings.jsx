@@ -45,26 +45,43 @@ const Season = (props) => {
 				standingsDriver.push({ result: getResultFromRace(race,driver.id) , points: getPointsFromRace(race,driver.id) });
 				standingsDriverPoints = Number(standingsDriverPoints) + Number(getPointsFromRace(race,driver.id)) ;
 			});
-			standingsDriver.push(standingsDriverPoints);
+			standingsDriver.push({'points':standingsDriverPoints});
 			if(standingsDriver[0].active){
 				standings.push(standingsDriver);
 			};
 		});
-		standings.sort((a, b) => a[a.length-1] - b[b.length-1]).reverse();
+		standings.sort((a, b) => Number(a[a.length-1].points) - Number(b[b.length-1].points)).reverse();
+		let standingPoints = -1 ;
+		standings.forEach((standing,standingIdx) => { 
+			let l = standings[standingIdx].length-1 ;
+			let p =standings[standingIdx][l].points ;
+			if(standingPoints === p){
+				standings[standingIdx].unshift({"position":'='});
+			} else {
+				standings[standingIdx].unshift({"position":getNumberWithOrdinal(standingIdx+1)});
+			};
+			standingPoints = p
+		})
+		console.table(standings)
 		return standings;
 	};
 
 	const SeasonResultsBodyRow = (props) => {
 		let line = '';
 		if(props.standingRowIdx === 0) {
-			line = <><th className="driver"><span className="name">{props.standingRow.name}</span><span className="team">{props.standingRow.team}</span><span className="colour">{props.standingRow.colour}</span></th></>;
+			line = <th className="position">{props.standingRow.position}</th>;
+		} else if(props.standingRowIdx === 1){
+			line = <th className="driver"><span className="name">{props.standingRow.name}</span><span className="team">{props.standingRow.team}</span><span className="colour">{props.standingRow.colour}</span></th>;
 		} else if(props.standingRowIdx === (props.finalRowIdx-1)) {
-			line = <><td className="total">{props.standingRow}</td></>;
+			line = <td className="total">{props.standingRow.points}</td>;
 		} else {
 			line = <><td className="result">{props.standingRow.result}</td><td className="result">{props.standingRow.points}</td></>;
 		}
 		return line 
 	};
+
+
+
 	const isRaceFinished = (race) => {
 		return (race && race.result && race.result.length>0)
 	}
@@ -96,8 +113,7 @@ const Season = (props) => {
 								</thead>
 								<tbody>
 									{ seasonStandings.map((driverStandingRow,driverStandingRowIdx) => 
-										<tr key={'driverStandingRowIdxTR'+driverStandingRowIdx} style={getDriverArticleDataColour(driverStandingRow[0])} >
-											<th key={'driverStandingRowIdxTH'+driverStandingRowIdx} className="position">{getNumberWithOrdinal(driverStandingRowIdx+1)}</th>
+										<tr key={'driverStandingRowIdxTR'+driverStandingRowIdx} style={getDriverArticleDataColour(driverStandingRow[1])} >
 											{
 												driverStandingRow.map((standingRow,standingRowIdx) => (
 													<SeasonResultsBodyRow key={'SeasonResultsBodyRow'+standingRowIdx} finalRowIdx={driverStandingRow.length} driverStandingRow={driverStandingRow} standingRow={standingRow} standingRowIdx={standingRowIdx} />
