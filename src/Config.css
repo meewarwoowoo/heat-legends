@@ -6,7 +6,7 @@
 #root main .cnt--config  { display: grid ; gap: var(--gap) ; font-family: var(--text-font) ; }
 #root main .cnt--config ul  { display: grid ; gap: var(--gap) ; list-style-type: none ; padding: 0 ; margin: 0; }
 #root main .cnt--config ul li  { display: block ; list-style-type: none ; padding: 0 ; margin: 0;  }
-#root main .cnt--config ul li label { display: block ; padding: 1em  ; border-radius: var(--edge) ; background-color: var(--mid) ; color: var(--bkg) ; cursor: pointer ; height: 100%; }
+#root main .cnt--config ul li label { display: block ; padding: 1em  ; border-radius: var(--edge) ; background:  var(--texture) 0 0 / 4px 4px repeat , var(--mid) ; color: var(--bkg) ; cursor: pointer ; height: 100%; }
 #root main .cnt--config ul li label:hover { outline: 0.125em solid var(--hgh) ; }
 #root main .cnt--config ul li label input { display: none; }
 #root main .cnt--config ul li label span  { display: block ; position: relative ; padding-left: 3em ; }
