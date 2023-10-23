@@ -2,7 +2,6 @@
 #root[data-view=race] main .cnt--race header  { display: none ; }
 #root[data-view=round] main  { grid-template: calc( 100vh - 2em )  min-content / auto; }
 
-
 #root main .cnt--race  { display: grid ; grid-template: minmax(auto,100%) / auto ; gap: var(--gap) ; align-content: stretch ;  align-items: stretch ;  align-self: stretch; }
 #root[data-view=round] main .cnt--race  { grid-template: auto minmax(auto,100%) / auto ; }
 #root main .cnt--race .full { display: grid ; gap: var(--gap) ; align-items: stretch ; }

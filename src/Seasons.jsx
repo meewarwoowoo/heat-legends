@@ -62,8 +62,8 @@ const Seasons = (props) => {
 		<>
 			<main className={props.getMainClassList()}>
 				<section className="cnt--seasons--pick-season">
-					<header>
-						<h2>Championships</h2>
+					<header className="championship">
+						<h2 className="no-ul">Championship</h2>
 					</header>
 					<div className="full">
 						{ defaultSeasonsJSON.map( (season,idx) => (
@@ -116,7 +116,6 @@ const Seasons = (props) => {
 
 			</main>
 			<section id="deck"></section>
-			<section id="next"></section>
 		</>
 	)
 }

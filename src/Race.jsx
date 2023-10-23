@@ -63,7 +63,7 @@ const Race = (props) => {
 		deckCardJSON: deckJSON[deckCard],
 		driversSpeedGridJSON,raceDriversResult,setRaceDriversResult,setRaceDriverFinished,setRaceDriverUnfinished,getDriverArticleDataResult,getDriverArticleDataResultText,getDriverArticleDataResultPoints,
 	};
-
+	
 	return (
 		<>
 			<main className={props.getMainClassList()}>

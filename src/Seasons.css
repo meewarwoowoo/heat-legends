@@ -1,7 +1,3 @@
-@media (max-width: 800px){	
-	#root[data-view=seasons]  { grid-template: "menu menu" var(--menu-height) "main main" auto  ; }
-	#root[data-view=seasons] :is(#deck,#next)  { display: none ; }
-}
 
 #root[data-view=seasons] main { grid-template: repeat(3,auto) / auto ; align-items: flex-start ; align-content: flex-start ; }
 #root main .cnt--seasons--pick-season   { display: grid ; gap: var(--gap) ; grid-template: auto / 1fr ;--off: var(--mid) ; }

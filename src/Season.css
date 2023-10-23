@@ -1,7 +1,3 @@
-@media (max-width: 800px){	
-	#root[data-view=season]  { grid-template: "menu menu" var(--menu-height) "main main" auto  ; }
-	#root[data-view=season] :is(#deck,#next)  { display: none ; }
-}
 
 #root[data-view=season] main {align-items: flex-start ; align-content: flex-start ; }
 

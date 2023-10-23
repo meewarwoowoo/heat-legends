@@ -7,8 +7,8 @@
 #root[data-view=standings] main {align-items: flex-start ; align-content: flex-start ; }
 
 #root main .cnt--season--standings  { --off: var(--mid) ; }
-#root main .cnt--season--standings  { display: grid ; gap: var(--gap) ; grid-template:  min-content auto auto / auto ; font-family: var(--text-font) ; }
-#root main .cnt--season--standings table { width: 100% ; border-collapse: collapse ; margin: 0 ; }
+#root main .cnt--season--standings  { display: grid ; gap: var(--gap) ; grid-template:  min-content auto auto / auto ; }
+#root main .cnt--season--standings table { width: 100% ; border-collapse: collapse ; margin: 0 ; font-family: var(--text-font) ; }
 #root main .cnt--season--standings table tr th img  { width: 100% ; display: block ; max-width: 2em ; margin: 0 auto ;  }
 #root main .cnt--season--standings table thead tr th.position   { min-width: 1.5em ; width: 5% ; }
 #root main .cnt--season--standings table thead tr th.total   { min-width: 1.5em ; width: 5% ; }

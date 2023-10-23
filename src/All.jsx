@@ -6,8 +6,8 @@ import Main from './Main';
 const All = () => {
     const [ main , setMain ] = useState('Race');
     useEffect(() => {
-        document.getElementById('root').setAttribute('data-view',main.toLowerCase())
-//        window.scrollTo(0, 0)
+        document.getElementById('root').setAttribute('data-view',main.toLowerCase());
+        window.scrollTo(0,0);
     }, [main]);
 
     let localSeasonJSON = JSON.parse(localStorage.getItem('seasonJSON'));

@@ -2,6 +2,7 @@ import React, { useState , useReducer } from 'react';
 import { defaultPlacesJSON, defaultDeckJSON , defaultDriversSpeedGridJSON } from './localJSON';
 import { getTrackFromAbbr , getActiveRaceIdx , shuffleDeck , doToast , doConfirm } from './util/Utils';
 import { shuffle , next } from './images';
+import SeasonHeader from './SeasonHeader';
 import Driver from './Driver';
 import './Race.css';
 
@@ -89,9 +90,7 @@ const Round = (props) => {
 		<>
 			<main className={props.getMainClassList()} style={{"--drivers": getActiveDrivers() }}>
 				<section className="cnt--race">
-					<header>
-						<h2>Championships / The {props.seasonJSON.year} Championship / Race {getActiveRaceIdx(props.seasonJSON)+1} {props.seasonJSON && props.seasonJSON.races && getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} <span>{props.seasonJSON.year} Championship</span></h2>
-					</header>
+					<SeasonHeader {...props}/>
 					<div className="full">
 						{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
 					</div>

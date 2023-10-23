@@ -1,5 +1,6 @@
 import React from 'react';
 import { getActiveRaceIdx , getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
+import SeasonHeader from './SeasonHeader';
 import './Standings.css';
 
 const Season = (props) => {
@@ -82,9 +83,7 @@ const Season = (props) => {
 				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
 
 					<section className="cnt--season--standings">
-						<header>
-							<h2>Championships / The {props.seasonJSON.year} Championship Standings</h2>
-						</header>
+						<SeasonHeader {...props}/>
 						<div className="full">
 							<table>
 								<thead>
@@ -135,7 +134,6 @@ const Season = (props) => {
 
 				</main>
 				<section id="deck"></section>
-				<section id="next"></section>
 			</>
 		);
 	};

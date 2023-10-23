@@ -40,7 +40,6 @@ const Drivers = (props) => {
 
 			</main>
 			<section id="deck"></section>
-			<section id="next"></section>
 		</>
 	);
 };

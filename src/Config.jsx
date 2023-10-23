@@ -22,17 +22,6 @@ const Config = (props) => {
 	
 	const resetSettings = () => {
 		doConfirm("resetSettings?", () => {
-			/*
-			setShowNumber(defaultConfigJSON.showNumber); setLocalConfigJSON(defaultConfigJSON.showNumber,'showNumber') ;
-			setShowTeams(defaultConfigJSON.showTeams); setLocalConfigJSON(defaultConfigJSON.showTeams,'showTeams') ;
-			setShowColours(defaultConfigJSON.showColours); setLocalConfigJSON(defaultConfigJSON.showColours,'showColours') ;
-			setShowSplitNumbers(defaultConfigJSON.showSplitNumbers); setLocalConfigJSON(defaultConfigJSON.showSplitNumbers,'showSplitNumbers') ;
-			setShowMoreWhite(defaultConfigJSON.showMoreWhite); setLocalConfigJSON(defaultConfigJSON.showMoreWhite,'showMoreWhite') ;
-			setShowFinishOnRace(defaultConfigJSON.showFinishOnRace); setLocalConfigJSON(defaultConfigJSON.showFinishOnRace,'showFinishOnRace') ;
-			setShowGrid(defaultConfigJSON.showGrid); setLocalConfigJSON(defaultConfigJSON.showGrid,'showGrid') ;
-			setUseNew1963(defaultConfigJSON.useNew1963); setLocalConfigJSON(defaultConfigJSON.useNew1963,'useNew1963') ;
-			forceUpdate()
-			*/
 			props.setMain("Race") ;
 		});
 	};
@@ -42,7 +31,7 @@ const Config = (props) => {
 		<>
 			<main className={props.getMainClassList()}>
 				<header>
-					<h2>App Settings</h2>
+					<h2>Settings</h2>
 				</header>
 				<section className="cnt--config">
 					<ul>
@@ -118,7 +107,6 @@ const Config = (props) => {
 				</section>
 			</main>
 			<section id="deck"></section>
-			<section id="next"></section>
 		</>
 	);
 };
