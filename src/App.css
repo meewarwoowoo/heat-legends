@@ -8,10 +8,15 @@
 	--move-font:	"Futura LT W01 Bold";
 	--numb-font:	"Futura LT W01 Medium";
 
-	--blk:			rgba(32,32,32,1) ; 
-	--blk-fade:		rgba(0,0,0,0.25) ;
-	--blk-double-fade: rgba(0,0,0,0.125) ;
-	--wht:			rgba(255,255,255,1) ; 
+	--blk:				rgba(32,32,32,1) ; 
+	--blk-high:			rgba(0,0,0,0.75) ;
+	--blk-mid:			rgba(0,0,0,0.25) ;
+	--blk-low:			rgba(0,0,0,0.125) ;
+	--wht:				rgba(255,255,255,1) ; 
+	--wht-high:			rgba(255,255,255,0.75) ;
+	--wht-mid: 			rgba(255,255,255,0.25) ;
+	--wht-low:			rgba(255,255,255,0.125) ;
+
 	--bkg:			rgba(32,32,32,1) ; 
 	--txt:			rgba(255,255,255,1) ; 
 	--hgh: 			rgba(128,128,255,1); 
@@ -22,8 +27,6 @@
 	--off:			rgb(192,0,0);
 	--warning:		rgb(255,0,0);
 	--move-width:	5.75em ; 
-	--menu-height:  
-
 }
 
 @font-face{
@@ -48,9 +51,29 @@
 }
 
 
+* { box-sizing: border-box }
 body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;  }
-#root  { display: grid ; min-height: 100vh ; width: 100% ; grid-template: "menu main deck next"  auto / 3.25em auto 3em 4em ; --menu-height: 0 ; --deck-height: 0 ; }
+
+
+#root  { display: grid ; min-height: 100vh ; min-width: 100% ; }
+#root  { transition: 0.25s ease-in-out all;
+	grid-template-rows: 4.5em auto 4.5em ; grid-template-columns: 4.5em 4.5em auto auto 4.5em 4.5em;
+	grid-template-areas: 
+	"menu main main main main deck"
+	"menu main main main main deck"
+	"menu main main main main deck"
+}
+@media screen and (max-width: 800px){
+	#root  { 
+		grid-template-areas: 
+		"menu menu menu menu menu menu"
+		"main main main main main main"
+		"deck deck deck deck deck deck"
+		}
+}
+	
 #root main  { --gap: 0.5rem ; --edge: 0.25rem ; --box: none ; }
+#root main  { --gap: 0 ; --edge: 0 ; --box: none ; }
 #root main.show--more-white  { --gap: 1rem ; --edge: 1rem ; --box: inset 0.25em 0 1rem -0.75em rgba(0,0,0,0.5) ; }
 #root main.move--split  { --move-width: 8.5em ; }
 
@@ -67,92 +90,63 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 }
 @media screen and (max-width: 1240px){
 	body  { font-size: 1.5em ; }  
-	#root main  { --gap: 0.25rem ; --edge: 0.125rem ; }
+	#root main.show--more-white  { --gap: 0.25rem ; --edge: 0.125rem ; }
 }
 @media screen and (max-width: 990px){
 	body  { font-size: 1.375em ; }
 }
 @media screen and (max-width: 800px){
 	body  { font-size: 1em ; }  
-	#root  { --menu-height: 4em ; --deck-height: 4.5em  ; grid-template: "menu menu" var(--menu-height) "main main" auto "deck next"  var(--deck-height) / auto 4.5em  ; }
 }
 @media screen and (max-width: 640px){
 	body  { font-size: 1em ; }  
-	#root  { --menu-height: 3.25em ; }
 }
 
-#root main  { display: grid ; grid-template: auto 1fr / auto ; align-items: stretch ; align-content: stretch ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
-#root main header   { display: block ; width: 100% ; grid-column: 1 / -1 ; }
+#root main  { display: grid ; grid-template: 1fr / auto ; align-items: stretch ; align-content: stretch ; align-items: flex-start ; align-content: flex-start ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; }
+
+
+#root main > section > header.championship   { display: flex ; justify-self: flex-start ; align-items: center ; justify-content: flex-end ; gap: 0 ; width: 100% ; height: 100% ; grid-column: 1 / -1 ; border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; font-size: 1em ; }
+#root main > section > header.championship h2,
+#root main > section > header.championship h3  { margin: 0 0.5em 0 0 ; width: 100% ; display: flex ; font-size: 1em ; }
+#root main > section > header.championship h2  { display: none ;  }
+#root main > section > header.championship h2.no-ul  { margin: 0.5em 0 ; display: flex ; }
+#root main > section > header.championship > ul  { display: flex ;  margin: 0; padding: 0 ; list-style-type: none ; gap: 0 ; }
+#root main > section > header.championship > ul > li { display: flex ; vertical-align: middle ; font-size: 1em ; padding: 0 ; margin: 0 ; list-style-type: none ;  cursor: pointer ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out; }
+#root main > section > header.championship > ul > li:first-of-type span  { border-radius: 1.5em 0 0 1.5em ; }
+#root main > section > header.championship > ul > li:last-of-type span  { border-radius: 0 1.5em 1.5em 0 ; }
+#root main > section > header.championship > ul > li > span  { background-color: var(--bkg) ; color: var(--txt) ;display: flex ;  align-items: center; justify-content: center; padding: 0.5em ; outline: 1px solid var(--wht-mid) ; }
+#root main > section > header.championship > ul > li:hover > span   { background-color: var(--hgh) ; }
+#root main > section > header.championship > ul > li.on:hover  { color: var(--bkg) ; cursor: default ; }
+#root main > section > header.championship > ul > li.on > span  { background-color: var(--on) ; }
+
+#root main header   { display: flex ; align-items: center ; justify-content: flex-start ; gap: 0 ; width: 100% ; height: 100% ; border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; font-size: 1em ; }
 #root main header h2 ,
-#root main header h3 { border-radius: var(--edge) ; background-color: var(--blk); color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; }
-#root main header h2 { font-size: 1.5em ; }
-#root main header h3 { font-size: 1em ; }
-@media screen and (max-width: 1920px){
-	#root main header * span   { display: none ; }  
-}
+#root main header h3  { font-size: 1em ; padding: 0 ; margin: 0.5em 0.5em 0.5em 0; }
 
-#root #deck   { grid-area: deck ; background: var(--blk-double-fade)  ; display: grid ; grid-template: 1fr / 1fr ; align-items: space-between; justify-items: center; }
-#root #deck   { --box: inset 0.25rem 0 1rem -0.75rem rgba(0,0,0,0.5); box-shadow: var(--box) ;  }
-#root #deck ol.deck  { display: grid ; grid-template:  repeat(11, 1.75em) / repeat(1, 1.5em) ; align-items: center ; align-content: center ; color: var(--txt) ; list-style-type: none ; padding: 0 0 0.5em; margin: 0.25em ; gap: 0.25em ; }
-#root #deck ol.deck li  { display: flex ; align-items: center; justify-content: center; padding: 0em ; margin: 0 ; list-style-type: none ; width: 100% ; height: 100% ; font-size: 0.5em ; color: var(--bkg); background-color: var(--txt) ; border-radius: 0.25em ; cursor: pointer ; font-family: var(--numb-font) ; transition: 0.5s opacity ease-out , 0.25s background-color ease-out; }
-#root #deck ol.deck li  { order: 2 ; }
-#root #deck ol.deck li:last-child  { order: 1 ; }
-#root #deck ol.deck li.on  { background-color: var(--bkg); color: var(--txt) ;}
-#root #deck ol.deck li:hover  {  background-color: var(--hgh) ; }
-#root #deck ol.deck li img { width: 1.5em ; height: 1.5em ; }
-#root #deck ol.deck li img.on { display: block ; }
-#root #deck ol.deck li img.off { display: none ; }
-#root #deck ol.deck li:hover  { background-color: var(--blk) ;color: var(--wht) ; }
-#root #deck ol.deck li:hover img.on { display: none ; }
-#root #deck ol.deck li:hover img.off { display: block ; }
-@media (max-width: 800px){
-	#root #deck   { background: var(--blk-double-fade) ; box-shadow: none ; }
-	#root #deck { grid-template: 100% / auto ; position: relative ; align-items: flex-start; padding: 0.5em; }
-	#root #deck ol.deck  { width: 100% ; height: 100% ; grid-template: repeat(1,1fr) / repeat(11,1fr) ; gap: 0.25em ; }
-	#root #deck ol.deck li  { font-size: 0.75em ; display: flex ;  color: var(--blk); background-color: transparent	 ; }
-	#root #deck ol.deck li:hover ,
-	#root #deck ol.deck li.on  { color: var(--blk); background-color: var(--wht) ; }
 
-}
+.action-do   { position: relative ; display: inline-block ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: var(--edge) ; padding: 0.5em 0.75em 0.5em 1.75em ; font-family: var(--text-font);  cursor: pointer; }
+.action-do::before   { position: absolute  ; content: ''; top: calc( 50% - 0.325em )  ; left: 0.75em ; width: 0 ; height: 0 ; border: 0.375em solid transparent ; border-left-color: var(--wht) ; border-left-width: 0.45em  ; }
+.action-do:hover  { background-color:  var(--blk) ;  outline: 0.125em solid var(--hgh) ;  }
+.warning .action-do  { background-color:  var(--warning) ; }
+.warning .action-do:hover  { background-color:  var(--blk) ; }
 
-#root #next   { grid-area: next ; background: var(--blk-fade)  ; display: grid ; grid-template: 1fr / 1fr ; align-items: space-between; justify-items: center; }
-#root #next   { --box: inset 0.25rem 0 1rem -0.75rem rgba(0,0,0,0.5);  box-shadow: var(--box)}
-#root #next ul  { display: grid ; grid-template: auto / 1fr ;  align-items: center ; align-content: center ; color: var(--txt) ; list-style-type: none ; padding: 0 ; margin: 0 ; gap: 0.5em ; }
-#root #next ul li  { display: flex ; align-items: center; justify-content: center; padding: 1em ; margin: 0 ; list-style-type: none ; max-width: 3em ; max-height: 3em ; background-color: var(--bkg) ; color: var(--txt); border-radius: 5em ; cursor: pointer ; transition: 0.5s opacity ease-in , 0.4s box-shadow ease-out , 0.25s background-color ease-out; box-shadow: 0.25em 0.25em 0.25em rgba(0,0,0,0.25) ; }
-#root #next ul li img   { width: 1em ; height: 1em ; display: block; }
-#root #next ul li img.on    { display: block; }
-#root #next ul li img.off    { display: none; }
-#root #next ul li.on img.on    { display: none; }
-#root #next ul li.on img.off    { display: block; }
-#root #next ul li:hover  { background-color: var(--hgh) ; }
-#root #next ul li.on  { color: var(--bkg) ; background-color: var(--txt) ; background-image: none ; }
-#root #next ul li.on:hover  { color: var(--bkg) ; }
-#root #next ul li.disabled  { opacity: 0.325 ; box-shadow: 0.05em 0.05em 0.05em rgba(0,0,0,0.25) ; }
-@media ( max-width: 800px ){
-	#root #next   { --box: none ; }
-	#root #next   { background: var(--blk-double-fade)  ; }
-}
 
-#root main .control-panel--actions  { display: flex ; flex-flow: row wrap ; gap: var(--gap) ; padding: var(--gap) ; background-color: var(--mid) ; border-radius: var(--edge) ; }
-#root main .control-panel--actions header h3 { background-color: transparent ; color: var(--blk) ; }
-#root main .control-panel--actions .action   { display: flex ; flex-flow: row wrap ; font-size: 0.75em ; max-width: 15em  ; width: 100% ; background-color: var(--wht) ; border-radius: 0.25em ; padding: 0.5em ; overflow: hidden ; cursor: pointer ;  align-content: flex-start;}
-#root main .control-panel--actions .action:hover    { outline: 0.125em solid var(--hgh) ; background-color:  var(--on) ; color: var(--wht) ; }
-#root main .control-panel--actions .action.warning:hover   { background-color:  var(--warning) ; }
-#root main .control-panel--actions .action button   { display: none; }
-#root main .control-panel--actions .action .hdr   { position: relative ; order: 0 ; display: inline-block ; align-self: flex-end ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: 0.25em ; padding: 0.75em 1em 0.75em 2em ; font-family: var(--text-font); text-transform: uppercase}
-#root main .control-panel--actions .action .hdr::before   { position: absolute  ; content: ''; top: calc( 50% - 0.375em )  ; left: 0.925em ; width: 0 ; height: 0 ; border: 0.375em solid transparent ; border-left-color: var(--wht) ; border-left-width: 0.45em  ; }
-#root main .control-panel--actions .action:hover .hdr   { background-color:  var(--blk) ; }
-#root main .control-panel--actions .action.warning .hdr   {background-color:  var(--warning) ; }
-#root main .control-panel--actions .action.warning:hover .hdr  { background-color:  var(--blk) ; }
-#root main .control-panel--actions .action .txt   { order: 1 ; display: block ; padding: 0.75em 0 ; width: 100% ; font-family: var(--text-font); font-size: 0.75em ; }
-#root main .control-panel--actions .action.season-1963 ,
-#root main .control-panel--actions .action.season-1964  { display: none ; }
-#root main.use--new-1963 .control-panel--actions .action.season-1963-legacy  { display: none ; }
-#root main.use--new-1963 .control-panel--actions .action.season-1963 ,
-#root main.use--new-1963 .control-panel--actions .action.season-1964  { display: flex ; }
-@media screen and (max-width: 800px){
-	#root main .control-panel--actions .action .txt   {padding: 0.5em 0 ;font-size: 1em ; }
-	#root main .control-panel--actions header { order: 10 ;}
-	#root main .control-panel--actions .action   { order: 5 ; }
+#root main .cnt--actions  { display: flex ; flex-flow: row wrap ; gap: var(--gap) ; position: relative ; }
+#root main .cnt--actions header { display: none ; }
+#root main .cnt--actions .action   { display: contents ; cursor: pointer ; }
+#root main .cnt--actions .action button   { display: none; }
+#root main .cnt--actions .action .hdr   { order: 0 ; }
+#root main .cnt--actions .action:hover .hdr    { background-color:  var(--blk) ; color: var(--wht) ; }
+#root main .cnt--actions .action .txt   { display: none ; }
+#root main .cnt--actions .action.season-1963 ,
+#root main .cnt--actions .action.season-1964  { display: none ; }
+#root main.use--new-1963 .cnt--actions .action.season-1963-legacy  { display: none ; }
+#root main.use--new-1963 .cnt--actions .action.season-1963 ,
+#root main.use--new-1963 .cnt--actions .action.season-1964  { display: flex ; }
 
-}
+
+#over  { position: fixed ; inset: 0 ; display: grid ; align-items: center ; justify-items: center ; background-color: var(--blk-high) ; color: var(--wht) ; }
+#over .ins  { max-width: 400px;  color: var(--blk) ; background-color: var(--wht) ; border-radius: 0.5em ; padding: 0.5em 1em 0.5em 0.5em ;  }
+#over .ins p  { margin: 0 ; padding: 0.5em  ; }
+#over .ins ul  { display: flex ; gap: 0.5em ; margin: 0 ; padding: 0.5em  ; list-style-type: none ; }
+#over .ins ul li  { list-style-type: none ; }

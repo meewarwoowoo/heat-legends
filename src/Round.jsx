@@ -1,7 +1,8 @@
 import React, { useState , useReducer } from 'react';
 import { defaultPlacesJSON, defaultDeckJSON , defaultDriversSpeedGridJSON } from './localJSON';
 import { getTrackFromAbbr , getActiveRaceIdx , shuffleDeck , doToast , doConfirm } from './util/Utils';
-import { nextOn , shuffleOn , shuffleOff } from './images';
+import { shuffle , next } from './images';
+import Header from './Header';
 import Driver from './Driver';
 import './Race.css';
 
@@ -47,7 +48,7 @@ const Round = (props) => {
 		props.setSeasonJSON(workingSeasonJSON);
 		forceUpdate();
 		if(numberOfDriversFinished === numberOfDrivers){
-			props.setMain('Season')
+			props.setMain('Results')
 		};
 	};
 
@@ -88,49 +89,25 @@ const Round = (props) => {
 	return (
 		<>
 			<main className={props.getMainClassList()} style={{"--drivers": getActiveDrivers() }}>
-				<section className="control-panel--race">
-					<header>
-						<h2>Race {getActiveRaceIdx(props.seasonJSON)+1} {props.seasonJSON && props.seasonJSON.races && getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} <span>{props.seasonJSON.year} Championship</span></h2>
-					</header>
+				<section className="cnt--race">
+					<Header {...props}/>
 					<div className="full">
 						{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
 					</div>
 				</section>
-
-				<section className="control-panel--actions">
-					<header>
-						<h3>Actions</h3>
-					</header>
-					<label className="action">
-						<button  onClick={setNextCard}>Next Card</button>
-						<span className="hdr">Next Card</span>
-						<span className="txt">Draw the next Legend Card.  You can do this with the big black arrow too.</span>
-					</label>
-					<label className="action">
-							<button onClick={() => { props.setMain("Standings") ; }}>Standings</button>
-							<span className="hdr">Standings</span>
-							<span className="txt">The {props.seasonJSON.year} Driver Championship standings.</span>
-					</label>
-					<label className="action">
-							<button onClick={() => { props.setMain("Season") ; }}>Championship</button>
-							<span className="hdr">Championship</span>
-							<span className="txt">See The {props.seasonJSON.year} Championship.</span>
-					</label>
-				</section>
-
 			</main>
 			<section id="deck">
-				<ol className="deck">
-					<>
-						{ [1,2,3,4,5,6,7,8,9,10].map( (item,idx) => (<li key={idx} onClick={setCardFromDeck} className={((deckCard) === idx)?'on':'off'}>{item}</li>) ) }
-					</>
-					<li onClick={setShuffledDeck}><img src={shuffleOn} className="off" /><img src={shuffleOff} className="on" /></li>
-				</ol>
-			</section>
-			<section id="next">
-				<ul>
-					<li onClick={setNextCard}>{ <img src={ (deckCard === (deckJSON.length-1))?shuffleOn:nextOn } />}</li>
-				</ul>
+				<div className="cnt">
+					<ul>
+						<li onClick={setShuffledDeck}><span><img src={shuffle} /></span></li>
+						<li className="cards">
+							<ol>
+								{ [1,2,3,4,5,6,7,8,9,10].map( (card,cardIdx) => (<li key={cardIdx} onClick={setCardFromDeck} className={((deckCard)===cardIdx)?'on':'off'}><span className="number">{card}</span></li>) ) }
+							</ol>
+						</li>
+						<li onClick={setNextCard}><span><img src={ (deckCard === (deckJSON.length-1))?shuffle:next } /></span></li>
+					</ul>
+				</div>
 			</section>
 		</>
 	);

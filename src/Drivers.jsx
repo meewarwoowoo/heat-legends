@@ -28,7 +28,7 @@ const Drivers = (props) => {
 				<header>
 					<h2>Drivers</h2>
 				</header>
-				<section className="control-panel--drivers">
+				<section className="cnt--drivers">
 					<>
 						{	
 							props.driversJSON.map((driverJSON,idx) => 
@@ -40,7 +40,6 @@ const Drivers = (props) => {
 
 			</main>
 			<section id="deck"></section>
-			<section id="next"></section>
 		</>
 	);
 };

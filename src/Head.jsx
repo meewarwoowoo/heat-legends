@@ -3,7 +3,8 @@ import './Head.css';
 const Head = (props) => {
 	return (
 		<header id="head">
-			<h1>{props.head}</h1>
+			<h1>Heat: Legends &amp; Championships</h1>
+			{props.head}
 		</header>
 	);
 }

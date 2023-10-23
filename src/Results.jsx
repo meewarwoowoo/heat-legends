@@ -1,6 +1,7 @@
 import React from 'react';
 import { getActiveRaceIdx , getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
-import './Season.css';
+import Header from './Header';
+import './Results.css';
 
 const Season = (props) => {
 	
@@ -66,7 +67,7 @@ const Season = (props) => {
 	}
 
 	const resetSeasonJSON = () => {
-		doConfirm("Reset and delete all the season?", () => {
+		doConfirm("Are you sure you want to remove all the results from this season?", () => {
 			props.setSeasonJSON(null);
 			props.setMain('Seasons');
 			window.scrollTo(0, 0)
@@ -82,12 +83,8 @@ const Season = (props) => {
 		return (
 			<>
 				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
-
-
-					<section className="control-panel--season--pick-race">
-						<header>
-							<h2>The {props.seasonJSON.year} Championship</h2>
-						</header>
+					<section className="cnt--results--pick-race">
+						<Header {...props}/>
 						<div className="full">
 							{ 
 								props.seasonJSON.races.map( 
@@ -114,30 +111,19 @@ const Season = (props) => {
 					</section>
 
 
-					<section className="control-panel--actions">
+					<section className="cnt--actions">
 						<header>
 							<h3>Actions</h3>
 						</header>
-						<label className="action">
-							<button onClick={() => { props.setMain("Round") ; }}>Race</button>
-							<span className="hdr">Race</span>
-							<span className="txt">The {getTrackFromAbbr(props.seasonJSON.races[getActiveRaceIdx(props.seasonJSON)].track).name} Race from The {props.seasonJSON.year} Championship.</span>
-						</label>
-						<label className="action">
-							<button onClick={() => { props.setMain("Standings") ; }}>Standings</button>
-							<span className="hdr">Standings</span>
-							<span className="txt">The {props.seasonJSON.year} Driver Championship standings.</span>
-						</label>
 						<label className="action warning">
 							<button onClick={resetSeasonJSON}>Reset</button>
-							<span className="hdr">Reset</span>
+							<span className="hdr action-do">Reset</span>
 							<span className="txt">Remove all results for The {props.seasonJSON.year} Championship.</span>
 						</label>
 					</section>
 
 				</main>
 				<section id="deck"></section>
-				<section id="next"></section>
 			</>
 		);
 	};

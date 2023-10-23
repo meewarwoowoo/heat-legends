@@ -9,6 +9,7 @@ const Config = (props) => {
     const [ showSplitNumbers , setShowSplitNumbers ] = useState(props.configJSON.showSplitNumbers);
     const [ showMoreWhite , setShowMoreWhite  ] = useState(props.configJSON.showMoreWhite);
     const [ showFinishOnRace , setShowFinishOnRace ] = useState(props.configJSON.showFinishOnRace);
+    const [ showCards , setShowCards ] = useState(props.configJSON.showCards);
     const [ showGrid , setShowGrid ] = useState(props.configJSON.showGrid);
     const [ useNew1963 , setUseNew1963 ] = useState(props.configJSON.useNew1963);
 	const [, forceUpdate] = useReducer(x => x + 1, 0);
@@ -21,17 +22,6 @@ const Config = (props) => {
 	
 	const resetSettings = () => {
 		doConfirm("resetSettings?", () => {
-			/*
-			setShowNumber(defaultConfigJSON.showNumber); setLocalConfigJSON(defaultConfigJSON.showNumber,'showNumber') ;
-			setShowTeams(defaultConfigJSON.showTeams); setLocalConfigJSON(defaultConfigJSON.showTeams,'showTeams') ;
-			setShowColours(defaultConfigJSON.showColours); setLocalConfigJSON(defaultConfigJSON.showColours,'showColours') ;
-			setShowSplitNumbers(defaultConfigJSON.showSplitNumbers); setLocalConfigJSON(defaultConfigJSON.showSplitNumbers,'showSplitNumbers') ;
-			setShowMoreWhite(defaultConfigJSON.showMoreWhite); setLocalConfigJSON(defaultConfigJSON.showMoreWhite,'showMoreWhite') ;
-			setShowFinishOnRace(defaultConfigJSON.showFinishOnRace); setLocalConfigJSON(defaultConfigJSON.showFinishOnRace,'showFinishOnRace') ;
-			setShowGrid(defaultConfigJSON.showGrid); setLocalConfigJSON(defaultConfigJSON.showGrid,'showGrid') ;
-			setUseNew1963(defaultConfigJSON.useNew1963); setLocalConfigJSON(defaultConfigJSON.useNew1963,'useNew1963') ;
-			forceUpdate()
-			*/
 			props.setMain("Race") ;
 		});
 	};
@@ -41,9 +31,9 @@ const Config = (props) => {
 		<>
 			<main className={props.getMainClassList()}>
 				<header>
-					<h2>App Settings</h2>
+					<h2>Settings</h2>
 				</header>
-				<section className="control-panel--config">
+				<section className="cnt--config">
 					<ul>
 						<li className="switch">
 							<label><input type="checkbox" checked={showNumber} onChange={(e) => { setShowNumber(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showNumber') }} />
@@ -77,7 +67,7 @@ const Config = (props) => {
 						</li>
 						</ul>
 				</section>
-				<section className="control-panel--config">
+				<section className="cnt--config">
 					<header>
 						<h3>Season Settings</h3>
 					</header>
@@ -90,11 +80,17 @@ const Config = (props) => {
 						</li>
 					</ul>
 				</section>
-				<section className="control-panel--config">
+				<section className="cnt--config">
 					<header>
 						<h3>Layout Settings</h3>
 					</header>
 					<ul>
+						<li className="switch">
+							<label><input type="checkbox" checked={showCards} onChange={(e) => { setShowCards(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showCards') }} data-value="showCards" />
+								<span className="hdr">Show cards</span>
+								<span className="txt">Displays the ten Legends cards from the deck.</span>
+							</label>
+						</li>
 						<li className="switch">
 							<label><input type="checkbox" checked={showMoreWhite} onChange={(e) => { setShowMoreWhite(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showMoreWhite') }} data-value="showMoreWhite" />
 								<span className="hdr">Show more white space</span>
@@ -111,7 +107,6 @@ const Config = (props) => {
 				</section>
 			</main>
 			<section id="deck"></section>
-			<section id="next"></section>
 		</>
 	);
 };

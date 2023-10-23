@@ -45,13 +45,13 @@ const Seasons = (props) => {
 				workingSeasonJSON.races[2].event = defaultSeasonEventsJSON[workingSeasonJSON.races[2].event];
 			};
 			props.setSeasonJSON(workingSeasonJSON)
-			props.setMain('Season')
+			props.setMain('Results')
 			doToast('Starting Year ' + workingSeasonJSON.year);
-		});
+		},!props.seasonJSON);
 	};
 
 	const resetSeasonJSON = () => {
-		doConfirm("Reset and delete all the season?", () => {
+		doConfirm("Are you sure you want to remove all the results from this season?", () => {
 			props.setSeasonJSON(null);
 			props.setMain('Seasons');
 			window.scrollTo(0, 0)
@@ -61,9 +61,9 @@ const Seasons = (props) => {
 	return (
 		<>
 			<main className={props.getMainClassList()}>
-				<section className="control-panel--seasons--pick-season">
-					<header>
-						<h2>Championships</h2>
+				<section className="cnt--seasons--pick-season">
+					<header className="championship">
+						<h2 className="no-ul">Championship</h2>
 					</header>
 					<div className="full">
 						{ defaultSeasonsJSON.map( (season,idx) => (
@@ -88,7 +88,7 @@ const Seasons = (props) => {
 					</div>
 				</section>
 
-				<footer className="control-panel--actions">
+				<footer className="cnt--actions">
 					<header>
 						<h3>Actions</h3>
 					</header>
@@ -96,27 +96,26 @@ const Seasons = (props) => {
 					{ defaultSeasonsJSON.map( (season,idx) => (
 						<label key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={"action season-"+(season.year).replace(' ','-').toLowerCase()}>
 							<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>{season.year}</button>
-							<span className="hdr">{season.year}</span>
+							<span className="hdr action-do">{season.year}</span>
 							<span className="txt">Start The {season.year} Championship.</span>
 						</label>
 					))}
 
 					<label className="action">
 						<button onClick={() => { props.setMain("Config") ; }}>Settings</button>
-						<span className="hdr">Settings</span>
+						<span className="hdr action-do">Settings</span>
 						<span className="txt">Change the number of races in the 1963 Championship.</span>
 					</label>
 
 					<label className="action warning">
 						<button onClick={resetSeasonJSON}>Reset</button>
-						<span className="hdr">Reset</span>
+						<span className="hdr action-do">Reset</span>
 						<span className="txt">Remove all results for the current Championship.</span>
 					</label>
 				</footer>
 
 			</main>
 			<section id="deck"></section>
-			<section id="next"></section>
 		</>
 	)
 }
