@@ -3,7 +3,7 @@
 #root main .cnt--race  { display: grid ; grid-template: minmax(auto,100%) / auto ; gap: var(--gap) ; align-content: stretch ;  align-items: stretch ;  align-self: stretch; }
 #root[data-view=round] main .cnt--race  { grid-template: auto minmax(auto,100%) / auto ; }
 #root main .cnt--race .full { display: grid ; gap: var(--gap) ; align-items: stretch ; }
-#root main .cnt--race article { display: grid ; gap: 0 var(--gap) ; align-items: center; padding: 0.5em ; overflow: hidden ; background-color: var(--bkg) ; color: var(--txt); border-radius: var(--edge) ; }
+#root main .cnt--race article { display: grid ; gap: 0 var(--gap) ; align-items: center; padding: 0.5em ; overflow: hidden ; background: var(--texture-blk) 0% 50% / 100% 100% no-repeat , var(--texture-wht) 50% 50% / 100% 100% no-repeat ,  var(--bkg) ; color: var(--txt); border-radius: var(--edge) ; }
 #root main .cnt--race article { grid-template: "number driver output action"  auto / 1.75em auto var(--move-width) 1.75em ; }
 #root main:not(.show--number) .cnt--race article { grid-template: "driver output action"  auto / auto 8.5em 1.75em ;  }
 #root main:not(.show--number) .cnt--race article .driver--number  { display: none ; }
