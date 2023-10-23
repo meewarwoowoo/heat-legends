@@ -1,5 +1,10 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="331.607" y="78.114" width="233" height="308" rx="36" transform="rotate(60 331.607 78.114)" fill="white" stroke="black" stroke-width="8"/>
-<rect x="232.609" y="64.385" width="233" height="308" rx="36" transform="rotate(30 232.609 64.385)" fill="white" stroke="black" stroke-width="8"/>
-<rect x="140" y="102" width="233" height="308" rx="36" fill="white" stroke="black" stroke-width="8"/>
+<rect x="181" y="146" width="150" height="36" rx="18" fill="white"/>
+<rect x="331" y="146" width="150" height="36" rx="18" transform="rotate(90 331 146)" fill="white"/>
+<rect x="267.456" y="207" width="100" height="36" rx="18" transform="rotate(45 267.456 207)" fill="white"/>
+<rect x="384.167" y="232.456" width="100" height="36" rx="18" transform="rotate(135 384.167 232.456)" fill="white"/>
+<rect x="331.167" y="366.167" width="150" height="36" rx="18" transform="rotate(180 331.167 366.167)" fill="white"/>
+<rect x="181.167" y="366.167" width="150" height="36" rx="18" transform="rotate(-90 181.167 366.167)" fill="white"/>
+<rect x="244.711" y="305.167" width="100" height="36" rx="18" transform="rotate(-135 244.711 305.167)" fill="white"/>
+<rect x="128" y="279.711" width="100" height="36" rx="18" transform="rotate(-45 128 279.711)" fill="white"/>
 </svg>
