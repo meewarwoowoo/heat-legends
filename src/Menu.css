@@ -1,4 +1,4 @@
-#root #menu  { grid-area: menu ; display: flex ; justify-content: center; align-items: center;  background-color: var(--bkg) ; --on: var(--heat) ;   }
+#root #menu  { grid-area: menu ; display: flex ; justify-content: center; align-items: center;  background: var(--texture-diag) 0 0 / 4px 4px repeat , var(--bkg) ; --on: var(--heat) ;   }
 #root[data-view=config] #menu ,
 #root[data-view=drivers] #menu   { align-items: flex-start; }
 

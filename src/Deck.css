@@ -1,4 +1,4 @@
-#root #deck  { grid-area: deck ; display: flex ; justify-content: center; align-items: center;  width: 100% ; height: 100% ; background-color: var(--bkg) ; --bkg: var(--blk-high) ; --on: var(--heat) ; overflow: hidden ;  }
+#root #deck  { grid-area: deck ; display: flex ; justify-content: center; align-items: center;  width: 100% ; height: 100% ; background: var(--texture-diag) 0 0 / 4px 4px repeat , var(--bkg) ; --bkg: var(--blk-high) ; --on: var(--heat) ; overflow: hidden ;  }
 #root #deck .cnt   { position: fixed ; inset: 0 0 0 auto ; padding: 0.5em ; display: flex ; flex-flow: column nowrap ; justify-content: center; align-items: center; }
 #root #deck .cnt > ul  { display: flex ; flex-flow: column nowrap ;  background-color:  var(--wht-low) ; outline: 1px solid var(--wht-mid) ; color: var(--txt) ; list-style-type: none ; padding: 0 ; margin: 0.25em  ; border-radius: 1.5em; }
 #root #deck .cnt > ul > li  {display: flex ; flex-flow: column nowrap ;  padding: 0 ; margin: 0.25em ; list-style-type: none ; border-radius: 1.5em ; cursor: pointer ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out; outline: 1px solid var(--wht-mid) ; }
