@@ -1,5 +1,5 @@
-#root[data-view=config]  { grid-template-columns: 4.5em 4.5em auto auto auto 1em; }
-#root[data-view=config] main {align-items: flex-start ; align-content: flex-start ; }
+#root[data-view=config]  { grid-template-columns: 4.5em 4.5em auto auto auto 0.5em; }
+#root[data-view=config] main { align-items: flex-start ; align-content: flex-start ; }
 /* End of layout */
 
 
