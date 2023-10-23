@@ -17,13 +17,12 @@
 #root main .cnt--results--pick-race article label ul li.name  { display: block ; border-radius: var(--edge)  ; background-color: var(--wht) ; color: var(--bkg) ; padding: 0.5em ; margin: 0 0 var(--gap) }
 #root main .cnt--results--pick-race article.on label ul li.name  { background: var(--on) ; color: var(--wht) ; }
 #root main .cnt--results--pick-race article label ul li.action  { display: none ; }
-
 #root main .cnt--results--pick-race article label ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto  ; width: 60% ; }
 #root main .cnt--results--pick-race article label ul li.flag img  { width: 100% ; display: block ; }
 #root main .cnt--results--pick-race article label ol   { display: grid ; margin:  0 0 ; padding: 0 ; gap: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: left ; width: 100% ;  }
 #root main .cnt--results--pick-race article label ol li  { position: relative ; display: block ; padding: 0 ; margin: 0  ; border-radius: var(--edge) ; font-weight: 400 ; text-align: left ; background-color: var(--bkg) ; color: var(--txt) ;  }
-#root main .cnt--results--pick-race article label ol li span { display: inline-block ;  padding: 0.5em 0.5em 0.5em 0 ; }
-#root main .cnt--results--pick-race article label ol li span:first-of-type { font-family: var(--text-font) ; font-size: 0.5em ; padding: 1em  ;}
+#root main .cnt--results--pick-race article label ol li span { display: inline-block ; position: relative ;  padding: 0.5em 0.5em 0.5em 1.5em ; }
+#root main .cnt--results--pick-race article label ol li span:first-of-type { font-family: var(--text-font) ; font-size: 0.5em ; inset: 1.325em 0 0 -0.75em  ; position: absolute; }
 #root main .cnt--results--pick-race article.results label ul li  { display: none; }
 #root main .cnt--results--pick-race article.results label ul li.name ,
 #root main .cnt--results--pick-race article.results label ul li.flag  { display: block ; }
