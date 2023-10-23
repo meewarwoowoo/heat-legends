@@ -72,7 +72,6 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 		}
 }
 	
-#root main  { --gap: 0.5rem ; --edge: 0.25rem ; --box: none ; }
 #root main  { --gap: 0 ; --edge: 0 ; --box: none ; }
 #root main.show--more-white  { --gap: 1rem ; --edge: 1rem ; --box: inset 0.25em 0 1rem -0.75em rgba(0,0,0,0.5) ; }
 #root main.move--split  { --move-width: 8.5em ; }
@@ -144,7 +143,7 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 #root main.use--new-1963 .cnt--actions .action.season-1964  { display: flex ; }
 
 
-#over  { position: fixed ; inset: 0 ; display: grid ; align-items: center ; justify-items: center ; background-color: var(--blk-high) ; color: var(--wht) ; }
+#over  { position: fixed ; inset: 0 ; display: grid ; align-items: center ; justify-items: center ; background-color: var(--blk-high) ; color: var(--wht) ; --edge: 0.25em  ; --gap: 0.5em  ; }
 #over .ins  { max-width: 400px;  color: var(--blk) ; background-color: var(--wht) ; border-radius: 0.5em ; padding: 0.5em 1em 0.5em 0.5em ;  }
 #over .ins p  { margin: 0 ; padding: 0.5em  ; }
 #over .ins ul  { display: flex ; gap: 0.5em ; margin: 0 ; padding: 0.5em  ; list-style-type: none ; }
