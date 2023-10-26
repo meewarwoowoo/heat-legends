@@ -7,6 +7,7 @@ import Standings from './Standings';
 import Round from './Round';
 import Drivers from './Drivers';
 import Config from './Config';
+import Hail from './Hail';
 
 const Main = (props) => {
 
@@ -45,7 +46,7 @@ const Main = (props) => {
 	};
 
 	if (props.main === 'Race') {
-		return <Race {...props} {...backboneProps} />
+		return <><Race {...props} {...backboneProps} /><Hail {...backboneProps} /></>
 	};
 	if (props.main === 'Seasons') {
 		return <Seasons {...props} {...backboneProps} />

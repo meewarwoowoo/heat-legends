@@ -1,6 +1,6 @@
 import React, { useState , useReducer } from 'react';
 import { defaultPlacesJSON, defaultDeckJSON , defaultDriversSpeedGridJSON } from './localJSON';
-import { getTrackFromAbbr , getActiveRaceIdx , shuffleDeck , doToast , doConfirm } from './util/Utils';
+import { getActiveRaceIdx , shuffleDeck } from './util/Utils';
 import { shuffle , next } from './images';
 import Header from './Header';
 import Driver from './Driver';
@@ -15,7 +15,6 @@ const Round = (props) => {
 	const [, forceUpdate] = useReducer(x => x + 1, 0);
 
 	const setShuffledDeck = () => {
-		doToast('Shuffle')
 		shuffleDeck(deckJSON);
 		setDeckCard(-1);
 		setTimeout(() => {

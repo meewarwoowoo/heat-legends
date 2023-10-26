@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { defaultDriversJSON ,defaultDriversSpeedGridJSON } from './localJSON';
 import { DriverConfig } from './DriverConfig';
-import { doToast , doConfirm } from './util/Utils';
+import { doConfirm } from './util/Utils';
 
 import './Drivers.css';
 

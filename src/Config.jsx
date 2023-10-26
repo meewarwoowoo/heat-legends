@@ -1,6 +1,4 @@
 import React , { useState , useReducer } from 'react';
-import { defaultConfigJSON } from './localJSON';
-import { doToast , doConfirm } from './util/Utils';
 		
 const Config = (props) => {
 	const [ showNumber , setShowNumber ] = useState(props.configJSON.showNumber);
@@ -20,13 +18,6 @@ const Config = (props) => {
 		props.setConfigJSON(workingConfigJSON);
     };
 	
-	const resetSettings = () => {
-		doConfirm("resetSettings?", () => {
-			props.setMain("Race") ;
-		});
-	};
-	
-
 	return (
 		<>
 			<main className={props.getMainClassList()}>

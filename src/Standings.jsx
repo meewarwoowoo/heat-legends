@@ -1,5 +1,5 @@
 import React from 'react';
-import { getActiveRaceIdx , getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
+import { getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace ,  doConfirm } from './util/Utils';
 import Header from './Header';
 import './Standings.css';
 
@@ -62,7 +62,6 @@ const Season = (props) => {
 			};
 			standingPoints = p
 		})
-		console.table(standings)
 		return standings;
 	};
 

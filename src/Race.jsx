@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { defaultDeckJSON , defaultDriversSpeedGridJSON } from './localJSON';
-import { shuffleDeck , doToast , doConfirm } from './util/Utils';
+import { shuffleDeck , doToast } from './util/Utils';
 import { shuffle , next  } from './images';
 import Driver from './Driver';
 import './Race.css';

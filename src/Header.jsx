@@ -1,5 +1,4 @@
 import React from 'react';
-import { getActiveRaceIdx , getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
 
 
 const SeasonHeader = (props) => {
