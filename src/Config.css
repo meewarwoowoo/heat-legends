@@ -6,11 +6,14 @@
 #root main .cnt--config  { display: grid ; gap: var(--gap) ; font-family: var(--text-font) ; }
 #root main .cnt--config ul  { display: grid ; gap: var(--gap) ; list-style-type: none ; padding: 0 ; margin: 0; }
 #root main .cnt--config ul li  { display: block ; list-style-type: none ; padding: 0 ; margin: 0;  }
-#root main .cnt--config ul li label { display: block ; padding: 1em  ; border-radius: var(--edge) ; background:  var(--texture) 0 0 / 4px 4px repeat , var(--mid) ; color: var(--bkg) ; cursor: pointer ; height: 100%; }
-#root main .cnt--config ul li label:hover { outline: 0.125em solid var(--hgh) ; }
-#root main .cnt--config ul li label input { display: none; }
-#root main .cnt--config ul li label span  { display: block ; position: relative ; padding-left: 3em ; }
-#root main .cnt--config ul li label .txt  { font-size: 0.75em ; padding: 0.5em 0 0 4em ; max-width: 38em ;}
-#root main .cnt--config ul li label span:first-of-type::before { content: ' ' ; display: block; width: calc( 1em - 4px ) ; height: calc( 1em - 4px ) ; background: var(--off) ; position: absolute ; top: 2px ; left: 2px ; z-index: 2 ; border-radius: 1em ; transition: 0.5s left ease-in-out , 0.5s color ease-in-out ; font-size: 1.125em ; }
-#root main .cnt--config ul li label span:first-of-type::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: var(--txt) ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ;  border-radius: 1em ; font-size: 1.125em ;}
-#root main .cnt--config ul li label input:checked ~ span:first-of-type::before  { left: calc( 1em + 2px ) ; background-color: var(--on)  ; }
+#root main .cnt--config ul li :is(label,.label) { display: block ; padding: 1em  ; border-radius: var(--edge) ; background:  var(--texture) 0 0 / 4px 4px repeat , var(--mid) ; color: var(--bkg) ; cursor: pointer ; height: 100%; }
+#root main .cnt--config ul li :is(label,.label):hover { outline: 0.125em solid var(--hgh) ; }
+#root main .cnt--config ul li :is(label,.label) input { display: none; }
+#root main .cnt--config ul li.switch :is(label,.label) span  { display: block ; position: relative ; padding-left: 3em ; }
+#root main .cnt--config ul li.switch :is(label,.label) .txt  { font-size: 0.75em ; padding: 0.5em 0 0 4em ; max-width: 38em ;}
+#root main .cnt--config ul li.switch :is(label,.label) span:first-of-type::before { content: ' ' ; display: block; width: calc( 1em - 4px ) ; height: calc( 1em - 4px ) ; background: var(--off) ; position: absolute ; top: 2px ; left: 2px ; z-index: 2 ; border-radius: 1em ; transition: 0.5s left ease-in-out , 0.5s color ease-in-out ; font-size: 1.125em ; }
+#root main .cnt--config ul li.switch :is(label,.label) span:first-of-type::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: var(--txt) ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ;  border-radius: 1em ; font-size: 1.125em ;}
+#root main .cnt--config ul li.switch :is(label,.label) input:checked ~ span:first-of-type::before  { left: calc( 1em + 2px ) ; background-color: var(--on)  ; }
+#root main .cnt--config ul li.button :is(label,.label) .hdr  { padding: 0.5em 0 0 0 ; display: block ; }
+#root main .cnt--config ul li.button :is(label,.label) .txt  { font-size: 0.75em ; padding: 0.5em 0 0 0 ; display: block ; }
+#root main .cnt--config ul li.button :is(label,.label) .action-do  { margin: 1em 0 -0.5em  -0.5em ; display: inline-block ; }
