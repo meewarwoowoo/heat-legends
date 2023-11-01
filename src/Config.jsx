@@ -1,4 +1,5 @@
 import React , { useState , useReducer } from 'react';
+import { defaultConfigJSON, defaultDriversJSON } from './localJSON';
 		
 const Config = (props) => {
 	const [ showNumber , setShowNumber ] = useState(props.configJSON.showNumber);
@@ -96,6 +97,23 @@ const Config = (props) => {
 						</li>
 					</ul>
 				</section>
+
+				<section className="cnt--config">
+					<header>
+						<h3>Reset</h3>
+					</header>
+					<ul>
+						<li className="button">
+							<div className="label">
+								<span className="hdr">Emergency Reset</span>
+								<span className="txt">If you are used the previous version of this app, and you are having problems, you can delete your Local Storage files.</span>
+								<span className="action-do" id="over--clear" onClick={(e)=> { localStorage.clear() ; location.reload() ; }}>Delete Local Storage &amp; Reboot</span>
+							</div>
+						</li>
+					</ul>
+				</section>
+
+
 			</main>
 			<section id="deck"></section>
 		</>

@@ -7,10 +7,9 @@ import Standings from './Standings';
 import Round from './Round';
 import Drivers from './Drivers';
 import Config from './Config';
-import Hail from './Hail';
 
 const Main = (props) => {
-
+	
 	let localDriversJSON = JSON.parse(localStorage.getItem('driversJSON'));
 	if(localDriversJSON===null) localDriversJSON = defaultDriversJSON ;
 	const [ driversJSON , setDriversJSON ] = useState(localDriversJSON);
@@ -46,7 +45,7 @@ const Main = (props) => {
 	};
 
 	if (props.main === 'Race') {
-		return <><Race {...props} {...backboneProps} /><Hail {...backboneProps} /></>
+		return <Race {...props} {...backboneProps} />
 	};
 	if (props.main === 'Seasons') {
 		return <Seasons {...props} {...backboneProps} />
