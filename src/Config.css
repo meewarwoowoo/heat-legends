@@ -14,6 +14,6 @@
 #root main .cnt--config ul li.switch :is(label,.label) span:first-of-type::before { content: ' ' ; display: block; width: calc( 1em - 4px ) ; height: calc( 1em - 4px ) ; background: var(--off) ; position: absolute ; top: 2px ; left: 2px ; z-index: 2 ; border-radius: 1em ; transition: 0.5s left ease-in-out , 0.5s color ease-in-out ; font-size: 1.125em ; }
 #root main .cnt--config ul li.switch :is(label,.label) span:first-of-type::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: var(--txt) ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ;  border-radius: 1em ; font-size: 1.125em ;}
 #root main .cnt--config ul li.switch :is(label,.label) input:checked ~ span:first-of-type::before  { left: calc( 1em + 2px ) ; background-color: var(--on)  ; }
-#root main .cnt--config ul li.button :is(label,.label) .hdr  { padding: 0.5em 0 0 0 ; display: block ; }
+#root main .cnt--config ul li.button :is(label,.label) .hdr  { padding: 0 0 0 0 ; display: block ; }
 #root main .cnt--config ul li.button :is(label,.label) .txt  { font-size: 0.75em ; padding: 0.5em 0 0 0 ; display: block ; }
 #root main .cnt--config ul li.button :is(label,.label) .action-do  { margin: 1em 0 -0.5em  -0.5em ; display: inline-block ; }
