@@ -35,7 +35,6 @@ const Main = (props) => {
 		if(configJSON.showFinishOnRace) exportClassList.push('show--finish')
 		if(configJSON.showCards) exportClassList.push('show--cards')
 		if(configJSON.showGrid) exportClassList.push('show--grid')
-		if(configJSON.useNew1963) exportClassList.push('use--new-1963')
 		return exportClassList.join(' ');
 	};
 

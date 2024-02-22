@@ -4,7 +4,6 @@
 #root main .cnt--results--pick-race  {--off : var(--mid) ;}
 #root main.season-over .cnt--results--pick-race  { --off: var(--mid) ; }
 #root main .cnt--results--pick-race  { display: grid ; grid-template: auto / repeat(4,1fr) ; gap: var(--gap)  ; }
-#root main.use--new-1963 .cnt--results--pick-race  { grid-template: auto / repeat(3,1fr)  ; }
 #root main .cnt--results--pick-race .full { display: contents ; }
 #root main .cnt--results--pick-race article  {  padding: 0 ; margin: 0 ; border-radius: var(--gap) ; overflow: hidden; background: var(--texture) 0 0 / 4px 4px repeat , var(--off) ; }
 #root main .cnt--results--pick-race article.on  { cursor: default ; }
@@ -33,10 +32,8 @@
 @media ( max-width: 1240px )  { 
 }
 @media ( max-width: 1024px )  { 
-	#root main .cnt--results--pick-race ,
-	#root main.use--new-1963 .cnt--results--pick-race  { grid-template: auto / 1fr ; }
+	#root main .cnt--results--pick-race    { grid-template: auto / 1fr ; }
 	#root main .cnt--results--pick-race article label  { position: relative ; padding: var(--gap) 30% var(--gap) var(--gap)   ;  }
-	#root main.use--new-1963 .cnt--results--pick-race article label  { grid-template: repeat(3,auto) / auto ; }
 	#root main .cnt--results--pick-race article label ul   { display: grid ; margin: 0 ; }
 	#root main .cnt--results--pick-race article label ul li  { text-align: left ; margin: 0 ; }
 	#root main .cnt--results--pick-race article label ul li.name  { margin: 0 ; border-radius: 0 ; }

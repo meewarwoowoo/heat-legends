@@ -61,19 +61,6 @@ const Config = (props) => {
 				</section>
 				<section className="cnt--config">
 					<header>
-						<h3>Season Settings</h3>
-					</header>
-					<ul>
-						<li className="switch">
-							<label><input type="checkbox" checked={useNew1963} onChange={(e) => { setUseNew1963(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'useNew1963') }} />
-								<span className="hdr">Use New 1963</span>
-								<span className="txt">The four race 1963 season included in the original Heat game, to me, feels too long and so I have created a new 1963 and a 1964 season.  If this optionis selected then those seasons are used.</span>
-							</label>
-						</li>
-					</ul>
-				</section>
-				<section className="cnt--config">
-					<header>
 						<h3>Layout Settings</h3>
 					</header>
 					<ul>

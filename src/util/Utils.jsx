@@ -1,4 +1,4 @@
-import { usa , gbr , fra , ita , ned , jap , icon_usa , icon_gbr , icon_fra , icon_ita , icon_ned , icon_jap} from '../images';
+import { usa , gbr , fra , ita , ned , mex , jap , icon_usa , icon_gbr , icon_fra , icon_ita , icon_ned , icon_mex , icon_jap} from '../images';
 import { defaultTracksJSON , defaultColoursJSON } from '../localJSON';
 
 const shuffleDeck = (a) => {
@@ -89,6 +89,7 @@ const getFlagFromTrack = (raceTrack,icon=false) => {
         if(raceTrack==='GBR') return icon_gbr
         if(raceTrack==='JAP') return icon_jap
         if(raceTrack==='NED') return icon_ned
+        if(raceTrack==='MEX') return icon_mex
         if(raceTrack==='FRA') return icon_fra
         if(raceTrack==='USA') return icon_usa
         if(raceTrack==='ITA') return icon_ita
@@ -96,6 +97,7 @@ const getFlagFromTrack = (raceTrack,icon=false) => {
         if(raceTrack==='GBR') return gbr
         if(raceTrack==='JAP') return jap
         if(raceTrack==='NED') return ned
+        if(raceTrack==='MEX') return mex
         if(raceTrack==='FRA') return fra
         if(raceTrack==='USA') return usa
         if(raceTrack==='ITA') return ita

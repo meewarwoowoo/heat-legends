@@ -165,11 +165,6 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 #root main .cnt--actions .action .hdr   { order: 0 ; }
 #root main .cnt--actions .action:hover .hdr    { background-color:  var(--blk) ; color: var(--wht) ; }
 #root main .cnt--actions .action .txt   { display: none ; }
-#root main .cnt--actions .action.season-1963 ,
-#root main .cnt--actions .action.season-1964  { display: none ; }
-#root main.use--new-1963 .cnt--actions .action.season-1963-legacy  { display: none ; }
-#root main.use--new-1963 .cnt--actions .action.season-1963 ,
-#root main.use--new-1963 .cnt--actions .action.season-1964  { display: flex ; }
 
 
 #hail  { position: fixed ; inset: 0 ; z-index: 100 ;  display: grid ; align-items: center ; justify-items: center ; background-color: var(--blk-high) ; color: var(--wht) ; --edge: 0.25em  ; --gap: 0.5em  ; }

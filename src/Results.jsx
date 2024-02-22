@@ -74,6 +74,14 @@ const Season = (props) => {
 		});
 	};
 	
+	const hasPressCorner = (camera) => {
+		return (camera === '')?<li className="item press">No Press Corner</li>:<li className="item press">Press Corner is {camera}</li>
+	}
+
+	const hasSponsorCards = (sponsor) => {
+		return (sponsor === 0)?<li className="item card">No Sponsor Cards</li>:<li className="item card">{sponsor} Sponsor Card{sponsor===1?'':'s'}</li>
+	}
+
 
 	if(!props.seasonJSON){
 		return <p>Error: !seasonJSON</p>
@@ -97,8 +105,8 @@ const Season = (props) => {
 													<li className="name">{getTrackFromAbbr(race.track).name}</li>
 													<li className="action"><SeasonRaceStartButton race={race} raceIdx={raceIdx} {...props}/></li>
 													<li className="item laps">{getTrackFromAbbr(race.track).laps} Laps</li>
-													<li className="item press">Press Corner is {race.cameras}</li>
-													<li className="item card">{race.sponsors} Sponsor Card{race.sponsors===1?'':'s'}</li>
+													{hasPressCorner(race.cameras) }
+													{hasSponsorCards(race.sponsors) }
 													<li className="item event">{race.event}</li>
 												</ul>
 												<SeasonRaceWinner race={race} {...props} />
