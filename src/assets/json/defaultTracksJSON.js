@@ -24,6 +24,18 @@ const defaultTracksJSON = [
 		"laps": 3
 	},
 	{
+		"abbr": "ESP",
+		"name": "Spain",
+		"track": ["s0", "c0"],
+		"laps": 1
+	},
+	{
+		"abbr": "NED",
+		"name": "Netherlands",
+		"track": ["s0", "c0"],
+		"laps": 3
+	},
+	{
 		"abbr": "USA",
 		"long": "United States of America",
 		"name": "United States",
