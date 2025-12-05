@@ -47,6 +47,18 @@ const defaultTracksJSON = [
 		"name": "France",
 		"track": ["s11", "c5", "s7", "c2", "s6", "c4", "s11", "c3", "s7", "c4", "s13"],
 		"laps": 2
+	},
+	{
+		"abbr": "KSA",
+		"name": "South Africa",
+		"track": ["s0", "c0"],
+		"laps": 2
+	},
+	{
+		"abbr": "GER",
+		"name": "Germany",
+		"track": ["s0", "c0"],
+		"laps": 2
 	}
 ];
 export default defaultTracksJSON ;

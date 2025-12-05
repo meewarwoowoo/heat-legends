@@ -1,6 +1,6 @@
 #root[data-view=race] main .cnt--race header  { display: none ; }
 
-#root main .cnt--race  { display: grid ; grid-template: minmax(auto,100%) / auto ; gap: var(--gap) ; align-content: stretch ;  align-items: stretch ;  align-self: stretch; }
+#root main .cnt--race  { display: grid ; grid-template: minmax(auto,calc(100% - (var(--gap)*2) ) ) / auto ; gap: var(--gap) ; align-content: stretch ;  align-items: stretch ;  align-self: stretch; }
 #root[data-view=round] main .cnt--race  { grid-template: auto minmax(auto,100%) / auto ; }
 #root main .cnt--race .full { display: grid ; gap: var(--gap) ; align-items: stretch ; }
 #root main .cnt--race article { display: grid ; gap: 0 var(--gap) ; align-items: center; padding: 0.5em ; overflow: hidden ; background: var(--texture) 0 0 / 4px 4px repeat , var(--texture-blk) 0% 50% / 100% 100% no-repeat , var(--texture-wht) 50% 50% / 100% 100% no-repeat , var(--bkg) ; color: var(--txt); border-radius: var(--edge) ; }
