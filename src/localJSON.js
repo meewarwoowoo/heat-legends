@@ -1,5 +1,6 @@
 import defaultColoursJSON from './assets/json/defaultColoursJSON'
 import defaultConfigJSON from './assets/json/defaultConfigJSON'
+import defaultDeckJSON from './assets/json/defaultDeckJSON'
 import { legendsDeck1, legendsDeck2 , legendsDeck3 } from './assets/json/legendsDeckJSON'
 import defaultDriversJSON from './assets/json/defaultDriversJSON'
 import defaultDriversSpeedGridJSON from './assets/json/defaultDriversSpeedGridJSON'
@@ -13,6 +14,7 @@ import defaultTracksJSON from './assets/json/defaultTracksJSON'
 export {
 	defaultColoursJSON , 
 	defaultConfigJSON , 
+	defaultDeckJSON , 
 	legendsDeck1,
 	legendsDeck2,
 	legendsDeck3,
