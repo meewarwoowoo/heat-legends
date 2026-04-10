@@ -7,6 +7,7 @@ import Standings from './Standings';
 import Round from './Round';
 import Drivers from './Drivers';
 import Config from './Config';
+import Export from './Export';
 
 const Main = (props) => {
 	
@@ -64,5 +65,9 @@ const Main = (props) => {
 	if (props.main === 'Config') {
 		return <Config {...props} {...backboneProps} />
 	};
+	if (props.main === 'Export') {
+		return <Export {...props} {...backboneProps} />
+	};
+	
 }
 export default Main

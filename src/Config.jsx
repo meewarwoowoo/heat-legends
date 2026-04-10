@@ -87,6 +87,21 @@ const Config = (props) => {
 
 				<section className="cnt--config">
 					<header>
+						<h3>Export</h3>
+					</header>
+					<ul>
+						<li className="button">
+							<div className="label">
+								<span className="hdr">Export</span>
+								<span className="txt">Copy the JSON files for this project.</span>
+								<span className="action-do" id="over--clear" onClick={(e)=> { props.setMain("Export") ; }}>Export</span>
+							</div>
+						</li>
+					</ul>
+				</section>
+
+				<section className="cnt--config">
+					<header>
 						<h3>Reset</h3>
 					</header>
 					<ul>
