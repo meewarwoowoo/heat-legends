@@ -8,7 +8,9 @@ const defaultDriversJSON = [
 	{ "id":"driver_g", "name":"Pomarańcza" , "number":4 ,  "team":"Orange Team" ,  "colour":"Orange" , "active": true     , "human": false     } ,
 	{ "id":"driver_h", "name":"Morado" ,     "number":9 ,  "team":"Purple Team" ,  "colour":"Purple" , "active": true     , "human": false     } ,
 	{ "id":"driver_i", "name":"Blanc" ,      "number":11 , "team":"White Team" ,   "colour":"White"  , "active": true     , "human": false     } ,
-	{ "id":"driver_j", "name":"Shian" ,      "number":8 ,  "team":"Cyan Team" ,    "colour":"Cyan"   , "active": false    , "human": false     } 
+	{ "id":"driver_j", "name":"Shian" ,      "number":21 , "team":"Cyan Team" ,    "colour":"Cyan"   , "active": false    , "human": false     } ,
+	{ "id":"driver_k", "name":"Bleikur",     "number":17 , "team":"Pink Team" ,    "colour":"Pink"   , "active": false    , "human": false     } ,
+	{ "id":"driver_l", "name":"Kulay-Balat", "number":8 ,  "team":"Tan Team" ,     "colour":"Tan"    , "active": false    , "human": false     } 
 ];
 
 export default defaultDriversJSON ;
