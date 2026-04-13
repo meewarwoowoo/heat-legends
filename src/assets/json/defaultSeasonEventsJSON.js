@@ -22,6 +22,11 @@ const defaultSeasonEventsJSON = {
 	"s1965r3": "Tunnel Vision: For this race, you may discard Stress cards during Step 8." ,
 	"s1965r4": "Pressure Cooker: This race is one lap longer than the usual.  Each time you complete a lap, remove a Heat card from the game." ,
 
+	"s1966r1": "Tight Maneuvers: Your total Slipstream Value is reduced by 1." ,
+	"s1966r2": "Smooth Start: Before the race, place all of your Stress cards into your discard pile." ,
+	"s1966r3": "The Crowd Goes Wild:  The first 2 drivers to cross the B Corner Lie every lap immediately gain a Sponsorship card.  Legends count even though they get no nenefit from it." ,
+	"s1966r4": "Consulting The Mechanics: Before the race, in starting grid order, all drivers choose either +1&nbsp;Heat card &amp; +1&nbsp;Stree card, OR -1&nbsp;Heat card &amp; -1&nbsp;Stree card." ,
+
 };
 export default defaultSeasonEventsJSON ;
 
