@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { defaultDeckJSON , defaultDriversSpeedGridJSON } from './localJSON';
+import { useState } from 'react';
+import { legendsDeck1, legendsDeck2 , legendsDeck3 , legendsDeck4 , legendsDeck5 , legendsDeck6 , defaultDriversSpeedGridJSON } from './localJSON';
 import { shuffleDeck , doToast } from './util/Utils';
 import { shuffle , next  } from './images';
 import Driver from './Driver';
@@ -9,9 +9,9 @@ import './Deck.css';
 const Race = (props) => {
 	let localDriversSpeedGridJSON = JSON.parse(localStorage.getItem('driversSpeedGridJSON'));
 		if(localDriversSpeedGridJSON===null) localDriversSpeedGridJSON = defaultDriversSpeedGridJSON ;
-    	const [ driversSpeedGridJSON , setDriversSpeedGridJSON ] = useState(localDriversSpeedGridJSON);
+		const [ driversSpeedGridJSON , setDriversSpeedGridJSON ] = useState(localDriversSpeedGridJSON);
 	const [ deckCard , setDeckCard ] = useState(0);
-	const [ deckJSON , setDeckJSON ] = useState(defaultDeckJSON);
+	const [ deckJSON , setDeckJSON ] = useState(legendsDeck1);
 	const [ raceDriversResult , setRaceDriversResult ] = useState([]);
 
 	const setShuffledDeck = () => {

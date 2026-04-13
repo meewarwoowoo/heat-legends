@@ -8,38 +8,32 @@ const defaultTracksJSON = [
 	{
 		"abbr": "ITA",
 		"name": "Italia",
-		"track": ["s0", "c0"],
 		"laps": 3
 	},
 	{
 		"abbr": "JAP",
 		"name": "Japan",
-		"track": ["s0", "c0"],
 		"laps": 2
 	},
 	{
 		"abbr": "MEX",
 		"name": "Mexico",
-		"track": ["s0", "c0"],
 		"laps": 3
 	},
 	{
 		"abbr": "ESP",
 		"name": "Spain",
-		"track": ["s0", "c0"],
 		"laps": 1
 	},
 	{
 		"abbr": "NED",
 		"name": "Netherlands",
-		"track": ["s0", "c0"],
 		"laps": 3
 	},
 	{
 		"abbr": "USA",
 		"long": "United States of America",
 		"name": "United States",
-		"track": ["s0", "c0"],
 		"laps": 2
 	},
 	{
@@ -51,13 +45,11 @@ const defaultTracksJSON = [
 	{
 		"abbr": "KSA",
 		"name": "South Africa",
-		"track": ["s0", "c0"],
 		"laps": 2
 	},
 	{
 		"abbr": "GER",
 		"name": "Germany",
-		"track": ["s0", "c0"],
 		"laps": 2
 	}
 ];

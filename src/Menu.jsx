@@ -1,4 +1,4 @@
-import React , { useReducer } from 'react';
+import { useReducer } from 'react';
 import { results, seasons , cog , drivers , race, standings } from './images';
 import { getFlagFromTrack } from './util/Utils';
 import './Menu.css';

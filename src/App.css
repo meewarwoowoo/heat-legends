@@ -1,5 +1,5 @@
 /*! modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
-*,::after,::before{box-sizing:border-box}html{font-family:system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji';line-height:1.15;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4}body{margin:0}hr{height:0;color:inherit}abbr[title]{text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}legend{padding:0}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}
+*,::after,::before{box-sizing:border-box}html{font-family:system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji';line-height:1.15;-webkit-text-size-adjust: [10,0]0%;-moz-tab-size:4;tab-size:4}body{margin:0}hr{height:0;color:inherit}abbr[title]{text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit}button,input,optgroup,select,textarea{font-family:inherit;font-size: [10,0]0%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}legend{padding:0}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}
 
 :root  {
 
@@ -8,14 +8,14 @@
 	--move-font:	"Futura LT W01 Bold";
 	--numb-font:	"Futura LT W01 Medium";
 
-	--blk:				rgba(32,32,32,1) ; 
-	--blk-high:			rgba(0,0,0,0.75) ;
-	--blk-mid:			rgba(0,0,0,0.25) ;
-	--blk-low:			rgba(0,0,0,0.125) ;
-	--wht:				rgba(255,255,255,1) ; 
-	--wht-high:			rgba(255,255,255,0.75) ;
-	--wht-mid: 			rgba(255,255,255,0.25) ;
-	--wht-low:			rgba(255,255,255,0.125) ;
+	--blk:			rgba(32,32,32,1) ; 
+	--blk-high:		rgba(0,0,0,0.75) ;
+	--blk-mid:		rgba(0,0,0,0.25) ;
+	--blk-low:		rgba(0,0,0,0.125) ;
+	--wht:			rgba(255,255,255,1) ; 
+	--wht-high:		rgba(255,255,255,0.75) ;
+	--wht-mid: 		rgba(255,255,255,0.25) ;
+	--wht-low:		rgba(255,255,255,0.125) ;
 
 	--bkg:			rgba(32,32,32,1) ; 
 	--txt:			rgba(255,255,255,1) ; 
@@ -53,6 +53,7 @@
 	--texture-wht:	linear-gradient(275deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.075) 25%, rgba(255,255,255,0.05) 30%, rgba(255,255,255,0.125) 75%, rgba(255,255,255,0) 100%) ;
 
 	--move-width:	5.75em ; 
+	--move-width:	8.75em ; 
 }
 
 @font-face{
@@ -100,7 +101,7 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 	
 #root main  { --gap: 0 ; --edge: 0 ; --box: none ; }
 #root main.show--more-white  { --gap: 1rem ; --edge: 1rem ; --box: inset 0.25em 0 1rem -0.75em rgba(0,0,0,0.5) ; }
-#root main.move--split  { --move-width: 8.5em ; }
+#root main.move--split  { --move-width: 11.5em ; }
 
 
 @media screen and (max-width: 1920px){

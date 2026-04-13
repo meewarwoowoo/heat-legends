@@ -1,4 +1,4 @@
-import React , {useState , useEffect } from 'react';
+import {useState , useEffect } from 'react';
 import Head from './Head';
 import Menu from './Menu';
 import Main from './Main';

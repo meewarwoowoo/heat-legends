@@ -1,4 +1,4 @@
-import React , { useState , useReducer } from 'react';
+import { useState , useReducer } from 'react';
 import { defaultConfigJSON, defaultDriversJSON } from './localJSON';
 		
 const Export = (props) => {

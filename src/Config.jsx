@@ -1,4 +1,4 @@
-import React , { useState , useReducer } from 'react';
+import { useState , useReducer } from 'react';
 import { defaultConfigJSON, defaultDriversJSON } from './localJSON';
 		
 const Config = (props) => {
@@ -10,6 +10,7 @@ const Config = (props) => {
     const [ showFinishOnRace , setShowFinishOnRace ] = useState(props.configJSON.showFinishOnRace);
     const [ showCards , setShowCards ] = useState(props.configJSON.showCards);
     const [ showGrid , setShowGrid ] = useState(props.configJSON.showGrid);
+    const [ legendsLevel , setlegendsLevel ] = useState(props.configJSON.legendsLevel);
     const [ useNew1963 , setUseNew1963 ] = useState(props.configJSON.useNew1963);
 	const [, forceUpdate] = useReducer(x => x + 1, 0);
 
@@ -36,13 +37,13 @@ const Config = (props) => {
 						<li className="switch">
 							<label><input type="checkbox" checked={showTeams} onChange={(e) => { setShowTeams(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showTeams') }} />
 								<span className="hdr">Show team names</span>
-								<span className="txt">When selected this will add a team name after the driver's name.  This team name can be customised for each driver.</span>
+								<span className="txt">When selected this will add a team name after the driver&rsquo;s name.  This team name can be customised for each driver.</span>
 							</label>
 						</li>
 						<li className="switch">
 							<label><input type="checkbox" checked={showColours} onChange={(e) => { setShowColours(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showColours') }} />
 								<span className="hdr">Show car colours as text</span>
-								<span className="txt">When selected this will add the words "Yellow", "Purple", or "Black" after the driver and team names.</span>
+								<span className="txt">When selected this will add the words &ldquot;Yellow&rdquot;, &ldquot;Purple&rdquot;, or &ldquot;Black&rdquot; after the driver and team names.</span>
 							</label>
 						</li>
 						<li className="switch">
@@ -57,7 +58,20 @@ const Config = (props) => {
 								<span className="txt">The Speed Grid allows you to change the Legend Cards individually.</span>
 							</label>
 						</li>
-						</ul>
+						<li className="switch">
+							<label><select onChange={(e) => { alert(e.currentTarget.value) ; setlegendsLevel(e.currentTarget.value) ; }}>
+									<option defaultValue="1" selected={legendsLevel===1}>Level 1</option>
+									<option defaultValue="2" selected={legendsLevel===2}>Level 2</option>
+									<option defaultValue="3" selected={legendsLevel===3}>Level 3</option>
+									<option defaultValue="4" selected={legendsLevel===4}>Level 4</option>
+									<option defaultValue="5" selected={legendsLevel===5}>Level 5</option>
+									<option defaultValue="6" selected={legendsLevel===6}>Level 6</option>
+									</select>
+								<span className="hdr">Legends Level</span>
+								<span className="txt">The level of difficulty defaulted to.</span>
+							</label>
+						</li>
+					</ul>
 				</section>
 				<section className="cnt--config">
 					<header>
@@ -67,7 +81,7 @@ const Config = (props) => {
 						<li className="switch">
 							<label><input type="checkbox" checked={showCards} onChange={(e) => { setShowCards(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showCards') }} data-value="showCards" />
 								<span className="hdr">Show cards</span>
-								<span className="txt">Displays the ten Legends cards from the deck.</span>
+								<span className="txt">Displays the Legends cards from the deck.</span>
 							</label>
 						</li>
 						<li className="switch">

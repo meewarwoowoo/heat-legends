@@ -1,4 +1,4 @@
-import React , { useState , useEffect } from 'react';
+import { useState , useEffect } from 'react';
 import { defaultDriversJSON, defaultConfigJSON } from './localJSON';
 import Race from './Race';
 import Seasons from './Seasons';

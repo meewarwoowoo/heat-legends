@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultTracksJSON } from './localJSON';
 import { getDriverArticleDataColour , getDriverArticleDataColourContrast } from './util/Utils';
 import { finish , unfinish } from './images';
@@ -9,17 +8,17 @@ const Driver = (props) => {
 	const driversSpeedGridJSON = props.driversSpeedGridJSON; 
 
 	let idxLock = 0 ;
-    	driversSpeedGridJSON.map((driverSpeedGridJSON,idx) => { if(driverSpeedGridJSON.id===props.driverJSON.id) idxLock=idx });
-    	const driverSpeedGridJSON = driversSpeedGridJSON[idxLock];
+		driversSpeedGridJSON.map((driverSpeedGridJSON,idx) => { if(driverSpeedGridJSON.id===props.driverJSON.id) idxLock=idx });
+		const driverSpeedGridJSON = driversSpeedGridJSON[idxLock];
 
-
+	/*
 	const Track = () => {
 		const trackJSON = defaultTracksJSON[0];
 		console.log(trackJSON.track.length)
 		return (
 			<ul>
 				{
-					Array.from(trackJSON.track).map((element,idx) => ( TrackSection(element) ))
+					Array.from(trackJSON.track).map(element => ( TrackSection(element) ))
 				}
 			</ul>
 		)
@@ -36,13 +35,25 @@ const Driver = (props) => {
 		}
 		return HTML
 	}
+	*/
 	
 	const move = (driver) => {
 		const useCard = driverSpeedGridJSON['card'].indexOf(Number(deckCardJSON[driver]));
-		return {
-			"fast": props.configJSON.showGrid?driverSpeedGridJSON['fast'][useCard]:deckCardJSON[driver],
-			"bend": props.configJSON.showGrid?driverSpeedGridJSON['bend'][useCard]:corner(deckCardJSON[driver]),
-			"exit": props.configJSON.showGrid?driverSpeedGridJSON['exit'][useCard]:corner(deckCardJSON[driver]),
+		if(deckCardJSON[driver]){
+			return {
+				"fast": props.configJSON.showGrid?driverSpeedGridJSON['fast'][useCard]:deckCardJSON[driver][0],
+				"bend": props.configJSON.showGrid?driverSpeedGridJSON['bend'][useCard]:corner(deckCardJSON[driver][0]),
+				"exit": props.configJSON.showGrid?driverSpeedGridJSON['exit'][useCard]:corner(deckCardJSON[driver][0]),
+				"star": props.configJSON.showGrid?driverSpeedGridJSON['star'][useCard]:deckCardJSON[driver][1]
+			}
+		}
+		else{
+			return {
+				"fast": props.configJSON.showGrid?driverSpeedGridJSON['fast'][useCard]:'',
+				"bend": props.configJSON.showGrid?driverSpeedGridJSON['bend'][useCard]:false,
+				"exit": props.configJSON.showGrid?driverSpeedGridJSON['exit'][useCard]:false,
+				"star": props.configJSON.showGrid?driverSpeedGridJSON['star'][useCard]:0
+			}
 		}
 	};
 	
@@ -70,11 +81,15 @@ const Driver = (props) => {
 				<article data-driver={getDriverArticleDataDriver()}  style={getDriverArticleDataColour(driverJSON)} data-speed={getDriverArticleDataSpeed()} data-human={getDriverArticleDataHuman()} data-result={props.getDriverArticleDataResult(getDriverArticleDataDriver())}>
 					<div className="driver--number">{driverJSON.number}</div>
 					<div className="driver">
-						<div className="driver--name">{driverJSON.name}</div>
+						<div className="driver--name">
+							{driverJSON.name}
+							<span className="driver--rival">{driverJSON.rival?<>&#9889;</>:<>&#9889;</>}</span>
+						</div>
 						<div className="driver--team">{driverJSON.team}</div>
 						<div className="driver--colour">{driverJSON.colour}</div>
 					</div>
 					<div key="move" className="move">
+						<div className="move__star"><span>{move(driverJSON.id).star?<>&#9733;</>:<></>}</span></div>
 						<div className="move__fast"><span>{move(driverJSON.id).fast}</span></div>
 						<div className="move__bend"><span>{move(driverJSON.id).bend}</span></div>
 						<div className="move__exit"><span className={getDriverArticleDataColourContrast(driverJSON)}>{move(driverJSON.id).exit}</span></div>
