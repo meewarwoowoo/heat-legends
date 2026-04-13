@@ -16,6 +16,8 @@ import icon_ned from './assets/icons/ned.svg';
 import icon_esp from './assets/icons/esp.svg';
 import icon_jap from './assets/icons/jap.svg';
 import icon_mex from './assets/icons/mex.svg';
+import icon_ksa from './assets/icons/ksa.svg';
+import icon_deu from './assets/icons/deu.svg';
 import cross from './assets/icons/cross.svg';
 import shuffle from './assets/icons/icon-shuffle.svg';
 import next from './assets/icons/icon-next.svg';
@@ -31,9 +33,20 @@ import ned from './assets/icons/flag-ned.svg';
 import esp from './assets/icons/flag-esp.svg';
 import jap from './assets/icons/flag-jap.svg';
 import mex from './assets/icons/flag-mex.svg';
+import ksa from './assets/icons/flag-ksa.svg';
+import deu from './assets/icons/flag-deu.svg';
 
 export { 
     season , seasons , cog , cross , drivers , race , shield , results , shuffle , finish , unfinish , next , standings ,
-    icon_usa , usa , icon_gbr , gbr  , icon_fra , fra , icon_ita , ita , icon_ned , ned , icon_esp , esp  , icon_jap , jap , icon_mex , mex 
+    icon_usa , usa , 
+    icon_gbr , gbr , 
+    icon_fra , fra , 
+    icon_ita , ita , 
+    icon_ned , ned , 
+    icon_esp , esp , 
+    icon_jap , jap , 
+    icon_mex , mex , 
+    icon_deu , deu , 
+    icon_ksa , ksa ,
 
 } ;
