@@ -32,12 +32,12 @@ const Config = (props) => {
 								<span className="hdr">Legends Levels as established in Heat: Legends Expansion</span>
 								<span className="ipt">
 									<select onChange={(e) => { setLegendsLevel(e.target.value) ; setLocalConfigJSON(e.target.value,'legendsLevel') ; }}>
-										{ legendsLevel===1 ? <option value="1" selected="selected">Level 1</option> : <option value="1" >Level 1</option> }
-										{ legendsLevel===2 ? <option value="2" selected="selected">Level 2</option> : <option value="2" >Level 2 Green Deck</option> }
-										{ legendsLevel===3 ? <option value="3" selected="selected">Level 3</option> : <option value="3" >Level 3 Green &amp; Yellow Deck</option> }
-										{ legendsLevel===4 ? <option value="4" selected="selected">Level 4</option> : <option value="4" >Level 4 Yellow Deck</option> }
-										{ legendsLevel===5 ? <option value="5" selected="selected">Level 5</option> : <option value="5" >Level 5 Yellow &amp; Red Deck</option> }
-										{ legendsLevel===6 ? <option value="6" selected="selected">Level 6</option> : <option value="6" >Level 6 Red Deck</option> }
+										{ legendsLevel==1 ? <option value="1" selected="selected">Level 1</option> : <option value="1" >Level 1</option> }
+										{ legendsLevel==2 ? <option value="2" selected="selected">Level 2</option> : <option value="2" >Level 2 Green Deck</option> }
+										{ legendsLevel==3 ? <option value="3" selected="selected">Level 3</option> : <option value="3" >Level 3 Green &amp; Yellow Deck</option> }
+										{ legendsLevel==4 ? <option value="4" selected="selected">Level 4</option> : <option value="4" >Level 4 Yellow Deck</option> }
+										{ legendsLevel==5 ? <option value="5" selected="selected">Level 5</option> : <option value="5" >Level 5 Yellow &amp; Red Deck</option> }
+										{ legendsLevel==6 ? <option value="6" selected="selected">Level 6</option> : <option value="6" >Level 6 Red Deck</option> }
 									</select>
 								</span>
 								<span className="txt">
