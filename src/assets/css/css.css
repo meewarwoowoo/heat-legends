@@ -54,7 +54,7 @@ body  { font-size: 1.75em ; background: rgba(255,255,255,1) ; }
 #root[data-view=drivers] main ,
 #root[data-view=seasons] main ,
 #root[data-view=config] main  ,
-#root[data-view=assist] main   { font-size: 0.675em ;  display: block ; padding: 1em ; }
+#root[data-view=assist] main   { font-size: 0.675em ; display: block ; padding: 1em ; }
 
 
 h2  { font-family: var(--font) ; font-size: 2em ; margin: 1em 0 ; padding: 0 ; }
@@ -64,35 +64,35 @@ hr  { border-style: solid ; height: 1px ; border-width: 0 ; margin: 1em 0 0 ; ba
 .done  { text-decoration: line-through ; }
 
 
-ul.settings  { display: grid ; grid-template-columns: 1fr ; grid-template-rows: auto ; gap: 0.25em 0.5em ;  list-style-type: none ; padding: 0 ; margin: 0 0 0.5em ; list-style-type: none ; }
+ul.settings  { display: grid ; grid-template-columns: 1fr ; grid-template-rows: auto ; gap: 0.25em 0.5em ; list-style-type: none ; padding: 0 ; margin: 0 0 0.5em ; list-style-type: none ; }
 ul li.config--season  { display: block ; list-style-type: none ; padding: 0 ; margin: 0; }
 ul li.config--season span  { display: block ; padding: 0.5em 1em ; border-radius: 1em ; background-color: var(--mid) ; color: var(--bkg) ; cursor: pointer ; height: 100%; }
-ul li.config--season span:hover  { background-color: var(--mid--hover) ;   }
+ul li.config--season span:hover  { background-color: var(--mid--hover) ;  }
 ul li.config--toggle  { display: block ; list-style-type: none ; padding: 0 ; margin: 0; }
 ul li.config--toggle label { display: block ; padding: 0.5em 1em ; border-radius: 1em ; background-color: var(--mid) ; color: var(--bkg) ; cursor: pointer ; height: 100%; }
-ul li.config--toggle label:hover { background-color: var(--mid--hover) ;   }
+ul li.config--toggle label:hover { background-color: var(--mid--hover) ;  }
 ul li.config--toggle label input { display: none; }
 ul li.config--toggle label span  { display: block ; position: relative ; padding-left: 3em ; }
 ul li.config--toggle label .hdr  { }
 ul li.config--toggle label .txt  { font-size: 0.75em ; padding: 0.5em 1em 0.5em 4em ; max-width: 38em ;}
 ul li.config--toggle label span:first-of-type::before { content: ' ' ; display: block; width: calc( 1em - 4px ) ; height: calc( 1em - 4px ) ; background: rgb(192,0,0) ; position: absolute ; top: 2px ; left: 2px ; z-index: 2 ; border-radius: 1em ; transition: 0.5s left ease-in-out , 0.5s color ease-in-out ; font-size: 1.125em ; }
-ul li.config--toggle label span:first-of-type::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: white ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ;  border-radius: 1em ; font-size: 1.125em ;}
+ul li.config--toggle label span:first-of-type::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: white ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ; border-radius: 1em ; font-size: 1.125em ;}
 ul li.config--toggle label input:checked ~ span:first-of-type::before  { left: calc( 1em + 2px ) ; background-color: rgb(0,192,0)  ; }
 ul li label.config--toggle { display: inline-block ; padding: 0.5em 1em ; border-radius: 1em ; background-color: var(--mid) ; color: var(--bkg) ; cursor: pointer ; height: 100%; }
-ul li label.config--toggle:hover { background-color: var(--mid--hover) ;   }
+ul li label.config--toggle:hover { background-color: var(--mid--hover) ;  }
 ul li label.config--toggle input { display: none; }
 ul li label.config--toggle span  { display: block ; position: relative ; padding-left: 3em ; }
 ul li label.config--toggle .hdr  { }
 ul li label.config--toggle .txt  { font-size: 0.75em ; padding: 0.5em 1em 0.5em 4em ; max-width: 38em ;}
 ul li label.config--toggle span:first-of-type::before { content: ' ' ; display: block; width: calc( 1em - 4px ) ; height: calc( 1em - 4px ) ; background: rgb(192,0,0) ; position: absolute ; top: 2px ; left: 2px ; z-index: 2 ; border-radius: 1em ; transition: 0.5s left ease-in-out , 0.5s color ease-in-out ; font-size: 1.125em ; }
-ul li label.config--toggle span:first-of-type::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: white ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ;  border-radius: 1em ; font-size: 1.125em ;}
+ul li label.config--toggle span:first-of-type::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: white ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ; border-radius: 1em ; font-size: 1.125em ;}
 ul li label.config--toggle input:checked ~ span:first-of-type::before  { left: calc( 1em + 2px ) ; background-color: rgb(0,192,0)  ; }
-ul li.config--driver  { display: grid ; grid-template-columns: 3em  1fr 3fr 3fr 2fr ;  list-style-type: none ; padding: 0.5em 1em  ; margin: 0; border-radius: 0 ; background-color: var(--mid) ; color: var(--bkg) ; }
+ul li.config--driver  { display: grid ; grid-template-columns: 3em  1fr 3fr 3fr 2fr ; list-style-type: none ; padding: 0.5em 1em  ; margin: 0; border-radius: 0 ; background-color: var(--mid) ; color: var(--bkg) ; }
 [data-view="season"] ul li.config--driver  { border-radius: 0  ; }
 ul li.config--driver .driver--state  { display: block ; position: relative ; top: 0.25em ; padding-left: 3em ; cursor: pointer ; }
 ul li.config--driver .driver--state:hover span span { text-decoration: underline ; }
 ul li.config--driver .driver--state > span::before { content: ' ' ; display: block; width: calc( 1em - 4px ) ; height: calc( 1em - 4px ) ; background: rgb(192,0,0) ; position: absolute ; top: 2px ; left: 2px ; z-index: 2 ; border-radius: 1em ; transition: 0.5s left ease-in-out , 0.5s color ease-in-out ; font-size: 1.125em ; }
-ul li.config--driver .driver--state > span::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: white ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ;  border-radius: 1em ; font-size: 1.125em ;}
+ul li.config--driver .driver--state > span::after  { content: ' ' ; display: block; width: 2em ; height: 1em ; background: white ; position: absolute ; top: 0 ; left: 0 ; z-index: 1 ; border-radius: 1em ; font-size: 1.125em ;}
 ul li.config--driver .driver--state input[type=checkbox] { display: none; }
 ul li.config--driver .driver--state input[type=checkbox]:checked ~ span::before  { left: calc( 1em + 2px ) ; background-color: rgb(0,192,0)  ; }
 ul li.config--driver .driver--state input[type=checkbox] ~ span > .on   { display: none ; }
@@ -110,9 +110,9 @@ ul li.config--driver > span select { width: 100% ; padding: 0.5em ; text-indent:
 ul li.config--driver > span select:hover ,
 ul li.config--driver > span select:focus { background-color: rgba(255,255,255,1) ; outline: 0;   }
 ul li.config--card-ten  { font-size: 0.75em ; display: grid ; grid-template-columns: repeat(6,1fr) ; grid-gap: 0.25em ; }
-ul li.config--card-ten label  { border-radius: 0 ;   }
+ul li.config--card-ten label  { border-radius: 0 ;  }
 ul li.config--upgrades  { font-size: 0.75em ; display: grid ; grid-template-columns: repeat(5,1fr) ; grid-template-rows: repeat(2,1fr) ; grid-gap: 0.25em ; }
-ul li.config--upgrades label  { border-radius: 0 ;   }
+ul li.config--upgrades label  { border-radius: 0 ;  }
 ul li.config--speed-grid table  { width: 100% ; margin: 0 0 1em ; border-collapse: collapse ; border-radius: 0 0 ; font-size: 0.75em ; overflow: hidden ; }
 ul li.config--speed-grid table tr th ,
 ul li.config--speed-grid table tr td  { border-bottom: 0.25em solid var(--wht) ; padding: 0.5em 0.25em ; font-weight: 400 ; background: var(--mid--more) ; }
@@ -122,7 +122,7 @@ ul li.config--speed-grid table tr:first-of-type th ,
 ul li.config--speed-grid table tr:first-of-type td  { border-bottom-width: 0.25em ; background: var(--mid) ;}
 ul li.config--speed-grid table tr:last-of-type th ,
 ul li.config--speed-grid table tr:last-of-type td  { border-bottom-width: 0px ; }
-ul li.config--speed-grid table tr th  { text-align: left; padding-left: 1em ; background: var(--mid) ;  }
+ul li.config--speed-grid table tr th  { text-align: left; padding-left: 1em ; background: var(--mid) ; }
 ul li.config--speed-grid table tr td  { text-align: center; }
 
 
@@ -155,7 +155,7 @@ ul li.config--speed-grid table tr td  { text-align: center; }
 	main ul li.config--driver > span select { text-indent: 2.25rem ; }
 	main ul li.config--driver > span i   { font-size: 1em ; }
 	main ul li.config--driver .driver--state  { font-size: 1.5em ; left: 0.5em ; top: 0.25em ; }
-	#menu ul { flex-flow: row nowrap ; height: auto ; padding: 0.325em 0.5em; position: static ;  }
+	#menu ul { flex-flow: row nowrap ; height: auto ; padding: 0.325em 0.5em; position: static ; }
 	#root[data-view="config"] main { font-size: 1.125em ; }
 }
 @media screen and (max-width: 640px){

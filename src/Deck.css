@@ -1,8 +1,10 @@
-#root #deck  { grid-area: deck ; display: flex ; justify-content: center; align-items: center;  width: 100% ; height: 100% ; background: var(--texture-diag) 0 0 / 4px 4px repeat , var(--bkg) ; --bkg: var(--blk-high) ; --on: var(--heat) ; overflow: hidden ;  }
+#root #deck  { grid-area: deck ; display: flex ; justify-content: center; align-items: center;  width: 100% ; height: 100% ; background: var(--texture-diag) 0 0 / 4px 4px repeat , var(--bkg) ; --bkg: var(--blk-high) ; --on: var(--heat) ; overflow: hidden ; }
 #root #deck .cnt   { position: fixed ; inset: 0 0 0 auto ; padding: 0.5em ; display: flex ; flex-flow: column nowrap ; justify-content: center; align-items: center; }
-#root #deck .cnt > ul  { display: flex ; flex-flow: column nowrap ;  background-color:  var(--wht-low) ; outline: 1px solid var(--wht-mid) ; color: var(--txt) ; list-style-type: none ; padding: 0 ; margin: 0.25em  ; border-radius: 1.5em; }
-#root #deck .cnt > ul > li  {display: flex ; flex-flow: column nowrap ;  padding: 0 ; margin: 0.25em ; list-style-type: none ; border-radius: 1.5em ; cursor: pointer ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out; outline: 1px solid var(--wht-mid) ; }
-#root #deck .cnt > ul > li > span  { background-color: var(--bkg) ; color: var(--txt) ; border-radius: 1.5em ;  display: flex ;  align-items: center; justify-content: center; padding: 0 ; }
+#root #deck .cnt .legends-level  { display: flex ; flex-flow: column ; width:100% ; position: absolute ; bottom: 0 ; right: 0 ; left: 0 ; place-content: center; place-items: center; background: var(--blk-mid) ; }
+#root #deck .cnt .legends-level .txt  { display: flex ; justify-content: center ; align-items: center;  width: 100% ; padding: 0.5em ; border-radius: 0 ; font-size: 0.75em ; font-family: var(--font) ; /* background-color:  var(--blk) ; */ color:  var(--wht) ; }
+#root #deck .cnt > ul  { display: flex ; flex-flow: column nowrap ; background-color:  var(--wht-low) ; outline: 1px solid var(--wht-mid) ; color: var(--txt) ; list-style-type: none ; padding: 0 ; margin: 0.25em  ; border-radius: 1.5em; }
+#root #deck .cnt > ul > li  {display: flex ; flex-flow: column nowrap ; padding: 0 ; margin: 0.25em ; list-style-type: none ; border-radius: 1.5em ; cursor: pointer ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out; outline: 1px solid var(--wht-mid) ; }
+#root #deck .cnt > ul > li > span  { background-color: var(--bkg) ; color: var(--txt) ; border-radius: 1.5em ; display: flex ; align-items: center; justify-content: center; padding: 0 ; }
 #root #deck .cnt > ul > li > span.off  { display: none ; }
 #root #deck .cnt > ul > li > span img   { width: 2.5em ; height: 2.5em ; display: block; }
 #root #deck .cnt > ul > li:hover > span   { background-color: var(--hgh) ; }
@@ -25,7 +27,7 @@
     #root #deck .cnt   { position: static ; inset: 0 0 auto 0 ; }
     #root #deck .cnt ,
     #root #deck .cnt > ul ,
-    #root #deck .cnt > ul > li  { flex-flow: row nowrap ;  }
+    #root #deck .cnt > ul > li  { flex-flow: row nowrap ; }
 
     #root #deck .cnt > ul > li.cards > ol  { grid-template: repeat(1,1fr) / repeat(10,1fr) ; }
 
