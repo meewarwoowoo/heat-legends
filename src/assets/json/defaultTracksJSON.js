@@ -48,7 +48,7 @@ const defaultTracksJSON = [
 		"laps": 2
 	},
 	{
-		"abbr": "GER",
+		"abbr": "DEU",
 		"name": "Germany",
 		"laps": 2
 	}

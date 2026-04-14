@@ -17,13 +17,13 @@ const Seasons = (props) => {
 				workingSeasonJSON.races[0].event = defaultSeasonEventsJSON[workingSeasonJSON.races[0].event];
 				workingSeasonJSON.races[1].event = defaultSeasonEventsJSON[workingSeasonJSON.races[1].event];
 				workingSeasonJSON.races[2].event = defaultSeasonEventsJSON[workingSeasonJSON.races[2].event];
-				workingSeasonJSON.races[2].points =  [11,6,4,3,2,1,0,0,0,0]
+				workingSeasonJSON.races[2].points =  [11,6,4,3,2,1,0,0,0,0,0,0]
 			};
 			if(workingSeasonJSON.year==='1962'){
 				workingSeasonJSON.races[0].event = defaultSeasonEventsJSON[workingSeasonJSON.races[0].event];
 				workingSeasonJSON.races[1].event = defaultSeasonEventsJSON[workingSeasonJSON.races[1].event];
 				workingSeasonJSON.races[2].event = defaultSeasonEventsJSON[workingSeasonJSON.races[2].event];
-				workingSeasonJSON.races[2].points = [10,7,5,3,2,1,0,0,0,0]
+				workingSeasonJSON.races[2].points = [10,7,5,3,2,1,0,0,0,0,0,0]
 			};
 			if(workingSeasonJSON.year==='1963'){
 				workingSeasonJSON.races[3] // LOads of Stuff
