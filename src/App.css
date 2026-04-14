@@ -89,6 +89,7 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 	"menu main main main main deck"
 	"menu main main main main deck"
 	"menu main main main main deck"
+	"menu base base base base deck"
 }
 @media screen and (max-width: 800px){
 	#root  { 
@@ -96,6 +97,7 @@ body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ;
 		"menu menu menu menu menu menu"
 		"main main main main main main"
 		"deck deck deck deck deck deck"
+		"base base base base base base"
 		}
 }
 	

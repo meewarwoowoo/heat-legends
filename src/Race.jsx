@@ -3,6 +3,7 @@ import { legendsDeck1, legendsDeck2 , legendsDeck3 , legendsDeck4 , legendsDeck5
 import { shuffleDeck , doToast } from './util/Utils';
 import { shuffle , next  } from './images';
 import Driver from './Driver';
+import Base from './Base';
 import './Race.css';
 import './Deck.css';
 
@@ -67,8 +68,6 @@ const Race = (props) => {
 	
 	return (
 		<>
-			{ console.log("legendsDeck3") }
-			{ console.table(legendsDeck3) }
 			<main className={props.getMainClassList()}>
 				<section className="cnt--race">
 					<header>
@@ -81,9 +80,6 @@ const Race = (props) => {
 			</main>
 			<section id="deck">
 				<div className="cnt">
-					<div className="legends-level">
-						<span className="txt">Legends { props.configJSON.legendsLevel }</span>
-					</div>
 					<ul>
 						<li onClick={setShuffledDeck}><span><img src={shuffle} /></span></li>
 						<li className="cards">
@@ -95,6 +91,7 @@ const Race = (props) => {
 					</ul>
 				</div>
 			</section>
+			<Base configJSON={props.configJSON} />
 		</>
 	);
 };

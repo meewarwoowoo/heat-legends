@@ -1,0 +1,4 @@
+#root #base  { grid-area: base  ; display: flex ; place-content: start ; place-items: start ; }
+#root #base .cnt  { display: flex ; flex-flow: row wrap ; gap: 0.25em ; padding: 0.25em ;}
+#root #base .cnt > div   { display: flex ; flex-flow: row nowrap;  background: var(--bkg) ; color: var(--txt) ; padding: 0.25em 0.5em ; border-radius: 0.125em ; }
+#root #base .cnt > div .txt  { display: flex ; justify-content: center ; align-items: center;  width: 100% ; border-radius: 0 ; font-size: 0.5em ; text-transform: uppercase ;  }
