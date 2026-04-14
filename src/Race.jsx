@@ -11,7 +11,8 @@ const Race = (props) => {
 		if(localDriversSpeedGridJSON===null) localDriversSpeedGridJSON = defaultDriversSpeedGridJSON ;
 		const [ driversSpeedGridJSON , setDriversSpeedGridJSON ] = useState(localDriversSpeedGridJSON);
 	const [ deckCard , setDeckCard ] = useState(0);
-	const [ deckJSON , setDeckJSON ] = useState(legendsDeck1);
+	const legendDecks = [ [] , legendsDeck1, legendsDeck2 , legendsDeck3 , legendsDeck4 , legendsDeck5 , legendsDeck6 ];
+	const [ deckJSON , setDeckJSON ] = useState(legendDecks[props.configJSON.legendsLevel]);
 	const [ raceDriversResult , setRaceDriversResult ] = useState([]);
 
 	const setShuffledDeck = () => {
@@ -30,7 +31,7 @@ const Race = (props) => {
 
 	const setNextCard = () => {
 		const newDeckCard = deckCard + Number(1) ;
-		(newDeckCard<10)?setDeckCard(newDeckCard):setShuffledDeck();
+		(newDeckCard<deckJSON.length)?setDeckCard(newDeckCard):setShuffledDeck();
 	};
 
 	const setRaceDriverFinished = (e) => {
@@ -53,7 +54,7 @@ const Race = (props) => {
 	};
 
 	const getDriverArticleDataResultText = (driverId) => {
-		return ["Winner","Runner Up","Third Placed","4th","5th","6th","7th","8th","9th","10th"][getDriverArticleDataResult(driverId)-1]
+		return ["Winner","Runner Up","Third Placed","4th","5th","6th","7th","8th","9th","10th","11th","12th"][getDriverArticleDataResult(driverId)-1]
 	};
 
 	const getDriverArticleDataResultPoints = (driverId) => { }
@@ -66,23 +67,28 @@ const Race = (props) => {
 	
 	return (
 		<>
+			{ console.log("legendsDeck3") }
+			{ console.table(legendsDeck3) }
 			<main className={props.getMainClassList()}>
 				<section className="cnt--race">
 					<header>
 						<h2>Legends</h2>
 					</header>
 					<div className="full">
-						{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
+						{ props.driversJSON.map((driverJSON,idx) => ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
 					</div>
 				</section>
 			</main>
 			<section id="deck">
 				<div className="cnt">
+					<div className="legends-level">
+						<span className="txt">Legends { props.configJSON.legendsLevel }</span>
+					</div>
 					<ul>
 						<li onClick={setShuffledDeck}><span><img src={shuffle} /></span></li>
 						<li className="cards">
 							<ol>
-								{ [1,2,3,4,5,6,7,8,9,10].map( (card,cardIdx) => (<li key={cardIdx} onClick={setCardFromDeck} className={((deckCard)===cardIdx)?'on':'off'}><span className="number">{card}</span></li>) ) }
+								{ Array.from(deckJSON).map( (card,cardIdx) => (<li key={cardIdx} onClick={setCardFromDeck} className={((deckCard)===cardIdx)?'on':'off'}><span className="number">{cardIdx+1}</span></li>) ) }
 							</ol>
 						</li>
 						<li onClick={setNextCard}><span><img src={ (deckCard === (deckJSON.length-1))?shuffle:next } /></span></li>

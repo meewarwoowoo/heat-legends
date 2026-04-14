@@ -10,9 +10,8 @@ const Config = (props) => {
     const [ showFinishOnRace , setShowFinishOnRace ] = useState(props.configJSON.showFinishOnRace);
     const [ showCards , setShowCards ] = useState(props.configJSON.showCards);
     const [ showGrid , setShowGrid ] = useState(props.configJSON.showGrid);
-    const [ legendsLevel , setlegendsLevel ] = useState(props.configJSON.legendsLevel);
-    const [ useNew1963 , setUseNew1963 ] = useState(props.configJSON.useNew1963);
-	const [, forceUpdate] = useReducer(x => x + 1, 0);
+    const [ legendsLevel , setLegendsLevel ] = useState(props.configJSON.legendsLevel);
+    const [, forceUpdate] = useReducer(x => x + 1, 0);
 
     function setLocalConfigJSON(valueToSet,valueToEdit){
 		let workingConfigJSON = {...props.configJSON};
@@ -23,6 +22,34 @@ const Config = (props) => {
 	return (
 		<>
 			<main className={props.getMainClassList()}>
+				<header>
+					<h2>Legends Level</h2>
+				</header>
+				<section className="cnt--config">
+					<ul>
+						<li className="select">
+							<span className="label">
+								<span className="hdr">Legends Levels as established in Heat: Legends Expansion</span>
+								<span className="ipt">
+									<select onChange={(e) => { setLegendsLevel(e.target.value) ; setLocalConfigJSON(e.target.value,'legendsLevel') ; }}>
+										{ legendsLevel===1 ? <option value="1" selected="selected">Level 1</option> : <option value="1" >Level 1</option> }
+										{ legendsLevel===2 ? <option value="2" selected="selected">Level 2</option> : <option value="2" >Level 2 Green Deck</option> }
+										{ legendsLevel===3 ? <option value="3" selected="selected">Level 3</option> : <option value="3" >Level 3 Green &amp; Yellow Deck</option> }
+										{ legendsLevel===4 ? <option value="4" selected="selected">Level 4</option> : <option value="4" >Level 4 Yellow Deck</option> }
+										{ legendsLevel===5 ? <option value="5" selected="selected">Level 5</option> : <option value="5" >Level 5 Yellow &amp; Red Deck</option> }
+										{ legendsLevel===6 ? <option value="6" selected="selected">Level 6</option> : <option value="6" >Level 6 Red Deck</option> }
+									</select>
+								</span>
+								<span className="txt">
+									Level 1 is the base game system with four extra cars extrapolated in and allows for only ten legend cars.<br/><br/>
+									Level 2 to 6 allow for twelve legend cars.<br/><br/>
+									Level 2, 4, and 6 offer twelve cards mapped to the Green, Yellow and Red decks.<br/><br/>
+									Level 3 is the Green and Yellow decks shuffled together.  Level 5 is the Yellow and Red decks combined.
+								</span>
+							</span>
+						</li>
+					</ul>
+				</section>
 				<header>
 					<h2>Settings</h2>
 				</header>
@@ -56,19 +83,6 @@ const Config = (props) => {
 							<label><input type="checkbox" checked={showGrid} onChange={(e) => { setShowGrid(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showGrid') }} />
 								<span className="hdr">Use Speed Grid</span>
 								<span className="txt">The Speed Grid allows you to change the Legend Cards individually.</span>
-							</label>
-						</li>
-						<li className="switch">
-							<label><select onChange={(e) => { alert(e.currentTarget.value) ; setlegendsLevel(e.currentTarget.value) ; }}>
-									<option defaultValue="1" selected={legendsLevel===1}>Level 1</option>
-									<option defaultValue="2" selected={legendsLevel===2}>Level 2</option>
-									<option defaultValue="3" selected={legendsLevel===3}>Level 3</option>
-									<option defaultValue="4" selected={legendsLevel===4}>Level 4</option>
-									<option defaultValue="5" selected={legendsLevel===5}>Level 5</option>
-									<option defaultValue="6" selected={legendsLevel===6}>Level 6</option>
-									</select>
-								<span className="hdr">Legends Level</span>
-								<span className="txt">The level of difficulty defaulted to.</span>
 							</label>
 						</li>
 					</ul>
