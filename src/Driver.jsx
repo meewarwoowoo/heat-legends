@@ -57,7 +57,7 @@ const Driver = (props) => {
 					<div className="driver">
 						<div className="driver--name">
 							{driverJSON.name}
-							<span className="driver--rival">{driverJSON.rival?<>&#9889;</>:<>&#9889;</>}</span>
+							{driverJSON.rival?<span className="driver--rival">&#9889;</span>:<></>}
 						</div>
 						<div className="driver--team">{driverJSON.team}</div>
 						<div className="driver--colour">{driverJSON.colour}</div>

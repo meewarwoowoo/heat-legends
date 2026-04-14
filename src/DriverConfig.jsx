@@ -9,6 +9,7 @@ const DriverConfig = (props) => {
         const driverSpeedGridJSON = driversSpeedGridJSON[idxLock];
     const [ driverActive , setDriverActive ] = useState(props.driverJSON.active);
     const [ driverHuman , setDriverHuman ] = useState(props.driverJSON.human);
+    const [ driverRival , setDriverRival ] = useState(props.driverJSON.rival);
     const [ driverNumber , setDriverNumber ] = useState(props.driverJSON.number);
     const [ driverName , setDriverName ] = useState(props.driverJSON.name);
     const [ driverTeam , setDriverTeam ] = useState(props.driverJSON.team);
@@ -44,6 +45,7 @@ const DriverConfig = (props) => {
                 <li className="input--toggle"><label className="driver--active"><input type="checkbox" checked={driverActive} onChange={(e) => { setDriverActive(e.currentTarget.checked) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.checked,'active') }} /><span><span className="on">Active</span><span className="off">Off</span></span></label></li>
                 <li className="input--text"><span className="driver--number"><input type="text" defaultValue={driverNumber} onChange={(e) => { setDriverNumber(e.currentTarget.value) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.value,'number') }} /><i>No.</i></span></li>
                 <li className="input--text"><span className="driver--name"><input type="text" defaultValue={driverName} onChange={(e) => { setDriverName(e.currentTarget.value) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.value,'name') }} /><i>Name</i></span></li>
+                <li className="input--toggle"><label className="driver--rival"><input type="checkbox" checked={driverRival} onChange={(e) => { setDriverRival(e.currentTarget.checked) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.checked,'rival') }} /><span><span className="on">&#9889;</span><span className="off">&#9889;</span></span></label></li>
                 <li className="input--text"><span className="driver--team"><input type="text" defaultValue={driverTeam} onChange={(e) => { setDriverTeam(e.currentTarget.value) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.value,'team') }} /><i>Team</i></span></li>
                 <li className="input--text"><span className="driver--colour"><select defaultValue={driverColour} onChange={(e) => { setDriverColour(e.currentTarget.value) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.value,'colour') }}>
                 {
