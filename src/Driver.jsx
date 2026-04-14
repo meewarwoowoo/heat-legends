@@ -1,4 +1,3 @@
-import { defaultTracksJSON } from './localJSON';
 import { getDriverArticleDataColour , getDriverArticleDataColourContrast } from './util/Utils';
 import { finish , unfinish } from './images';
 
@@ -11,32 +10,7 @@ const Driver = (props) => {
 		driversSpeedGridJSON.map((driverSpeedGridJSON,idx) => { if(driverSpeedGridJSON.id===props.driverJSON.id) idxLock=idx });
 		const driverSpeedGridJSON = driversSpeedGridJSON[idxLock];
 
-	/*
-	const Track = () => {
-		const trackJSON = defaultTracksJSON[0];
-		console.log(trackJSON.track.length)
-		return (
-			<ul>
-				{
-					Array.from(trackJSON.track).map(element => ( TrackSection(element) ))
-				}
-			</ul>
-		)
-	}
-	const TrackSection = (section) => {
-		let HTML = '';
-		if(section.substring(0,1)==='s'){
-			for(let n = Number(section.substring(1)) ; n >=0 ; n--){
-				HTML+=`<li>${n}</li>`
-			};
-		}
-		if(section.substring(0,1)==='c'){
-			HTML+=`<li>Corner: ${section.substring(1)}</li>`
-		}
-		return HTML
-	}
-	*/
-	
+
 	const move = (driver) => {
 		const useCard = driverSpeedGridJSON['card'].indexOf(Number(deckCardJSON[driver]));
 		if(deckCardJSON[driver]){
