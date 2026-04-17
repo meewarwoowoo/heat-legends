@@ -1,13 +1,13 @@
 
-import cog from './assets/icons/icon--cog.svg';
-import drivers from './assets/icons/icon--drivers.svg';
-import race from './assets/icons/icon--race.svg';
-import shield from './assets/icons/shield.svg';
-import results from './assets/icons/icon--results-alt.svg';
-import season from './assets/icons/cup.svg';
+import cog from './assets/icons/menu-icon--cog.svg';
+import drivers from './assets/icons/menu-icon--drivers.svg';
+import race from './assets/icons/menu-icon--race.svg';
+import shield from './assets/icons/menu-icon--shield.svg';
+import results from './assets/icons/menu-icon--results-alt.svg';
+import season from './assets/icons/menu-icon--cup.svg';
 // import season from './assets/icons/icon--season.svg';
-import standings from './assets/icons/icon--standings.svg';
-import seasons from './assets/icons/icon--seasons.svg';
+import standings from './assets/icons/menu-icon--standings.svg';
+import seasons from './assets/icons/menu-icon--seasons.svg';
 import icon_usa from './assets/icons/usa.svg';
 import icon_gbr from './assets/icons/gbr.svg';
 import icon_fra from './assets/icons/fra.svg';
@@ -19,8 +19,8 @@ import icon_mex from './assets/icons/mex.svg';
 import icon_ksa from './assets/icons/ksa.svg';
 import icon_deu from './assets/icons/deu.svg';
 import cross from './assets/icons/cross.svg';
-import shuffle from './assets/icons/icon--shuffle.svg';
-import next from './assets/icons/icon--next.svg';
+import shuffle from './assets/icons/deck-icon--shuffle.svg';
+import next from './assets/icons/deck-icon--next.svg';
 
 import finish from './assets/images/flag-checkered-solid--ffffff.svg';
 import unfinish from './assets/images/xmark-solid--ffffff.svg';
@@ -36,13 +36,13 @@ import mex from './assets/icons/flag-mex.svg';
 import ksa from './assets/icons/flag-ksa.svg';
 import deu from './assets/icons/flag-deu.svg';
 
-import draft from './assets/icons/icon--draft.png';
-import full_throttle from './assets/icons/icon--full-throttle.png';
-import impeding from './assets/icons/icon--impeding.png';
-import nimble from './assets/icons/icon--nimble.png';
-import reckless from './assets/icons/icon--reckless.png';
-import slipstream from './assets/icons/icon--slipstream.png';
-import speed_limit from './assets/icons/icon--speed-limit.png';
+import draft from './assets/icons/driver-icon--draft.png';
+import full_throttle from './assets/icons/driver-icon--full-throttle.png';
+import impeding from './assets/icons/driver-icon--impeding.png';
+import nimble from './assets/icons/driver-icon--nimble.png';
+import reckless from './assets/icons/driver-icon--reckless.png';
+import slipstream from './assets/icons/driver-icon--slipstream.png';
+import speed_limit from './assets/icons/driver-icon--speed-limit.png';
 
 export { 
     season , seasons , cog , cross , drivers , race , shield , results , shuffle , finish , unfinish , next , standings ,
