@@ -1,6 +1,8 @@
 import defaultColoursJSON from './assets/json/defaultColoursJSON'
 import defaultConfigJSON from './assets/json/defaultConfigJSON'
-import { legendsDeck1, legendsDeck2 , legendsDeck3 , legendsDeck4 , legendsDeck5 , legendsDeck6 } from './assets/json/legendsDeckJSON'
+import { defaultLegendsDeckJSON, defaultLegendsDeck2JSON , createdLegendsDeck3JSON , defaultLegendsDeck4JSON , createdLegendsDeck5JSON , defaultLegendsDeck6JSON } from './assets/json/defaultLegendsDeckJSON'
+import defaultPowerDeckJSON from './assets/json/defaultPowerDeckJSON'
+import defaultPowerCardsJSON from './assets/json/defaultPowerCardsJSON'
 import defaultDriversJSON from './assets/json/defaultDriversJSON'
 import defaultDriversSpeedGridJSON from './assets/json/defaultDriversSpeedGridJSON'
 import defaultPointsJSON from './assets/json/defaultPointsJSON'
@@ -12,7 +14,9 @@ import defaultTracksJSON from './assets/json/defaultTracksJSON'
 export {
 	defaultColoursJSON , 
 	defaultConfigJSON , 
-	legendsDeck1, legendsDeck2 , legendsDeck3 , legendsDeck4 , legendsDeck5 , legendsDeck6 ,
+	defaultLegendsDeckJSON , defaultLegendsDeck2JSON , createdLegendsDeck3JSON , defaultLegendsDeck4JSON , createdLegendsDeck5JSON , defaultLegendsDeck6JSON ,
+	defaultPowerDeckJSON,
+	defaultPowerCardsJSON,
 	defaultDriversJSON , 
 	defaultDriversSpeedGridJSON , 
 	defaultPointsJSON ,
