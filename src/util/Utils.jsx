@@ -13,6 +13,7 @@ const shuffleDeck = (a) => {
 };
 
 
+
 const doToast = (txt) => {
 //    alert(txt)
     console.log(txt)
