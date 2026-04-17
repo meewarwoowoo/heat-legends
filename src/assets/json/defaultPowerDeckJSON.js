@@ -1,4 +1,4 @@
-const powerUpDeckJSON = [
+const defaultPowerDeckJSON = [
 	{"star": 0 , "rival": 0 } ,	{"star": 0 , "rival": 0 } ,
 	{"star": 0 , "rival": 1 } ,	{"star": 0 , "rival": 1 } ,
 	{"star": 0 , "rival": 2 } ,	{"star": 0 , "rival": 2 } ,
@@ -15,10 +15,10 @@ const powerUpDeckJSON = [
 	{"star": 3 , "rival": 1 } ,	{"star": 3 , "rival": 1 } ,
 	{"star": 3 , "rival": 2 } ,	{"star": 3 , "rival": 2 } ,
 	{"star": 3 , "rival": 4 } ,	{"star": 3 , "rival": 4 } ,
-	{"star": 3 , "rival": 5 } ,	{"star": 3 , "rival": 5 } 
+	{"star": 3 , "rival": 5 } ,	{"star": 3 , "rival": 5 } ,
 	{"star": 3 , "rival": 6 } ,	{"star": 3 , "rival": 6 } ,
 ];
-export default powerUpDeckJSON ;
+export default defaultPowerDeckJSON ;
 
 /*
 0	{ "header": "Full Throttle" , "text": "Speed 20 / Move to corner 0." , "short": "full-throttle" } ,

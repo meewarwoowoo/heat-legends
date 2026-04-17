@@ -1,4 +1,4 @@
-const legendsDeck1 = [
+const defaultLegendsDeckJSON = [
 	{"driver_a": [10,0], "driver_b": [18,0], "driver_c": [16,0], "driver_d": [17,0], "driver_e": [15,1], "driver_f": [11,0], "driver_g": [12,0], "driver_h": [13,0], "driver_i": [14,0], "driver_j": [19,0]} ,
 	{"driver_a": [11,0], "driver_b": [16,0], "driver_c": [12,0], "driver_d": [10,0], "driver_e": [19,0], "driver_f": [14,0], "driver_g": [13,0], "driver_h": [15,1], "driver_i": [17,0], "driver_j": [18,0]} ,
 	{"driver_a": [12,0], "driver_b": [10,0], "driver_c": [19,0], "driver_d": [15,1], "driver_e": [11,0], "driver_f": [17,0], "driver_g": [14,0], "driver_h": [16,0], "driver_i": [18,0], "driver_j": [13,0]} ,
@@ -10,7 +10,7 @@ const legendsDeck1 = [
 	{"driver_a": [18,0], "driver_b": [13,0], "driver_c": [17,0], "driver_d": [19,0], "driver_e": [16,0], "driver_f": [12,0], "driver_g": [10,0], "driver_h": [14,0], "driver_i": [11,0], "driver_j": [15,1]} ,
 	{"driver_a": [19,0], "driver_b": [12,0], "driver_c": [14,0], "driver_d": [18,0], "driver_e": [10,0], "driver_f": [13,0], "driver_g": [15,1], "driver_h": [11,0], "driver_i": [16,0], "driver_j": [17,0]} 
 ];
-const legendsDeck2 = [
+const defaultLegendsDeck2JSON = [
 	{"driver_a":  [9,0], "driver_b": [13,0], "driver_c": [17,0], "driver_d": [19,0], "driver_e": [16,0], "driver_f": [12,0], "driver_g": [10,0], "driver_h": [14,0], "driver_i": [11,0], "driver_j": [15,1],"driver_k": [20,0],"driver_l": [20,0]} ,
 	{"driver_a": [10,0], "driver_b": [18,0], "driver_c": [16,0], "driver_d": [17,0], "driver_e": [15,1], "driver_f": [11,0], "driver_g": [12,0], "driver_h": [13,0], "driver_i": [14,0], "driver_j": [19,0],"driver_k": [20,0],"driver_l": [20,0]} ,
 	{"driver_a": [11,0], "driver_b": [16,0], "driver_c": [12,0], "driver_d": [10,0], "driver_e": [19,0], "driver_f": [14,0], "driver_g": [13,0], "driver_h": [15,1], "driver_i": [17,0], "driver_j": [18,0],"driver_k": [20,0],"driver_l": [20,0]} ,
@@ -24,7 +24,7 @@ const legendsDeck2 = [
 	{"driver_a": [19,0], "driver_b": [12,0], "driver_c": [14,0], "driver_d": [18,0], "driver_e": [10,0], "driver_f": [13,0], "driver_g": [15,1], "driver_h": [11,0], "driver_i": [16,0], "driver_j": [17,0],"driver_k": [20,0],"driver_l": [20,0]} ,
 	{"driver_a": [20,0], "driver_b": [12,0], "driver_c": [14,0], "driver_d": [18,0], "driver_e": [10,0], "driver_f": [13,0], "driver_g": [15,1], "driver_h": [11,0], "driver_i": [16,0], "driver_j": [17,0],"driver_k": [20,0],"driver_l": [20,0]} ,
 ];
-const legendsDeck4 = [
+const defaultLegendsDeck4JSON = [
 	{"driver_a":  [9,0], "driver_b": [13,0], "driver_c": [17,0], "driver_d": [19,0], "driver_e": [16,0], "driver_f": [12,0], "driver_g": [10,0], "driver_h": [14,0], "driver_i": [11,0], "driver_j": [15,1],"driver_k": [20,0],"driver_l": [20,0]} ,
 	{"driver_a": [10,0], "driver_b": [18,0], "driver_c": [16,0], "driver_d": [17,0], "driver_e": [15,1], "driver_f": [11,0], "driver_g": [12,0], "driver_h": [13,0], "driver_i": [14,0], "driver_j": [19,0],"driver_k": [20,0],"driver_l": [20,0]} ,
 	{"driver_a": [11,0], "driver_b": [16,0], "driver_c": [12,0], "driver_d": [10,0], "driver_e": [19,0], "driver_f": [14,0], "driver_g": [13,0], "driver_h": [15,1], "driver_i": [17,0], "driver_j": [18,0],"driver_k": [20,0],"driver_l": [20,0]} ,
@@ -38,7 +38,7 @@ const legendsDeck4 = [
 	{"driver_a": [19,0], "driver_b": [12,0], "driver_c": [14,0], "driver_d": [18,0], "driver_e": [10,0], "driver_f": [13,0], "driver_g": [15,1], "driver_h": [11,0], "driver_i": [16,0], "driver_j": [17,0],"driver_k": [20,0],"driver_l": [20,0]} ,
 	{"driver_a": [20,0], "driver_b": [12,0], "driver_c": [14,0], "driver_d": [18,0], "driver_e": [10,0], "driver_f": [13,0], "driver_g": [15,1], "driver_h": [11,0], "driver_i": [16,0], "driver_j": [17,0],"driver_k": [20,0],"driver_l": [20,0]} ,
 ];
-const legendsDeck6 = [
+const defaultLegendsDeck6JSON = [
 	{"driver_a":  [9,0], "driver_b": [13,0], "driver_c": [17,0], "driver_d": [19,0], "driver_e": [16,0], "driver_f": [12,0], "driver_g": [10,0], "driver_h": [14,0], "driver_i": [11,0], "driver_j": [15,1],"driver_k": [20,0],"driver_l": [20,0]} ,
 	{"driver_a": [10,0], "driver_b": [18,0], "driver_c": [16,0], "driver_d": [17,0], "driver_e": [15,1], "driver_f": [11,0], "driver_g": [12,0], "driver_h": [13,0], "driver_i": [14,0], "driver_j": [19,0],"driver_k": [20,0],"driver_l": [20,0]} ,
 	{"driver_a": [11,0], "driver_b": [16,0], "driver_c": [12,0], "driver_d": [10,0], "driver_e": [19,0], "driver_f": [14,0], "driver_g": [13,0], "driver_h": [15,1], "driver_i": [17,0], "driver_j": [18,0],"driver_k": [20,0],"driver_l": [20,0]} ,
@@ -52,7 +52,7 @@ const legendsDeck6 = [
 	{"driver_a": [19,0], "driver_b": [12,0], "driver_c": [14,0], "driver_d": [18,0], "driver_e": [10,0], "driver_f": [13,0], "driver_g": [15,1], "driver_h": [11,0], "driver_i": [16,0], "driver_j": [17,0],"driver_k": [20,0],"driver_l": [20,0]} ,
 	{"driver_a": [20,0], "driver_b": [12,0], "driver_c": [14,0], "driver_d": [18,0], "driver_e": [10,0], "driver_f": [13,0], "driver_g": [15,1], "driver_h": [11,0], "driver_i": [16,0], "driver_j": [17,0],"driver_k": [20,0],"driver_l": [20,0]} ,
 ];
-const legendsDeck3 = [...legendsDeck2,...legendsDeck4];
-const legendsDeck5 = [...legendsDeck4,...legendsDeck6];
+const createdLegendsDeck3JSON = [...defaultLegendsDeck2JSON,...defaultLegendsDeck4JSON];
+const createdLegendsDeck5JSON = [...defaultLegendsDeck4JSON,...defaultLegendsDeck6JSON];
 
-export { legendsDeck1, legendsDeck2 , legendsDeck3 , legendsDeck4 , legendsDeck5 , legendsDeck6 } ;
+export { defaultLegendsDeckJSON, defaultLegendsDeck2JSON , createdLegendsDeck3JSON , defaultLegendsDeck4JSON , createdLegendsDeck5JSON , defaultLegendsDeck6JSON } ;
