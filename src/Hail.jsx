@@ -8,6 +8,7 @@ const Hail = (props) => {
 		let workingConfigJSON = {...props.configJSON};
 		workingConfigJSON[valueToEdit] = valueToSet ;
 		props.setConfigJSON(workingConfigJSON);
+		localStorage.setItem('configJSON',JSON.stringify(props.configJSON));
     };	
 
 	return (
