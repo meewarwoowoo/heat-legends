@@ -11,12 +11,15 @@ const Config = (props) => {
     const [ showCards , setShowCards ] = useState(props.configJSON.showCards);
     const [ showGrid , setShowGrid ] = useState(props.configJSON.showGrid);
     const [ legendsLevel , setLegendsLevel ] = useState(props.configJSON.legendsLevel);
+    const [ legendsStar , setLegendsStar ] = useState(props.configJSON.legendsStar);
+    const [ legendsRival , setLegendsRival ] = useState(props.configJSON.legendsRival);
     const [, forceUpdate] = useReducer(x => x + 1, 0);
 
     function setLocalConfigJSON(valueToSet,valueToEdit){
 		let workingConfigJSON = {...props.configJSON};
 		workingConfigJSON[valueToEdit] = valueToSet ;
 		props.setConfigJSON(workingConfigJSON);
+		localStorage.setItem('configJSON',JSON.stringify(props.configJSON));
     };
 	
 	return (
@@ -31,13 +34,13 @@ const Config = (props) => {
 							<span className="label">
 								<span className="hdr">Legends Levels as established in Heat: Legends Expansion</span>
 								<span className="ipt">
-									<select onChange={(e) => { setLegendsLevel(e.target.value) ; setLocalConfigJSON(e.target.value,'legendsLevel') ; }}>
-										{ legendsLevel==1 ? <option value="1" selected="selected">Level 1 / Base Game</option> : <option value="1" >Level 1 / Base Game</option> }
-										{ legendsLevel==2 ? <option value="2" selected="selected">Level 2 / Green Deck</option> : <option value="2" >Level 2 / Green Deck</option> }
-										{ legendsLevel==3 ? <option value="3" selected="selected">Level 3 / Green &amp; Yellow Deck</option> : <option value="3" >Level 3 / Green &amp; Yellow Deck</option> }
-										{ legendsLevel==4 ? <option value="4" selected="selected">Level 4 / Yellow Deck</option> : <option value="4" >Level 4 / Yellow Deck</option> }
-										{ legendsLevel==5 ? <option value="5" selected="selected">Level 5 / Yellow &amp; Red Deck</option> : <option value="5" >Level 5 / Yellow &amp; Red Deck</option> }
-										{ legendsLevel==6 ? <option value="6" selected="selected">Level 6 / Red Deck</option> : <option value="6" >Level 6 / Red Deck</option> }
+									<select defaultValue={legendsLevel} onChange={(e) => { setLegendsLevel(e.target.value) ; setLocalConfigJSON(e.target.value,'legendsLevel') ; }}>
+										<option value="1" >Level 1 / Base Game</option>
+										<option value="2" >Level 2 / Green Deck</option>
+										<option value="3" >Level 3 / Green &amp; Yellow Deck</option>
+										<option value="4" >Level 4 / Yellow Deck</option>
+										<option value="5" >Level 5 / Yellow &amp; Red Deck</option>
+										<option value="6" >Level 6 / Red Deck</option>
 									</select>
 								</span>
 								<span className="txt">
@@ -50,6 +53,26 @@ const Config = (props) => {
 						</li>
 					</ul>
 				</section>
+				<header>
+					<h2>Legend Modules</h2>
+				</header>
+				<section className="cnt--config">
+					<ul>
+						<li className="switch">
+							<label><input type="checkbox" checked={legendsStar} onChange={(e) => { setLegendsStar(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'legendsStar') }} />
+								<span className="hdr">Use Legends Star Module</span>
+								<span className="txt">When selected this will allow drivers to be given boosts from the Legends Power Up Deck.</span>
+							</label>
+						</li>
+						<li className="switch">
+							<label><input type="checkbox" checked={legendsRival} onChange={(e) => { setLegendsRival(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'legendsRival') }} />
+								<span className="hdr">Use Legends Rivals Module</span>
+								<span className="txt">When selected this will allow drivers set as Rivals to be given boosts from the Legends Power Up Deck.</span>
+							</label>
+						</li>
+					</ul>
+				</section>
+
 				<header>
 					<h2>Settings</h2>
 				</header>
@@ -87,6 +110,8 @@ const Config = (props) => {
 						</li>
 					</ul>
 				</section>
+
+
 				<section className="cnt--config">
 					<header>
 						<h3>Layout Settings</h3>
