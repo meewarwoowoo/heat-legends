@@ -1,17 +1,8 @@
-import React from 'react';
 import { getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace ,  doConfirm } from './util/Utils';
-import Header from './Header';
 import './Standings.css';
 
 const Season = (props) => {
 	
-	const resetSeasonJSON = () => {
-		doConfirm("Are you sure you want to remove all the results from this season?", () => {
-			props.setSeasonJSON(null);
-			props.setMain('Seasons');
-		});
-	};
-
 	const SeasonRaceStartButton = (props) => {
 		return <button onClick={((e) => { setActiveRace(props.raceIdx) ; props.setMain('Round') ; })}>Go To Race</button>
 	};
@@ -99,7 +90,6 @@ const Season = (props) => {
 				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
 
 					<section className="cnt--results--standings">
-						<Header {...props}/>
 						<div className="full">
 							<table>
 								<thead>
@@ -124,19 +114,6 @@ const Season = (props) => {
 							</table>
 						</div>
 					</section>
-
-
-					<footer className="cnt--actions">
-						<header>
-							<h3>Actions</h3>
-						</header>
-						<label className="action warning">
-							<button onClick={resetSeasonJSON}>Reset</button>
-							<span className="hdr action-do ">Reset</span>
-							<span className="txt">Remove all results for The {props.seasonJSON.year} Championship.</span>
-						</label>
-					</footer>
-
 				</main>
 				<section id="deck"></section>
 			</>
