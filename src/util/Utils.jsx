@@ -35,6 +35,7 @@ const doConfirm = (txt,callback,shortCircuit) => {
         })
     }
 }
+
 const getTrackFromAbbr = (abbr) => {
     let lockIdx = false;
     defaultTracksJSON.map( (track,idx) => { if(track.abbr===abbr) lockIdx = idx } )
@@ -121,4 +122,12 @@ const getDriverArticleDataColourContrast = (driver) => {
     if(defaultColoursJSON.find(el=>el.name===driver.colour).txt==='rgb(255,255,255)') return 'blk';
 }
 
-export {  getNumberWithOrdinal, getDriverFromId , getDriverArticleDataColour, getDriverArticleDataColourContrast , getFlagFromTrack , getNameFromDriverId, getActiveRaceIdx , getResultFromRace , getPointsFromRace , getTrackFromAbbr , shuffleDeck , doToast , doConfirm }
+const resetSeasonJSON = (setSeasonJSON,setMain) => {
+    doConfirm("Are you sure you want to remove all the results from this season?", () => {
+        setSeasonJSON(null);
+        setMain('Seasons');
+        window.scrollTo(0, 0)
+    });
+};
+
+export { resetSeasonJSON , getNumberWithOrdinal, getDriverFromId , getDriverArticleDataColour, getDriverArticleDataColourContrast , getFlagFromTrack , getNameFromDriverId, getActiveRaceIdx , getResultFromRace , getPointsFromRace , getTrackFromAbbr , shuffleDeck , doToast , doConfirm }

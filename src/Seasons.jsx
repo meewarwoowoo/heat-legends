@@ -1,6 +1,5 @@
-import React from 'react';
 import { defaultSeasonsJSON , defaultSeasonEventsJSON , defaultPointsJSON } from './localJSON';
-import { getFlagFromTrack , getTrackFromAbbr , doToast , doConfirm } from './util/Utils';
+import { getFlagFromTrack , getTrackFromAbbr , doToast , doConfirm , resetSeasonJSON } from './util/Utils';
 import './Seasons.css';
 
 const Seasons = (props) => {
@@ -42,14 +41,6 @@ const Seasons = (props) => {
 			props.setMain('Results')
 			doToast('Starting Year ' + workingSeasonJSON.year);
 		},!props.seasonJSON);
-	};
-
-	const resetSeasonJSON = () => {
-		doConfirm("Are you sure you want to remove all the results from this season?", () => {
-			props.setSeasonJSON(null);
-			props.setMain('Seasons');
-			window.scrollTo(0, 0)
-		});
 	};
 	
 	return (
@@ -102,7 +93,7 @@ const Seasons = (props) => {
 					</label>
 
 					<label className="action warning">
-						<button onClick={resetSeasonJSON}>Reset</button>
+						<button onClick={()=>resetSeasonJSON(props.setSeasonJSON,props.setMain)}>Reset</button>
 						<span className="hdr action-do">Reset</span>
 						<span className="txt">Remove all results for the current Championship.</span>
 					</label>
