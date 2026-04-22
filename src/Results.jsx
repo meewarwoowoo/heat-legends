@@ -1,6 +1,4 @@
-import React from 'react';
-import { getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr , doConfirm } from './util/Utils';
-import Header from './Header';
+import { getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr  } from './util/Utils';
 import './Results.css';
 
 const Season = (props) => {
@@ -65,14 +63,6 @@ const Season = (props) => {
 	const hasActiveRace = (seasonJSON) => {
 		return seasonJSON.races.indexOf(seasonJSON.races.find((race,idx)=>race.active))>=0?' season-ongoing ':' season-over ';
 	}
-
-	const resetSeasonJSON = () => {
-		doConfirm("Are you sure you want to remove all the results from this season?", () => {
-			props.setSeasonJSON(null);
-			props.setMain('Seasons');
-			window.scrollTo(0, 0)
-		});
-	};
 	
 	const hasPressCorner = (camera) => {
 		return (camera === '')?<li className="item press">No Press Corner</li>:<li className="item press">Press Corner is {camera}</li>
@@ -92,7 +82,6 @@ const Season = (props) => {
 			<>
 				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
 					<section className="cnt--results--pick-race">
-						<Header {...props}/>
 						<div className="full">
 							{ 
 								props.seasonJSON.races.map( 
@@ -116,18 +105,6 @@ const Season = (props) => {
 								)
 							}
 						</div>
-					</section>
-
-
-					<section className="cnt--actions">
-						<header>
-							<h3>Actions</h3>
-						</header>
-						<label className="action warning">
-							<button onClick={resetSeasonJSON}>Reset</button>
-							<span className="hdr action-do">Reset</span>
-							<span className="txt">Remove all results for The {props.seasonJSON.year} Championship.</span>
-						</label>
 					</section>
 
 				</main>
