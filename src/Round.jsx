@@ -1,35 +1,47 @@
 import { useState , useReducer } from 'react';
-import { defaultPlacesJSON, legendsDeck1, legendsDeck2 , legendsDeck3 , legendsDeck4 , legendsDeck5 , legendsDeck6 , defaultDriversSpeedGridJSON } from './localJSON';
-import { getActiveRaceIdx , shuffleDeck } from './util/Utils';
-import { shuffle , next } from './images';
-import Header from './Header';
+import { defaultPlacesJSON, defaultLegendsDeckJSON , defaultLegendsDeck2JSON , createdLegendsDeck3JSON , defaultLegendsDeck4JSON , createdLegendsDeck5JSON , defaultLegendsDeck6JSON , defaultDriversSpeedGridJSON , defaultPowerCardsJSON , defaultPowerDeckJSON } from './localJSON';
+
+import { getActiveRaceIdx , shuffleDeck , doToast } from './util/Utils';
+import { shuffle , next , draft, full_throttle, impeding , nimble , reckless , slipstream , speed_limit } from './images';
 import Driver from './Driver';
 import './Race.css';
+import './Deck.css';
+
 
 const Round = (props) => {
+	const legendDecks = [ [] , defaultLegendsDeckJSON, defaultLegendsDeck2JSON , createdLegendsDeck3JSON , defaultLegendsDeck4JSON , createdLegendsDeck5JSON , defaultLegendsDeck6JSON ];
 	let localDriversSpeedGridJSON = JSON.parse(localStorage.getItem('driversSpeedGridJSON'));
 		if(localDriversSpeedGridJSON===null) localDriversSpeedGridJSON = defaultDriversSpeedGridJSON ;
 		const [ driversSpeedGridJSON , setDriversSpeedGridJSON ] = useState(localDriversSpeedGridJSON);
 	const [ deckCard , setDeckCard ] = useState(0);
-	const [ deckJSON , setDeckJSON ] = useState(legendsDeck1);
+	const [ deckJSON , setDeckJSON ] = useState(shuffleDeck(legendDecks[props.configJSON.legendsLevel]));
+	const [ powerDeckJSON , setPowerDeckJSON ] = useState(shuffleDeck(defaultPowerDeckJSON));
+	const [ powerCard , setPowerCard ] = useState(0);
+	const [ raceDriversResult , setRaceDriversResult ] = useState([]);
+	const icons = { full_throttle,slipstream,speed_limit,draft,impeding,nimble,reckless };
 	const [, forceUpdate] = useReducer(x => x + 1, 0);
 
 	const setShuffledDeck = () => {
+		doToast('Shuffle Legends Deck')
 		shuffleDeck(deckJSON);
-		setDeckCard(-1);
 		setTimeout(() => {
 			setDeckCard(0)
-		}, "250");
+		}, "100");
 	};
-	
-	const setCardFromDeck = (e) => {
-		const newDeckCard = Number(Array.prototype.slice.call(document.getElementById('deck').querySelector('ol').querySelectorAll('li')).indexOf(e.currentTarget));
-		setDeckCard(newDeckCard) ;
+
+	const setShuffledPowerDeck = () => {
+		doToast('Shuffle Power Deck')
+		shuffleDeck(setPowerDeckJSON);
+		setTimeout(() => {
+			setPowerCard(0)
+		}, "100");
 	};
 
 	const setNextCard = () => {
 		const newDeckCard = deckCard + Number(1) ;
-		(newDeckCard<10)?setDeckCard(newDeckCard):setShuffledDeck();
+		(newDeckCard<deckJSON.length)?setDeckCard(newDeckCard):setShuffledDeck();
+		const newPowerCard = powerCard + Number(1) ;
+		(newPowerCard<powerDeckJSON.length)?setPowerCard(newPowerCard):setShuffledPowerDeck();
 	};
 
 	const setRaceDriverFinished = (e) => {
@@ -81,6 +93,7 @@ const Round = (props) => {
 	const raceProps = {
 		driversJSON: props.driversJSON,
 		deckCardJSON: deckJSON[deckCard],
+		powerCardJSON: powerDeckJSON[powerCard],
 		driversSpeedGridJSON,setRaceDriverFinished,setRaceDriverUnfinished,getDriverArticleDataResult,getDriverArticleDataResultText,getDriverArticleDataResultPoints,
 	};
 
@@ -89,7 +102,6 @@ const Round = (props) => {
 		<>
 			<main className={props.getMainClassList()} style={{"--drivers": getActiveDrivers() }}>
 				<section className="cnt--race">
-					<Header {...props}/>
 					<div className="full">
 						{ props.driversJSON.map((driverJSON,idx) =>  ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
 					</div>
@@ -98,14 +110,24 @@ const Round = (props) => {
 			<section id="deck">
 				<div className="cnt">
 					<ul>
-						<li onClick={setShuffledDeck}><span><img src={shuffle} /></span></li>
-						<li className="cards">
+						<li onClick={ ()=>{ setShuffledDeck() ; setShuffledPowerDeck() ; } }><span><img src={shuffle} /></span></li>
+						<li className="cards--legend">
 							<ol>
-								{ [1,2,3,4,5,6,7,8,9,10].map( (card,cardIdx) => (<li key={cardIdx} onClick={setCardFromDeck} className={((deckCard)===cardIdx)?'on':'off'}><span className="number">{card}</span></li>) ) }
+								{ Array.from(deckJSON).map( (card,cardIdx) => (<li key={cardIdx} className={((deckCard)===cardIdx)?'on':'off'}><span className="card"><span className="card--number">{cardIdx+1}</span></span></li>) ) }
 							</ol>
+						</li>
+						<li className="cards--power">
+							<ol>
+								{ Array.from(powerDeckJSON).map( (card,cardIdx) => (<li key={cardIdx} className={((powerCard)===cardIdx)?'on':'off'}><span className="card"><span className="card--number">{cardIdx+1}</span></span></li>) ) }
+							</ol>
+							<ul>
+								<li><span className="icon">&#9889;</span><img src={icons[defaultPowerCardsJSON[powerDeckJSON[powerCard].rival]?.icon]}/></li>
+								<li><span className="icon">&#9733;</span><img src={icons[defaultPowerCardsJSON[powerDeckJSON[powerCard].star]?.icon]}/></li>
+							</ul>
 						</li>
 						<li onClick={setNextCard}><span><img src={ (deckCard === (deckJSON.length-1))?shuffle:next } /></span></li>
 					</ul>
+
 				</div>
 			</section>
 		</>
