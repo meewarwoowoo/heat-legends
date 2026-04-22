@@ -13,6 +13,7 @@ const Drivers = (props) => {
 	const resetDrivers = () => {
 		doConfirm("resetDrivers?", () => {
 			props.setDriversJSON(defaultDriversJSON);
+			localStorage.setItem('driversJSON',JSON.stringify(defaultDriversJSON));
 		});
 	};
 	const resetDriversSpeedGrids = () => {
