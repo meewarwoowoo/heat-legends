@@ -22,6 +22,7 @@ const DriverConfig = (props) => {
         workingDriversJSON.map((driverJSON,idx) => { if(driverJSON.id===driver_id) idxLock=idx });
         workingDriversJSON[idxLock][valueToEdit] = valueToEnter ;
         props.setDriversJSON(workingDriversJSON);
+        localStorage.setItem('driversJSON',JSON.stringify(props.driversJSON));
     }
 
     function setCardFromDeck(driver_id,valueToEnter,valueToEdit,cardNumber){
