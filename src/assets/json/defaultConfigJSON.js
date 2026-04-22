@@ -7,6 +7,8 @@ const defaultConfigJSON = {
 	"showFinishOnRace":false,
 	"showGrid":false,
 	"showCards":true,
-	"legendsLevel":2
+	"legendsLevel":2,
+	"legendsStar":true,
+	"legendsRival":false,
 }
 export default defaultConfigJSON ;
