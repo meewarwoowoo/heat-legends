@@ -4,11 +4,11 @@ import { defaultConfigJSON, defaultDriversJSON } from './localJSON';
 const Export = (props) => {
 	const [, forceUpdate] = useReducer(x => x + 1, 0);
 
-    function setLocalConfigJSON(valueToSet,valueToEdit){
+	function setLocalConfigJSON(valueToSet,valueToEdit){
 		let workingConfigJSON = {...props.configJSON};
 		workingConfigJSON[valueToEdit] = valueToSet ;
 		props.setConfigJSON(workingConfigJSON);
-    };
+   }
 	
 	return (
 		<>
