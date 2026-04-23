@@ -9,7 +9,7 @@ const Hail = (props) => {
 		workingConfigJSON[valueToEdit] = valueToSet ;
 		props.setConfigJSON(workingConfigJSON);
 		localStorage.setItem('configJSON',JSON.stringify(props.configJSON));
-    };	
+    }
 
 	return (
         !hailed &&
