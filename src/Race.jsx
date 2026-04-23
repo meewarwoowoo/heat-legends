@@ -75,36 +75,33 @@ const Race = (props) => {
 	return (
 		<>
 			<main className={props.getMainClassList()}>
-				<section className="cnt--race">
-					<div className="full">
-						{ props.driversJSON.map((driverJSON,idx) => ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
-					</div>
+				<section className="cnt">
+					{ props.driversJSON.map((driverJSON,idx) => ( <Driver key={`${driverJSON.id}--${idx}`} driverJSON={driverJSON} {...raceProps} {...props} /> ) ) }
 				</section>
 			</main>
 			<section id="deck">
 				<div className="cnt">
 					<ul>
 						<li onClick={ ()=>{ setShuffledDeck() ; setShuffledPowerDeck() ; } }><span><img src={shuffle} /></span></li>
-						<li className="cards--legend">
+						<li className="cards--header">Legends Level&nbsp;{ props.configJSON.legendsLevel }</li>
+						<li className="cards--legends">
 							<ol>
 								{ Array.from(deckJSON).map( (card,cardIdx) => (<li key={cardIdx} className={((deckCard)===cardIdx)?'on':'off'}><span className="card"><span className="card--number">{cardIdx+1}</span></span></li>) ) }
 							</ol>
 						</li>
+						<li className="cards--header">Power Up</li>
 						<li className="cards--power">
 							<ol>
 								{ Array.from(powerDeckJSON).map( (card,cardIdx) => (<li key={cardIdx} className={((powerCard)===cardIdx)?'on':'off'}><span className="card"><span className="card--number">{cardIdx+1}</span></span></li>) ) }
 							</ol>
-							{
-							(props.configJSON.legendsRival || props.configJSON.legendsStar) && 
-								<ul>
-									{ props.configJSON.legendsRival && <li><span className="icon">&#9889;</span><img src={icons[defaultPowerCardsJSON[powerDeckJSON[powerCard].rival]?.icon]}/></li> }
-									{ props.configJSON.legendsStar && <li><span className="icon">&#9733;</span><img src={icons[defaultPowerCardsJSON[powerDeckJSON[powerCard].star]?.icon]}/></li> }
-								</ul>
-							}
+							<ul>
+								<li><span className="icon">&#9889;</span><img src={icons[defaultPowerCardsJSON[powerDeckJSON[powerCard].rival]?.icon]}/></li>
+								<li><span className="icon">&#9733;</span><img src={icons[defaultPowerCardsJSON[powerDeckJSON[powerCard].star]?.icon]}/></li>
+							</ul>
 						</li>
+						<li className="cards--header">Next</li>
 						<li onClick={setNextCard}><span><img src={ (deckCard === (deckJSON.length-1))?shuffle:next } /></span></li>
 					</ul>
-
 				</div>
 			</section>
 		</>
