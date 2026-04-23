@@ -1,5 +1,4 @@
-import {useState , useEffect } from 'react';
-import Head from './Head';
+import { useState , useEffect } from 'react';
 import Menu from './Menu';
 import Main from './Main';
 
@@ -8,7 +7,7 @@ const All = () => {
     useEffect(() => {
         document.getElementById('root').setAttribute('data-view',main.toLowerCase());
         window.scrollTo(0,0);
-    }, [main]);
+   }, [main]);
 
     let localSeasonJSON = JSON.parse(localStorage.getItem('seasonJSON'));
 	if(localSeasonJSON===null) localSeasonJSON = null ;
@@ -16,12 +15,11 @@ const All = () => {
 
     useEffect(() => {
         localStorage.setItem('seasonJSON',JSON.stringify(seasonJSON));
-    }, [seasonJSON]);
+   }, [seasonJSON]);
 
     const backboneProps = { main , setMain , seasonJSON , setSeasonJSON }
 	return (
         <>
-            <Head {...backboneProps}/>
             <Menu {...backboneProps} />
             <Main {...backboneProps} />
         </>
