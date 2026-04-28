@@ -8,7 +8,7 @@ const Config = (props) => {
     const [ showSplitNumbers , setShowSplitNumbers ] = useState(props.configJSON.showSplitNumbers);
     const [ showMoreWhite , setShowMoreWhite  ] = useState(props.configJSON.showMoreWhite);
     const [ showFinishOnRace , setShowFinishOnRace ] = useState(props.configJSON.showFinishOnRace);
-    const [ showCards , setShowCards ] = useState(props.configJSON.showCards);
+    const [ resolveLegendsCards , setResolveLegendsCards ] = useState(props.configJSON.resolveLegendsCards);
     const [ showGrid , setShowGrid ] = useState(props.configJSON.showGrid);
     const [ legendsLevel , setLegendsLevel ] = useState(props.configJSON.legendsLevel);
     const [ legendsStar , setLegendsStar ] = useState(props.configJSON.legendsStar);
@@ -20,7 +20,7 @@ const Config = (props) => {
 		workingConfigJSON[valueToEdit] = valueToSet ;
 		props.setConfigJSON(workingConfigJSON);
 		localStorage.setItem('configJSON',JSON.stringify(props.configJSON));
-    };
+   };
 	
 	return (
 		<>
@@ -28,7 +28,7 @@ const Config = (props) => {
 				<header>
 					<h2>Legends Level</h2>
 				</header>
-				<section className="cnt--config">
+				<section className="cnt">
 					<ul>
 						<li className="select">
 							<span className="label">
@@ -56,7 +56,7 @@ const Config = (props) => {
 				<header>
 					<h2>Legend Modules</h2>
 				</header>
-				<section className="cnt--config">
+				<section className="cnt">
 					<ul>
 						<li className="switch">
 							<label><input type="checkbox" checked={legendsStar} onChange={(e) => { setLegendsStar(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'legendsStar') }} />
@@ -70,13 +70,19 @@ const Config = (props) => {
 								<span className="txt">When selected this will allow drivers set as Rivals to be given boosts from the Legends Power Up Deck.</span>
 							</label>
 						</li>
+						<li className="switch">
+							<label><input type="checkbox" checked={resolveLegendsCards} onChange={(e) => { setResolveLegendsCards(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'resolveLegendsCards') }} data-value="resolveLegendsCards" />
+								<span className="hdr">Resolve cards</span>
+								<span className="txt">Changes Speed and Corner values to reflect Power Cards.</span>
+							</label>
+						</li>
 					</ul>
 				</section>
 
 				<header>
 					<h2>Settings</h2>
 				</header>
-				<section className="cnt--config">
+				<section className="cnt">
 					<ul>
 						<li className="switch">
 							<label><input type="checkbox" checked={showNumber} onChange={(e) => { setShowNumber(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showNumber') }} />
@@ -112,17 +118,11 @@ const Config = (props) => {
 				</section>
 
 
-				<section className="cnt--config">
+				<section className="cnt">
 					<header>
 						<h3>Layout Settings</h3>
 					</header>
 					<ul>
-						<li className="switch">
-							<label><input type="checkbox" checked={showCards} onChange={(e) => { setShowCards(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showCards') }} data-value="showCards" />
-								<span className="hdr">Show cards</span>
-								<span className="txt">Displays the Legends cards from the deck.</span>
-							</label>
-						</li>
 						<li className="switch">
 							<label><input type="checkbox" checked={showMoreWhite} onChange={(e) => { setShowMoreWhite(e.currentTarget.checked) ; setLocalConfigJSON(e.currentTarget.checked,'showMoreWhite') }} data-value="showMoreWhite" />
 								<span className="hdr">Show more white space</span>
@@ -138,7 +138,7 @@ const Config = (props) => {
 					</ul>
 				</section>
 
-				<section className="cnt--config">
+				<section className="cnt">
 					<header>
 						<h3>Export</h3>
 					</header>
@@ -153,7 +153,7 @@ const Config = (props) => {
 					</ul>
 				</section>
 
-				<section className="cnt--config">
+				<section className="cnt">
 					<header>
 						<h3>Reset</h3>
 					</header>

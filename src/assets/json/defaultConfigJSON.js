@@ -6,7 +6,7 @@ const defaultConfigJSON = {
 	"showMoreWhite":true,
 	"showFinishOnRace":false,
 	"showGrid":false,
-	"showCards":true,
+	"resolveLegendsCards":true,
 	"legendsLevel":2,
 	"legendsStar":true,
 	"legendsRival":false,

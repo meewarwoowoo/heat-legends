@@ -1,31 +1,33 @@
-#root[data-view=standings]  { grid-template-columns: 4.5em 4.5em auto auto auto 0.5em; }
-/* End of layout */
-
-#root main .cnt--results--standings  { --off: var(--mid) ; }
-#root main .cnt--results--standings  { display: grid ; gap: var(--gap) ; grid-template:  min-content auto auto / auto ; }
-#root main .cnt--results--standings table { width: 100% ; border-collapse: collapse ; margin: 0 ; font-family: var(--text-font) ; }
-#root main .cnt--results--standings table tr th img  { width: 100% ; display: block ; max-width: 2em ; margin: 0 auto ; }
-#root main .cnt--results--standings table thead tr th.position   { min-width: 1.5em ; width: 5% ; }
-#root main .cnt--results--standings table thead tr th.total   { min-width: 1.5em ; width: 5% ; }
-#root main .cnt--results--standings table thead tr  { background: var(--texture) 0 0 / 4px 4px repeat , var(--mid) ; color: var(--blk) ; }
-#root main .cnt--results--standings table thead tr th ,
-#root main .cnt--results--standings table thead tr td  {  font-weight: 400 ; text-align: left ; border-left: 0.125em solid var(--wht) ; border-right: 0.125em solid var(--wht) ; padding: 2em 0.25em 0.25em ; }
-#root main .cnt--results--standings table tbody tr th ,
-#root main .cnt--results--standings table tbody tr td  {  font-weight: 400 ; text-align: left ; vertical-align: top ; border-left: 0.125em solid var(--wht) ; border-right: 0.125em solid var(--wht) ; border-top: 0.125em solid var(--wht) ; padding: 0.25em ; background: var(--texture) 0 0 / 4px 4px repeat , var(--bkg) ; color: var(--txt) ; }
-#root main .cnt--results--standings table tbody tr th .name   { display: block ; font-family: var(--font) ; }
-#root main .cnt--results--standings table tbody tr th .team   { display: block ; font-size: 0.75em ; margin-top: 0.125em ; font-family: var(--font) ; }
-#root main .cnt--results--standings table tbody tr th .colour   { display: block ; font-size: 0.5em ; margin-top: 0.5em ; font-family: var(--font) ; }
-#root main .cnt--results--standings table tbody tr td.total   { text-align: center  }
-#root main .cnt--results--standings table tbody tr td.result   { min-width: 1.5em ; width: 5% ; text-align: center ; }
-#root main .cnt--results--standings table :is(thead,tbody) tr .position  { text-align: center ; }
-#root main .cnt--results--standings table :is(thead,tbody) tr :first-child  { border-left-width: 0 ; }
-#root main .cnt--results--standings table :is(thead,tbody) tr :last-child  { border-right-width: 0 ; }
-@media ( max-width: 1024px )  { 
-	#root main .cnt--results--standings table { font-size: 1em ; }
+#root[data-view=standings]  {
+	main {
+		.cnt  { 
+			display: grid ; gap: var(--gap) ; grid-template:  min-content auto auto / auto ; --off: var(--mid) ;
+			table  { 
+				width: 100% ; border-collapse: collapse ; margin: 0 ; font-family: var(--text-font) ; border: 0 solid var(--blk) ; border-radius: var(--gap) ; overflow: hidden ; 
+				:is(thead,tbody) tr .position  { text-align: center ; }
+				:is(thead,tbody) tr :first-child  { border-left-width: 0 ; }
+				:is(thead,tbody) tr :last-child  { border-right-width: 0 ; }
+				:is(thead,tbody) tr th img  { width: 100% ; display: block ; max-width: 2em ; margin: 0 auto ; }
+				thead tr th.position   { min-width: 1.5em ; width: 5% ; background-color: var(--wht) ;}
+				thead tr th.total   { min-width: 1.5em ; width: 5% ; }
+				thead tr  { background: var(--texture) 0 0 / 4px 4px repeat , var(--mid) ; --txt: var(--bkg) ; --bkg: var(--txt) ; }
+				thead tr th ,
+				thead tr td  { font-weight: 400 ; text-align: left ; border-left: 0.125em solid var(--wht) ; border-right: 0.125em solid var(--wht) ; padding: 2em 0.25em 0.25em ; }
+				tbody tr th ,
+				tbody tr td  { font-weight: 400 ; text-align: left ; vertical-align: top ; border-left: 0.125em solid var(--wht) ; border-right: 0.125em solid var(--wht) ; border-top: 0.125em solid var(--wht) ; padding: 0.25em ; background: var(--texture) 0 0 / 4px 4px repeat , var(--bkg) ; color: var(--txt) ; }
+				tbody tr th.position   { font-size: 0.75em ; vertical-align: middle;}
+				tbody tr th .colour   { display: block ; font-size: 0.5em ; margin-bottom: 0.25em ; font-family: var(--text-font) ; text-transform: uppercase ; }
+				tbody tr th .name   { display: block ; font-family: var(--font) ; }
+				tbody tr th .team   { display: block ; font-size: 0.75em ; margin-top: 0 ; font-family: var(--font) ; }
+				tbody tr td.total   { text-align: center }
+				tbody tr td.result   { min-width: 1.5em ; width: 5% ; text-align: center ; }
+			}
+		}
+	}
+	footer {
+		.cnt {
+			display: flex ;
+			label  { display: inline-block ;  }
+		}
+	}
 }
-@media ( max-width: 480px )  { 
-		#root main .cnt--results--standings table { font-size: 0.75em; }
-		
-}
-
-

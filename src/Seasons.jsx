@@ -46,38 +46,29 @@ const Seasons = (props) => {
 	return (
 		<>
 			<main className={props.getMainClassList()}>
-				<section className="cnt--seasons--pick-season">
-					<header className="championship">
-						<h2 className="no-ul">Championship</h2>
-					</header>
-					<div className="full">
-						{ defaultSeasonsJSON.map( (season,idx) => (
-							<article key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={ (props.seasonJSON && (season.year==props.seasonJSON.year)?"on":"off") +' '+ ("season-"+(season.year).replace(' ','-').toLowerCase()) }>
-								<label>
-									<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>Start {season.year}</button>
-									<h3>{season.year}</h3>
-									<div className="season">
-										{ 
-											season.races.map( (race,raceIdx) =>  (  
-												<ul key={raceIdx}>
-													<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
-													<li className="name">{getTrackFromAbbr(race.track).name}</li>
-													<li className="laps">{getTrackFromAbbr(race.track).laps} Laps</li>
-												</ul>
-											))
-										}
-									</div>
-								</label>
-							</article>
-						))}
-					</div>
+				<section className="cnt">
+					{ defaultSeasonsJSON.map( (season,idx) => (
+						<article key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={ (props.seasonJSON && (season.year==props.seasonJSON.year)?"on":"off") +' '+ ("season-"+(season.year).replace(' ','-').toLowerCase()) }>
+							<label>
+								<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>Start {season.year}</button>
+								<h3>{season.year}</h3>
+								<div className="season">
+									{ 
+										season.races.map( (race,raceIdx) =>  (  
+											<ul key={raceIdx}>
+												<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
+												<li className="name">{race.track}</li>
+												<li className="laps">{getTrackFromAbbr(race.track).laps} Laps</li>
+											</ul>
+										))
+									}
+								</div>
+							</label>
+						</article>
+					))}
 				</section>
 
-				<footer className="cnt--actions">
-					<header>
-						<h3>Actions</h3>
-					</header>
-
+				<footer className="cnt">
 					{ defaultSeasonsJSON.map( (season,idx) => (
 						<label key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={"action season-"+(season.year).replace(' ','-').toLowerCase()}>
 							<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>{season.year}</button>
@@ -98,7 +89,6 @@ const Seasons = (props) => {
 						<span className="txt">Remove all results for the current Championship.</span>
 					</label>
 				</footer>
-
 			</main>
 			<section id="deck"></section>
 		</>

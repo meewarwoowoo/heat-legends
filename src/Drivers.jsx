@@ -26,10 +26,7 @@ const Drivers = (props) => {
 	return (
 		<>
 			<main className={props.getMainClassList()}>
-				<header>
-					<h2>Drivers</h2>
-				</header>
-				<section className="cnt--drivers">
+				<section className="cnt">
 					<>
 						{	
 							props.driversJSON.map(driverJSON => 

@@ -43,16 +43,16 @@ const DriverConfig = (props) => {
     return(
         <article style={getDriverArticleDataColour()} >
             <ul className="driver" data-driver={props.driverJSON.id}>
-                <li className="input--toggle"><label className="driver--active"><input type="checkbox" checked={driverActive} onChange={(e) => { setDriverActive(e.currentTarget.checked) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.checked,'active') }} /><span><span className="on">Active</span><span className="off">Off</span></span></label></li>
+                <li className="input--toggle"><label className="driver--active"><input type="checkbox" checked={driverActive} onChange={(e) => { setDriverActive(e.currentTarget.checked) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.checked,'active') }} /><span><span className="on">On</span><span className="off">Off</span></span></label></li>
                 <li className="input--text"><span className="driver--number"><input type="text" defaultValue={driverNumber} onChange={(e) => { setDriverNumber(e.currentTarget.value) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.value,'number') }} /><i>No.</i></span></li>
                 <li className="input--text"><span className="driver--name"><input type="text" defaultValue={driverName} onChange={(e) => { setDriverName(e.currentTarget.value) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.value,'name') }} /><i>Name</i></span></li>
-                <li className="input--toggle"><label className="driver--rival"><input type="checkbox" checked={driverRival} onChange={(e) => { setDriverRival(e.currentTarget.checked) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.checked,'rival') }} /><span><span className="on">&#9889;</span><span className="off">&#9889;</span></span></label></li>
                 <li className="input--text"><span className="driver--team"><input type="text" defaultValue={driverTeam} onChange={(e) => { setDriverTeam(e.currentTarget.value) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.value,'team') }} /><i>Team</i></span></li>
                 <li className="input--text"><span className="driver--colour"><select defaultValue={driverColour} onChange={(e) => { setDriverColour(e.currentTarget.value) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.value,'colour') }}>
                 {
                     coloursJSON.map(colourJSON => (<option defaultValue={colourJSON.name} key={colourJSON.name+'--colour'}>{colourJSON.name}</option>))
                 }
                 </select><i>Colour</i></span></li>
+                <li className="input--toggle"><label className="driver--rival"><input type="checkbox" checked={driverRival} onChange={(e) => { setDriverRival(e.currentTarget.checked) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.checked,'rival') }} /><span><span className="on">Rival</span><span className="off">Not Rival</span></span></label></li>
                 <li className="input--toggle"><label className="driver--human"><input type="checkbox" checked={driverHuman} onChange={(e) => { setDriverHuman(e.currentTarget.checked) ; setLocalDriverJSON(props.driverJSON.id,e.currentTarget.checked,'human') }} /><span><span className="on">Human</span><span className="off">Legend</span></span></label></li>
             </ul>
             <table>
@@ -60,7 +60,7 @@ const DriverConfig = (props) => {
                     <tr>
                         <th></th>
                         {
-                            [1,2,3,4,5,6,7,8,9,10].map((card,cardNumber) => (<td key={'Card--'+cardNumber}>{card}</td>))
+                            [1,2,3,4,5,6,7,8,9,10,11,12].map((card,cardNumber) => (<td key={'Card--'+cardNumber}>{card}</td>))
                         }
                     </tr>
                     <tr>
@@ -68,7 +68,7 @@ const DriverConfig = (props) => {
                         {
                             driverSpeedGridJSON['fast'].map((card,cardNumber) => {
                                 const [cardValue, setCardFromDeckValue] = useState(card);
-                                return (<td key={'card--'+cardNumber+'--fast'}><input type="text" defaultValue={cardValue} onChange={(e) => { setCardFromDeckValue(e.currentTarget.value) ; setCardFromDeck(props.driverJSON.id,e.currentTarget.value,'fast',cardNumber)  }} /></td>) 
+                                return (<td key={'card--'+cardNumber+'--fast'}><input type="number" defaultValue={cardValue} onChange={(e) => { setCardFromDeckValue(e.currentTarget.value) ; setCardFromDeck(props.driverJSON.id,e.currentTarget.value,'fast',cardNumber)  }} /></td>) 
                             })
                         }
                     </tr>
@@ -77,7 +77,7 @@ const DriverConfig = (props) => {
                         {
                             driverSpeedGridJSON['bend'].map((card,cardNumber) => {
                                 const [cardValue, setCardFromDeckValue] = useState(card);
-                                return (<td key={'card--'+cardNumber+'--bend'}><input type="text" defaultValue={cardValue} onChange={(e) => { setCardFromDeckValue(e.currentTarget.value) ; setCardFromDeck(props.driverJSON.id,e.currentTarget.value,'bend',cardNumber)  }} /></td>) 
+                                return (<td key={'card--'+cardNumber+'--bend'}><input type="number" defaultValue={cardValue} onChange={(e) => { setCardFromDeckValue(e.currentTarget.value) ; setCardFromDeck(props.driverJSON.id,e.currentTarget.value,'bend',cardNumber)  }} /></td>) 
                             })
                         }
                     </tr>
@@ -86,7 +86,16 @@ const DriverConfig = (props) => {
                         {
                             driverSpeedGridJSON['exit'].map((card,cardNumber) => {
                                 const [cardValue, setCardFromDeckValue] = useState(card);
-                                return (<td key={'card--'+cardNumber+'--exit'}><input type="text" defaultValue={cardValue} onChange={(e) => { setCardFromDeckValue(e.currentTarget.value) ; setCardFromDeck(props.driverJSON.id,e.currentTarget.value,'exit',cardNumber)  }} /></td>) 
+                                return (<td key={'card--'+cardNumber+'--exit'}><input type="number" defaultValue={cardValue} onChange={(e) => { setCardFromDeckValue(e.currentTarget.value) ; setCardFromDeck(props.driverJSON.id,e.currentTarget.value,'exit',cardNumber)  }} /></td>) 
+                            })
+                        }
+                    </tr>
+                    <tr>
+                        <th><span className="monospace">&#9733;</span>&nbsp;Star</th>
+                        {
+                            driverSpeedGridJSON['star'].map((card,cardNumber) => {
+                                const [cardValue, setCardFromDeckValue] = useState(card);
+                                return (<td key={'card--'+cardNumber+'--star'}><input type="number" defaultValue={cardValue} onChange={(e) => { e.currentTarget.value === 0 || e.currentTarget.value === 1 ? () => { setCardFromDeckValue(e.currentTarget.value) ; setCardFromDeck(props.driverJSON.id,e.currentTarget.value,'star',cardNumber) } : null ;  }} /></td>) 
                             })
                         }
                     </tr>

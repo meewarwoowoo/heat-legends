@@ -1,63 +1,57 @@
+
 #root  {
-    #deck  { 
-        display: flex ; background: var(--texture-diag) 0 0 / 4px 4px repeat , var(--bkg) ; --bkg: var(--blk-high) ; 
-        .cnt   { 
-            width: 100% ; margin: 0.5em ; display: flex ; flex-flow: column nowrap ; place-items: center ; place-content: center ; 
-            > ul  { 
-                position: sticky ; top: 0.5em ; display: flex ; flex-flow: column nowrap ; padding: 0.25em ; margin: 0  ; gap: calc( var(--gap) / 2 ) ; color: var(--txt) ; list-style-type: none ; border-radius: var(--corner) ; background-color: var(--wht-low) ; outline: 1px solid var(--wht-mid) ; 
-                > li  { display: flex ; flex-flow: column nowrap ; padding: 0 ; margin: 0  ; list-style-type: none ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out ; border-radius: var(--corner) ; }
-                > li > span  { background-color: var(--bkg) ; color: var(--txt) ; display: flex ; align-items: center ; justify-content: center ; padding: 0 ; border-radius: var(--corner) ; }
-                > li:first-of-type ,
-                > li:last-of-type   { 
-                    > span  { aspect-ratio: 1 / 1 ; }
-                    &:hover > span   { background-color: var(--hgh) ; }
-                    > span { cursor: pointer ; }
-               }
-                > li:last-of-type img  { width: 50% ; }
-                > li > span.off  { display: none ; }
-                > li > span img   { width: 2em ; aspect-ratio: 1 / 1 ; ; display: block ; }
-                > li.on:hover  { color: var(--bkg) ; cursor: default ; }
-                > li.on > span  { background-color: var(--hgh) ; }
-                > li.on > span.on  { display: flex ; }
-                > li[class*="cards--"] {
-                    display: flex ; margin: 0 ; padding: 0 ; border-radius: 0 ; outline: 0 ; 
-                    > ol  { display: grid ; grid-template: auto / 1fr 1fr ; width: 100% ; gap: 0.25em ; margin: auto ; padding: 0 ; border-radius: 0 ; text-align: center ; outline: 0 ; }
-                    > ol > li { display: none ; padding: 0 ; margin: 0 ; gap: 0 ; list-style-type: none ; border-radius: 0 ; cursor: default ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out ; outline: 0 ; }
-                    > ol > li.on ,
-                    > ol > li:last-of-type  { display: block ; }
-                    > ol > li:last-of-type > .card { outline-width: 1px ; }
-                    > ol > li:last-of-type.on  { grid-column: 1 / 2 ; }
-                    > ol > li:last-of-type.on > .card  { outline-width: 1px ; }
-                    > ol > li.on > .card    { color: var(--bkg) ; background-color: var(--txt) ; }
-                    > ol > li > .card    { display: flex ; justify-content: center ; align-items: center ; width: 100% ; aspect-ratio: 56 / 87 ; aspect-ratio: 6.5 / 8 ; border-radius: 0.075em ; background-color:  var(--blk-mid) ; outline: 1px solid var(--blk-mid) ; outline-offset: -2px ; }
-                    > ol > li > .card .card--number    { font-size: 0.5em ; font-family: var(--move-font) ; letter-spacing: -0.125em ; text-indent: -0.1625em ; }
-                    > ul  { 
-                        display: grid ; grid-template: auto auto / 100% ; list-style: none ; margin: 0 ; padding: 0 ; gap: 0.25em ; place-items: center ; place-content: center ; 
-                        > li { 
-                            display: grid ; grid-template: auto / 2fr 3fr  ; gap: 0 ; place-items: center ; place-content: center ; margin: 0 ; padding: 0 ; border-radius: 0.125em ; background-color: var(--blk-mid) ; overflow: hidden ; outline: 1px solid var(--blk-mid) ; outline-offset: -2px ; 
-                            .icon  { display: flex ; width: 100% ; aspect-ratio: 1 / 1 ; place-items: center ; place-content: center ; color: var(--txt) ; font-size: 0.5em ; }
-                            &:last-of-type .icon  { font-size: 0.625em ; }
-                            img  { display: block ; width: 100% ; aspect-ratio: 1 / 1 ; }
-                       }
-                   }
-               }
-                > li.cards--power  { 
-                    gap: 0.25em ; 
-                    > ol > li > .card    { height: 100% ; aspect-ratio: 8 / 6.5 ; }
-               }
-                
-                > li.cards--header  { background: var(--blk-mid) ;  font-size: 0.5em ; text-align: center ; text-transform: uppercase ; grid-template: auto / 100% ; color: var(--txt) ; display: flex ; align-items: center ; justify-content: center ; padding: 0.25em 0.125em ; border-radius: var(--corner) ; font-family: var(--font) ; text-shadow: 0.05em 0.05em 0 var(--blk) ; }  
-           }
-       }
+	#deck  { 
+		display: flex ; background: var(--texture-diag) 0 0 / 4px 4px repeat , var(--bkg) ; --bkg: var(--blk-high) ; container: deck / size;
+		.cnt   { 
+			width: 100% ; margin: 0.5em ; display: flex ; flex-flow: column nowrap ; place-items: center ; place-content: start ; 
+			@container (aspect-ratio > 1) {  /*  Horizontal  */ }
+			> ul  { 
+				position: sticky ; top: 0.5em ; display: flex ; flex-flow: column nowrap ; padding: 0 ; margin: 0  ; gap: calc( var(--gap) / 2 ) ; color: var(--txt) ; list-style-type: none ;  
+				> li  { display: flex ; flex-flow: column nowrap ; padding: 0 ; margin: 0  ; list-style-type: none ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out ; border-radius: var(--corner) ; }
+				> li > span  { background-color: var(--bkg) ; color: var(--txt) ; display: flex ; align-items: center ; justify-content: center ; padding: 0 ; border-radius: var(--corner) ; }
+				> li:first-of-type ,
+				> li:last-of-type   { 
+					> span  { aspect-ratio: 1 / 1 ; }
+					&:hover > span   { background-color: var(--hgh) ; }
+					> span { cursor: pointer ; }
+			   }
+				> li:last-of-type img  { width: 50% ; }
+				> li > span.off  { display: none ; }
+				> li > span img   { width: 2em ; aspect-ratio: 1 / 1 ; ; display: block ; }
+				> li.on:hover  { color: var(--bkg) ; cursor: default ; }
+				> li.on > span  { background-color: var(--hgh) ; }
+				> li.on > span.on  { display: flex ; }
+				> li[class*="cards--"] {
+					display: flex ; margin: 0 ; padding: 0 ; border-radius: 0 ; outline: 0 ; 
+					> ol  { display: grid ; grid-template: auto / 1fr 1fr ; width: 100% ; gap: 0.25em ; margin: auto ; padding: 0 ; border-radius: 0 ; text-align: center ; outline: 0 ; }
+					> ol > li { display: none ; padding: 0 ; margin: 0 ; gap: 0 ; list-style-type: none ; border-radius: 0 ; cursor: default ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out ; outline: 0 ; }
+					> ol > li.on ,
+					> ol > li:last-of-type  { display: block ; }
+					> ol > li:last-of-type > .card { outline-width: 1px ; }
+					> ol > li:last-of-type.on  { grid-column: 1 / 2 ; }
+					> ol > li:last-of-type.on > .card  { outline-width: 1px ; }
+					> ol > li.on > .card    { color: var(--wht) ; background-color: var(--wht-mid) ; }
+					> ol > li > .card    { display: flex ; justify-content: center ; align-items: center ; width: 100% ; aspect-ratio: 56 / 87 ; aspect-ratio: 6.5 / 8 ; border-radius: 0.075em ; background-color:  var(--blk-mid) ; outline: 1px solid var(--blk-mid) ; outline-offset: -2px ; }
+					> ol > li > .card .card--number    { font-size: 0.5em ; font-family: var(--move-font) ; letter-spacing: -0.125em ; text-indent: -0.1625em ; }
+					> ul  { 
+						display: grid ; grid-template: auto auto / 100% ; list-style: none ; margin: 0 ; padding: 0 ; gap: 0.25em ; place-items: center ; place-content: center ; 
+						> li { 
+							display: grid ; grid-template: auto / 2fr 3fr  ; gap: 0 ; place-items: center ; place-content: center ; margin: 0 ; padding: 0 ; border-radius: 0.125em ; background-color: var(--blk-mid) ; overflow: hidden ; outline: 1px solid var(--blk-mid) ; outline-offset: -2px ; 
+							.icon  { display: flex ; width: 100% ; aspect-ratio: 1 / 1 ; place-items: center ; place-content: center ; color: var(--txt) ; font-size: 0.5em ; }
+							&:last-of-type .icon  { font-size: 0.625em ; }
+							img  { display: block ; width: 100% ; aspect-ratio: 1 / 1 ; background-color: var(--blk-mid) ; }
+					   }
+				   }
+			   }
+				> li.cards--power  { 
+					gap: 0.25em ; 
+					> ol > li > .card    { height: 100% ; aspect-ratio: 8 / 6.5 ; }
+			   }
+				
+				> li.cards--header  { color: var(--wht) ; background-color: var(--heat) ; font-size: 0.5em ; text-align: center ; text-transform: uppercase ; grid-template: auto / 100% ;  display: flex ; align-items: center ; justify-content: center ; padding: 0.3em 0.125em 0.2em ; border-radius: 0.25em ; font-family: var(--font) ; line-height: 100% ;}  
+		   }
+	   }
    }
 }
-
-@media screen and (max-width: 800px){
-    #root #deck .cnt   { position: static ; inset: 0 0 auto 0 ; }
-    #root #deck .cnt ,
-    #root #deck .cnt > ul ,
-    #root #deck .cnt > ul > li  { flex-flow: row nowrap ; }
-    #root #deck .cnt > ul > li.cards--legendss > ol  { grid-template: repeat(1,1fr) / repeat(10,1fr) ; }
-}
-
+ 
 

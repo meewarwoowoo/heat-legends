@@ -27,9 +27,11 @@ const Main = (props) => {
 		if(configJSON.showTeams) exportClassList.push('show--teams')
 		if(configJSON.showColours) exportClassList.push('show--colours')
 		if(configJSON.showSplitNumbers) exportClassList.push('move--split')
+		if(configJSON.legendsStar) exportClassList.push('move--star')
+		if(configJSON.legendsRival) exportClassList.push('move--rival')
 		if(configJSON.showMoreWhite) exportClassList.push('show--more-white')
 		if(configJSON.showFinishOnRace) exportClassList.push('show--finish')
-		if(configJSON.showCards) exportClassList.push('show--cards')
+		if(configJSON.resolveLegendsCards) exportClassList.push('show--cards')
 		if(configJSON.showGrid) exportClassList.push('show--grid')
 		return exportClassList.join(' ');
 	};

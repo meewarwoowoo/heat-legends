@@ -6,8 +6,8 @@ const Driver = (props) => {
 	const driverJSON = props.driverJSON;
 	const deckCardJSON = props.deckCardJSON; 
 	const driversSpeedGridJSON = props.driversSpeedGridJSON; 
-	const pcR = props.powerCardJSON.rival;
-	const pcS = props.powerCardJSON.star;
+	const pcR = props.powerCardJSON.rival ;
+	const pcS = props.powerCardJSON.star ;
 
 	const icons = { full_throttle,slipstream,speed_limit,draft,impeding,nimble,reckless };
 
@@ -33,14 +33,14 @@ const Driver = (props) => {
 			star = deckCardJSON[driver][1];
 			
 			if(props.configJSON.legendsRival && driverJSON.rival){
-				if(pcR == 0){
+				if(pcR === 0 && props.configJSON.resolveLegendsCards){
 					fast = 20;
 					bend = 0;
 				}
 				rival_icon = pcR
 			}
 			if(props.configJSON.legendsStar && star){
-				if(pcS == 0){
+				if(pcS == 0 && props.configJSON.resolveLegendsCards){
 					fast = 20;
 					bend = 0;
 				}
@@ -74,23 +74,17 @@ const Driver = (props) => {
 		if( driverJSON.active || driverJSON.active==='on' ){
 			return(
 				<article data-driver={getDriverArticleDataDriver()}  style={getDriverArticleDataColour(driverJSON)} data-speed={getDriverArticleDataSpeed()} data-human={getDriverArticleDataHuman()} data-result={props.getDriverArticleDataResult(getDriverArticleDataDriver())}>
-					<div className="driver--number">{driverJSON.number}</div>
+					<div className="number">{driverJSON.number}</div>
 					<div className="driver">
 						<div className="driver--name">{driverJSON.name}</div>
 						<div className="driver--team">{driverJSON.team}</div>
 						<div className="driver--colour">{driverJSON.colour}</div>
 					</div>
 					<div key="move" className="move">
-						{props.configJSON.legendsStar && 
-						<>
-							<div className="move--star"><span>{move(driverJSON).star?<>&#9733;</>:<></>}</span></div>
-							<div className="move--star_icon"><span><img src={icons[defaultPowerCardsJSON[move(driverJSON).star_icon]?.icon]}/></span></div>
-						</>}
-						{props.configJSON.legendsRival && 
-						<>
-							<div className="move--rival">{driverJSON.rival?<>&#9889;</>:<></>}</div>
-							<div className="move--rival_icon"><span><img src={icons[defaultPowerCardsJSON[move(driverJSON).rival_icon]?.icon]}/></span></div>
-						</>}
+						<div className="move--star"><span>{move(driverJSON).star?<>&#9733;</>:<></>}</span></div>
+						<div className="move--star_icon"><span><img src={icons[defaultPowerCardsJSON[move(driverJSON).star_icon]?.icon]}/></span></div>
+						<div className="move--rival">{driverJSON.rival?<>&#9889;</>:<></>}</div>
+						<div className="move--rival_icon"><span><img src={icons[defaultPowerCardsJSON[move(driverJSON).rival_icon]?.icon]}/></span></div>
 						<div className="move--fast"><span>{move(driverJSON).fast}</span></div>
 						<div className="move--bend"><span>{move(driverJSON).bend}</span></div>
 						<div className="move--exit"><span className={getDriverArticleDataColourContrast(driverJSON)}>{move(driverJSON).exit}</span></div>

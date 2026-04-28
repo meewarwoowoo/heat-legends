@@ -1,30 +1,46 @@
-#root[data-view=seasons]  { grid-template-columns: 4.5em 4.5em auto auto auto 0.5em; }
-/* End of layout */
+#root[data-view=seasons] {
+	main {
+		.cnt   { 
+			display: grid ; gap: var(--gap) ; grid-template: auto / repeat(auto-fit, minmax(480px, 1fr)) ; --off: var(--mid) ;
+			article  { 
+				padding: 0 ; margin: 0 ; border-radius: var(--edge) ; overflow: hidden ; background: var(--texture) 0 0 / 4px 4px repeat , var(--off) ; 
+				&.on  { 
+					cursor: default ; 
+					label h3  { background: var(--on) ; color: var(--wht) ; }
+				}
+				&:hover  { outline: 0.125em solid var(--hgh) ; }
+				label  {
+					display: block ; padding: var(--gap) ; margin: 0 ; cursor: pointer ; 
+					button  { display: none ; }
+					h3  { border-radius: var(--edge) ; background-color: var(--wht) ; color: var(--blk) ; padding: 0.5em ; margin: 0  ; font-family: var(--move-font) ; font-weight: 400 ; text-align: center ; }
+					.season   { 
+						display: grid ; grid-template: auto / repeat(auto-fit, minmax(90px, 1fr)) ;  gap: 0.5em  ; margin: 0.5em ; padding: 0 ; list-style-type: none ; container: season / inline-size; 
+						ul   { display: block ; padding: 0 ; margin: 0 ; list-style-type: none ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
+						ul li  { display: block ; padding: 0.5em ; margin: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
+						ul li.name  { display: block ; border-radius: var(--edge) ; font-size: 4.5cqi ; font-family: var(--move-font) ; }
+						ul li.laps  { display: none ; }
+						ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto 0 ; width: 60% ; }
+						ul li.flag img  { position: relative ; }
+						ul li.flag img  { width: 100% ; display: block ; }
+					}
+				}
+			}
+		}
+			footer.cnt  {
+				display: flex ; flex-flow: row wrap ; 
+				label  { display: inline-block ;}
+			}
+		
+	}
+}
 
-#root main .cnt--seasons--pick-season   { display: grid ; gap: var(--gap) ; grid-template: 1fr max-content / 1fr ;--off: var(--mid) ; }
-#root main .cnt--seasons--pick-season .full { display: contents ; }
-#root main .cnt--seasons--pick-season article  {  padding: 0 ; margin: 0 ; border-radius: var(--edge) ; overflow: hidden; background: var(--texture) 0 0 / 4px 4px repeat , var(--off) ; }
-#root main .cnt--seasons--pick-season article:hover  { outline: 0.125em solid var(--hgh) ; }
-#root main .cnt--seasons--pick-season article.on  { cursor: default ; }
-#root main .cnt--seasons--pick-season article label  { display: block ; padding: var(--gap) ; margin: 0 ; cursor: pointer ;}
-#root main .cnt--seasons--pick-season article label button  { display: none ; }
-#root main .cnt--seasons--pick-season article label h3  { border-radius: var(--edge) ; background-color: var(--wht); color: var(--blk) ; padding: 0.5em ; margin: 0  ; font-family: var(--move-font) ; font-weight: 400 ; text-align: center ; }
-#root main .cnt--seasons--pick-season article.on label h3  { background: var(--on) ; color: var(--wht);}
-#root main .cnt--seasons--pick-season article label .season   { display: grid;  grid-template: auto / repeat(4,1fr) ; gap: 0.5em  ; margin: 0.5em ; padding: 0 ; list-style-type: none ; }
-#root main .cnt--seasons--pick-season article label .season ul   { display: block ; padding: 0 ; margin: 0 ; list-style-type: none ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
-#root main .cnt--seasons--pick-season article label .season ul li  { display: block ; padding: 0.5em ; margin: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
-#root main .cnt--seasons--pick-season article label .season ul li.name  { display: block ; border-radius: var(--edge) ; }
-#root main .cnt--seasons--pick-season article label .season ul li.laps  { display: none ; }
-#root main .cnt--seasons--pick-season article label .season ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto 0 ; width: 60% ; }
-#root main .cnt--seasons--pick-season article label .season ul li.flag img  { position: relative ; }
-#root main .cnt--seasons--pick-season article label .season ul li.flag img  { width: 100% ; display: block ; }
 @media ( max-width: 1240px )  { 
 }
 @media ( max-width: 800px )  { 
-	#root main .cnt--seasons--pick-season article label .season ul li.flag   { width: 80% ; }
+	ul li.flag   { width: 80% ; }
 }
 @media ( max-width: 480px )  { 
-	#root main .cnt--seasons--pick-season article label .season  { display: grid;  grid-template: repeat(2,1fr) / repeat(2,1fr) ; }
+	 { display: grid ; grid-template: repeat(2,1fr) / repeat(2,1fr) ; }
 }
 @media ( max-width: 640px )  { 
 }

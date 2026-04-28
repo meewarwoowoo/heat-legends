@@ -16,7 +16,7 @@ const Export = (props) => {
 				<header>
 					<h2>Settings / Export</h2>
 				</header>
-				<section className="cnt--config">
+				<section className="cnt">
 					<ul>
 						<li className="export">
 							

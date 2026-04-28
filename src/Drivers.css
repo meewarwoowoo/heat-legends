@@ -1,50 +1,61 @@
-#root[data-view=drivers]  { grid-template-columns: 4.5em 4.5em auto auto auto 0.5em; }
-#root[data-view=drivers] main {align-items: flex-start ; align-content: flex-start ; }
-/* End of layout */
-
-#root[data-view=drivers] main { grid-template: repeat(2,auto) / auto ; align-items: flex-start ; align-content: flex-start ; }
-#root main .cnt--drivers  { display: grid ; gap: var(--gap) ; font-family: var(--text-font) ; font-size: 0.75em ; }
-#root main .cnt--drivers article   { display: grid ; list-style-type: none ; padding: 0 ; margin: 0 ; border-radius: var(--edge) ; overflow: hidden ; border-left: 1.5em solid var(--bkg) ; }
-#root main .cnt--drivers article ul { display: grid ; gap: 1em ; grid-template: auto / 4.5em 1fr 3fr 3em 3fr auto 5.5em  ; list-style-type: none ; padding: 1em ; margin: 0; border-radius: 0 ; background: var(--texture) 0 0 / 4px 4px repeat , var(--mid) ; color: var(--blk) ; }
-#root main .cnt--drivers article ul { grid-template: auto / auto auto auto auto auto auto auto   ; }
-#root main .cnt--drivers article ul li.input--toggle   { display: flex ; height: 100% ; }
-#root main .cnt--drivers article ul li.input--toggle > label  { display: flex ; position: relative ; cursor: pointer ; height: 3.125em; }
-#root main .cnt--drivers article ul li.input--toggle > label:hover span span { text-decoration: underline ; }
-#root main .cnt--drivers article ul li.input--toggle > label input[type=checkbox] { display: none; }
-#root main .cnt--drivers article ul li.input--toggle > label input[type=checkbox] ~ span    {  display: inline-flex ; padding: 0.25em 1em ; border-radius: 0.5em ; align-items: center ; justify-items: center ; }
-#root main .cnt--drivers article ul li.input--toggle > label input[type=checkbox] ~ span > span   {  transition: 0.5s background-color ease-in-out ; }
-#root main .cnt--drivers article ul li.input--toggle > label input[type=checkbox]:checked ~ span  { background-color: var(--wht) ; color: var(--blk) ; }
-#root main .cnt--drivers article ul li.input--toggle > label input[type=checkbox]:checked ~ span:hover  {  outline: 0.125em solid var(--hgh) ; }
-#root main .cnt--drivers article ul li.input--toggle > label input[type=checkbox] ~ span > .on   { display: none ; }
-#root main .cnt--drivers article ul li.input--toggle > label input[type=checkbox] ~ span > .off   { display: block ; }
-#root main .cnt--drivers article ul li.input--toggle > label input[type=checkbox]:checked ~ span > .on   { display: block ; }
-#root main .cnt--drivers article ul li.input--toggle > label input[type=checkbox]:checked ~ span > .off   { display: none ; }
-#root main .cnt--drivers article ul li.input--toggle > .driver--rival .off  { opacity: 0.25 ; }
-#root main .cnt--drivers article ul li.input--toggle > .driver--rival:hover span span { text-decoration: none ; }
-#root main .cnt--drivers article ul li.input--text > span {  position: relative ; padding: 0  ; }
-#root main .cnt--drivers article ul li.input--text > span i { order: 30 ; display: block ; position: absolute ; top: -1.25em ; left: 0.5em ; font-size: 0.75em ; font-style: normal ; opacity: 0.25 ; }
-#root main .cnt--drivers article ul li.input--text > span :is(select,input)  { order: 20 ; padding: 2.25em 0.5em 0.5em ; width: 100% ; border-radius: 0.5em ;border: 0 ; background-color: var(--wht) ; outline: 0; transition: 0.5s background-color ease-in-out ; }
-#root main .cnt--drivers article ul li.input--text > span :is(select,input):hover ,
-#root main .cnt--drivers article ul li.input--text > span :is(select,input):focus { background-color: var(--wht) ; outline: 0.125em solid var(--hgh) ; }
-#root main:not(.show--grid) .cnt--drivers article table { display: none ; }
-#root main .cnt--drivers article table { display: block ; border-collapse: collapse ; margin: -0.5em 0 0 ; padding: 0 1em 1em ; border-radius: 0 ; background-color: var(--mid) ; color: var(--blk) ; }
-#root main .cnt--drivers article table tbody  { display: grid ; gap: 0.25em ; grid-template: repeat(4,1fr) / 12em repeat(10,1fr) ;align-items: center ; justify-items: center ; }
-#root main .cnt--drivers article table tbody tr { display: contents ; }
-#root main .cnt--drivers article table tbody tr th { justify-self: left ; }
-#root main .cnt--drivers article table tbody tr th ,
-#root main .cnt--drivers article table tbody tr td  {  font-weight: 400 ; text-align: left ; }
-#root main .cnt--drivers article table tbody tr th .monospace  { display: inline-block; width: 1em ; text-align: center ; }
-#root main .cnt--drivers article table tr td input { width: 100% ; display: block ; text-align: center; padding: 0.25em ; margin: 0 ; border-radius: 0.25em ; border: 0 ; background-color: var(--wht) ; outline: 0; }
-#root main .cnt--drivers article table tr td input:hover ,
-#root main .cnt--drivers article table tr td input:focus  { outline: 0.125em solid var(--hgh) ; } 
-
-@media (max-width: 800px){	
-	#root main .cnt--drivers article ul { grid-template: auto auto  / 1fr 1fr 1fr 1fr 5.5em ; }
-	#root main .cnt--drivers article ul li:nth-of-type(1) { grid-row: 1; grid-column: 5; }
-	#root main .cnt--drivers article ul li:nth-of-type(2) { grid-row: 1; grid-column: 1; }
-	#root main .cnt--drivers article ul li:nth-of-type(3) { grid-row: 1; grid-column: 2 / 5; }
-	#root main .cnt--drivers article ul li:nth-of-type(4) { grid-row: 2; grid-column: 1/3; }
-	#root main .cnt--drivers article ul li:nth-of-type(5) { grid-row: 2; grid-column: 3/5 ; }
-	#root main .cnt--drivers article ul li:nth-of-type(6) { grid-row: 2; grid-column: 5; }
+#root[data-view=drivers] {
+	main { 
+		grid-template: repeat(2,auto) / auto ; align-items: flex-start ; align-content: flex-start ; 
+		.cnt  { 
+			display: grid ; gap: var(--gap) ; font-family: var(--text-font) ; font-size: 0.75em ; 
+			article   { 
+				display: grid ; list-style-type: none ; padding: 0 ; margin: 0 ; border-radius: var(--edge) ; overflow: hidden ; border-left: 1.5em solid var(--bkg) ; 
+				ul { 
+					display: flex ; flex-flow: row wrap ; gap: 0.5em ; list-style-type: none ; padding: 1em ; margin: 0 ; border-radius: 0 ; background: var(--texture) 0 0 / 4px 4px repeat , var(--mid) ; color: var(--blk) ; 
+					li:has(.driver--active)  { width: 4em ; }
+					li:has(.driver--name)  { min-width: 16em ; }
+					li:has(.driver--rival)  { width: 8em ; }
+					li:has(.driver--number)  { width: 4em ; }
+					li:has(.driver--team)  { width: 16em ; }
+					li:has(.driver--colour)  { width: 8em ; }
+					li:has(.driver--human)  { width: 8em ; }
+					li.input--toggle   { 
+						display: flex ; 
+						> label  { display: flex ; position: relative ; cursor: pointer ;  width: 100% ; min-height: 3em ; }
+						> label:hover span span { text-decoration: underline ; }
+						> label input[type=checkbox] { display: none ; }
+						> label input[type=checkbox] ~ span    { display: inline-flex ; padding: 0.25em 1em 0.625em 0.75em  ; border-radius: 0.5em ; place-items: end   ; place-content: start  ;  width: 100% ; outline: 1px solid var(--blk-mid) ; outline-offset: -3px ; color: var(--blk-mid) ; }
+						> label input[type=checkbox] ~ span > span   { transition: 0.5s background-color ease-in-out ; }
+						> label input[type=checkbox]:checked ~ span  { background-color: var(--on) ; color: var(--wht) ; outline-width: 0px ; }
+						> label input[type=checkbox]:checked ~ span:hover  { background-color: var(--hgh) ; color: var(--wht) ; }
+						> label input[type=checkbox] ~ span > .on   { display: none ; }
+						> label input[type=checkbox] ~ span > .off   { display: block ; }
+						> label input[type=checkbox]:checked ~ span > .on   { display: block ; }
+						> label input[type=checkbox]:checked ~ span > .off   { display: none ; }
+					}
+					li.input--text {
+						> span { position: relative ; padding: 0  ; width: 100% ; min-height: 3em ; }
+						>  span i { order: 30 ; display: block ; position: absolute ; top: -1.5em ; left: 0.5em ; font-size: 0.75em ; font-style: normal ; opacity: 0.25 ; }
+						>  span :is(select,input)  { order: 20 ; padding: 1.5em 0.5em 0.5em ; width: 100% ; border-radius: 0.5em ; border: 0 ; background-color: var(--wht) ; outline: 0 ; transition: 0.5s background-color ease-in-out ; }
+						>  span :is(select,input):hover ,
+						>  span :is(select,input):focus { background-color: var(--wht) ; outline: 0.125em solid var(--hgh) ; }
+					}
+				}
+				table { 
+					display: block ; border-collapse: collapse ; margin: -0.5em 0 0 ; padding: 0 1em 1em ; border-radius: 0 ; background-color: var(--mid) ; color: var(--blk) ; 
+					tbody  { 
+						display: grid ; gap: 0.25em ; grid-template: repeat(4,1fr) / 12em repeat(12,1fr) ; align-items: center ; justify-items: center ; 
+						tr { display: contents ; }
+						tr th { justify-self: left ; }
+						tr th ,
+						tr td  { font-weight: 400 ; text-align: left ; }
+						tr th .monospace  { display: inline-block ; width: 1em ; text-align: center ; }
+					}
+					thead ,
+					tbody  { 
+						tr td input { width: 100% ; display: block ; text-align: center ; padding: 0.25em ; margin: 0 ; border-radius: 0.25em ; border: 0 ; background-color: var(--wht) ; outline: 0 ; }
+						tr td input:hover ,
+						tr td input:focus  { outline: 0.125em solid var(--hgh) ; } 
+					}
+				}
+			}
+		}
+	}
+	main:not(.show--grid) article table { display: none ; }
 }
 

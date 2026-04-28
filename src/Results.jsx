@@ -1,4 +1,4 @@
-import { getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr  } from './util/Utils';
+import { getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , getFlagFromTrack , getResultFromRace , getPointsFromRace , getTrackFromAbbr } from './util/Utils';
 import './Results.css';
 
 const Season = (props) => {
@@ -81,30 +81,30 @@ const Season = (props) => {
 		return (
 			<>
 				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
-					<section className="cnt--results--pick-race">
-						<div className="full">
-							{ 
-								props.seasonJSON.races.map( 
-									(race,raceIdx) =>  (  
-										<article key={raceIdx} className={(race.active?"on":"off") +' '+  (isRaceFinished(race)?"results":"no-results")}>
-											<label>
-												<h3>{getTrackFromAbbr(race.track).name}</h3>
-												<ul>
-													<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
-													<li className="name">{getTrackFromAbbr(race.track).name}</li>
-													<li className="action"><SeasonRaceStartButton race={race} raceIdx={raceIdx} {...props}/></li>
-													<li className="item laps">{getTrackFromAbbr(race.track).laps} Laps</li>
-													{hasPressCorner(race.cameras) }
-													{hasSponsorCards(race.sponsors) }
-													<li className="item event">{race.event}</li>
-												</ul>
-												<SeasonRaceWinner race={race} {...props} />
-											</label>
-										</article>
-									) 
-								)
-							}
-						</div>
+					<section className="cnt">
+						{ 
+							props.seasonJSON.races.map( 
+								(race,raceIdx) =>  (  
+									<article key={raceIdx} className={(race.active?"on":"off") +' '+  (isRaceFinished(race)?"results":"no-results")}>
+										<label>
+											<h3>{getTrackFromAbbr(race.track).name}</h3>
+											<ul>
+												
+												<li className="number">{raceIdx+1}</li>
+												<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
+												<li className="name">{getTrackFromAbbr(race.track).name}</li>
+												<li className="action"><SeasonRaceStartButton race={race} raceIdx={raceIdx} {...props}/></li>
+												<li className="item laps">{getTrackFromAbbr(race.track).laps} Laps</li>
+												{hasPressCorner(race.cameras) }
+												{hasSponsorCards(race.sponsors) }
+												<li className="item event">{race.event}</li>
+											</ul>
+											<SeasonRaceWinner race={race} {...props} />
+										</label>
+									</article>
+								) 
+							)
+						}
 					</section>
 
 				</main>

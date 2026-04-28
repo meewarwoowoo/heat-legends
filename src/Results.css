@@ -1,49 +1,37 @@
-#root[data-view=results]  { grid-template-columns: 4.5em 4.5em auto auto auto 0.5em; }
-/* End of layout */
+#root main.season-over .cnt  { --off: var(--mid) ; }
 
-#root main .cnt--results--pick-race  {--off : var(--mid) ;}
-#root main.season-over .cnt--results--pick-race  { --off: var(--mid) ; }
-#root main .cnt--results--pick-race  { display: grid ; grid-template: auto / repeat(4,1fr) ; gap: var(--gap)  ; }
-#root main .cnt--results--pick-race .full { display: contents ; }
-#root main .cnt--results--pick-race article  {  padding: 0 ; margin: 0 ; border-radius: var(--gap) ; overflow: hidden; background: var(--texture) 0 0 / 4px 4px repeat , var(--off) ; }
-#root main .cnt--results--pick-race article.on  { cursor: default ; }
-#root main .cnt--results--pick-race article:hover  { outline: 0.125em solid var(--hgh) ; }
-#root main .cnt--results--pick-race article label  { display: grid ; grid-template: repeat(4,auto) / auto ; padding: 0.5em ; margin: 0 ; cursor: pointer ;}
-#root main .cnt--results--pick-race article label button  { display: none ; }
-#root main .cnt--results--pick-race article label h3  { display: none ; }
-#root main .cnt--results--pick-race article label ul   { display: block ; padding: 0 ; margin: 0 ; list-style-type: none ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; list-style-type: none ; gap: 0 ; }
-#root main .cnt--results--pick-race article label ul li  { display: block ; padding: 0.5em ; margin:  0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
-#root main .cnt--results--pick-race article label ul li.name  { display: block ; border-radius: var(--edge)  ; background-color: var(--wht) ; color: var(--bkg) ; padding: 0.5em ; margin: 0 0 var(--gap) }
-#root main .cnt--results--pick-race article.on label ul li.name  { background: var(--on) ; color: var(--wht) ; }
-#root main .cnt--results--pick-race article label ul li.action  { display: none ; }
-#root main .cnt--results--pick-race article label ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto  ; width: 60% ; }
-#root main .cnt--results--pick-race article label ul li.flag img  { width: 100% ; display: block ; }
-#root main .cnt--results--pick-race article label ol   { display: grid ; margin:  0 0 ; padding: 0 ; gap: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: left ; width: 100% ; }
-#root main .cnt--results--pick-race article label ol li  { position: relative ; display: block ; padding: 0 ; margin: 0  ; border-radius: var(--edge) ; font-weight: 400 ; text-align: left ; background-color: var(--bkg) ; color: var(--txt) ; font-family: var(--font) ; }
-#root main .cnt--results--pick-race article label ol li span { display: inline-block ; position: relative ; padding: 0.5em 0.5em 0.5em 1.5em ; }
-#root main .cnt--results--pick-race article label ol li span:first-of-type { font-family: var(--text-font) ; font-size: 0.5em ; inset: 1.325em 0 0 -0.75em  ; position: absolute; }
-#root main .cnt--results--pick-race article.results label ul li  { display: none; }
-#root main .cnt--results--pick-race article.results label ul li.name ,
-#root main .cnt--results--pick-race article.results label ul li.flag  { display: block ; }
-#root main .cnt--results--pick-race article.no-results label ol   { display: none; }
-
-@media ( max-width: 1600px )  { 
-}
-@media ( max-width: 1240px )  { 
-}
-@media ( max-width: 1024px )  { 
-	#root main .cnt--results--pick-race    { grid-template: auto / 1fr ; }
-	#root main .cnt--results--pick-race article label  { position: relative ; padding: var(--gap) 30% var(--gap) var(--gap)   ; }
-	#root main .cnt--results--pick-race article label ul   { display: grid ; margin: 0 ; }
-	#root main .cnt--results--pick-race article label ul li  { text-align: left ; margin: 0 ; }
-	#root main .cnt--results--pick-race article label ul li.name  { margin: 0 ; border-radius: 0 ; }
-	#root main .cnt--results--pick-race article label ul li.event  { text-align: left ; }
-	#root main .cnt--results--pick-race article label ul li.flag   { position: absolute ; width: 27.5% ; top: 0; right: 0 ; padding: var(--gap) ; margin: 0 ; }
-	#root main .cnt--results--pick-race article label ul li.flag img  { border-radius: var(--gap) ; }
-	#root main .cnt--results--pick-race article label ol   { display: block  ; margin: var(--gap) 0 0 ; }
-	#root main .cnt--results--pick-race article label ol li  { display: inline-block  ;margin: 0 ; border-radius: 0 ; }
-	
-}
-@media ( max-width: 480px )  { 
-	#root main .cnt--results--pick-race article label ul li.flag img  { border-radius: 0.125rem  ; }
+#root[data-view=results] {
+	main .cnt  {
+		display: grid ; grid-template: auto / repeat(auto-fit, minmax(320px, 1fr)) ;  gap: var(--gap)  ; --off : var(--mid) ;
+		article  { 
+			padding: 0 ; margin: 0 ; border-radius: var(--gap) ; overflow: hidden ; background: var(--texture) 0 0 / 4px 4px repeat , var(--off) ; 
+			&:hover  { outline: 0.125em solid var(--hgh) ; }
+			&.on  { 
+				cursor: default ; 
+				label ul li.name  { background: var(--on) ; color: var(--wht) ; }
+			}
+			label  { 
+				display: grid ; grid-template: repeat(4,auto) / auto ; padding: 0.5em ; margin: 0 ; cursor: pointer ; 
+				button  { display: none ; }
+				h3  { display: none ; }
+				ul   { display: block ; padding: 0 ; margin: 0 ; list-style-type: none ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; list-style-type: none ; gap: 0 ; position: relative; }
+				ul li  { display: block ; padding: 0.5em ; margin:  0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
+				ul li.number  { display: block ; border-radius: 100%  ; background-color: var(--wht) ; color: var(--bkg) ; padding: 0.5em ; margin: 0 ; display: flex; place-content: center ; place-items: center ; position: absolute; top: 0.125rem ; left: 0.125rem ; width: 2.5em ; height: 2.5em ; aspect-ratio: 1 / 1 ; font-family: var(--move-font) ; }
+				ul li.name  { display: block ; border-radius: var(--edge)  ; background-color: var(--wht) ; color: var(--bkg) ; padding: 0.5em ; margin: 0 0 var(--gap) }
+				ul li.action  { display: none ; }
+				ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto  ; width: 60% ; }
+				ul li.flag img  { width: 100% ; display: block ; }
+				ol   { display: grid ; margin:  0 0 ; padding: 0 ; gap: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: left ; width: 100% ; }
+				ol li  { position: relative ; display: block ; padding: 0 ; margin: 0  ; border-radius: var(--edge) ; font-weight: 400 ; text-align: left ; background-color: var(--bkg) ; color: var(--txt) ; font-family: var(--font) ; }
+				ol li span { display: inline-block ; position: relative ; padding: 0.5em 0.5em 0.5em 1.5em ; }
+				ol li span:first-of-type { font-family: var(--text-font) ; font-size: 0.5em ; inset: 1.325em 0 0 -0.75em  ; position: absolute ; }
+			}
+			&.results label {
+				ul li  { display: none ; }
+				ul li.name ,
+				ul li.flag  { display: block ; }
+			}
+			&.no-results label ol   { display: none ; }
+		}
+	}
 }
