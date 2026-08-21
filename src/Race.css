@@ -15,65 +15,67 @@
 
 	main:not(.show--more-white) .cnt    {  gap: 0 ; }
 	main:not(.show--number) .cnt article {
-		grid-template:  "driver move race"  auto / 1fr auto 1.5em ; 
+		grid-template:  "driver move race"  auto / 1fr auto 1.5em ;
 		.number  { display: none ; }
 	}
 	main:not(.show--finish) .cnt article {
-		grid-template:  "number driver move"  auto / 1.5em 1fr auto ; 
+		grid-template:  "number driver move"  auto / 1.5em 1fr auto ;
 		.race  { display: none ; }
 	}
 	main:not(.show--number.show--finish) .cnt article {
-		grid-template:  "driver move"  auto / 1fr auto ; 
+		grid-template:  "driver move"  auto / 1fr auto ;
 		.number  { display: none ; }
 		.race  { display: none ; }
 	}
 
 	main  {
-		height: 100dvh ;container: race / size;
-		.cnt  { 
-			@container (aspect-ratio > 1) {  /*  Horizontal  */ }
-			display: grid ;  gap: var(--gap) ; place-items: stretch ; place-content: stretch; height: calc( 100dvh - (var(--gap) * 2) ) ; container: articles / inline-size ;
-			article { 
-				display: grid ; padding: 0 var(--gap) ; gap: var(--gap) ; background: var(--texture) 0 0 / 4px 4px repeat , var(--texture-blk) 0% 50% / 100% 100% no-repeat , var(--texture-wht) 50% 50% / 100% 100% no-repeat , var(--bkg) ; color: var(--txt) ; border-radius: var(--corner) ; overflow: hidden ; 
-				grid-template:  "number driver move race"  auto / 1.5em 1fr auto 1.5em ; place-items: center start  ; place-content: center  ; 
-				.number  { grid-area: number ; display: flex ; place-items: center ; place-content: center ; aspect-ratio: 1 / 1 ; line-height: 100% ; width: 100% ; border-radius: 100% ; background-color: var(--blk) ; color: var(--wht) ; font-family: var(--numb-font) ; font-size: 0.625em ; }
-				.driver  { 
-					grid-area: driver ; display: flex ; flex-flow: row nowrap ; place-content: center ; place-items: center ; gap: 0.5em ; font-family: var(--font) ; 
+		container: main-race / size;
+		.cnt  {
+			display: grid ;  grid-template-columns: 1fr ; gap: var(--gap) ; place-items: stretch ; place-content: stretch ; height: 100% ; width: 100% ;
+			@container main-race (width > 32em) {
+				grid-template-columns: 1fr 1fr ;
+			}
+			article {
+				container: main-race-driver / inline-size ;
+				display: grid ; padding: 0 var(--gap) ; gap: var(--gap) ; background: var(--texture) 0 0 / 4px 4px repeat , var(--texture-blk) 0% 50% / 100% 100% no-repeat , var(--texture-wht) 50% 50% / 100% 100% no-repeat , var(--bkg) ; color: var(--txt) ; border-radius: var(--corner) ;
+				grid-template:  "number driver move race"  auto / 1.5em 1fr auto 1.5em ; place-items: center start  ; place-content: center  ; overflow: hidden ;
+				.number  { grid-area: number ; display: flex ; place-items: center ; place-content: center ; aspect-ratio: 1 / 1 ; line-height: 100% ; width: 100% ; border-radius: 100% ; background-color: var(--blk) ; color: var(--wht) ; font-family: var(--numb-font) ; font-size: 0.75em ; }
+				.driver  {
+					grid-area: driver ; display: flex ; flex-flow: row nowrap ; place-content: center ; place-items: center ; gap: 0.5em ; font-family: var(--font) ;
 					.driver--name    { text-shadow: 0.05em 0.05em 0 var(--blk) ; }
 					.driver--team  { text-shadow: 2px 2px 1px var(--blk) ; }
 					.driver--colour  { font-size: 0.75em ; text-shadow: 2px 2px 1px var(--blk) ; }
 				}
-				.move  { 
-					grid-area: move ; display: flex ; flex-flow: row nowrap ; height: 100% ; gap: var(--gap) ; place-items: center ; place-content: center ; font-family: var(--move-font) ; padding: 0 ; 
-					
+				.move  {
+					grid-area: move ; display: flex ; flex-flow: row nowrap ; height: 100% ; gap: var(--gap) ; place-items: center ; place-content: center ; font-family: var(--move-font) ; padding: 0 ;
 					.move--rival ,
 					.move--rival_icon ,
 					.move--star ,
 					.move--star_icon ,
 					.move--fast ,
 					.move--bend ,
-					.move--exit  { 
-						position: relative ; display: flex ; aspect-ratio: 1 / 1 ; line-height: 200% ; height: 100% ; padding: 0 ; margin: 0 ; place-content: center ; 
+					.move--exit  {
+						position: relative ; display: flex ; aspect-ratio: 1 / 1 ; line-height: 200% ; height: 100% ; padding: 0 ; margin: 0 ; place-content: center ;
 						img  { height: 100% ; aspect-ratio: 1 / 1 ; display: block ; max-height: 1.5em ; display: none ; }
 						img[src]  { display: block ; }
-						span  { position: relative ; z-index: 20 ; } 
+						span  { position: relative ; z-index: 20 ; }
 					}
 					.move--rival  { order: 05 ; }
-					.move--rival_icon  { order: 10 ; } 
-					.move--star  { order: 15 ; } 
-					.move--star_icon  { order: 20 ; } 
-					.move--fast  { order: 25 ; } 
-					.move--bend  { order: 20 ; } 
+					.move--rival_icon  { order: 10 ; }
+					.move--star  { order: 15 ; }
+					.move--star_icon  { order: 20 ; }
+					.move--fast  { order: 25 ; }
+					.move--bend  { order: 20 ; }
 					.move--exit  { order: 30 ; }
-					.move--exit span  { color: var(--wht) ; } 
-					.move--exit span.blk  { color: var(--blk) ; } 
-					.move--exit::before  { background-color: var(--txt) ; } 
+					.move--exit span  { color: var(--wht) ; }
+					.move--exit span.blk  { color: var(--blk) ; }
+					.move--exit::before  { background-color: var(--txt) ; }
 					.move--bend::before  { transform: rotate(45deg) ; background: var(--bkg) ; }
 					.move--bend::before ,
 					.move--exit::before  { position: absolute ; inset: 17.5% ; content: '' ; display: block ; aspect-ratio: 1 / 1 ; outline: 1px solid ; outline-offset: -2px ;  opacity: 1 ; z-index: 10 ; }
 				}
-				.race  { 
-					display: contents ; 
+				.race  {
+					display: contents ;
 					.race--result:empty  { display: none ; }
 					.race--result  { grid-area: move ; text-transform: uppercase ; }
 					.icon.race--finish  { grid-area: race ; display: flex ; }
@@ -94,7 +96,7 @@
 			}
 		}
 	}
-	
+
 	main .cnt article[data-human]       { order: 100 ; }
 	main .cnt article[data-speed="0"]   { order: 99 ; }
 	main .cnt article[data-speed="1"]   { order: 59 ; }

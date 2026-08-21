@@ -2,7 +2,7 @@ import { getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , g
 import './Standings.css';
 
 const Season = (props) => {
-	
+
 	const SeasonRaceStartButton = (props) => {
 		return <button onClick={((e) => { setActiveRace(props.raceIdx) ; props.setMain('Round') ; })}>Go To Race</button>
 	};
@@ -16,11 +16,11 @@ const Season = (props) => {
 	const SeasonRaceWinner = (props) => {
 		if(props.race.result.length>0) {
 			return (
-				<ol className="results"> { props.race.result.map((driver,driverIdx) => ( 
+				<ol className="results"> { props.race.result.map((driver,driverIdx) => (
 				<li key={driverIdx} style={getDriverArticleDataColour(getDriverFromId(props.driversJSON,driver))}>
 					<span className="position">{getNumberWithOrdinal(driverIdx + 1)}</span>
 					<span className="driver">{getDriverFromId(props.driversJSON,driver).name}</span>
-				</li> ))} 
+				</li> ))}
 				</ol>
 			);
 		}
@@ -29,7 +29,7 @@ const Season = (props) => {
 
 	const seasonStandingsCreate = (props) => {
 		let standings = new Array();
-		props.driversJSON.forEach((driver,idx) => { 
+		props.driversJSON.forEach((driver,idx) => {
 			let standingsDriver = [driver];
 			let standingsDriverPoints = Number(0);
 			props.seasonJSON.races.forEach((race,raceIdx) => {
@@ -43,7 +43,7 @@ const Season = (props) => {
 		});
 		standings.sort((a, b) => Number(a[a.length-1].points) - Number(b[b.length-1].points)).reverse();
 		let standingPoints = -1 ;
-		standings.forEach((standing,standingIdx) => { 
+		standings.forEach((standing,standingIdx) => {
 			let l = standings[standingIdx].length-1 ;
 			let p =standings[standingIdx][l].points ;
 			if(standingPoints === p){
@@ -67,7 +67,7 @@ const Season = (props) => {
 		} else {
 			line = <><td className="result">{props.standingRow.result}</td><td className="result">{props.standingRow.points}</td></>;
 		}
-		return line 
+		return line
 	};
 
 
@@ -88,6 +88,9 @@ const Season = (props) => {
 		return (
 			<>
 				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
+					<header>
+						<h2>{props.seasonJSON.year}</h2>
+					</header>
 					<section className="cnt">
 						<table>
 							<thead>
@@ -99,7 +102,7 @@ const Season = (props) => {
 								</tr>
 							</thead>
 							<tbody>
-								{ seasonStandings.map((driverStandingRow,driverStandingRowIdx) => 
+								{ seasonStandings.map((driverStandingRow,driverStandingRowIdx) =>
 									<tr key={'driverStandingRowIdxTR'+driverStandingRowIdx} style={getDriverArticleDataColour(driverStandingRow[1])} >
 										{
 											driverStandingRow.map((standingRow,standingRowIdx) => (
@@ -117,6 +120,6 @@ const Season = (props) => {
 		);
 	};
 };
-	
+
 
 export default Season

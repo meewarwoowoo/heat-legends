@@ -48,28 +48,28 @@ const Main = (props) => {
 
 	if (props.main === 'Race') {
 		return <Race {...props} {...backboneProps} />
-	};
+	}
 	if (props.main === 'Seasons') {
 		return <Seasons {...props} {...backboneProps} />
-	};
+	}
 	if (props.main === 'Results') {
 		return <Results {...props} {...backboneProps} />
-	};
+	}
 	if (props.main === 'Standings') {
 		return <Standings {...props} {...backboneProps} />
-	};
+	}
 	if (props.main === 'Round') {
 		return <Round {...props} {...backboneProps} />
-	};
+	}
 	if (props.main === 'Drivers') {
 		return <Drivers {...props} {...backboneProps} />
-	};
+	}
 	if (props.main === 'Config') {
 		return <Config {...props} {...backboneProps} />
-	};
+	}
 	if (props.main === 'Export') {
 		return <Export {...props} {...backboneProps} />
-	};
+	}
 	
 }
 export default Main

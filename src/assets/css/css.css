@@ -54,10 +54,10 @@ body  { font-size: 1.75em ; background: rgba(255,255,255,1) ; }
 #root[data-view=drivers] main ,
 #root[data-view=seasons] main ,
 #root[data-view=config] main  ,
-#root[data-view=assist] main   { font-size: 0.675em ; display: block ; padding: 1em ; }
+#root[data-view=assist] main   { font-size: 0.75em ; display: block ; padding: 1em ; }
 
 
-h2  { font-family: var(--font) ; font-size: 2em ; margin: 1em 0 ; padding: 0 ; }
+h2  { font-family: var(--font) ; font-size: 1.5em ; margin: 1em 0 ; padding: 0 ; }
 h2:first-of-type  { margin-top: 0.25em ; }
 h3  { font-family: var(--font) ; font-size: 1.5em ; margin: -1em 0 1em ; padding: 0 ; }
 hr  { border-style: solid ; height: 1px ; border-width: 0 ; margin: 1em 0 0 ; background-color: var(--bkg) ; }

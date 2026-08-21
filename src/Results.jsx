@@ -2,7 +2,7 @@ import { getNumberWithOrdinal , getDriverFromId , getDriverArticleDataColour , g
 import './Results.css';
 
 const Season = (props) => {
-	
+
 	const SeasonRaceStartButton = (props) => {
 		return <button onClick={((e) => { setActiveRace(props.raceIdx) ; props.setMain('Round') ; })}>Go To Race</button>
 	};
@@ -16,11 +16,11 @@ const Season = (props) => {
 	const SeasonRaceWinner = (props) => {
 		if(props.race.result.length>0) {
 			return (
-				<ol className="results"> { props.race.result.map((driver,driverIdx) => ( 
+				<ol className="results"> { props.race.result.map((driver,driverIdx) => (
 				<li key={driverIdx} style={getDriverArticleDataColour(getDriverFromId(props.driversJSON,driver))}>
 					<span className="position">{getNumberWithOrdinal(driverIdx + 1)}</span>
 					<span className="driver">{getDriverFromId(props.driversJSON,driver).name}</span>
-				</li> ))} 
+				</li> ))}
 				</ol>
 			);
 		}
@@ -29,7 +29,7 @@ const Season = (props) => {
 
 	const seasonStandingsCreate = (props) => {
 		let standings = new Array();
-		props.driversJSON.forEach((driver,idx) => { 
+		props.driversJSON.forEach((driver,idx) => {
 			let standingsDriver = [driver];
 			let standingsDriverPoints = Number(0);
 			props.seasonJSON.races.forEach((race,raceIdx) => {
@@ -54,7 +54,7 @@ const Season = (props) => {
 		} else {
 			line = <><td className="result">{props.standingRow.result}</td><td className="result">{props.standingRow.points}</td></>;
 		}
-		return line 
+		return line
 	};
 	const isRaceFinished = (race) => {
 		return (race && race.result && race.result.length>0)
@@ -63,7 +63,7 @@ const Season = (props) => {
 	const hasActiveRace = (seasonJSON) => {
 		return seasonJSON.races.indexOf(seasonJSON.races.find((race,idx)=>race.active))>=0?' season-ongoing ':' season-over ';
 	}
-	
+
 	const hasPressCorner = (camera) => {
 		return (camera === '')?<li className="item press">No Press Corner</li>:<li className="item press">Press Corner is {camera}</li>
 	}
@@ -81,15 +81,18 @@ const Season = (props) => {
 		return (
 			<>
 				<main className={props.getMainClassList() + hasActiveRace(props.seasonJSON) }>
+					<header>
+						<h2>{props.seasonJSON.year}</h2>
+					</header>
 					<section className="cnt">
-						{ 
-							props.seasonJSON.races.map( 
-								(race,raceIdx) =>  (  
+						{
+							props.seasonJSON.races.map(
+								(race,raceIdx) =>  (
 									<article key={raceIdx} className={(race.active?"on":"off") +' '+  (isRaceFinished(race)?"results":"no-results")}>
 										<label>
 											<h3>{getTrackFromAbbr(race.track).name}</h3>
 											<ul>
-												
+
 												<li className="number">{raceIdx+1}</li>
 												<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
 												<li className="name">{getTrackFromAbbr(race.track).name}</li>
@@ -102,7 +105,7 @@ const Season = (props) => {
 											<SeasonRaceWinner race={race} {...props} />
 										</label>
 									</article>
-								) 
+								)
 							)
 						}
 					</section>
@@ -113,6 +116,6 @@ const Season = (props) => {
 		);
 	};
 };
-	
+
 
 export default Season

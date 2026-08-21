@@ -1,0 +1,52 @@
+
+#root {
+	main  {
+		grid-area: main ; display: grid ; grid-template: 1fr / 1fr ; place-items: center ; place-content: start center ; min-height: 100dvh ;
+		header {
+			position: relative ; box-shadow: var(--box) ; display: block ; width: calc( 100% - (var(--gap) * 2) )  ; margin: var(--gap) var(--gap) 0;
+			h2,
+			h3  { font-size: 1em ; padding: calc(var(--gap)*4) var(--gap) var(--gap) ; margin: 0 ;  border-radius: var(--corner) ; background-color: var(--blk) ; color: var(--txt) ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; }
+		}
+		.cnt  {
+			position: relative ; padding: var(--gap) ; gap: var(--gap) ; box-shadow: var(--box) ; width: 100% ;
+			header {
+				width: 100% ; margin: 0;
+				h2,
+				h3  {  margin-block-end: var(--gap);  }
+			}
+			.action   { cursor: pointer ; }
+			.action button   { display: none ; }
+			.action .hdr   { order: 0 ; }
+			.action:hover .hdr    { background-color:  var(--blk) ; color: var(--wht) ; }
+			.action .txt   { display: none ; }
+		}
+	}
+}
+
+
+
+.action-do   { position: relative ; display: inline-block ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: var(--corner) ; padding: 0.5em 0.75em 0.5em 1.75em ; font-family: var(--text-font) ; cursor: pointer ; white-space: nowrap ; }
+.action-do::before   { position: absolute  ; content: '' ; top: calc( 50% - 0.325em )  ; left: 0.75em ; width: 0 ; height: 0 ; border: 0.375em solid transparent ; border-left-color: var(--wht) ; border-left-width: 0.45em  ; }
+.action-do:hover  { background-color:  var(--blk) ; outline: 0.125em solid var(--hgh) ; }
+.warning .action-do  { background-color:  var(--warning) ; }
+.warning .action-do:hover  { background-color:  var(--blk) ; }
+
+
+
+#hail  {
+	position: fixed ; inset: 0 ; z-index: 100 ; display: grid ; align-items: center ; justify-items: center ; background-color: var(--blk-high) ; color: var(--wht) ; --edge: 0.25em  ; --gap: 0.5em  ;
+	.ins  { max-width: 80% ; color: var(--blk) ; background-color: var(--wht) ; border-radius: 0.5em ; padding: 0.5em 1em 0.5em 0.5em ; }
+	.ins p   { display: flex ; align-items: center ; justify-content: center ; gap: 0 ; width: 100% ; height: 100% ; border-radius: var(--corner) ; background-color: var(--heat) ; color: var(--wht) ; padding: 0.25em 0.5em ; margin: 0 ; font-family: var(--font) ; font-weight: 400 ; text-transform: uppercase ; font-size: 1.5em ; }
+	.ins ul.notes  { display: grid ; gap: 0.5em ; grid-template: 1fr 1fr / 1fr 1fr ; align-items: stretch ; justify-items: stretch ; font-family: var(--text-font) ; list-style-type: none ; padding: 0 ; margin: 0.5em ; }
+	.ins ul.notes li   { list-style-type: none ; padding: 0.5em ; margin: 0 ; outline: 1px solid var(--blk-low) ; border-radius: 0.5em ; }
+	.ins ul.actions  { display: flex ; flex-flow: row wrap ; gap: 0.5em ; margin: 0 ; padding: 0.5em  ; list-style-type: none ; }
+	.ins ul.actions li  { list-style-type: none ; }
+}
+
+#over  {
+	position: fixed ; inset: 0 ; z-index: 100 ; display: grid ; align-items: center ; justify-items: center ; background-color: var(--blk-high) ; color: var(--wht) ; --edge: 0.25em  ; --gap: 0.5em  ;
+	.ins  { max-width: 400px ; color: var(--blk) ; background-color: var(--wht) ; border-radius: 0.5em ; padding: 0.5em 1em 0.5em 0.5em ; }
+	.ins p  { margin: 0 ; padding: 0.5em  ; }
+	.ins ul  { display: flex ; gap: 0.5em ; margin: 0 ; padding: 0.5em  ; list-style-type: none ; }
+	.ins ul li  { list-style-type: none ; }
+}

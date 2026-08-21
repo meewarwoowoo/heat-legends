@@ -6,7 +6,7 @@ const Seasons = (props) => {
 	const  loadSeasonJSON = (seasonYearIdx) => {
 		doConfirm("Are you sure you want to start a new season?", ()=> {
 			let workingSeasonJSON = defaultSeasonsJSON[seasonYearIdx];
-			workingSeasonJSON.races.map( (race,idx) => { 
+			workingSeasonJSON.races.map( (race,idx) => {
 				race.active = false;
 				race.result = [];
 				race.points = defaultPointsJSON ;
@@ -42,10 +42,13 @@ const Seasons = (props) => {
 			doToast('Starting Year ' + workingSeasonJSON.year);
 		},!props.seasonJSON);
 	};
-	
+
 	return (
 		<>
 			<main className={props.getMainClassList()}>
+				<header>
+					<h2>Season</h2>
+				</header>
 				<section className="cnt">
 					{ defaultSeasonsJSON.map( (season,idx) => (
 						<article key={'season-'+(season.year).replace(' ','-').toLowerCase()} className={ (props.seasonJSON && (season.year==props.seasonJSON.year)?"on":"off") +' '+ ("season-"+(season.year).replace(' ','-').toLowerCase()) }>
@@ -53,8 +56,8 @@ const Seasons = (props) => {
 								<button onClick={(e) => { loadSeasonJSON(Number(idx)) }}>Start {season.year}</button>
 								<h3>{season.year}</h3>
 								<div className="season">
-									{ 
-										season.races.map( (race,raceIdx) =>  (  
+									{
+										season.races.map( (race,raceIdx) =>  (
 											<ul key={raceIdx}>
 												<li className="flag"><img src={getFlagFromTrack(race.track)} /></li>
 												<li className="name">{race.track}</li>

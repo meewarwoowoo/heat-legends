@@ -1,4 +1,6 @@
 
+import menu from './assets/icons/icon-menu.svg';
+
 import cog from './assets/icons/menu-icon--cog.svg';
 import drivers from './assets/icons/menu-icon--drivers.svg';
 import race from './assets/icons/menu-icon--race.svg';
@@ -45,7 +47,7 @@ import slipstream from './assets/icons/driver-icon--slipstream.png';
 import speed_limit from './assets/icons/driver-icon--speed-limit.png';
 
 export { 
-    season , seasons , cog , cross , drivers , race , shield , results , shuffle , finish , unfinish , next , standings ,
+    menu , season , seasons , cog , cross , drivers , race , shield , results , shuffle , finish , unfinish , next , standings ,
     draft, full_throttle, impeding , nimble , reckless , slipstream , speed_limit,
     icon_usa , usa , 
     icon_gbr , gbr , 

@@ -3,37 +3,42 @@
 
 :root  {
 
-	--font:			"PiekosFX Rough BB W05 Regular" ; 
-	--text-font:	"Futura LT W01 Book" ; 
-	--move-font:	"Futura LT W01 Bold" ; 
-	--numb-font:	"Futura LT W01 Medium" ; 
+	--font:			"PiekosFX Rough BB W05 Regular" ;
+	--text-font:	"Futura LT W01 Book" ;
+	--move-font:	"Futura LT W01 Bold" ;
+	--numb-font:	"Futura LT W01 Medium" ;
 
-	--blk:			rgba(32,32,32,1) ; 
-	--blk-high:		rgba(0,0,0,0.75) ; 
-	--blk-mid:		rgba(0,0,0,0.25) ; 
-	--blk-low:		rgba(0,0,0,0.125) ; 
-	--wht:			rgba(255,255,255,1) ; 
-	--wht-high:		rgba(255,255,255,0.75) ; 
-	--wht-mid: 		rgba(255,255,255,0.25) ; 
-	--wht-low:		rgba(255,255,255,0.125) ; 
+	--blk:			rgba(32,32,32,1) ;
+	--blk-high:		rgba(0,0,0,0.75) ;
+	--blk-mid:		rgba(0,0,0,0.25) ;
+	--blk-low:		rgba(0,0,0,0.125) ;
+	--wht:			rgba(255,255,255,1) ;
+	--wht-high:		rgba(255,255,255,0.75) ;
+	--wht-mid: 		rgba(255,255,255,0.25) ;
+	--wht-low:		rgba(255,255,255,0.125) ;
 
-	--bkg:			rgba(32,32,32,1) ; 
-	--txt:			rgba(255,255,255,1) ; 
-	--hgh: 			rgba(128,128,255,1) ; 
-	--mid: 			rgba(224,224,224,1) ; 
-	--heat:			rgba(255,128,0,1)	 ; 
-	--heat-high:	rgba(255,128,0,0.75) ; 
-	--heat-mid:		rgba(255,128,0,0.25) ; 
-	--heat-low:		rgba(255,128,0,0.125) ; 
+	--bkg:			rgba(32,32,32,1) ;
+	--txt:			rgba(255,255,255,1) ;
+	--hgh: 			rgba(128,128,255,1) ;
+	--mid: 			rgba(224,224,224,1) ;
+	--heat:			rgba(255,128,0,1)	 ;
+	--heat-high:	rgba(255,128,0,0.75) ;
+	--heat-mid:		rgba(255,128,0,0.25) ;
+	--heat-low:		rgba(255,128,0,0.125) ;
 
-	--on:			rgb(0,192,0) ; 
-	--off:			rgb(192,0,0) ; 
-	--warning:		rgb(255,0,0) ; 
+	--on:			rgb(0,192,0) ;
+	--off:			rgb(192,0,0) ;
+	--warning:		rgb(255,0,0) ;
 
-	--corner: 		0.5rem ; 
-	--gap:			1rem ; 
-	--gap-h: 		calc( var(--gap) / 2 ) ; 
-	--gap-d: 		calc( var(--gap) * 2 ) ; 
+	--gap: 0 ;
+	--edge: 0 ;
+	--corner: 0 ;
+
+	--width-menu: 4.5rem ;
+	--width-subm: 4.5rem ;
+	--width-main: auto ;
+	--width-deck: 6.5rem ;
+	--width-main: calc( 100% - var(--width-menu)  ) ;
 
 	--texture-diag: linear-gradient(
 		45deg,
@@ -45,7 +50,7 @@
 		rgba(255,255,255,0.05) 75%,
 		rgba(0,0,0,0.05) 75%,
 		rgba(0,0,0,0.05) 100%
-		) ; 
+		) ;
 	--texture: linear-gradient(
 		-45deg,
 		rgba(255,255,255,0.025) 0%,
@@ -56,127 +61,82 @@
 		rgba(255,255,255,0.0125) 75%,
 		rgba(0,0,0,0.0125) 75%,
 		rgba(0,0,0,0.0125) 100%
-		) ; 
-	--texture-blk:	linear-gradient(315deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 55%, rgba(0,0,0,0.075) 60%, rgba(0,0,0,0.075) 95%, rgba(0,0,0,0) 100%) ; 
-	--texture-wht:	linear-gradient(275deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.075) 25%, rgba(255,255,255,0.05) 30%, rgba(255,255,255,0.125) 75%, rgba(255,255,255,0) 100%) ; 
+		) ;
+	--texture-blk:	linear-gradient(315deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 55%, rgba(0,0,0,0.075) 60%, rgba(0,0,0,0.075) 95%, rgba(0,0,0,0) 100%) ;
+	--texture-wht:	linear-gradient(275deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.075) 25%, rgba(255,255,255,0.05) 30%, rgba(255,255,255,0.125) 75%, rgba(255,255,255,0) 100%) ;
 
 }
 
 @font-face{
-    font-family:"Futura LT W01 Bold" ; 
-    src:url(./assets/fonts/003a1a64-f6ac-4ed5-a1e7-ba80a9c1da08.woff2) format("woff2"),url(./assets/fonts/c41868cc-38dc-403d-b177-599afd5988b6.woff) format("woff") ; 
+    font-family:"Futura LT W01 Bold" ;
+    src:url(./assets/fonts/003a1a64-f6ac-4ed5-a1e7-ba80a9c1da08.woff2) format("woff2"),url(./assets/fonts/c41868cc-38dc-403d-b177-599afd5988b6.woff) format("woff") ;
 }
 @font-face{
-    font-family:"PiekosFX Rough BB W05 Regular" ; 
-    src:url(./assets/fonts/eab24d14-06c3-422e-a588-3fcf12d9f713.woff2) format("woff2"),url(./assets/fonts/eaf2658c-5717-4114-8eb0-e8f149b33336.woff) format("woff") ; 
+    font-family:"PiekosFX Rough BB W05 Regular" ;
+    src:url(./assets/fonts/eab24d14-06c3-422e-a588-3fcf12d9f713.woff2) format("woff2"),url(./assets/fonts/eaf2658c-5717-4114-8eb0-e8f149b33336.woff) format("woff") ;
 }
 @font-face{
-    font-family:"Futura LT W01 Display" ; 
-    src:url(./assets/fonts/3cd9bb5b-187d-4b9e-8d6b-c1dc42daf93c.woff2) format("woff2"),url(./assets/fonts/77389162-7f2f-4e78-8335-ce9f1da0cc37.woff) format("woff") ; 
+    font-family:"Futura LT W01 Display" ;
+    src:url(./assets/fonts/3cd9bb5b-187d-4b9e-8d6b-c1dc42daf93c.woff2) format("woff2"),url(./assets/fonts/77389162-7f2f-4e78-8335-ce9f1da0cc37.woff) format("woff") ;
 }
 @font-face{
-    font-family:"Futura LT W01 Medium" ; 
-    src:url(./assets/fonts/96ee71e8-aad9-4053-8e86-df6a4667cf9b.woff2) format("woff2"),url(./assets/fonts/983ab0ae-d7ab-4532-a915-3eab4466bda2.woff) format("woff") ; 
+    font-family:"Futura LT W01 Medium" ;
+    src:url(./assets/fonts/96ee71e8-aad9-4053-8e86-df6a4667cf9b.woff2) format("woff2"),url(./assets/fonts/983ab0ae-d7ab-4532-a915-3eab4466bda2.woff) format("woff") ;
 }
 @font-face{
-	font-family:"Futura LT W01 Book" ; 
-	src:url(./assets/fonts/7964ffda-2675-4ef4-adfb-c085615649e1.woff2) format("woff2"),url(./assets/fonts/f275fca8-c3f2-485a-84f2-0b2ef18f181b.woff) format("woff") ; 
+	font-family:"Futura LT W01 Book" ;
+	src:url(./assets/fonts/7964ffda-2675-4ef4-adfb-c085615649e1.woff2) format("woff2"),url(./assets/fonts/f275fca8-c3f2-485a-84f2-0b2ef18f181b.woff) format("woff") ;
 }
 
 
-* { box-sizing: border-box }
-body  { font-size: 2em ; background-color: var(--wht) ; margin: 0 ; padding: 0 ; }
-
-#root  { display: grid ; min-height: 100vh ; width: 100% ; min-width: 360px ; }
-#root  { 
-	--width-menu: 3em ; 
-	--width-subm: 8em ; 
-	--width-main: auto ; 
-	--width-deck: 4em ; 
-	&:has(#menu:empty)  { --width-subm: 1px ; }
-	&:has(#subm:empty)  { --width-subm: 1px ; }
-	&:has(#main:empty)  { --width-subm: 1px ; }
-	&:has(#deck:empty)  { --width-deck: 1px ; }
-	--width-main: calc( 100% - ( var(--width-menu) + var(--width-subm) + var(--width-deck) + (var(--gap) * 0) ) ) ; 
-
-	transition: 0.25s ease-in-out all ; 
-	grid-template: "menu subm main deck" auto  / var(--width-menu) var(--width-subm) var(--width-main) var(--width-deck) ; 
-	#menu  { grid-area: menu ; }
-	#subm  { grid-area: subm ; }
-	#main  { grid-area: main ; }
-	#deck  { grid-area: deck ; }
-}
-
-#root main  { --gap: 0 ; --edge: 0 ; --box: none ; }
-#root main.show--more-white  { --gap: 1rem ; --edge: 1rem ; --box: inset 0.25em 0 1rem -0.75em rgba(0,0,0,0.5) ; }
-
+* { box-sizing: border-box ;}
+body  { font-size: 2em ; margin: 0 ; padding: 0 ; background-color: var(--wht) ; container: body / size ; }
+#root:has(main.show--more-white) :is(#menu,#subm,main,#deck)  { --gap: 1.5rem ; --edge: 0.75rem ; --corner: 1.5rem ; }
 
 @media screen and (max-width: 1920px){
-	body  { font-size: 1.875em ; }  
+	body  { font-size: 1.875em ; }
 }
 @media screen and (max-width: 1800px){
-	body  { font-size: 1.75em ; }  
-	#root main.show--more-white  { --gap: 0.5rem ; --edge: 1rem ; }
+	body  { font-size: 1.75em ; }
+	#root:has(main.show--more-white) :is(#menu,#subm,main,#deck) { --gap: 1rem ; --edge: 0.5rem ; --corner: 1rem ;}
 }
 @media screen and (max-width: 1600px){
-	body  { font-size: 1.625em ; }  
+	body  { font-size: 1.625em ; }
 }
 @media screen and (max-width: 1240px){
-	body  { font-size: 1.5em ; }  
-	#root main.show--more-white  { --gap: 0.25rem ; --edge: 0.125rem ; }
+	body  { font-size: 1.5em ; }
+	#root:has(main.show--more-white) :is(#menu,#subm,main,#deck)  { --gap: 0.5rem ; --edge: 0.25rem ; --corner: 0.5rem ;}
 }
 @media screen and (max-width: 990px){
 	body  { font-size: 1.375em ; }
 }
 @media screen and (max-width: 800px){
-	body  { font-size: 1em ; }  
+	body  { font-size: 1em ; }
 }
 @media screen and (max-width: 640px){
-	body  { font-size: 1em ; }  
+	body  { font-size: 1em ; }
 }
 @media screen and (max-width: 480px){
-	body  { font-size: 0.875em ; }  
+	body  { font-size: 0.875em ; }
+}
+@media screen and (max-width: 320px){
+	body  { font-size: 0.75em ; }
+	#root :is(#menu,#subm,main,#deck)   { --gap: 0 ; --edge: 0 ; --corner: 0 ; --box: none ; }
+	#root:has(main.show--more-white) :is(#menu,#subm,main,#deck)  { --gap: 0.25rem ; --edge:  0.125rem ; --corner: 0.25rem ; --box: inset 0.25em 0 1rem -0.75em rgba(0,0,0,0.5) ; }
 }
 
-#root {
-	main  { 
-		position: relative ; display: grid ; grid-template: 1fr / auto ; align-items: stretch ; align-content: stretch ; align-items: flex-start ; align-content: flex-start ; grid-area: main ; gap: var(--gap) ; padding: var(--gap) ; box-shadow: var(--box) ; 
-		header   { display: flex ; align-items: center ; justify-content: flex-start ; gap: 0 ; width: 100% ; /* height: 100% ; */ border-radius: var(--corner) ; background-color: var(--blk) ; color: var(--txt) ; padding: 0.5em ; margin: 0 ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; font-size: 1em ; }
-		header h2 ,
-		header h3  { font-size: 1em ; padding: 0 ; margin: 0.5em 0.5em 0.5em 0 ; }
-		.cnt  { 
-			display: flex ; flex-flow: row wrap ; gap: var(--gap) ; position: relative ; 
-			header { display: none ; }
-			.action   { cursor: pointer ; }
-			.action button   { display: none ; }
-			.action .hdr   { order: 0 ; }
-			.action:hover .hdr    { background-color:  var(--blk) ; color: var(--wht) ; }
-			.action .txt   { display: none ; }
-		}
-	}
-}
-.action-do   { position: relative ; display: inline-block ; background-color:  var(--on) ; color:  var(--wht) ; border-radius: var(--corner) ; padding: 0.5em 0.75em 0.5em 1.75em ; font-family: var(--text-font) ; cursor: pointer ; white-space: nowrap ; }
-.action-do::before   { position: absolute  ; content: '' ; top: calc( 50% - 0.325em )  ; left: 0.75em ; width: 0 ; height: 0 ; border: 0.375em solid transparent ; border-left-color: var(--wht) ; border-left-width: 0.45em  ; }
-.action-do:hover  { background-color:  var(--blk) ; outline: 0.125em solid var(--hgh) ; }
-.warning .action-do  { background-color:  var(--warning) ; }
-.warning .action-do:hover  { background-color:  var(--blk) ; }
 
 
+#root  { display: grid ; min-width: 360px ; transition: 0.25s ease-in-out grid-template ; }
+#root  {
+	grid-template: "menu main" 100dvh / var(--width-menu) var(--width-main) ;
 
-#hail  { 
-	position: fixed ; inset: 0 ; z-index: 100 ; display: grid ; align-items: center ; justify-items: center ; background-color: var(--blk-high) ; color: var(--wht) ; --edge: 0.25em  ; --gap: 0.5em  ; 
-	.ins  { max-width: 80% ; color: var(--blk) ; background-color: var(--wht) ; border-radius: 0.5em ; padding: 0.5em 1em 0.5em 0.5em ; }
-	.ins p   { display: flex ; align-items: center ; justify-content: center ; gap: 0 ; width: 100% ; height: 100% ; border-radius: var(--corner) ; background-color: var(--heat) ; color: var(--wht) ; padding: 0.25em 0.5em ; margin: 0 ; font-family: var(--font) ; font-weight: 400 ; text-transform: uppercase ; font-size: 1.5em ; }
-	.ins ul.notes  { display: grid ; gap: 0.5em ; grid-template: 1fr 1fr / 1fr 1fr ; align-items: stretch ; justify-items: stretch ; font-family: var(--text-font) ; list-style-type: none ; padding: 0 ; margin: 0.5em ; }
-	.ins ul.notes li   { list-style-type: none ; padding: 0.5em ; margin: 0 ; outline: 1px solid var(--blk-low) ; border-radius: 0.5em ; }
-	.ins ul.actions  { display: flex ; flex-flow: row wrap ; gap: 0.5em ; margin: 0 ; padding: 0.5em  ; list-style-type: none ; }
-	.ins ul.actions li  { list-style-type: none ; }
+	#menu  { grid-area: menu ; }
+	#subm  { grid-area: subm ; }
+	main  { grid-area: main ; }
+	#deck  { grid-area: deck ; }
+
 }
 
-#over  { 
-	position: fixed ; inset: 0 ; z-index: 100 ; display: grid ; align-items: center ; justify-items: center ; background-color: var(--blk-high) ; color: var(--wht) ; --edge: 0.25em  ; --gap: 0.5em  ; 
-	.ins  { max-width: 400px ; color: var(--blk) ; background-color: var(--wht) ; border-radius: 0.5em ; padding: 0.5em 1em 0.5em 0.5em ; }
-	.ins p  { margin: 0 ; padding: 0.5em  ; }
-	.ins ul  { display: flex ; gap: 0.5em ; margin: 0 ; padding: 0.5em  ; list-style-type: none ; }
-	.ins ul li  { list-style-type: none ; }
-}
+
+

@@ -1,0 +1,49 @@
+#root {
+	#subm  {
+		display: none ;
+		position: fixed ; bottom: 0.25em ; left: calc( var(--width-menu) + 0.25em ) ;  right: 0.25em  ; z-index: 100 ; display: block ;
+		.cnt   {
+			margin: 0 ; padding: 0 ; gap: 0.25em ; display: inline-flex ; flex-flow: row wrap ;  place-items: center ; place-content: start ;
+			> ul  {
+				display: none ; flex-flow: row wrap ; color: var(--txt) ; list-style-type: none ; padding: 0.25em ; margin: 0 ; gap: 0.25em ; --bkg: var(--blk-high) ; background: var(--texture-diag) 0 0 / 4px 4px repeat , var(--bkg) ; border-radius: var(--corner) ;
+				&.hdr  {
+					display: flex ;
+					li {
+						--bkg: var(--wht-low) ;
+						> .item  {
+							padding: 0.25em ;
+							img  { order: 20 ; }
+							.txt  { order: 30 ; padding-inline-end: 0.25em ; display: inline ; }
+						}
+					}
+					&.on li > .item .txt   { display: inline ; }
+				}
+				&.on ~ ul  {
+					display: flex ;
+				}
+				&.on {
+					> li {
+						.item  { --bkg: var(--on) ; --txt: var(--wht) ; }
+						.item img.on  { display: block ; }
+						.item img.off  { display: none ; }
+					}
+				}
+				> li  {
+					display: flex ; flex-flow: row nowrap ; padding: 0 ; margin: 0 ; list-style-type: none ; border-radius: var(--corner) ; cursor: pointer ; transition: 0.5s opacity ease-in , 0.25s background-color ease-out ; outline: 1px solid var(--wht-low) ; outline-offset: -1px ; --bkg: var(--wht-low) ;
+					> .item  {
+						background-color: var(--bkg) ; color: var(--txt) ; border-radius: var(--corner) ; display: flex ; place-items: center ; place-content: start ; padding: 0.125em 0.25em 0.125em 0.125em  ; gap: 0.25em  ; width: 100% ;
+						&.on  { display: flex ; }
+						&.off  { display: none ; }
+						img   { max-width: 2rem ; width: 100% ; aspect-ratio: 1 / 1 ; display: block ; background-color: var(--blk) ; border-radius: 2rem ; }
+						img.on  { display: none ; }
+						img.off  { display: block ; }
+						.txt   { font-size: 0.75em ; font-family: var(--text-font) ; }
+					}
+					&:hover > .item   { --bkg: var(--hgh) ; }
+				}
+			}
+		}
+	}
+}
+
+

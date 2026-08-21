@@ -11,6 +11,7 @@ const defaultColoursJSON = [
 	{"name":"Pink"   ,"bkg":"rgb(255,192,203)", "txt":"rgb(32,32,32)" } ,
 	{"name":"Purple" ,"bkg":"rgb(128,0,128)",   "txt":"rgb(255,255,255)" } ,
 	{"name":"Gold"   ,"bkg":"rgb(255,215,0)",   "txt":"rgb(32,32,32)" } ,
-	{"name":"Tan"    ,"bkg":"rgb(210,180,140)", "txt":"rgb(32,32,32)" } 
+	{"name":"Tan"    ,"bkg":"rgb(210,180,140)", "txt":"rgb(32,32,32)" } ,
+	{"name":"Teal"   ,"bkg":"rgb(0,180,180)",   "txt":"rgb(32,32,32)" }
 ];
 export default defaultColoursJSON ;

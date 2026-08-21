@@ -1,22 +1,19 @@
 #root[data-view=config] {
 	main {
-		header  { 
-			background-color: var(--bkg) ; color: var(--txt) ; 
-		}
-		section  { 
-			display: grid ; gap: var(--gap) ; font-family: var(--text-font) ;
+		.cnt  {
+			display: grid ; gap: var(--gap) ; font-family: var(--text-font) ; width: 100%; height: auto;
 			ul  { display: grid ; gap: var(--gap) ; list-style-type: none ; padding: 0 ; margin: 0 ; }
 			ul li  { display: block ; list-style-type: none ; padding: 0 ; margin: 0 ; }
-			ul li label:hover { outline: 0.125em solid var(--hgh) ; }
-			ul li :is(label,.label) { 
-				display: block ; padding: 1em  ; border-radius: var(--edge) ; background:  var(--texture) 0 0 / 4px 4px repeat , var(--mid) ; color: var(--bkg) ; cursor: pointer ; 
+			ul li label:hover { outline: 0.125em solid var(--hgh) ; outline-offset: -0.125em ; background-color: rgb(from var(--hgh) r g b / 0.2) ;}
+			ul li :is(label,.label) {
+				display: block ; padding: 1em  ; border-radius: var(--corner) ; background:  var(--texture) 0 0 / 4px 4px repeat , var(--mid) ; color: var(--bkg) ; cursor: pointer ;
 				input.checkbox { display: none ; }
 				input[type=text] { width: 100% ; padding: 0.5rem ; display: block ; border-width: 0 ; outline: 1px solid var(--bkg) ; margin-block-end: 0.5em ; }
 				input[type=text][readonly] { color: var(--mid) ; outline-color: var(--mid) ; }
 			}
 			ul li.switch {
-				:is(label,.label) { 
-					height: 100% ; 
+				:is(label,.label) {
+					height: 100% ;
 					span  { display: block ; position: relative ; padding-left: 3em ; }
 					.txt  { font-size: 0.75em ; padding: 0.5em 0 0 4em ; max-width: 38em ; }
 					span:first-of-type::before { content: ' ' ; display: block ; width: calc( 1em - 4px ) ; height: calc( 1em - 4px ) ; background: var(--off) ; position: absolute ; top: 2px ; left: 2px ; z-index: 2 ; border-radius: 1em ; transition: 0.5s left ease-in-out , 0.5s color ease-in-out ; font-size: 1.125em ; }

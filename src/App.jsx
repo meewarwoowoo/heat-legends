@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import All from './All';
 import './App.css';
+import './Main.css';
 import './Race.css';
 import './Config.css';
 

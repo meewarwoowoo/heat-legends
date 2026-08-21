@@ -42,19 +42,19 @@ const Race = (props) => {
 	};
 
 	const setRaceDriverFinished = (e) => {
-		const driverHTML = e.currentTarget.parentElement.parentElement; 
+		const driverHTML = e.currentTarget.parentElement.parentElement;
 		const driverWhoFinished = driverHTML.dataset.driver;
 		setRaceDriversResult([...raceDriversResult , driverWhoFinished]);
 	};
 
 	const setRaceDriverUnfinished = (e) => {
-		const driverHTML = e.currentTarget.parentElement.parentElement; 
+		const driverHTML = e.currentTarget.parentElement.parentElement;
 		const driverWhoUnfinished = driverHTML.dataset.driver;
 		let workingRaceDriversResult = raceDriversResult.filter(driver => ( driver !== driverWhoUnfinished  ));
 		setRaceDriversResult([...workingRaceDriversResult]);
 	};
 
-	const getDriverArticleDataResult = (driverId) => { 
+	const getDriverArticleDataResult = (driverId) => {
 		if((raceDriversResult.indexOf(driverId)+1)!==0) return raceDriversResult.indexOf(driverId)+1;
 		return null
 	};
@@ -71,7 +71,7 @@ const Race = (props) => {
 		powerCardJSON: powerDeckJSON[powerCard],
 		driversSpeedGridJSON,raceDriversResult,setRaceDriversResult,setRaceDriverFinished,setRaceDriverUnfinished,getDriverArticleDataResult,getDriverArticleDataResultText,getDriverArticleDataResultPoints,
 	};
-	
+
 	return (
 		<>
 			<main className={props.getMainClassList()}>
@@ -81,14 +81,19 @@ const Race = (props) => {
 			</main>
 			<section id="deck">
 				<div className="cnt">
-					<ul>
-						<li onClick={ ()=>{ setShuffledDeck() ; setShuffledPowerDeck() ; } }><span><img src={shuffle} /></span></li>
+					<ul className="deck--shuffle">
+						<li className="cards--header">Shuffle</li>
+						<li className="cards--shuffle" onClick={ ()=>{ setShuffledDeck() ; setShuffledPowerDeck() ; } }><span><img src={shuffle} /></span></li>
+					</ul>
+					<ul className="deck--legends">
 						<li className="cards--header">Legends Level&nbsp;{ props.configJSON.legendsLevel }</li>
 						<li className="cards--legends">
 							<ol>
 								{ Array.from(deckJSON).map( (card,cardIdx) => (<li key={cardIdx} className={((deckCard)===cardIdx)?'on':'off'}><span className="card"><span className="card--number">{cardIdx+1}</span></span></li>) ) }
 							</ol>
 						</li>
+					</ul>
+					<ul className="deck--power">
 						<li className="cards--header">Power Up</li>
 						<li className="cards--power">
 							<ol>
@@ -99,8 +104,14 @@ const Race = (props) => {
 								<li><span className="icon">&#9733;</span><img src={icons[defaultPowerCardsJSON[powerDeckJSON[powerCard].star]?.icon]}/></li>
 							</ul>
 						</li>
+					</ul>
+					<ul className="deck--next">
 						<li className="cards--header">Next</li>
-						<li onClick={setNextCard}><span><img src={ (deckCard === (deckJSON.length-1))?shuffle:next } /></span></li>
+						<li className="cards--next" onClick={setNextCard}><span><img src={ (deckCard === (deckJSON.length-1))?shuffle:next } /></span></li>
+					</ul>
+					<ul className="deck--more">
+						<li className="cards--header">Shuffle</li>
+						<li className="cards--more" onClick={ ()=>{ setShuffledDeck() ; setShuffledPowerDeck() ; } }><span><img src={next} /></span></li>
 					</ul>
 				</div>
 			</section>

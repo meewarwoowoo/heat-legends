@@ -1,46 +1,40 @@
 #root[data-view=seasons] {
 	main {
-		.cnt   { 
-			display: grid ; gap: var(--gap) ; grid-template: auto / repeat(auto-fit, minmax(480px, 1fr)) ; --off: var(--mid) ;
-			article  { 
-				padding: 0 ; margin: 0 ; border-radius: var(--edge) ; overflow: hidden ; background: var(--texture) 0 0 / 4px 4px repeat , var(--off) ; 
-				&.on  { 
-					cursor: default ; 
+		.cnt   {
+			display: grid ; grid-template: auto / repeat(auto-fit, minmax(320px, 1fr)) ; --off: var(--mid) ;
+			header {
+				position: relative ; box-shadow: var(--box) ; display: block ; width: 100% ;
+				h2,
+				h3  { font-size: 1em ; padding: calc(var(--gap)*4) var(--gap) var(--gap) ; margin: 0 0 var(--gap);  border-radius: var(--corner) ; background-color: var(--blk) ; color: var(--txt) ; font-family: var(--move-font) ; font-weight: 400 ; text-transform: uppercase ; }
+			}
+			article  {
+				padding: 0 ; margin: 0 ; border-radius: var(--edge) ; overflow: hidden ; background: var(--texture) 0 0 / 4px 4px repeat , var(--off) ;
+				&.on  {
+					cursor: default ;
 					label h3  { background: var(--on) ; color: var(--wht) ; }
 				}
 				&:hover  { outline: 0.125em solid var(--hgh) ; }
 				label  {
-					display: block ; padding: var(--gap) ; margin: 0 ; cursor: pointer ; 
+					display: block ; padding: var(--gap) ; margin: 0 ; cursor: pointer ;
 					button  { display: none ; }
 					h3  { border-radius: var(--edge) ; background-color: var(--wht) ; color: var(--blk) ; padding: 0.5em ; margin: 0  ; font-family: var(--move-font) ; font-weight: 400 ; text-align: center ; }
-					.season   { 
-						display: grid ; grid-template: auto / repeat(auto-fit, minmax(90px, 1fr)) ;  gap: 0.5em  ; margin: 0.5em ; padding: 0 ; list-style-type: none ; container: season / inline-size; 
+					.season   {
+						display: grid ; grid-template: auto / repeat(auto-fit, minmax(90px, 1fr)) ;  gap: 0.5em  ; margin: 0.5em ; padding: 0 ; list-style-type: none ; container: main-seasons-season / inline-size;
 						ul   { display: block ; padding: 0 ; margin: 0 ; list-style-type: none ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
 						ul li  { display: block ; padding: 0.5em ; margin: 0 ; font-family: var(--text-font) ; font-weight: 400 ; text-align: center ; }
 						ul li.name  { display: block ; border-radius: var(--edge) ; font-size: 4.5cqi ; font-family: var(--move-font) ; }
 						ul li.laps  { display: none ; }
-						ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em auto 0 ; width: 60% ; }
+						ul li.flag   { overflow: hidden ; padding: 0 ; margin: 1em 0.5em 0 ; width: calc( 100% - 1em ) ; }
 						ul li.flag img  { position: relative ; }
 						ul li.flag img  { width: 100% ; display: block ; }
 					}
 				}
 			}
 		}
-			footer.cnt  {
-				display: flex ; flex-flow: row wrap ; 
-				label  { display: inline-block ;}
-			}
-		
-	}
-}
+		footer.cnt  {
+			display: flex ; flex-flow: row wrap ; gap: 0.5em ;
+			label  { display: inline-block ;}
+		}
 
-@media ( max-width: 1240px )  { 
-}
-@media ( max-width: 800px )  { 
-	ul li.flag   { width: 80% ; }
-}
-@media ( max-width: 480px )  { 
-	 { display: grid ; grid-template: repeat(2,1fr) / repeat(2,1fr) ; }
-}
-@media ( max-width: 640px )  { 
+	}
 }
